@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker build -t frontend:latest .
+
+script:
+  - docker run -p 9876:9876 frontend ng test
