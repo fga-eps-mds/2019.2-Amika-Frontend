@@ -1,8 +1,9 @@
-FROM node:latest
-WORKDIR /app
-COPY package*.json /app/
-RUN npm install
-RUN npm install -g @angular/cli@8.3.4
-COPY . /app/
+FROM node:12.10.0
+WORKDIR /amika-frontend
+COPY package*.json /amika-frontend/
+RUN npm install -g npm && \
+    npm install && \
+    npm install -g @angular/cli@8.3.4
+COPY . /amika-frontend/
 EXPOSE 4200
-CMD ng serve --host 0.0.0.0
+CMD ng serve --host 0 --port 4200
