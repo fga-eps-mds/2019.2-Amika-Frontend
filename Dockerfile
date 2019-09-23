@@ -8,5 +8,4 @@ COPY package*.json /amika-frontend/
 RUN npm install -g npm && \
     npm install && \
     npm install -g @angular/cli@8.3.4
-COPY . /amika-frontend/
-CMD ng serve --host 0
+EXPOSE 4200
