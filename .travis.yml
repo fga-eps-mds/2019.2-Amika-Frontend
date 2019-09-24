@@ -5,8 +5,5 @@ services:
 
 script:
   - docker build -t frontend:test .
-  - docker run --rm -p 9876:9876 -v $TRAVIS_BUILD_DIR:/amika-frontend frontend:test npm install -g npm
-  - docker run --rm -p 9876:9876 -v $TRAVIS_BUILD_DIR:/amika-frontend frontend:test npm install
-  - docker run --rm -p 9876:9876 -v $TRAVIS_BUILD_DIR:/amika-frontend frontend:test npm install -g @angular/cli@8.3.4
-  - docker run --rm -p 9876:9876 -v $TRAVIS_BUILD_DIR:/amika-frontend frontend:test ng test --watch=false
-  - docker run --rm -p 9876:9876 -v $TRAVIS_BUILD_DIR:/amika-frontend frontend:test ng e2e
+  - docker run --rm -p 9876:9876 -v $TRAVIS_BUILD_DIR:/amika-frontend -v /amika-frontend/node_modules frontend:test ng test --watch=false
+  - docker run --rm -p 9876:9876 -v $TRAVIS_BUILD_DIR:/amika-frontend -v /amika-frontend/node_modules frontend:test ng e2e

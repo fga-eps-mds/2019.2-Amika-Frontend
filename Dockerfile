@@ -4,8 +4,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     apt-get update && apt-get install -yq google-chrome-stable
 WORKDIR /amika-frontend
 ENV PATH /amika-frontend/node_modules/.bin:$PATH
-COPY package*.json /amika-frontend/
+COPY package.json /amika-frontend/
 RUN npm install -g npm && \
-    npm install && \
-    npm install -g @angular/cli@8.3.4
+    npm install
 EXPOSE 4200
