@@ -1,0 +1,7 @@
+<form [formGroup]="formularioLogin" (ngSubmit)="logar(formularioLogin.value)"> 
+    <div>
+        <input type="text" placeholder="Matrícula" formControlName="matricula">
+        <input type="text" placeholder="Senha" formControlName="senha">
+    </div>    
+    <button class="button" type="submit">Login</button>
+</form>
