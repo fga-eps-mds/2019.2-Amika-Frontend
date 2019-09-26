@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlunoAutoRegistroComponent
   ],
   imports: [
     BrowserModule,
