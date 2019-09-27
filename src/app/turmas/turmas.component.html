@@ -5,10 +5,21 @@
 
     <div class="col-md-6" style="border-right: 0.1em solid black">
       <h2 class="text-center">Histórico de Turmas</h2>
-      <div class="col-md-12" *ngFor="let turma of turmas" style="text-align: center" >
-        <button style="width: 50%; margin: 0.75em">
-          {{turma.nome_turma}} - {{turma.periodo_turma}} Semestre/{{turma.ano_turma}}
-        </button>
+      <div class="col-md-12 " >
+        <table class="tabela-alunos table table-striped">
+          <tr class="">
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Período</th>
+            <th>Ação</th>
+          </tr>
+          <tr *ngFor="let turma of turmas" >
+            <td>{{turma.id}}</td>
+            <td>{{turma.nome_turma}}</td>
+            <td>{{turma.periodo_turma}}º Semestre/{{turma.ano_turma}}</td>
+            <td><i style="margin-right: 0.75em" class="fas fa-edit"></i> <i class="fas fa-trash"></i></td>
+          </tr>
+        </table>
       </div>
     </div>
 
