@@ -8,13 +8,16 @@
     <div class="header">
       <img src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
     </div>
+    <div class="div-button">
+        <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
+    </div>
     <div class="l-part">
       <input type="text" placeholder="Matricula" class="input" formControlName="matricula" />
       <div class="overlap-text">
         <input type="password" placeholder="Senha" class="input" formControlName="senha" />
       </div>
       <div class="div-button">
-          <button class="button" type="submit"> Login </button>
+          <button class="button" [disabled]="formularioLogin.get('matricula').hasError('required') || formularioLogin.get('senha').hasError('required')" type="submit"> Login </button>
       </div>
     </div>
   </div>
