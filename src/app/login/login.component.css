@@ -87,7 +87,7 @@
   }
   
 
-  .button {
+  button {
     background-color: #70aba0;
     border: none;
     color: white;
@@ -98,7 +98,7 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 30px;
-    /* margin: 4px 2px; */
+    width: 200px;
     cursor: pointer;
     font-family: 'Ubuntu', sans-serif;
   }
@@ -115,4 +115,9 @@
     outline-width: thick;
     font-family: 'Ubuntu', sans-serif;
     font-size: 17px;
+  }
+
+  .div-button {
+    text-align: center;
+    
   }
