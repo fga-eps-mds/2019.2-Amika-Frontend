@@ -1,7 +1,23 @@
-<form [formGroup]="formularioLogin" (ngSubmit)="logar(formularioLogin.value)"> 
-    <div>
-        <input type="text" placeholder="Matrícula" formControlName="matricula">
-        <input type="text" placeholder="Senha" formControlName="senha">
-    </div>    
-    <button class="button" type="submit">Login</button>
-</form>
+
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+<div id="wrapper">
+  <div class="main-content">
+    <div class="header">
+      <img src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
+    </div>
+    <div class="l-part">
+      <input type="text" placeholder="Matricula" class="input" />
+      <div class="overlap-text">
+        <input type="password" placeholder="Senha" class="input" />
+      </div>
+      <input type=".button" value="Login" class="button" />
+    </div>
+  </div>
+  <div class="sub-content">
+    <div class="s-part">
+      <a href="#">Cadastre-se</a>
+    </div>
+  </div>
+</div>
