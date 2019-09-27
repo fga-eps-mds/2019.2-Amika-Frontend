@@ -1,7 +1,8 @@
 import { AutenticacaoService } from './../autenticacao.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router:Router, private autenticacaoService:AutenticacaoService) {
     this.formularioLogin = this.formBuilder.group({
-      matricula: '',
-      senha: ''
+      matricula: ['', Validators.required],
+      senha: ['', Validators.required]
     })
   }
 
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
     let dados = {"username" : dadosUsuario.matricula, "password": dadosUsuario.senha}
     console.log(dados)
     this.autenticacaoService.autenticar(dados);
-
+    console.log(this.autenticacaoService.errors);
   }
 
   ngOnInit() {

@@ -102,6 +102,16 @@
     cursor: pointer;
     font-family: 'Ubuntu', sans-serif;
   }
+
+  button:disabled {
+    background: #70aba08f;
+    cursor: default;
+  }
+
+  small {
+    color : red;
+    font-family: 'Ubuntu', sans-serif;
+  }
   
   input {
     width: 100%;
@@ -118,6 +128,7 @@
   }
 
   .div-button {
+    margin-top: 10px;
     text-align: center;
-    
+    font-style: italic;
   }
