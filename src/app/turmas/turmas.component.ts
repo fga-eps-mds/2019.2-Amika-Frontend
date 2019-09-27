@@ -9,7 +9,7 @@ import { TurmaService } from './turma.service';
 })
 export class TurmasComponent implements OnInit {
 
-  turmas: any;
+  turmas: Turma;
   error: any;
 
   constructor(private turmaService: TurmaService) {
@@ -29,4 +29,12 @@ export class TurmasComponent implements OnInit {
     });
   }
 
+  delete(turma) {
+    this.turmaService.delete_turmas(turma.id).subscribe((data: any) => {
+      console.log(data);
+      this.getter();
+    }, (error: any) => {
+      this.error = error;
+    });
+  }
 }
