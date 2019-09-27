@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
+.interface {
+  display: flex;
+  align-items: center;
+}
+
+.formulario {
+  margin: auto;
+  margin-top: 100px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: 'Kanit', sans-serif;
+  box-shadow: 3px 3px 3px rgba(0,0,0, 0.5);
+}
+
+.form-group {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-between;
+  max-width: 400px;
+  min-width: 350px;
+}
+
+.form-group input {
+  border: none;
+  border-bottom: 2px solid blue;
+}
+
+.form-group input:focus {
+  outline: 0;
+}
+
+#enviar {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: 'Kanit', sans-serif;
+}
+
+#enviar input {
+  border: 1px solid black;
+  background-color: #4287f5;
+  color: #fff;
+  padding: 10px;
+  min-width: 100px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
