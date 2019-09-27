@@ -17,7 +17,7 @@
             <td>{{turma.id}}</td>
             <td>{{turma.nome_turma}}</td>
             <td>{{turma.periodo_turma}}º Semestre/{{turma.ano_turma}}</td>
-            <td><i style="margin-right: 0.75em" class="fas fa-edit"></i> <i class="fas fa-trash"></i></td>
+            <td><i style="margin-right: 0.75em" class="fas fa-edit"></i> <i (click)="delete(turma)" class="fas fa-trash"></i></td>
           </tr>
         </table>
       </div>
