@@ -1,4 +1,21 @@
-<pre>
-{{turmas | json}}
+<div >
 
-</pre>
+  <h1 class="text-center" style="margin: 1em">Lista de Turmas</h1>
+  <div class="row">
+
+    <div class="col-md-6" style="border-right: 0.1em solid black">
+      <h2 class="text-center">Histórico de Turmas</h2>
+      <div class="col-md-12" *ngFor="let turma of turmas" style="text-align: center" >
+        <button style="width: 50%; margin: 0.75em">
+          {{turma.nome_turma}} - {{turma.periodo_turma}} Semestre/{{turma.ano_turma}}
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h2 class="text-center">Adicionar nova Turma</h2>
+    </div>
+
+  </div>
+
+</div>
