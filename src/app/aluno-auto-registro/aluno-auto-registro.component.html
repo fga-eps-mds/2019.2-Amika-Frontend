@@ -6,8 +6,28 @@
 
 <body>
     <div class="interface">
-        <form method="POST">
-            
+      <div class="formulario">
+        <form [formGroup]="formulario" (ngSubmit)="OnSubmit()">
+          <div class="form-group">
+            <label for="matricula">Matrícula</label>
+            <input type="text" name="matricula" placeholder="matricula" formControlName="matricula"/>
+          </div>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" placeholder="nome" formControlName="nome" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="exemplo@email.com" formControlName="email"/>
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" placeholder="senha..." formControlName="senha"/>
+          </div>
+          <div id="enviar">
+              <input type="submit" value="Registrar">
+          </div>
         </form>
+      </div>
     </div>
 </body>
