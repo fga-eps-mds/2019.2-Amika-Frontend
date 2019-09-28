@@ -2,7 +2,7 @@ import { Turma } from './turmas.model';
 import { Component, OnInit } from '@angular/core';
 import { TurmaService } from './turma.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { create } from 'domain';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-turmas',
@@ -15,8 +15,9 @@ export class TurmasComponent implements OnInit {
   error: any;
   formularioTurma: FormGroup;
   submitted = false;
+  mostra_modal = false;
 
-  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder) {
+  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.getter();
     this.formularioTurma = this.formBuilder.group({
       nome_turma: ['', Validators.required],
@@ -36,6 +37,10 @@ export class TurmasComponent implements OnInit {
     }, (error: any) => {
       this.error = error;
     });
+  }
+
+  hasError(field: string) {
+    return this.formularioTurma.get(field).errors;
   }
 
   delete(turma) {
@@ -62,5 +67,33 @@ export class TurmasComponent implements OnInit {
       });
     }
     // this.turmaService.create_turmas(turmas);
+  }
+
+  onSave(turma) {
+    console.log(this.formularioTurma.value);
+    this.submitted = true;
+
+    if (this.formularioTurma.valid) {
+      console.log('Enviar');
+      this.turmaService.edit_turmas(this.formularioTurma.value).subscribe((data: any) => {
+        console.log(data);
+        this.formularioTurma.reset();
+        this.getter();
+        this.toggle();
+
+      }, (error: any) => {
+        this.error = error;
+      });
+    }
+    // this.turmaService.create_turmas(turmas);
+  }
+
+  toggle() {
+    this.mostra_modal = !this.mostra_modal;
+  }
+
+  onEdit(id) {
+    this.router.navigate(['turmas_editar', id]);
+
   }
 }

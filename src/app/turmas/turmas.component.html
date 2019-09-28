@@ -17,7 +17,7 @@
             <td>{{turma.id}}</td>
             <td>{{turma.nome_turma}}</td>
             <td>{{turma.periodo_turma}}º Semestre/{{turma.ano_turma}}</td>
-            <td><i style="margin-right: 0.75em" class="fas fa-edit"></i> <i (click)="delete(turma)" class="fas fa-trash"></i></td>
+            <td><i (click)="onEdit(turma.id)" style="margin-right: 0.75em; color: blue" class="fas fa-edit"></i> <i (click)="delete(turma)" class="fas fa-trash" style="color: red"></i></td>
           </tr>
         </table>
       </div>
@@ -29,13 +29,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="nomeTurma" aria-describedby="nomeTurma" placeholder="Nome da Turma" formControlName="nome_turma" [ngClass]="{ 'is-invalid': submitted && formularioTurma.get('nome_turma').errors }">
+                    <input type="text" class="form-control" id="nomeTurma" aria-describedby="nomeTurma" placeholder="Nome da Turma" formControlName="nome_turma" [ngClass]="{ 'is-invalid': submitted && hasError('nome_turma') }">
                     <label for="nomeTurma" formControlName="">Nome da Turma</label>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <select name="periodoTurma" id="periodoTurma" class="form-control" aria-describedby="periodoTurma" placeholder="Periodo da Turma" formControlName="periodo_turma" [ngClass]="{ 'is-invalid': submitted && formularioTurma.get('periodo_turma').errors }">
+                    <select name="periodoTurma" id="periodoTurma" class="form-control" aria-describedby="periodoTurma" placeholder="Periodo da Turma" formControlName="periodo_turma" [ngClass]="{ 'is-invalid': submitted && hasError('periodo_turma') }">
                       <option value="" disabled selected>Selecione o Periodo</option>
                       <option value="1">1º Semestre</option>
                       <option value="2">2º Semestre</option>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                  <input type="number" class="form-control" id="anoTurma" aria-describedby="anoTurma" placeholder="Ano da Turma" formControlName="ano_turma" [ngClass]="{ 'is-invalid': submitted && formularioTurma.get('ano_turma').errors }">
+                  <input type="number" class="form-control" id="anoTurma" aria-describedby="anoTurma" placeholder="Ano da Turma" formControlName="ano_turma" [ngClass]="{ 'is-invalid': submitted && hasError('ano_turma') }">
                   <label for="anoTurma">Ano da Turma</label>
               </div>
           </div>
@@ -54,6 +54,8 @@
             <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button></div>
     </form>
     </div>
+
+
 
   </div>
 

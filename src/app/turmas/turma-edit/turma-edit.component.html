@@ -1,0 +1,35 @@
+<div class="col-md-12" >
+    <h2 class="text-center">Editar Turma</h2>
+    <form class="main__form needs-validation" novalidade [formGroup] = "formularioTurma">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="form-group">
+                  <input type="text" class="form-control" id="nomeTurma" aria-describedby="nomeTurma" placeholder="Nome da Turma" formControlName="nome_turma" [ngClass]="{ 'is-invalid': submitted && hasError('nome_turma') }">
+                  <label for="nomeTurma" formControlName="">Nome da Turma</label>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <select name="periodoTurma" id="periodoTurma" class="form-control" aria-describedby="periodoTurma" placeholder="Periodo da Turma" formControlName="periodo_turma" [ngClass]="{ 'is-invalid': submitted && hasError('periodo_turma') }">
+                    <option value="" disabled selected>Selecione o Periodo</option>
+                    <option value="1">1º Semestre</option>
+                    <option value="2">2º Semestre</option>
+                  </select>
+                  <!-- <label for="periodoTurma" formControlName="">Período da Turma</label> -->
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+                <input type="number" class="form-control" id="anoTurma" aria-describedby="anoTurma" placeholder="Ano da Turma" formControlName="ano_turma" [ngClass]="{ 'is-invalid': submitted && hasError('ano_turma') }">
+                <label for="anoTurma">Ano da Turma</label>
+            </div>
+        </div>
+      </div>
+      <div class="text-right">
+          <button type="submit" class=" btn btn-get" (click)="onSave()"><span> Salvar</span></button>
+        </div>
+        <div class="text-left">
+            <button type="submit" class=" btn btn-get" (click)="return()"><span> Cancelar</span></button>
+          </div>
+  </form>
+</div>
