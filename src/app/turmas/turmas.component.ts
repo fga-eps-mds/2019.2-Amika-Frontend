@@ -1,6 +1,8 @@
 import { Turma } from './turmas.model';
 import { Component, OnInit } from '@angular/core';
 import { TurmaService } from './turma.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { create } from 'domain';
 
 @Component({
   selector: 'app-turmas',
@@ -11,9 +13,16 @@ export class TurmasComponent implements OnInit {
 
   turmas: Turma;
   error: any;
+  formularioTurma: FormGroup;
+  submitted = false;
 
-  constructor(private turmaService: TurmaService) {
+  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder) {
     this.getter();
+    this.formularioTurma = this.formBuilder.group({
+      nome_turma: ['', Validators.required],
+      periodo_turma: ['', Validators.required],
+      ano_turma: ['', Validators.required]
+    });
   }
 
   ngOnInit() {
@@ -36,5 +45,22 @@ export class TurmasComponent implements OnInit {
     }, (error: any) => {
       this.error = error;
     });
+  }
+  onSubmit() {
+    console.log(this.formularioTurma.value);
+    this.submitted = true;
+
+    if (this.formularioTurma.valid) {
+      console.log('Enviar');
+      this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
+        console.log(data);
+        this.formularioTurma.reset();
+        this.getter();
+
+      }, (error: any) => {
+        this.error = error;
+      });
+    }
+    // this.turmaService.create_turmas(turmas);
   }
 }
