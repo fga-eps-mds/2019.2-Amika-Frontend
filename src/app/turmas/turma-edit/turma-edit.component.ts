@@ -52,4 +52,31 @@ export class TurmaEditComponent implements OnInit {
     });
   }
 
+  onSave(turma) {
+
+    if (this.formularioTurma.valid) {
+      console.log('Editado');
+
+      this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
+        console.log(data);
+        this.formularioTurma.reset();
+        this.return();
+
+      }, (error: any) => {
+        this.error = error;
+      });
+    }
+    // this.turmaService.create_turmas(turmas);
+  }
+
+  getter() {
+    this.turmaService.get_turmas().subscribe((data: any) => {
+      console.log(data);
+
+      this.turmas = data;
+    }, (error: any) => {
+      this.error = error;
+    });
+  }
+
 }
