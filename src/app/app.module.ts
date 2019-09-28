@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
-    FormularioComponent,
   ],
   imports: [
     BrowserModule,

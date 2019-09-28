@@ -57,11 +57,9 @@ export class ListaDeMatriculaComponent implements OnInit {
     for (let i = 1; i < csvRecordsArray.length; i++) {  
       let curruntRecord = (<string>csvRecordsArray[i]).split(',');  
       if (curruntRecord.length == headerLength) {  
-        let csvRecord: CSVRecord = new CSVRecord();  
-        csvRecord.id = curruntRecord[0].trim();  
-        csvRecord.nome = curruntRecord[1].trim();  
-        csvRecord.matricula = curruntRecord[2].trim();  
-        csvRecord.turma = curruntRecord[3].trim();
+        let csvRecord: CSVRecord = new CSVRecord();    
+        csvRecord.matricula = curruntRecord[0].trim();  
+        csvRecord.turma = curruntRecord[1].trim();
         csvArr.push(csvRecord);  
       }  
     }  

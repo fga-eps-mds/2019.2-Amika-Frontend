@@ -1,6 +1,4 @@
-export class CSVRecord {  
-    public id: any;  
-    public nome: any;  
+export class CSVRecord {   
     public matricula: any;  
     public turma: any;     
 }   
