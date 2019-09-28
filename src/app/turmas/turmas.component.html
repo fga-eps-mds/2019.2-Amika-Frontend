@@ -8,7 +8,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
 <div class="content">
 
   <h1 class="text-center" style="margin: 1em; margin-bottom: 2em">Lista de Turmas</h1>
@@ -18,18 +17,22 @@
       <h2 class="text-center">Histórico de Turmas</h2>
       <div class="col-md-12 " >
         <table class="tabela-alunos table table-striped">
-          <tr class="">
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Período</th>
-            <th>Ação</th>
-          </tr>
-          <tr *ngFor="let turma of turmas" >
-            <td>{{turma.id}}</td>
-            <td>{{turma.nome_turma}}</td>
-            <td>{{turma.periodo_turma}}º Semestre/{{turma.ano_turma}}</td>
-            <td><i (click)="onEdit(turma.id)" style="margin-right: 0.75em; color: blue" class="fas fa-edit"></i> <i (click)="delete(turma)" class="fas fa-trash" style="color: red"></i></td>
-          </tr>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Período</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let turma of turmas" >
+              <td>{{turma.id}}</td>
+              <td>{{turma.nome_turma}}</td>
+              <td>{{turma.periodo_turma}}º Semestre/{{turma.ano_turma}}</td>
+              <td><i (click)="onEdit(turma.id)" style="margin-right: 0.75em; color: blue" class="fas fa-edit"></i> <i (click)="delete(turma)" class="fas fa-trash" style="color: red"></i></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -67,7 +70,7 @@
     </div>
 
 
-
   </div>
 
 </div>
+
