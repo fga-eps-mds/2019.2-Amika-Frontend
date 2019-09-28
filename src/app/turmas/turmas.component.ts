@@ -15,7 +15,6 @@ export class TurmasComponent implements OnInit {
   error: any;
   formularioTurma: FormGroup;
   submitted = false;
-  mostra_modal = false;
 
   constructor(private turmaService: TurmaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.getter();
@@ -67,29 +66,6 @@ export class TurmasComponent implements OnInit {
       });
     }
     // this.turmaService.create_turmas(turmas);
-  }
-
-  onSave(turma) {
-    console.log(this.formularioTurma.value);
-    this.submitted = true;
-
-    if (this.formularioTurma.valid) {
-      console.log('Enviar');
-      this.turmaService.edit_turmas(this.formularioTurma.value).subscribe((data: any) => {
-        console.log(data);
-        this.formularioTurma.reset();
-        this.getter();
-        this.toggle();
-
-      }, (error: any) => {
-        this.error = error;
-      });
-    }
-    // this.turmaService.create_turmas(turmas);
-  }
-
-  toggle() {
-    this.mostra_modal = !this.mostra_modal;
   }
 
   onEdit(id) {
