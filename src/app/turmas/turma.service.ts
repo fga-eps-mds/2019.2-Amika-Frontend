@@ -22,11 +22,11 @@ export class TurmaService {
     return this.http.post('http://0.0.0.0:8000/turmas_create', turma);
   }
 
-  public edit_turmas(id): Observable<any> {
-    return this.http.put('http://0.0.0.0:8000/turma_edit'+id, id);
+  public edit_turmas(id, turma): Observable<any> {
+    return this.http.put('http://0.0.0.0:8000/turma_edit/'+id, turma);
   }
 
   public getById(id) {
-    return this.http.get('http://0.0.0.0:8000/turma'+id, id);
+    return this.http.get('http://0.0.0.0:8000/turma/'+id, id);
   }
 }
