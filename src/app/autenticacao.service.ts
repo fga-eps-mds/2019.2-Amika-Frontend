@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from "@angular/router";
+import { environment } from 'src/environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class AutenticacaoService {
   constructor(private http: HttpClient, private router:Router) { }
 
   autenticar(dadosUsuario) { 
-    return this.http.post("http://localhost:3000/login/", dadosUsuario, this.httpOptions)
+    return this.http.post(environment.urlApi + '/login/', dadosUsuario, this.httpOptions)
                     .subscribe(data => {
                       console.log(data);
                       localStorage.setItem('Authorization', 'JWT ' + data['token']);
