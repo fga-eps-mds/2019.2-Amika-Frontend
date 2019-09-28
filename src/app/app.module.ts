@@ -5,16 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlunoAutoRegistroComponent,
-    ListaDeMatriculaComponent
+    ListaDeMatriculaComponent,
+    FormularioComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
