@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    console.log(localStorage.getItem('Authorization'));
+    if(localStorage.getItem('Authorization')) {
+      this.router.navigateByUrl('/');
+    }
   }
 
 }
