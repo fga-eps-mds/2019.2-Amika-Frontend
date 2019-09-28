@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {CSVRecord} from './CSVModel';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListaService } from './../lista.service';
+import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -49,7 +52,18 @@ export class ListaDeMatriculaComponent implements OnInit {
       alert("Please import valid .csv file.");  
       this.fileReset();  
     }  
-  }  
+  } 
+  
+  constructor(private router:Router, private listaService:ListaService) {}
+  
+  registrar(informacao){
+    console.log("Lista enviada ", informacao);
+    // let dados = {"matricula" : informacao.matricula, "turma": informacao.turma}
+    console.log(JSON.stringify(informacao));
+    this.listaService.enviar(JSON.stringify(informacao));
+    console.log(this.listaService.errors);
+  }
+
   
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {  
     let csvArr = [];  
@@ -60,9 +74,14 @@ export class ListaDeMatriculaComponent implements OnInit {
         let csvRecord: CSVRecord = new CSVRecord();    
         csvRecord.matricula = curruntRecord[0].trim();  
         csvRecord.turma = curruntRecord[1].trim();
-        csvArr.push(csvRecord);  
+        csvArr.push({
+          "matricula": curruntRecord[0].trim(),
+          "turma": curruntRecord[1].trim()
+        });  
       }  
     }  
+    this.registrar(csvArr)
+    console.log(csvArr)
     return csvArr;  
   }  
   
@@ -84,7 +103,7 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.records = [];  
   }
 
-  constructor() { }
+  //constructor() { }
 
   ngOnInit() {
   }
