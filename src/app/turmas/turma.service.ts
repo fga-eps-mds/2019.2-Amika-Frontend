@@ -17,4 +17,8 @@ export class TurmaService {
   public delete_turmas(id): Observable<any>{
     return this.http.delete('http://0.0.0.0:8000/turma_delete/'+id, id);
   }
+
+  public create_turmas(turma): Observable {
+    return this.http.post('http://0.0.0.0:8000/turmas_create', turma);
+  }
 }
