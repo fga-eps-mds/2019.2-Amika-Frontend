@@ -6,6 +6,7 @@
 
 body {
   background-color: #eee;
+  height: 100vh;
 }
 
 h1 {
@@ -18,9 +19,10 @@ h2 {
 }
 
 .content {
-  margin-top: 10%;
-  max-width: 95%;
+  max-width: 100%;
+  text-align: center;
 }
+
 .tabela-alunos{
   border: 1px solid #ccc;
   padding: 5px;
@@ -83,6 +85,13 @@ h2 {
     z-index: 2;
   }
 
+  .navbar-center{
+    background: rgb(51,7,127);
+    background: linear-gradient(324deg, rgba(51,7,127,1) 0%, rgba(161,64,112,1) 85%);
+    height: 6em;
+    margin-bottom: 3em;
+    vertical-align: center;
+  }
 
   .main__form .form-group {
     position: relative;
