@@ -32,7 +32,7 @@
               <td>{{turma.id}}</td>
               <td>{{turma.nome_turma}}</td>
               <td>{{turma.periodo_turma}}º Semestre/{{turma.ano_turma}}</td>
-              <td><i (click)="onEdit(turma.id)" style="margin-right: 0.75em; color: blue" class="fas fa-edit"></i> <i (click)="delete(turma)" class="fas fa-trash" style="color: red"></i></td>
+              <td><i (click)="onEdit(turma.id)" style="margin-right: 0.75em; color: blue" class="fas fa-edit"></i> <i (click)="onDelete(turma)" class="fas fa-trash" style="color: red"></i></td>
             </tr>
           </tbody>
         </table>
@@ -76,3 +76,10 @@
 
 </div>
 
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover essa turma?</p>
+    <button type="button" class="btn btn-default" (click)="onConfirmDelete()"> Sim</button>
+    <button type="button" class="btn btn-primary" (click)="onDeclineDelete()"> Não</button>
+  </div>
+</ng-template>

@@ -1,8 +1,9 @@
 import { Turma } from './turmas.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TurmaService } from './turma.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-turmas',
@@ -16,7 +17,11 @@ export class TurmasComponent implements OnInit {
   formularioTurma: FormGroup;
   submitted = false;
 
-  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  deleteModalRef: BsModalRef;
+  @ViewChild('deleteModal', {static: false}) deleteModal;
+  turmaSelecionada: Turma;
+
+  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private modalService: BsModalService) {
     this.getter();
     this.formularioTurma = this.formBuilder.group({
       nome_turma: ['', Validators.required],
@@ -42,14 +47,34 @@ export class TurmasComponent implements OnInit {
     return this.formularioTurma.get(field).errors;
   }
 
-  delete(turma) {
-    this.turmaService.delete_turmas(turma.id).subscribe((data: any) => {
+  // onDelete(turma) {
+  //   this.turmaService.delete_turmas(turma.id).subscribe((data: any) => {
+  //     console.log(data);
+  //     this.getter();
+  //   }, (error: any) => {
+  //     this.error = error;
+  //   });
+  // }
+
+  onDelete(turma){
+    this.turmaSelecionada = turma;
+    this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'});
+  }
+
+  onConfirmDelete(){
+     this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
       console.log(data);
       this.getter();
     }, (error: any) => {
       this.error = error;
     });
+    this.deleteModalRef.hide();
   }
+
+  onDeclineDelete(){
+    this.deleteModalRef.hide();
+  }
+
   onSubmit() {
     console.log(this.formularioTurma.value);
     this.submitted = true;
