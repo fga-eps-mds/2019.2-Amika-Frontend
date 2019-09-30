@@ -21,7 +21,8 @@ export class TurmasComponent implements OnInit {
   @ViewChild('deleteModal', {static: false}) deleteModal;
   turmaSelecionada: Turma;
 
-  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private modalService: BsModalService) {
+  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder,
+              private router: Router, private route: ActivatedRoute, private modalService: BsModalService) {
     this.getter();
     this.formularioTurma = this.formBuilder.group({
       nome_turma: ['', Validators.required],
@@ -47,31 +48,22 @@ export class TurmasComponent implements OnInit {
     return this.formularioTurma.get(field).errors;
   }
 
-  // onDelete(turma) {
-  //   this.turmaService.delete_turmas(turma.id).subscribe((data: any) => {
-  //     console.log(data);
-  //     this.getter();
-  //   }, (error: any) => {
-  //     this.error = error;
-  //   });
-  // }
-
-  onDelete(turma){
+  onDelete(turma) {
     this.turmaSelecionada = turma;
     this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'});
   }
 
-  onConfirmDelete(){
+  onConfirmDelete() {
      this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
       console.log(data);
       this.getter();
     }, (error: any) => {
       this.error = error;
     });
-    this.deleteModalRef.hide();
+     this.deleteModalRef.hide();
   }
 
-  onDeclineDelete(){
+  onDeclineDelete() {
     this.deleteModalRef.hide();
   }
 
@@ -90,7 +82,6 @@ export class TurmasComponent implements OnInit {
         this.error = error;
       });
     }
-    // this.turmaService.create_turmas(turmas);
   }
 
   onEdit(id) {
