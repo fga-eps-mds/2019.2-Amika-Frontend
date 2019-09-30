@@ -7,7 +7,7 @@
 <body>
     <div class="interface">
       <div class="formulario">
-        <form [formGroup]="formulario" (ngSubmit)="OnSubmit()">
+        <form [formGroup]="formulario" (ngSubmit)="cadastrarAluno(formulario.value)">
           <div class="form-group">
             <label for="matricula">Matrícula</label>
             <input type="text" name="matricula" placeholder="matricula" formControlName="matricula"/>
