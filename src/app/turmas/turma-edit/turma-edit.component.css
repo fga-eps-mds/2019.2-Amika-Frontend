@@ -49,10 +49,10 @@ h2 {
 
   .btn-get {
     font-family: "Nunito", sans-serif;
-    color: #fff !important;
+    color: #000 !important;
     text-transform: capitalize;
-    background-image: -webkit-gradient(linear, left top, right top, from(#b70b83), to(#33077f));
-    background-image: linear-gradient(to right, #b70b83, #33077f);
+    background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
+    background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
     padding: 10px 20px 10px;
     position: relative;
     border: 0;
@@ -68,10 +68,19 @@ h2 {
     height: 100%;
     width: 0;
     left: 0;
-    background-image: -webkit-gradient(linear, left top, right top, from(#33077f), to(#b70b83));
-    background-image: linear-gradient(to right, #33077f, #b70b83);
+    background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
+    background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
+  }
+
+  .navbar-center{
+    background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
+    background: linear-gradient(to right, #a0e0e4, #e194b5);
+    height: 6em;
+    margin-bottom: 3em;
+    vertical-align: center;
+    min-width: 100%;
   }
 
   .btn-get:hover::before {
