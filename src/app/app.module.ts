@@ -8,6 +8,7 @@ import { TurmaService } from './turmas/turma.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot(),
   ],
   providers: [TurmaService],
   bootstrap: [AppComponent]
