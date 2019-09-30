@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Turma } from './turmas.model';
 import { HttpClient } from '@angular/common/http';
 
 
