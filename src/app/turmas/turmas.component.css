@@ -8,7 +8,7 @@ h2 {
 }
 
 
-.tabela-alunos{
+.tabela-alunos {
   border: 1px solid #ccc;
   margin-top: 4em;
   box-shadow: 3px 3px 2px #ccc;
@@ -27,7 +27,7 @@ h2 {
     color: black !important;
   }
 
-.tabela-alunos:hover{
+.tabela-alunos:hover {
   box-shadow: 3px 3px 0px transparent;
   transition: 0.5s;
   }
@@ -76,12 +76,6 @@ h2 {
     vertical-align: center;
   }
 
-  .main__form .form-group {
-    position: relative;
-    margin-bottom: 2rem;
-    margin-top: 2em;
-  }
-
   .main__form .form-group label {
     font-family: "Nunito", sans-serif;
     font-size: 1em;
@@ -97,9 +91,8 @@ h2 {
 
   .main__form .form-group input,
   .main__form .form-group textarea,
-  .main__form .form-group select{
+  .main__form .form-group select {
     font-size: 1em;
-    border-color: #f7f7f7;
     border: none;
     border-bottom: 2px solid #d68fae;
     outline: none;
@@ -109,36 +102,6 @@ h2 {
     position: relative;
     z-index: 1;
     background: transparent;
-  }
-
-  .main__form .form-group select{
-    height: 6rem;
-    /* font-size: 1em; */
-  }
-
-
-  .main__form .form-group input:not(:placeholder-shown) + label,
-  .main__form .form-group textarea:not(:placeholder-shown) + label {
-    top: 2%;
-    background: #fff;
-    z-index: 2;
-    font-weight: 600;
-  }
-
-  .main__form .form-group input:focus,
-  .main__form .form-group textarea:focus,
-  .main__form .form-group select:focus {
-    outline: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
-
-  .main__form .form-group input::placeholder,
-  .main__form .form-group textarea::placeholder {
-    color: transparent;
-  }
-
-  .main__form .form-group input {
     height: 6rem;
   }
 
@@ -171,4 +134,71 @@ h2 {
     100% {
       background-position: 26% 0%;
     }
+  }
+
+  .label-float {
+    position: relative;
+    padding-top: 3em;
+  }
+
+  .label-float input {
+    border: 0;
+    outline: none;
+    font-size: 0.5em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance:none;
+    border-radius:0;
+  }
+
+  .label-float input:focus {
+    border-bottom: 2px solid #dd709f;
+    outline: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .label-float input::placeholder {
+    color:transparent;
+  }
+
+  .label-float label {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 3em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+  }
+
+  .label-float input:required:invalid + label {
+    color: red;
+  }
+  .label-float input:focus:required:invalid {
+    border-bottom: 2px solid red;
+  }
+  .label-float input:required:invalid + label:before {
+    content: '*';
+  }
+  .label-float input:focus + label,
+  .label-float input:not(:placeholder-shown) + label d{
+    font-size: 0.8em;
+    margin-top: 0;
+    color: #dd709f;
+  }
+
+  #paginaTurma {
+    max-width: 100%
+  }
+
+  #iconeEditar {
+    margin-right: 0.75em;
+    color: blue;
+  }
+
+  #iconeExcluir {
+    color: red;
   }
