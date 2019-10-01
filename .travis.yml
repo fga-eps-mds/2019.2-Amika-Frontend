@@ -21,8 +21,6 @@ before_install:
 
 script:
   - docker-compose up -d --build
-  - docker exec -it frontend ng test --watch=false
-  - docker exec -it frontend ng e2e
 
 after_script:
   - docker-compose down --remove-orphans
