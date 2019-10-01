@@ -35,4 +35,8 @@ export class AlunoAutoRegistroComponent implements OnInit {
 
   }
 
+  voltar(){
+    this.router.navigate(['/']);
+  }
+
 }
