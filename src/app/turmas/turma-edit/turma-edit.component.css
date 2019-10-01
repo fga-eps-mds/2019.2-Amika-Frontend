@@ -204,3 +204,15 @@ h2 {
     margin-top: 0;
     color: #dd709f;
   }
+
+  #nomeTurma.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+  #anoTurma.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+  #periodoTurma.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
