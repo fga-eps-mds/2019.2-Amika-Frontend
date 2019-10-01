@@ -35,12 +35,15 @@
 
     <div class="col-md-6">
       <h2 class="text-center">Adicionar nova Turma</h2>
-      <form class="main__form needs-validation" novalidade [formGroup] = "formularioTurma">
+      <form class="turmas_form needs-validation" novalidade [formGroup] = "formularioTurma">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group label-float">
                     <input type="text" class="form-control" id="nomeTurma" aria-describedby="nomeTurma" placeholder="Nome da Turma" formControlName="nome_turma" [ngClass]="{ 'is-invalid': submitted && hasError('nome_turma') }">
                     <label for="nomeTurma">Nome da Turma</label>
+                      <div class="invalid-feedback" *ngIf="hasError('nome_turma')">
+                        Por favor, informe o nome da turma.
+                      </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -50,12 +53,18 @@
                       <option value="1">1º Semestre</option>
                       <option value="2">2º Semestre</option>
                     </select>
+                    <div class="invalid-feedback" *ngIf="hasError('periodo_turma')">
+                      Por favor, informe o periodo da turma.
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
               <div class="form-group label-float">
                   <input type="text" class="form-control" id="anoTurma" aria-describedby="anoTurma" placeholder="Ano da Turma" formControlName="ano_turma" [ngClass]="{ 'is-invalid': submitted && hasError('ano_turma') }">
                   <label for="anoTurma">Ano da Turma</label>
+                    <div class="invalid-feedback" *ngIf="hasError('ano_turma')">
+                      Por favor, informe o ano da turma.
+                    </div>
               </div>
           </div>
         </div>
@@ -63,8 +72,6 @@
             <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button></div>
     </form>
     </div>
-
-
   </div>
 
 </div>
@@ -73,6 +80,6 @@
   <div class="modal-body text-center">
     <p>Tem certeza que deseja remover essa turma?</p>
     <button type="button" class="btn btn-default" (click)="onConfirmDelete()"> Sim</button>
-    <button type="button" class="btn btn-primary" (click)="onDeclineDelete()"> Não</button>
+    <button type="button" class="btn btn-get" (click)="onDeclineDelete()"> Não</button>
   </div>
 </ng-template>
