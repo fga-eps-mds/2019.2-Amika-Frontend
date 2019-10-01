@@ -53,6 +53,7 @@ export class TurmaEditComponent implements OnInit {
   }
 
   onSave(turma) {
+    this.submitted =true;
 
     if (this.formularioTurma.valid) {
       console.log('Editado');
@@ -77,6 +78,10 @@ export class TurmaEditComponent implements OnInit {
     }, (error: any) => {
       this.error = error;
     });
+  }
+
+  hasError(field: string) {
+    return this.formularioTurma.get(field).errors;
   }
 
 }
