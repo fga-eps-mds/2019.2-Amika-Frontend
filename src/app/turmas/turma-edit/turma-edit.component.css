@@ -1,13 +1,3 @@
-
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-body {
-  background-color: #eee;
-}
-
 h1 {
   font-family: "Nunito", sans-serif;
   font-weight: bold;
@@ -16,36 +6,6 @@ h1 {
 h2 {
   font-family: "Nunito", sans-serif;
 }
-
-.content {
-  margin-top: 10%;
-  max-width: 95%;
-}
-.tabela-alunos{
-  border: 1px solid #ccc;
-  padding: 5px;
-  margin: 0 auto;
-  margin-top: 4em;
-  box-shadow: 3px 3px 2px #ccc;
-  transition: 0.5s;
-  width: 75%;
-  font-family: "Nunito", sans-serif;
-  height: 20px;
-  overflow-y: scroll;
-  }
-
-  i {
-    cursor: pointer;
-  }
-
-  i:hover {
-    color: black !important;
-  }
-
-.tabela-alunos:hover{
-  box-shadow: 3px 3px 0px transparent;
-  transition: 0.5s;
-  }
 
   .btn-get {
     font-family: "Nunito", sans-serif;
@@ -97,6 +57,7 @@ h2 {
     position: relative;
     margin-bottom: 2rem;
     margin-top: 2em;
+    width: 90%;
   }
 
   .main__form .form-group label {
@@ -149,12 +110,6 @@ h2 {
             box-shadow: none;
   }
 
-
-
-
-
-
-
   .main__form .form-group input::placeholder,
   .main__form .form-group textarea::placeholder {
     color: transparent;
@@ -196,26 +151,56 @@ h2 {
   }
 
 
-  .center {
-    margin-top:50px;
-}
+  .label-float {
+    position: relative;
+    padding-top: 3em;
+  }
 
-.modal-header {
-	padding-bottom: 5px;
-}
+  .label-float input {
+    border: 0;
+    outline: none;
+    font-size: 0.5em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance:none;
+    border-radius:0;
+  }
 
-.modal-footer {
-    	padding: 0;
-	}
+  .label-float input:focus {
+    border-bottom: 2px solid #dd709f;
+    outline: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 
-.modal-footer .btn-group button {
-	height:40px;
-	border-top-left-radius : 0;
-	border-top-right-radius : 0;
-	border: none;
-	border-right: 1px solid #ddd;
-}
+  .label-float input::placeholder {
+    color:transparent;
+  }
 
-.modal-footer .btn-group:last-child > button {
-	border-right: 0;
-}
+  .label-float label {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 3em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+  }
+
+  .label-float input:required:invalid + label {
+    color: red;
+  }
+  .label-float input:focus:required:invalid {
+    border-bottom: 2px solid red;
+  }
+  .label-float input:required:invalid + label:before {
+    content: '*';
+  }
+  .label-float input:focus + label,
+  .label-float input:not(:placeholder-shown) + label d{
+    font-size: 0.8em;
+    margin-top: 0;
+    color: #dd709f;
+  }
