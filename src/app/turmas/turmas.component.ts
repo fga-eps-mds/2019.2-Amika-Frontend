@@ -42,6 +42,7 @@ export class TurmasComponent implements OnInit {
     }, (error: any) => {
       this.error = error;
     });
+    this.submitted = false;
   }
 
   hasError(field: string) {
