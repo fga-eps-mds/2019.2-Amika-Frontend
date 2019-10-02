@@ -72,8 +72,8 @@ h2 {
     background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
     background: linear-gradient(to right, #a0e0e4, #e194b5);
     height: 6em;
-    margin-bottom: 3em;
-    vertical-align: center;
+    padding: 1.5em;
+    margin-bottom: 4em;
   }
 
   .turmas_form .form-group label {
