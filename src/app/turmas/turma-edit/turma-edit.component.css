@@ -216,3 +216,7 @@ h2 {
   #periodoTurma.ng-invalid.ng-touched {
     border: 1px solid red;
   }
+
+  #telaEditar {
+    margin-left: 25%
+  }
