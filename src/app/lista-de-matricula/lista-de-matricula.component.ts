@@ -45,11 +45,11 @@ export class ListaDeMatriculaComponent implements OnInit {
       };  
   
       reader.onerror = function () {  
-        console.log('error is occured while reading file!');  
+        console.log('Ocorreu um erro ao le o arquivo!');  
       };  
   
     } else {  
-      alert("Please import valid .csv file.");  
+      alert("Por favor mande um arquivo CSV valido.");  
       this.fileReset();  
     }  
   } 
