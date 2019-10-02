@@ -21,6 +21,7 @@ h2 {
     text-transform: capitalize !important;
   }
 
+
   .btn-get::before {
     position: absolute;
     content: '';
@@ -38,9 +39,8 @@ h2 {
     background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
     background: linear-gradient(to right, #a0e0e4, #e194b5);
     height: 6em;
+    padding: 1.5em;
     margin-bottom: 3em;
-    vertical-align: center;
-    min-width: 100%;
   }
 
   .btn-get:hover::before {
@@ -57,7 +57,7 @@ h2 {
     position: relative;
     margin-bottom: 2rem;
     margin-top: 2em;
-    width: 90%;
+    width: 100%;
   }
 
   .main__form .form-group label {
