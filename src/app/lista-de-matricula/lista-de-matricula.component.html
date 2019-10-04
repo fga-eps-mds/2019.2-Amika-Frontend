@@ -24,7 +24,7 @@
             </select>
           </div>
           <div class="campoSemestre">
-              <div class="titulo">Semestre:</div>
+              <div class="tituloSemestre">Semestre:</div>
               <select>
                   <option selected="selected"></option>
                   <option value="1">1º</option>
@@ -56,7 +56,7 @@
           <input type="file" name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
         </div>
         <div class="campoSemestre">
-          <div class="titulo">Semestre:</div>
+          <div class="tituloSemestre">Semestre:</div>
           <select>
             <option selected="selected"></option>
             <option value="1">1º</option>
@@ -76,23 +76,28 @@
             <option value="15">15º</option>
             <option value="16">16º</option>
           </select>
-        </div> 
+        </div>
         <div class="botaoCadastrar"><button>Cadastrar</button></div>
       </div>
-      <table class="minimalistBlack" *ngIf="records.length > 0">    
-        <thead>    
-          <tr>     
-            <th>Matricula </th>   
-            <th>Turma</th> 
-          </tr>    
-        </thead>    
-        <tbody>    
-          <tr *ngFor="let record of records;let i = index;">     
-            <td> <span>{{record.matricula}}</span> </td>   
-            <td> <span>{{record.turma}}</span></td> 
-          </tr>    
-        </tbody>    
-      </table>    
+    </div>
+    <div id="tabelaMatriculas">
+      <div *ngIf="records.length > 0">
+        <p>Você enviou a seguinte lista:</p>
+        <table class="minimalistBlack">
+          <thead>
+            <tr>
+              <th>Matrícula </th>
+              <th>Turma</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of records;let i = index;">
+              <td> <span>{{record.matricula}}</span> </td>
+              <td> <span>{{record.turma}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </body>
