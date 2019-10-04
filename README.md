@@ -34,7 +34,7 @@ Amika é um Progressive Web App com o objetivo de auxiliar a organização da di
 
 ## Documentação
 
-Documentação do porjeto está disponível em [Amika Wiki](https://fga-eps-mds.github.io/2019.2-Amika-Wiki/#/).
+Documentação do projeto está disponível em [Amika Wiki](https://fga-eps-mds.github.io/2019.2-Amika-Wiki/#/).
 
 ## Tecnologias Utilizadas
 
