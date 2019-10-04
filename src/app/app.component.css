@@ -1,3 +1,5 @@
+/* BOTAO */
+
 .botao {
   border-radius: 50px;
   border: none;
@@ -68,4 +70,23 @@
 
 .botao-verde:active {
   background: #83d0bf;
+}
+
+/* CAMPOS DE FORMULARIOS */
+
+.campo-formulario {
+  color: #777777;
+  font-size: 12pt;
+  font-family: "Raleway";
+  border: none;
+  border-bottom: 1px solid;
+  border-color: #f1be6c;
+}
+
+.campo-formulario:focus {
+  outline: 0;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #bababa;
 }
