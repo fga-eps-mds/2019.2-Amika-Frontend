@@ -45,28 +45,27 @@ export class TurmaEditComponent implements OnInit {
     this.formularioTurma.patchValue({
       id: turma.id,
       nome: turma.nome,
-
     });
   }
 
-  onSave(turma) {
+  onSave() {
     this.submitted = true;
-
-    if (this.formularioTurma.valid) {
-      console.log('Editado');
-      console.log(this.formularioTurma);
-
-
-
-      this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
-        console.log(data);
-        this.formularioTurma.reset();
-        this.return();
-
-      }, (error: any) => {
-        this.error = error;
-      });
-    }
+    this.route.params.subscribe(
+      (params: any) => {
+        if (this.formularioTurma.valid) {
+          console.log('Editado');
+          console.log(this.formularioTurma);
+          this.turmaService.edit_turmas(params['id'], this.formularioTurma.value).subscribe((data: any) => {
+            console.log(data);
+            this.formularioTurma.reset();
+            this.return();
+    
+          }, (error: any) => {
+            this.error = error;
+          });
+        }
+      }
+    );
   }
 
   getter() {
