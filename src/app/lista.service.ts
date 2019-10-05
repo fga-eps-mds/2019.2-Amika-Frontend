@@ -19,7 +19,7 @@ export class ListaService {
     constructor(private http: HttpClient, private router:Router) { }
 
     enviar(dados) { 
-        return this.http.post("http://localhost:8000/multiplos_registros/", dados, this.httpOptions)
+        return this.http.post("http://localhost:8000/registro/", dados, this.httpOptions)
                 .subscribe(data => {
                     console.log(data);
                     
