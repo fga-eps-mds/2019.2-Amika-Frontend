@@ -1,4 +1,3 @@
-import { Matricula } from './../matriculas/shared/matricula';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +9,7 @@ import { RequisicaoService } from '../requisicao.service';
   templateUrl: './aluno-auto-registro.component.html',
   styleUrls: ['./aluno-auto-registro.component.css'],
 })
+
 export class AlunoAutoRegistroComponent implements OnInit {
 
   formulario: FormGroup;
@@ -29,6 +29,7 @@ export class AlunoAutoRegistroComponent implements OnInit {
     console.log(dados)
     this.requisicaoService.realizarRequisicao(dados);
     console.log(this.requisicaoService.errors);
+    this.requisicaoService.errors
   }
 
   ngOnInit() {
