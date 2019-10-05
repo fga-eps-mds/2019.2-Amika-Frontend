@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {CSVRecord} from './CSVModel';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ListaService } from './../lista.service';
 import { Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RequisicaoService } from '../requisicao.service';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -14,12 +14,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @NgModule({
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormGroup,
+    FormBuilder,
+    Validators,
   ],
 })
 
 export class ListaDeMatriculaComponent implements OnInit {
   title = 'Leitor CSV';  
+  formulario: FormGroup;
   
   public records: any[] = [];  
   @ViewChild('csvReader', {static: false}) csvReader: any;  
@@ -54,7 +58,7 @@ export class ListaDeMatriculaComponent implements OnInit {
     }  
   } 
   
-  constructor(private router:Router, private listaService:ListaService) {}
+  //constructor(private router:Router, private listaService:ListaService) {}
   
   registrar(informacao){
     console.log("Lista enviada ", informacao);
@@ -103,7 +107,24 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.records = [];  
   }
 
-  //constructor() { }
+  //Métodos para matricula individual
+  constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService) { 
+    this.formulario = this.formBuilder.group({
+      matricula: ['', Validators.required],
+      turma: ['', Validators.required],
+    })
+  }
+
+  cadastroIndividual(dadosIndividuais){
+    let dados = {"matricula": dadosIndividuais.matricula, "turma": dadosIndividuais.turma}
+    console.log(dados)
+    this.requisicaoService.requisicaoMatriculaIndividual(dados);
+    this.requisicaoService.errors
+  }
+
+  voltar(){
+    this.router.navigate(['/']);
+  }
 
   ngOnInit() {
   }
