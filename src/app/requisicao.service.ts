@@ -29,4 +29,16 @@ export class RequisicaoService {
                     });
   }
 
+  requisicaoMatriculaIndividual(dadosIndividuais) {
+    return this.http.post("http://localhost:8000/registro/", dadosIndividuais, this.httpOptions)
+      .subscribe(data => {
+        console.log(data);
+        this.errors = null;
+      },
+      error => {
+        console.log(error);
+        this.errors = error;
+      });
+  }
+
 }
