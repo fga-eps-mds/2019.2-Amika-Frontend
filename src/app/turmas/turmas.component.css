@@ -1,4 +1,4 @@
-h1 {
+h1, h5, h6 {
   font-family: "Nunito", sans-serif;
   font-weight: bold;
 }
@@ -10,7 +10,7 @@ h2 {
 
 .tabela-alunos {
   border: 1px solid #ccc;
-  margin-top: 4em;
+  margin-top: 0;
   box-shadow: 3px 3px 2px #ccc;
   transition: 0.5s;
   font-family: "Nunito", sans-serif;
@@ -62,7 +62,7 @@ h2 {
   .btn-confirm{
     content: '';
     height: 100%;
-    background-color: #d68fae;
+    background-color: #549dc2;
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
   }
@@ -212,5 +212,14 @@ h2 {
   }
 
   .modal-body {
-    background-color: #eec4d6;
+    background-color: #fff;
+        border-radius: 30px;
+
+  }
+
+  .scroll{
+    overflow-y: scroll;
+    min-height: 13em;
+    max-height: 25em;
+    margin-top: 4em;
   }

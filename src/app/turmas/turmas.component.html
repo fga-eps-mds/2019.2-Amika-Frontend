@@ -11,7 +11,7 @@
   <div class="row" id="paginaTurma">
     <div class="col-md-6">
       <h2 class="text-center">Histórico de Turmas</h2>
-      <div class="col-md-12 " >
+      <div class="col-md-12 scroll" >
         <table class="tabela-alunos table table-striped">
           <thead>
             <tr>
@@ -55,9 +55,9 @@
 
 </div>
 
-<ng-template #deleteModal>
+<ng-template #deleteModal class="modal-body">
   <div class="modal-body text-center">
-    <p>Tem certeza que deseja remover essa turma?</p>
+    <h5>Tem certeza que deseja remover essa turma?</h5>
     <button type="button" class="btn btn-confirm" (click)="onConfirmDelete()"> Sim</button>
     <button type="button" class="btn btn-decline" (click)="onDeclineDelete()"> Não</button>
   </div>
