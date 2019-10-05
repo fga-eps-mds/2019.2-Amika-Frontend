@@ -1,13 +1,7 @@
 .body{
-    background: rgba(252,237,244,1);
-  background: -moz-linear-gradient(top, rgba(252,237,244,1) 0%, rgba(251,167,177,1) 36%, rgba(255,122,138,1) 68%, rgba(255,122,138,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(252,237,244,1)), color-stop(36%, rgba(251,167,177,1)), color-stop(68%, rgba(255,122,138,1)), color-stop(100%, rgba(255,122,138,1)));
-  background: -webkit-linear-gradient(top, rgba(252,237,244,1) 0%, rgba(251,167,177,1) 36%, rgba(255,122,138,1) 68%, rgba(255,122,138,1) 100%);
-  background: -o-linear-gradient(top, rgba(252,237,244,1) 0%, rgba(251,167,177,1) 36%, rgba(255,122,138,1) 68%, rgba(255,122,138,1) 100%);
-  background: -ms-linear-gradient(top, rgba(252,237,244,1) 0%, rgba(251,167,177,1) 36%, rgba(255,122,138,1) 68%, rgba(255,122,138,1) 100%);
-  background: linear-gradient(to bottom, rgba(252,237,244,1) 0%, rgba(251,167,177,1) 36%, rgba(255,122,138,1) 68%, rgba(255,122,138,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcedf4', endColorstr='#ff7a8a', GradientType=0 );
+  background: rgba(189, 116, 184, 0.36);
   height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
   }
   
   .amika-button {
@@ -165,4 +159,11 @@
     width: 200px;
     cursor: pointer;
     font-family: 'Ubuntu', sans-serif;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /* width: 50%; */
   }
