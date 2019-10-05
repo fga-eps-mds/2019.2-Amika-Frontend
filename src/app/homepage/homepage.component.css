@@ -1,9 +1,13 @@
-.body{
+.body {
   background: rgba(189, 116, 184, 0.36);
   height: 100vh;
   font-family: 'Ubuntu', sans-serif;
   }
-  
+
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
   .amika-button {
   
     height: 8em;
