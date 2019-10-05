@@ -197,16 +197,3 @@ h2 {
   .modal-body {
     background-color: #eec4d6;
   }
-
-
-  #nomeTurma.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
-
-  #anoTurma.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }
-
-  #periodoTurma.ng-invalid.ng-touched {
-    border: 1px solid red;
-  }

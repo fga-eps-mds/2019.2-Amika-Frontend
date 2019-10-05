@@ -11,22 +11,22 @@ export class TurmaService {
   constructor(private http: HttpClient) { }
 
   public get_turmas(): Observable<any> {
-    return this.http.get(environment.urlApi +'turmas/');
+    return this.http.get(environment.urlApi + 'turmas/');
   }
 
   public delete_turmas(id): Observable<any>{
-    return this.http.delete(environment.urlApi +'turma_delete/'+id, id);
+    return this.http.delete(environment.urlApi + 'turma/' + id, id);
   }
 
   public create_turmas(turma): Observable<any> {
-    return this.http.post(environment.urlApi +'turmas_create', turma);
+    return this.http.post(environment.urlApi + 'turmas/', turma);
   }
 
   public edit_turmas(id, turma): Observable<any> {
-    return this.http.put(environment.urlApi +'turma_edit/'+id, turma);
+    return this.http.put(environment.urlApi + 'turma/' + id, turma);
   }
 
   public getById(id) {
-    return this.http.get(environment.urlApi +'turma/'+id, id);
+    return this.http.get(environment.urlApi + 'turma/' + id, id);
   }
 }
