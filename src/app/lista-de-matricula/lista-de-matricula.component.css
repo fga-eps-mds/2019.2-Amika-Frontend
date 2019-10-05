@@ -163,6 +163,11 @@ body {
   background: none;
   outline: none;
   border-bottom: 2px solid #a0e0e4;
+  font-size: 15px;
+}
+
+#matricula input::placeholder {
+  color: #000;
 }
 
 .camposFormulario #campoPapel {
@@ -200,6 +205,7 @@ body {
 #enviarForm {
   display: flex;
   margin-top: 20px;
+  justify-content: center;
 }
 
 #enviarForm input {
@@ -215,12 +221,19 @@ body {
 }
 
 .camposFormulario #turma {
+  display: flex;
+  justify-content: space-between;
   margin-top: 30px;
+  border-bottom: 2px solid #a0e0e4;
 }
 
-#turma input {
+#turma select {
   border: none;
   background: none;
   outline: none;
-  border-bottom: 2px solid #a0e0e4;
+  color: #a0e0e4;
+}
+
+#turma option {
+  color: #000;
 }

@@ -11,12 +11,19 @@
       <div id="cadastrarAluno">
         <div class="titulo">Aluno</div>
         <div class="camposFormulario">
-          <form [formGroup]="formulario" (ngSubmit)="cadastroIndividual(formulario.value)">
+          <form [formGroup]="formulario" (ngSubmit)="cadastroIndividual(formulario.value)" id="formIndividual">
             <div id="matricula" class="form-group">
               <input type="text" name="matricula" placeholder="Matrícula" formControlName="matricula"/>
             </div>
             <div id="turma" class="form-group">
-              <input type="text" name="turma" placeholder="Turma" formControlName="turma"/>
+              <div id="tituloTurma">Turma:</div>
+              <select name="turma" form="formIndividual" formControlName="turma">
+                <option selected></option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+              </select>
             </div>
             <div class="form-group" id="enviarForm">
               <input type="submit" value="Cadastrar">

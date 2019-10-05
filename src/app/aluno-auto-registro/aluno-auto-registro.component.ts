@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { RequisicaoService } from '../requisicao.service';
 
-@Component({
+@Component({  
   selector: 'app-aluno-auto-registro',
   templateUrl: './aluno-auto-registro.component.html',
   styleUrls: ['./aluno-auto-registro.component.css'],
