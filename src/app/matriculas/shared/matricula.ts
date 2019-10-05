@@ -1,6 +1,6 @@
 export class Matricula {
-  matricula: '';
-  nome: '';
-  email: '';
-  senha: '';
+  username: '';
+  firs_name: '';
+  last_name: '';
+  password: '';
 }

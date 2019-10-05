@@ -16,16 +16,16 @@ export class AlunoAutoRegistroComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router:Router, private requisicaoService:RequisicaoService) {
     this.formulario = this.formBuilder.group({
-      matricula: ['', Validators.required],
-      nome: ['', Validators.required],
-      email: ['', Validators.required],
-      senha: ['', Validators.required]
+      username: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      password: ['', Validators.required]
     })
   }
 
   cadastrarAluno(dadosAluno) {
     console.log('Usuario cadastrado!');
-    let dados = {"matricula" : dadosAluno.matricula, "nome": dadosAluno.nome, "email": dadosAluno.email, "senha": dadosAluno.senha}
+    let dados = {"username" : dadosAluno.username, "first_name": dadosAluno.first_name, "last_name": dadosAluno.last_name, "password": dadosAluno.password}
     console.log(dados)
     this.requisicaoService.realizarRequisicao(dados);
     console.log(this.requisicaoService.errors);

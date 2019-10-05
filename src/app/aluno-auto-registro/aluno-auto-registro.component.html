@@ -9,20 +9,22 @@
       <div class="formulario">
         <form [formGroup]="formulario" (ngSubmit)="cadastrarAluno(formulario.value)">
           <div class="form-group">
+            <!-- O nome de usuário deve ser o mesmo da matrícula. Passamos como string, mas por detrás dos panos
+            é a matrícula do aluno.-->
             <label for="matricula">Matrícula</label>
-            <input type="text" name="matricula" placeholder="matricula" formControlName="matricula"/>
+            <input type="text" name="username" placeholder="matricula" formControlName="username"/>
           </div>
           <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" name="nome" placeholder="nome" formControlName="nome" required/>
+            <input type="text" name="first_name" placeholder="primeiro nome" formControlName="first_name" required/>
           </div>
           <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="exemplo@email.com" formControlName="email"/>
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="last_name" placeholder="sobrenome" formControlName="last_name"/>
           </div>
           <div class="form-group">
             <label for="senha">Senha:</label>
-            <input type="password" name="senha" placeholder="senha..." formControlName="senha"/>
+            <input type="password" name="password" placeholder="senha..." formControlName="password"/>
           </div>
           <div id="enviar">
               <button (click)="voltar()">Voltar</button><input type="submit" value="Registrar">

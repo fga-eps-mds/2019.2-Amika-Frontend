@@ -17,7 +17,7 @@ export class RequisicaoService {
   }
 
   realizarRequisicao(dadosAluno) {
-    return this.http.post("http://localhost:8000/", dadosAluno, this.httpOptions)
+    return this.http.post("http://localhost:8000/aluno/", dadosAluno, this.httpOptions)
                     .subscribe(data => {
                       console.log(data);
                       this.errors = null;
