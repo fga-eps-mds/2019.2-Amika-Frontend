@@ -11,42 +11,18 @@
       <div id="cadastrarAluno">
         <div class="titulo">Aluno</div>
         <div class="camposFormulario">
-          <div id="matricula">
-            <input type="text" name="matricula" placeholder="Matrícula" formControlName="matricula"/>
-          </div>
-          <div id="campoPapel">
-            <label for="nomeCampo">Papel</label>
-            <select>
-              <option selected="selected"></option>
-              <option value="1">Administrador</option>
-              <option value="2">Aluno</option>
-              <option value="3">Monitor</option>
-            </select>
-          </div>
-          <div class="campoSemestre">
-              <div class="tituloSemestre">Semestre:</div>
-              <select>
-                  <option selected="selected"></option>
-                  <option value="1">1º</option>
-                  <option value="2">2º</option>
-                  <option value="3">3º</option>
-                  <option value="4">4º</option>
-                  <option value="5">5º</option>
-                  <option value="6">6º</option>
-                  <option value="7">7º</option>
-                  <option value="8">8º</option>
-                  <option value="9">9º</option>
-                  <option value="10">10º</option>
-                  <option value="11">11º</option>
-                  <option value="12">12º</option>
-                  <option value="13"v>13º</option>
-                  <option value="14">14º</option>
-                  <option value="15">15º</option>
-                  <option value="16">16º</option>
-              </select>
-          </div>
+          <form [formGroup]="formulario" (ngSubmit)="cadastroIndividual(formulario.value)">
+            <div id="matricula" class="form-group">
+              <input type="text" name="matricula" placeholder="Matrícula" formControlName="matricula"/>
+            </div>
+            <div id="turma" class="form-group">
+              <input type="text" name="turma" placeholder="Turma" formControlName="turma"/>
+            </div>
+            <div class="form-group" id="enviarForm">
+              <input type="submit" value="Cadastrar">
+            </div>
+          </form>
         </div>
-        <div class="botaoCadastrar"><button>Cadastrar</button></div>
       </div>
       <div id="barra"></div>
       <div class="enviarArquivo">
