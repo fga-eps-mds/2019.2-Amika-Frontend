@@ -59,6 +59,23 @@ h2 {
     transition: .5s ease-out;
   }
 
+  .btn-confirm{
+    content: '';
+    height: 100%;
+    background-color: #d68fae;
+    -webkit-transition: .5s ease-out;
+    transition: .5s ease-out;
+  }
+
+  .btn-decline{
+    content: '';
+    height: 100%;
+    background-color: #dd709f;
+    -webkit-transition: .5s ease-out;
+    transition: .5s ease-out;
+    margin: 0.5rem;
+  }
+
   .btn-get:hover::before {
     width: 100%;
   }
