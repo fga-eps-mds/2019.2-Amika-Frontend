@@ -127,7 +127,6 @@ body {
 #cadastrarAluno {
   display: flex;
   flex-direction: column;
-  align-self: flex-end;
   height: 100%;
   margin-right: 20px;
 }
@@ -196,4 +195,32 @@ body {
 #tabelaMatriculas {
   display: flex;
   margin-top: 50px;
+}
+
+#enviarForm {
+  display: flex;
+  margin-top: 20px;
+}
+
+#enviarForm input {
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  margin-top: 10px;
+  min-width: 100px;
+  font-family: 'Nunito', sans-serif;
+  color: #fff;
+  background-color: #a0e0e4;
+  cursor: pointer;
+}
+
+.camposFormulario #turma {
+  margin-top: 30px;
+}
+
+#turma input {
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: 2px solid #a0e0e4;
 }
