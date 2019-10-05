@@ -30,9 +30,7 @@ export class TurmaEditComponent implements OnInit {
       );
     this.formularioTurma = this.formBuilder.group({
       id: [null],
-      nome_turma: ['', Validators.required],
-      periodo_turma: ['', Validators.required],
-      ano_turma: ['', Validators.required]
+      nome: ['', Validators.required],
     });
    }
 
@@ -46,17 +44,19 @@ export class TurmaEditComponent implements OnInit {
   updateForm(turma) {
     this.formularioTurma.patchValue({
       id: turma.id,
-      nome_turma: turma.nome_turma,
-      periodo_turma: turma.periodo_turma,
-      ano_turma: turma.ano_turma
+      nome: turma.nome,
+
     });
   }
 
   onSave(turma) {
-    this.submitted =true;
+    this.submitted = true;
 
     if (this.formularioTurma.valid) {
       console.log('Editado');
+      console.log(this.formularioTurma);
+
+
 
       this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
         console.log(data);
@@ -67,7 +67,6 @@ export class TurmaEditComponent implements OnInit {
         this.error = error;
       });
     }
-    // this.turmaService.create_turmas(turmas);
   }
 
   getter() {
