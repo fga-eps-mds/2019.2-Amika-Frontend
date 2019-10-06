@@ -60,16 +60,16 @@ h2 {
   }
 
   .btn-confirm{
+    padding: 10px 20px 10px;
     content: '';
-    height: 100%;
     background-color: #549dc2;
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
   }
 
   .btn-decline{
+    padding: 10px 20px 10px;
     content: '';
-    height: 100%;
     background-color: #dd709f;
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
@@ -90,7 +90,7 @@ h2 {
     background: linear-gradient(to right, #a0e0e4, #e194b5);
     height: 6em;
     padding: 1.5em;
-    margin-bottom: 4em;
+    margin-bottom: 4rem;
   }
 
   .turmas_form .form-group label {
@@ -220,6 +220,6 @@ h2 {
   .scroll{
     overflow-y: scroll;
     min-height: 13em;
-    max-height: 25em;
+    max-height: 20em;
     margin-top: 4em;
   }
