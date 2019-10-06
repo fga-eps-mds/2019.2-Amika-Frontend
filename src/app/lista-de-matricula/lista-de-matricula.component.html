@@ -60,16 +60,15 @@
             <option value="16">16º</option>
           </select>
         </div>
-        <div class="botaoCadastrar"><button>CADASTRAR</button></div>
+        <div class="botaoCadastrar"><button (click)="cadastrar()">CADASTRAR</button></div>
       </div>
     </div>
-    <div id="tabelaMatriculas">
-      <div *ngIf="records.length > 0">
+    <div id="tabelaMatriculas" *ngIf="records.length > 0">
         <p>Você enviou a seguinte lista:</p>
         <table class="minimalistBlack">
           <thead>
             <tr>
-              <th>Matrícula </th>
+              <th>Matrícula</th>
               <th>Turma</th>
             </tr>
           </thead>
@@ -80,7 +79,6 @@
             </tr>
           </tbody>
         </table>
-      </div>
     </div>
   </div>
 </body>
