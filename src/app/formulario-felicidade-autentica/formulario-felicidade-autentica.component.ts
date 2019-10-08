@@ -13,9 +13,7 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
   constructor() { }
 
   createForm(pontos: Pontuacao){
-    this.formPontuacao = new FormGroup{
-      totalpontos: new FormControl(pontos.pontos)
-    }
+    totalpontos: [pontos.pontos]
   }
 
   ngOnInit() {
