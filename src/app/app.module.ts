@@ -4,9 +4,13 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TurmasComponent } from './turmas/turmas.component';
+import { TurmaService } from './turmas/turma.service';
+import { HttpClientModule } from '@angular/common/http';
+import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +21,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    TurmasComponent,
+    TurmaEditComponent,
     LoginComponent
   ],
   imports: [
@@ -25,10 +31,12 @@ const appRoutes: Routes = [
     ),
     ReactiveFormsModule,
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    AppRoutingModule
+    ModalModule.forRoot()
   ],
-  providers: [
+
+  providers: [TurmaService,
     AutenticacaoService
   ],
   bootstrap: [AppComponent]
