@@ -12,6 +12,7 @@ import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
  // { path: 'hero/:id',      component: HeroDetailComponent },
+  { path: 'formulario', component: FormularioFelicidadeAutenticaComponent}
 
 ];
 
