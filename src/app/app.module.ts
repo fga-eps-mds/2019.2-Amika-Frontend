@@ -11,11 +11,12 @@ import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AgendasComponent } from './agendas/agendas.component';
+import { AgendaService } from './agendas/agenda.service';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
- // { path: 'hero/:id',      component: HeroDetailComponent },
-
+  { path: 'agenda', component: AgendasComponent },
 ];
 
 @NgModule({
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     TurmasComponent,
     TurmaEditComponent,
-    LoginComponent
+    LoginComponent,
+    AgendasComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -36,8 +38,10 @@ const appRoutes: Routes = [
     ModalModule.forRoot()
   ],
 
-  providers: [TurmaService,
-    AutenticacaoService
+  providers: [
+    TurmaService,
+    AutenticacaoService,
+    AgendaService
   ],
   bootstrap: [AppComponent]
 })
