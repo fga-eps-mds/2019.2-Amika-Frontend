@@ -1,5 +1,6 @@
 /* Importação de fontes */
 @import url('https://fonts.googleapis.com/css?family=Nunito|Raleway|Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:500&display=swap');
 
 /* BOTAO */
 
@@ -121,4 +122,33 @@
 
 .botao-icone-verde {
   background: #94e1c0;
+}
+
+/* HEADERS, PARÁGRAFOS, TEXTOS, BACKGROUND */
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 5px;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.texto-normal {
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  line-height: 20px;
+  color: #444444;
+}
+
+p {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cor-de-background {
+  background-color: #efefef;
 }
