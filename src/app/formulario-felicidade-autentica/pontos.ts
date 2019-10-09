@@ -1,3 +1,4 @@
 export class Pontuacao{
-    pontos: number = 1;
+    pontos: number = 0;
+
 }
