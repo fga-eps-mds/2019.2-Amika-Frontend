@@ -9,14 +9,23 @@ import {Pontuacao} from './pontos'
   styleUrls: ['./formulario-felicidade-autentica.component.css']
 })
 export class FormularioFelicidadeAutenticaComponent implements OnInit {
+  
+  formPontuacao: FormGroup;
+  //constructor() { }
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
+ 
+  ngOnInit() {
+    this.createForm(new Pontuacao());
+  }
 
   createForm(pontos: Pontuacao){
-    totalpontos: [pontos.pontos]
+    this.formPontuacao = this.formBuilder.group({
+      totalpontos: [pontos.pontos]
+    })
   }
 
-  ngOnInit() {
-  }
+  // ngOnInit() {
+  // }
 
 }
