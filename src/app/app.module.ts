@@ -11,13 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
-import { RouterModule, Routes } from '@angular/router';
-
-const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '',      component: HomepageComponent },
-
-];
 
 @NgModule({
   declarations: [
@@ -28,9 +21,6 @@ const appRoutes: Routes = [
     LoginComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-    ),
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
