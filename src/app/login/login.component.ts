@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   formularioLogin: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router:Router, private autenticacaoService:AutenticacaoService) {
+  constructor(private formBuilder: FormBuilder, private router:Router, public autenticacaoService:AutenticacaoService) {
     this.formularioLogin = this.formBuilder.group({
       matricula: ['', Validators.required],
       senha: ['', Validators.required]

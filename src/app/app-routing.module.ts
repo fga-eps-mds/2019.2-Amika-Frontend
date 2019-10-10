@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TurmasComponent } from './turmas/turmas.component';
+import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'turmas', component: TurmasComponent},
+  {path: 'turmas_editar/:id', component: TurmaEditComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
