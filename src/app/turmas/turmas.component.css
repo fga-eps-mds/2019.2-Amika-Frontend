@@ -1,0 +1,225 @@
+h1, h5, h6 {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Nunito", sans-serif;
+}
+
+
+.tabela-alunos {
+  border: 1px solid #ccc;
+  margin-top: 0;
+  box-shadow: 3px 3px 2px #ccc;
+  transition: 0.5s;
+  font-family: "Nunito", sans-serif;
+  overflow-y: scroll;
+    background: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#eec4d6));
+    background: linear-gradient(to right, #a0e0e4,#eec4d6 );
+  }
+
+  i {
+    cursor: pointer;
+  }
+
+  i:hover {
+    color: black !important;
+  }
+
+.tabela-alunos:hover {
+  box-shadow: 3px 3px 0px transparent;
+  transition: 0.5s;
+  }
+
+  .btn-get {
+    font-family: "Nunito", sans-serif;
+    color: #000 !important;
+    text-transform: capitalize;
+    background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
+    background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+    padding: 10px 20px 10px;
+    position: relative;
+    border: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    text-transform: capitalize !important;
+  }
+
+  .btn-get::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    height: 100%;
+    width: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
+    background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+    -webkit-transition: .5s ease-out;
+    transition: .5s ease-out;
+  }
+
+  .btn-confirm{
+    padding: 10px 20px 10px;
+    content: '';
+    background-color: #549dc2;
+    -webkit-transition: .5s ease-out;
+    transition: .5s ease-out;
+  }
+
+  .btn-decline{
+    padding: 10px 20px 10px;
+    content: '';
+    background-color: #dd709f;
+    -webkit-transition: .5s ease-out;
+    transition: .5s ease-out;
+    margin: 0.5rem;
+  }
+
+  .btn-get:hover::before {
+    width: 100%;
+  }
+
+  .btn-get span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .navbar-center{
+    background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
+    background: linear-gradient(to right, #a0e0e4, #e194b5);
+    height: 6em;
+    padding: 1.5em;
+    margin-bottom: 4rem;
+  }
+
+  .turmas_form .form-group label {
+    font-family: "Nunito", sans-serif;
+    font-size: 1em;
+    color: #575757;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 0;
+    -webkit-transition: .3s all;
+    transition: .3s all;
+  }
+
+  .turmas_form .form-group input,
+  .turmas_form .form-group textarea,
+  .turmas_form .form-group select {
+    font-size: 1em;
+    border: none;
+    border-bottom: 2px solid #d68fae;
+    outline: none;
+    outline-color: #dd709f;
+    outline-width: thick;
+    padding: 0 2.5rem;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    height: 6rem;
+  }
+
+  .turmas_form button.btn.btn-get {
+    position: relative;
+    top: 0px;
+    margin: 0 0 -80px;
+    font-size:20px;
+  }
+
+  @-webkit-keyframes AnimationGradient {
+    0% {
+      background-position: 26% 0%;
+    }
+    50% {
+      background-position: 75% 100%;
+    }
+    100% {
+      background-position: 26% 0%;
+    }
+  }
+
+  @keyframes AnimationGradient {
+    0% {
+      background-position: 26% 0%;
+    }
+    50% {
+      background-position: 75% 100%;
+    }
+    100% {
+      background-position: 26% 0%;
+    }
+  }
+
+  .label-float {
+    position: relative;
+    padding-top: 3em;
+  }
+
+  .label-float input {
+    border: 0;
+    outline: none;
+    font-size: 0.5em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance:none;
+    border-radius:0;
+  }
+
+  .label-float input:focus {
+    border-bottom: 2px solid #dd709f;
+    outline: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .label-float input::placeholder {
+    color:transparent;
+  }
+
+  .label-float label {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 3em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+  }
+
+  .label-float input:focus + label,
+  .label-float input:not(:placeholder-shown) + label {
+    font-size: 0.8em;
+    margin-top: 0;
+    color: #dd709f;
+  }
+
+  #paginaTurma {
+    max-width: 100%
+  }
+
+  #iconeEditar {
+    margin-right: 0.75em;
+    color: blue;
+  }
+
+  #iconeExcluir {
+    color: red;
+  }
+
+  .modal-body {
+    background-color: #fff;
+        border-radius: 30px;
+
+  }
+
+  .scroll{
+    overflow-y: scroll;
+    min-height: 13em;
+    max-height: 20em;
+    margin-top: 4em;
+  }

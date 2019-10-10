@@ -1,8 +1,9 @@
+
 .body {
-  background: rgba(189, 116, 184, 0.36);
   height: 100vh;
+  background: rgba(189, 116, 184, 0.36);  
   font-family: 'Ubuntu', sans-serif;
-  }
+}
 
 .row {
   margin-left: 0px;
@@ -149,6 +150,11 @@
   font-family: 'Ubuntu', sans-serif;
   }
   
+  .deslogar{
+    display: flex;
+    margin: 0px auto;
+  }
+
   button {
     background-color: #dc2e26bd;
     border: none;
