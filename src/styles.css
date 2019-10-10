@@ -83,8 +83,16 @@
   font-size: 12pt;
   font-family: "Raleway";
   border: none;
-  border-bottom: 1px solid;
+  border-bottom: 1.5px solid;
+  box-sizing: border-box;
+}
+
+.campo-formulario-amarelo {
   border-color: #f1be6c;
+}
+
+.campo-formulario-rosa {
+  border-color: #dc7fab;
 }
 
 .campo-formulario:focus {

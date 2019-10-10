@@ -19,7 +19,7 @@
   }
 
   .main-content {
-    width: 250px;
+    width: 75%;
     height: 40%;
     margin: 10px auto;
     background-color: #fff;
@@ -36,6 +36,7 @@
     margin: 0px auto;
   }
   .overlap-text {
+    margin-top: 10px;
     position: relative;
   }
 
@@ -62,7 +63,7 @@
   }
 
   .sub-content {
-    width: 250px;
+    width: 75%;
     height: 40%;
     margin: 10px auto;
     border: 1px solid #e6e6e6;
@@ -93,7 +94,6 @@
     background-color: #70aba0;
     border: none;
     color: white;
-    padding: 15px 0px;
     margin-top: 20px;
     text-align: center;
     text-decoration: none;
@@ -115,19 +115,9 @@
     font-family: 'Ubuntu', sans-serif;
   }
 
-  /* input {
-    width: 100%;
+  input {
     padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #d68fae;
-    outline: none;
-    outline-color: #dd709f;
-    outline-width: thick;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 17px;
-  } */
+  }
 
   .div-button {
     margin-top: 10px;

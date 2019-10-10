@@ -12,9 +12,9 @@
         <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
     </div>
     <div class="l-part">
-      <input type="text" placeholder="Matricula" class="campo-formulario" formControlName="matricula" />
+      <input type="text" placeholder="Matricula" class="campo-formulario campo-formulario-rosa" formControlName="matricula" />
       <div class="overlap-text">
-        <input type="password" placeholder="Senha" class="campo-formulario" formControlName="senha" />
+        <input type="password" placeholder="Senha" class="campo-formulario campo-formulario-rosa" formControlName="senha" />
       </div>
       <div class="div-button">
           <button class="botao botao-verde" [disabled]="formularioLogin.get('matricula').hasError('required') || formularioLogin.get('senha').hasError('required')" type="submit"> Login </button>
