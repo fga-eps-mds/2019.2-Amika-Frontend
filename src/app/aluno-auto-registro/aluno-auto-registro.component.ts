@@ -26,9 +26,7 @@ export class AlunoAutoRegistroComponent implements OnInit {
   cadastrarAluno(dadosAluno) {
     console.log('Usuario cadastrado!');
     let dados = {"username" : dadosAluno.username, "first_name": dadosAluno.first_name, "last_name": dadosAluno.last_name, "password": dadosAluno.password}
-    console.log(dados)
     this.requisicaoService.realizarRequisicao(dados);
-    console.log(this.requisicaoService.errors);
     this.requisicaoService.errors
   }
 
