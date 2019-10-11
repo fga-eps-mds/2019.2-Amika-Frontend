@@ -1,12 +1,14 @@
+@import "../app.component.css";
+
 * {
     margin: 0px;
     padding: 0px;
   }
-  
+
   body {
     background-color: #eee;
   }
-  
+
   #wrapper {
     width: 500px;
     height: 50%;
@@ -15,16 +17,16 @@
     margin: 50px auto;
     padding: 10px;
   }
-  
+
   .main-content {
-    width: 250px;
+    width: 75%;
     height: 40%;
     margin: 10px auto;
     background-color: #fff;
     border: 2px solid #e6e6e6;
     padding: 40px 50px;
   }
-  
+
   .header {
     border: 0px solid #000;
   }
@@ -34,9 +36,10 @@
     margin: 0px auto;
   }
   .overlap-text {
+    margin-top: 10px;
     position: relative;
   }
-  
+
   .overlap-text a {
     position: absolute;
     top: 8px;
@@ -47,7 +50,7 @@
     font-family: 'Overpass Mono', monospace;
     letter-spacing: -1px;
   }
-  
+
   .btn {
     width: 100%;
     background-color: #3897f0;
@@ -58,16 +61,16 @@
     cursor: pointer;
     border-radius: 3px;
   }
-  
+
   .sub-content {
-    width: 250px;
+    width: 75%;
     height: 40%;
     margin: 10px auto;
     border: 1px solid #e6e6e6;
     padding: 20px 50px;
     background-color: #fff;
   }
-  
+
   .s-part {
     text-align: center;
     font-family: 'Overpass Mono', monospace;
@@ -75,7 +78,7 @@
     letter-spacing: -2px;
     font-weight: normal;
   }
-  
+
   .s-part a {
     text-decoration: none;
     cursor: pointer;
@@ -85,13 +88,12 @@
     letter-spacing: -2px;
     font-weight: normal;
   }
-  
+
 
   button {
     background-color: #70aba0;
     border: none;
     color: white;
-    padding: 15px 0px;
     margin-top: 20px;
     text-align: center;
     text-decoration: none;
@@ -112,19 +114,9 @@
     color : red;
     font-family: 'Ubuntu', sans-serif;
   }
-  
+
   input {
-    width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none; 
-    border-bottom: 2px solid #d68fae;
-    outline: none;
-    outline-color: #dd709f;
-    outline-width: thick;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 17px;
   }
 
   .div-button {
