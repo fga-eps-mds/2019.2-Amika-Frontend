@@ -1,1 +1,42 @@
-<p>agenda-edit works!</p>
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+
+<nav class="navbar-center text-center">
+    <h1>Editar Agenda</h1>
+  </nav>
+<div class="col-sm-6" id="telaEditar">
+    <form class="main__form needs-validation formularioEditar" novalidade [formGroup] = "formularioAgenda">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="form-group label-float">
+                  <input type="text" class="form-control" id="nomeAgenda" aria-describedby="nomeAgenda" placeholder="Nome da Agenda" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
+                  <label for="nomeAgenda">Nome da Agenda</label>
+                  <div class="invalid-feedback" *ngIf="hasError('nome')">
+                      Por favor, informe o nome da Agenda.
+                    </div>
+              </div>
+              <div class="form-group label-float">
+                <input type="text" class="form-control" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
+                <label for="nomeAgenda">Tipo da Agenda</label>
+                <div class="invalid-feedback" *ngIf="hasError('nome')">
+                    Por favor, informe o tipo da Agenda.
+                  </div>
+              </div>
+              <div class="form-group label-float">
+                <input type="text" class="form-control" id="descricaoAgenda" aria-describedby="descricaoAgenda" placeholder="Descrição da Agenda" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                <label for="nomeAgenda">Descrição da Agenda</label>
+                <div class="invalid-feedback" *ngIf="hasError('nome')">
+                    Por favor, informe a descrição da Agenda.
+                  </div>
+              </div>
+          </div>
+        <div class="text-left col-md-6">
+          <button type="submit" class=" btn btn-get" (click)="onSave()"><span> Salvar</span></button>
+        </div>
+        <div class="text-right col-md-6">
+            <button type="submit" class=" btn btn-get" (click)="return()"><span> Cancelar</span></button>
+          </div>
+        </div>
+  </form>
+</div>

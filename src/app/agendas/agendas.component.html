@@ -25,7 +25,7 @@
             <tr *ngFor="let agenda of agendas" >
               <td>{{agenda.nome}}</td>
               <td>{{agenda.descricao}}</td>
-              <td>{{agenda.tipo}}</td>
+              <td>{{agenda.id}}</td>
               <td><i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i></td>
             </tr>
           </tbody>
