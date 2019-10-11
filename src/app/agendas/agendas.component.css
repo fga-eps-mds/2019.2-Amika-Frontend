@@ -118,7 +118,7 @@ h2 {
     position: relative;
     z-index: 1;
     background: transparent;
-    /* height: 6rem; */
+    height: 4rem;
   }
 
   .agendas_form button.btn.btn-get {
@@ -154,7 +154,7 @@ h2 {
 
   .label-float {
     position: relative;
-    padding-top: 2em;
+    /* padding-top: 2em; */
   }
 
   .label-float input {
