@@ -23,7 +23,6 @@ export class AgendasComponent implements OnInit {
     private router: Router, private route: ActivatedRoute, private modalService: BsModalService) {
     this.getter();
     this.formularioAgenda = this.formBuilder.group({
-      id: ['', Validators.required],
       nome: ['', Validators.required],
       descricao: ['', Validators.required],
       tipo: ['', Validators.required]
@@ -83,7 +82,7 @@ export class AgendasComponent implements OnInit {
   }
 
   onEdit(id) {
-    this.router.navigate(['agendas-edit/:id', id]);
+    this.router.navigate(['agenda-edit', id]);
   }
 }
 
