@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
+import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     TurmasComponent,
     TurmaEditComponent,
     LoginComponent,
-    AgendasComponent
+    AgendasComponent,
+    AgendaEditComponent
   ],
   imports: [
     RouterModule.forRoot(
