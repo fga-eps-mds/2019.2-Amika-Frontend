@@ -18,7 +18,7 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'agenda', component: AgendasComponent },
-  { path: 'agenda-edit/:pk', component: AgendaEditComponent},
+  { path: 'agenda-edit/:id', component: AgendaEditComponent},
 ];
 
 @NgModule({

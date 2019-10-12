@@ -22,7 +22,6 @@ export class AgendaEditComponent implements OnInit {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
-        console.log(this.formularioAgenda.id);
         const agenda$ = this.agendaService.get_agenda(id)
         agenda$.subscribe(agenda => {
           this.updateForm(agenda);
@@ -30,7 +29,7 @@ export class AgendaEditComponent implements OnInit {
       }
       );
     this.formularioAgenda = this.formBuilder.group({
-      id: [''],
+      id: [null],
       nome: ['', Validators.required],
       tipo: ['', Validators.required],
       descricao: ['', Validators.required],
