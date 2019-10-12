@@ -19,5 +19,17 @@ export class GrupoService {
     return this.http.delete(environment.urlApi + 'grupo/' + id, id);
   }
 
+  public create_grupos(grupo): Observable<any> {
+    return this.http.post(environment.urlApi + 'grupos/', grupo)
+  }
+
+  public edit_grupos(id, grupo): Observable<any> {
+    return this.http.put(environment.urlApi + 'grupo/' + id, grupo)
+  }
+
+  public getById(id) {
+    return this.http.get(environment.urlApi + 'grupo/' + id, id);
+  }
+
 
 }
