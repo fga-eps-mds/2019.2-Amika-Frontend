@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { GrupoService } from '../grupo.service';
+import { GrupoService } from './grupo.service';
 import { Grupo } from './grupos.model';
 
 @Component({
@@ -40,4 +40,49 @@ export class GruposComponent implements OnInit {
     });
     this.submitted = false;
   }
+
+hasError(field: string) {
+  return this.formularioGrupo.get(field).errors;
+}
+
+onDelete(grupo) {
+  this.grupoSelecionado = grupo;
+  this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'});
+}
+
+onConfirmDelete() {
+   this.grupoService.delete_grupos(this.grupoSelecionado.id).subscribe((data: any) => {
+    console.log(data);
+    this.getter();
+  }, (error: any) => {
+    this.error = error;
+  });
+   this.deleteModalRef.hide();
+}
+
+onDeclineDelete() {
+  this.deleteModalRef.hide();
+}
+
+onSubmit() {
+  console.log(this.formularioGrupo.value);
+  this.submitted = true;
+
+  if (this.formularioGrupo.valid) {
+    console.log('Enviar');
+    this.grupoService.create_grupos(this.formularioGrupo.value).subscribe((data: any) => {
+      console.log(data);
+      this.formularioGrupo.reset();
+      this.getter();
+
+    }, (error: any) => {
+      this.error = error;
+    });
+  }
+}
+
+onEdit(id) {
+  this.router.navigate(['grupos_editar', id]);
+
+}
 }
