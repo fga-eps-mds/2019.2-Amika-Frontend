@@ -7,7 +7,9 @@ h1, h5, h6 {
     font-family: "Nunito", sans-serif;
   }
   
-  
+  .centralizador {
+      display: flex
+  }
   .tabela-alunos {
     border: 1px solid #ccc;
     margin-top: 0;

@@ -10,8 +10,8 @@
   </nav>
   
   <div class="row" id="paginaGrupo">
-    <div class="col-md-6" class="justify-content-center">
-      <div class="col-md-12">
+    <div class="col-md-4 align-items justify-content-center">
+      <div class="col-md-10">
         <div *ngFor="let grupo of grupos">
           <div class="card" style="width: 18rem;">
               <div class="card-body">
@@ -19,11 +19,13 @@
                 <div *ngFor="let aluno of grupo.alunos">
                   <p> class="card-text">{{grupo.alunos}}</p>
                 </div>  
-                <button type="sumit" class="btn btn-get" >Ver grupo</button>
+                <button type="submit" class="btn btn-get align-items" >Ver grupo</button>
               </div>
             </div>
       </div>
     </div>
   </div>  
 </div>
+
+
 </div>    
