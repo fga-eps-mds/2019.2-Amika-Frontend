@@ -40,26 +40,26 @@
             <div class="col-md-12">
 
               <div class="form-group label-float">
-                <label for="nomeAgenda">Nome da Agenda</label>
                 <input type="text" class="form-control" id="nomeAgenda" aria-describedby="nomeAgenda" placeholder="Nome da Agenda" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
+                <label for="nomeAgenda">Nome da Agenda</label>
                 <div class="invalid-feedback" *ngIf="hasError('nome')">
                   Por favor, informe o nome da agenda.
                 </div>
               </div>
               <div class="form-group label-float">
-                <label for="descricaoAgenda">Descrição Agenda</label>
                 <input type="text" class="form-control" id="descricaoAgenda" aria-describedby="descricaoAgenda" placeholder="Descrição da Agenda" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                <label for="descricaoAgenda">Descrição Agenda</label>
                 <div class="invalid-feedback" *ngIf="hasError('descricao')">
                   Por favor, informe a descrição da agenda.
                 </div>
               </div>
               <div class="form-group label-float">
-                <label for="tipoAgenda">Tipo da Agenda</label>
-                <select type="text" class="form-control" pattern="" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
+                <select type="text" class="form-control border-none" pattern="" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
                   <option value="" disabled selected>Selecionar o Tipo</option>
                   <option>Individual</option>
                   <option>Grupo</option>
                 </select>
+                <label for="tipoAgenda">Tipo da Agenda</label>
 
                   <div class="invalid-feedback" *ngIf="hasError('tipo')">
                   Por favor, informe o tipo da agenda.

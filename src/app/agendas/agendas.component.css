@@ -191,10 +191,55 @@ h2 {
   }
 
   .label-float input:focus + label,
-  .label-float input:not(:placeholder-shown) + label {
+  .label-float input:not(:placeholder-shown) + label d{
     font-size: 0.8em;
-    margin-top: 0;
+    margin-top: 30;
     color: #dd709f;
+  }
+
+  .label-float select:focus + label,
+  .label-float select:not(:placeholder-shown) + label d{
+    font-size: 0.8em;
+    margin-top: 30;
+    color: #dd709f;
+  }
+
+  .label-float select:focus, 
+  .label-float input:focus {
+    border-bottom: 2px solid #dd709f;
+    outline: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .border-none:focus
+  {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+  }
+
+  .border-none:active
+  {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+  }
+
+  /* .border-none:focus {
+    border:0px !important;
+    outline: none;
+  }
+
+  .border-none:active {
+    border:0px !important;
+    outline: none;
+  } */
+
+
+  option {
+    border:0px;
+    outline:0px;
   }
 
   #paginaAgenda {

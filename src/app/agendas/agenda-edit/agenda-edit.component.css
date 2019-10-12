@@ -90,11 +90,11 @@ h2 {
   }
 
   .main__form .form-group select{
-    height: 6rem;
+    height: 4rem;
     font-size: 0.8rem;
   }
 
-
+  .main__form .form-group select:not(:placeholder-shown) + label,
   .main__form .form-group input:not(:placeholder-shown) + label,
   .main__form .form-group textarea:not(:placeholder-shown) + label {
     top: 2%;
@@ -156,6 +156,7 @@ h2 {
     padding-top: 4em;
   }
 
+  .label-float select, 
   .label-float input {
     border: 0;
     outline: none;
@@ -167,6 +168,7 @@ h2 {
     border-radius:0;
   }
 
+  .label-float select:focus, 
   .label-float input:focus {
     border-bottom: 2px solid #dd709f;
     outline: none;
@@ -198,10 +200,18 @@ h2 {
   .label-float input:required:invalid + label:before {
     content: '*';
   }
+
   .label-float input:focus + label,
   .label-float input:not(:placeholder-shown) + label d{
     font-size: 0.8em;
-    margin-top: 0;
+    margin-top: 30;
+    color: #dd709f;
+  }
+
+  .label-float select:focus + label,
+  .label-float select:not(:placeholder-shown) + label d{
+    font-size: 0.8em;
+    margin-top: 30;
     color: #dd709f;
   }
 
