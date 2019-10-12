@@ -55,8 +55,13 @@
               </div>
               <div class="form-group label-float">
                 <label for="tipoAgenda">Tipo da Agenda</label>
-                <input type="text" class="form-control" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
-                <div class="invalid-feedback" *ngIf="hasError('tipo')">
+                <select type="text" class="form-control" pattern="" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
+                  <option value="" disabled selected>Selecionar o Tipo</option>
+                  <option>Individual</option>
+                  <option>Grupo</option>
+                </select>
+
+                  <div class="invalid-feedback" *ngIf="hasError('tipo')">
                   Por favor, informe o tipo da agenda.
                 </div>
               </div>
