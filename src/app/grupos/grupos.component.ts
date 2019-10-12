@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { GrupoService } from './grupo.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
