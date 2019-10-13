@@ -12,7 +12,7 @@ export class GrupoService {
   constructor(private http: HttpClient) { }
 
   public get_grupos(): Observable<any> {
-    return this.http.get(environment.urlApi + 'grupo/')
+    return this.http.get(environment.urlApi + 'lista_grupos/');
   }
 
   public delete_grupos(id): Observable<any> {
@@ -20,16 +20,15 @@ export class GrupoService {
   }
 
   public create_grupos(grupo): Observable<any> {
-    return this.http.post(environment.urlApi + 'grupos/', grupo)
+    return this.http.post(environment.urlApi + 'grupos/', grupo);
   }
 
   public edit_grupos(id, grupo): Observable<any> {
-    return this.http.put(environment.urlApi + 'grupo/' + id, grupo)
+    return this.http.put(environment.urlApi + 'grupo/' + id, grupo);
   }
 
   public getById(id) {
     return this.http.get(environment.urlApi + 'grupo/' + id, id);
   }
-
 
 }
