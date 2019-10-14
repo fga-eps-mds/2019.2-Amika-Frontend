@@ -263,10 +263,17 @@ h2 {
 
   .scroll{
     overflow-y: scroll;
+    overflow-x: hidden;
     min-height: 13em;
-    max-height: 20em;
+    max-height: 24em;
   }
 
   .titulo{
     margin-bottom: 3em;
+  }
+
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
   }

@@ -18,6 +18,8 @@
               <th>Nome</th>
               <th>Descrição</th>
               <th>Tipo</th>
+              <th>Data disponibilização</th>
+              <th>Data encerramento</th>
               <th>Ação</th>
             </tr>
           </thead>
@@ -26,6 +28,8 @@
               <td>{{agenda.nome}}</td>
               <td>{{agenda.descricao}}</td>
               <td>{{agenda.tipo}}</td>
+              <td>{{agenda.data_disponibilizacao}}</td>
+              <td>{{agenda.data_encerramento}}</td>
               <td><i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i></td>
             </tr>
           </tbody>
@@ -51,6 +55,20 @@
                 <label for="descricaoAgenda">Descrição Agenda</label>
                 <div class="invalid-feedback" *ngIf="hasError('descricao')">
                   Por favor, informe a descrição da agenda.
+                </div>
+              </div>
+              <div class="form-group label-float">
+                <input type="date" class="form-control" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Descrição da Agenda" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }">
+                <label for="data_disponibilizacaoAgenda">Data de disponibilização</label>
+                <div class="invalid-feedback" *ngIf="hasError('data_disponibilizacao')">
+                  Por favor, informe a data de disponibilização.
+                </div>
+              </div>
+              <div class="form-group label-float">
+                <input type="date" class="form-control" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Descrição da Agenda" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }">
+                <label for="data_encerramentoAgenda">Data de encerramento</label>
+                <div class="invalid-feedback" *ngIf="hasError('data_encerramento')">
+                  Por favor, informe a data de encerramento.
                 </div>
               </div>
               <div class="form-group label-float">

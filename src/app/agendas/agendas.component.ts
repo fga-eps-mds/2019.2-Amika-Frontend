@@ -25,7 +25,9 @@ export class AgendasComponent implements OnInit {
     this.formularioAgenda = this.formBuilder.group({
       nome: ['', Validators.required],
       descricao: ['', Validators.required],
-      tipo: ['', Validators.required]
+      tipo: ['', Validators.required],
+      data_disponibilizacao: ['', Validators.required],
+      data_encerramento: ['', Validators.required],
     });
   }
 
