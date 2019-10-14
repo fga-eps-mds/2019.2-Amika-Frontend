@@ -1,88 +1,90 @@
-<div>
+<html>
 <head>
   <title>
   </title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
 </head>
-<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
 
-<div>
-    <nav class="navbar-center text-center">
-      <h1>Matrículas</h1>
-    </nav>
-    
-  <div class="row" id="paginaTurma">
-    <div class="col-md-6">
-      <h2 class="text-center">Matrícula individual</h2>
-      <div class="col-md-12 scroll" >
-        <form [formGroup]="formulario" class="turmas_form needs-validation" (ngSubmit)="cadastroIndividual(formulario.value)" id="formIndividual">
-            <div class="form-group label-float">
-                <input type="text" class="form-control" placeholder="Matrícula" formControlName="matricula"/>
-                <label for="nomeTurma">Matrícula</label>
-                <div class="invalid-feedback" *ngIf="formulario.hasError('nome')">
-                  Por favor, informe o nome da turma.
-                </div>
-            </div>
-            <div class="form-group">
-                <select name="turma" class="form-control" form="formIndividual" formControlName="turma">
-                    <option selected></option>
-                    <option>A</option>
-                    <option>B</option>
-                    <option>C</option>
-                    <option>D</option>
-                  </select>    
-                <div class="invalid-feedback" *ngIf="formulario.hasError('nome')">
-                  Por favor, informe o nome da turma.
-                </div>
-            </div>
-            <div class="text-center" id="enviarForm">
-              <button type="submit" class=" btn btn-get" value="CADASTRAR"><span> Cadastrar</span></button>
-            </div>
-          </form>        
-      </div>
-    </div>
+<body>
+    <div>
+        <nav class="navbar-center text-center">
+          <h1>Matrículas</h1>
+        </nav>
 
-    <div class="col-md-6">
-      <h2 class="text-center">Matrícula com CSV</h2>
-      <div class="col-md-12 scroll" >
-          <div class="form-group">
-              <label for="nomeCampo">Adicionar Lista de Matrículas</label>
-              <input type="file" class="form-control" name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
+      <div class="row" id="paginaTurma">
+        <div class="col-md-6">
+          <h2 class="text-center">Matrícula individual</h2>
+          <div class="col-md-12 scroll" >
+            <form [formGroup]="formulario" class="turmas_form needs-validation" (ngSubmit)="cadastroIndividual(formulario.value)" id="formIndividual">
+                <div class="form-group label-float">
+                    <input type="text" class="form-control" placeholder="Matrícula" formControlName="matricula"/>
+                    <label for="nomeTurma">Matrícula</label>
+                    <div class="invalid-feedback" *ngIf="formulario.hasError('nome')">
+                      Por favor, informe o nome da turma.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select name="turma" class="form-control" form="formIndividual" formControlName="turma">
+                        <option selected></option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                      </select>
+                    <div class="invalid-feedback" *ngIf="formulario.hasError('nome')">
+                      Por favor, informe o nome da turma.
+                    </div>
+                </div>
+                <div class="text-center" id="enviarForm">
+                  <button type="submit" class=" btn btn-get" value="CADASTRAR"><span> Cadastrar</span></button>
+                </div>
+              </form>
           </div>
-          <div class="form-group label-floats">
-                <div class="tituloSemestre">Semestre:</div>
-                <select class="form-control">
-                  <option selected="selected"></option>
-                  <option value="1">1º</option>
-                  <option value="2">2º</option>
-                  <option value="3">3º</option>
-                  <option value="4">4º</option>
-                  <option value="5">5º</option>
-                  <option value="6">6º</option>
-                  <option value="7">7º</option>
-                  <option value="8">8º</option>
-                  <option value="9">9º</option>
-                  <option value="10">10º</option>
-                  <option value="11">11º</option>
-                  <option value="12">12º</option>
-                  <option value="13">13º</option>
-                  <option value="14">14º</option>
-                  <option value="15">15º</option>
-                  <option value="16">16º</option>
-                </select>
+        </div>
+
+        <div class="col-md-6">
+          <h2 class="text-center">Matrícula com CSV</h2>
+          <div class="col-md-12 scroll" >
+            <div class="form-group">
+                <label for="nomeCampo">Adicionar Lista de Matrículas</label>
+                <input type="file" class="form-control" name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
+            </div>
+            <div class="form-group label-floats">
+              <div class="tituloSemestre">Semestre:</div>
+              <select class="form-control">
+                <option selected="selected"></option>
+                <option value="1">1º</option>
+                <option value="2">2º</option>
+                <option value="3">3º</option>
+                <option value="4">4º</option>
+                <option value="5">5º</option>
+                <option value="6">6º</option>
+                <option value="7">7º</option>
+                <option value="8">8º</option>
+                <option value="9">9º</option>
+                <option value="10">10º</option>
+                <option value="11">11º</option>
+                <option value="12">12º</option>
+                <option value="13">13º</option>
+                <option value="14">14º</option>
+                <option value="15">15º</option>
+                <option value="16">16º</option>
+              </select>
               <div class="botaoCadastrar"><button (click)="cadastrar()">CADASTRAR</button></div>
             </div>
-            
+          </div>
+        </div>
+        <ng-template #deleteModal class="modal-body">
+          <div class="modal-body text-center">
+            <h5>Tem certeza que deseja remover essa turma?</h5>
+            <button type="button" class="btn btn-confirm" (click)="onConfirmDelete()"> Sim</button>
+            <button type="button" class="btn btn-decline" (click)="onDeclineDelete()"> Não</button>
+          </div>
+        </ng-template>
+      </div>
   </div>
-</div>
-
-<ng-template #deleteModal class="modal-body">
-  <div class="modal-body text-center">
-    <h5>Tem certeza que deseja remover essa turma?</h5>
-    <button type="button" class="btn btn-confirm" (click)="onConfirmDelete()"> Sim</button>
-    <button type="button" class="btn btn-decline" (click)="onDeclineDelete()"> Não</button>
-  </div>
-</ng-template>
-
+</body>
+</html>
