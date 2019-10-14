@@ -121,7 +121,7 @@ export class ListaDeMatriculaComponent implements OnInit {
 
   //Métodos para matricula individual
   cadastroIndividual(dadosIndividuais){
-    let dados = {"matricula": dadosIndividuais.matricula, "turma": dadosIndividuais.turma}
+    let dados = [{"matricula": dadosIndividuais.matricula, "turma": dadosIndividuais.turma}]
     console.log("AQUI!")
     console.log(dados)
     console.log("AQUI!")
