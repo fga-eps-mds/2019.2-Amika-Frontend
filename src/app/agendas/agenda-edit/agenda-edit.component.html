@@ -34,6 +34,20 @@
                   Por favor, informe a descrição da Agenda.
                 </div>
               </div>
+              <div class="form-group label-float">
+                <input type="date" class="form-group" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Descrição da Agenda" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }">
+                <label for="nomeAgenda">Descrição da Agenda</label>
+                <div class="invalid-feedback" *ngIf="hasError('nome')">
+                  Por favor, informe a descrição da Agenda.
+                </div>
+              </div>
+              <div class="form-group label-float">
+                <input type="date" class="form-group" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Descrição da Agenda" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }">
+                <label for="nomeAgenda">Descrição da Agenda</label>
+                <div class="invalid-feedback" *ngIf="hasError('nome')">
+                  Por favor, informe a descrição da Agenda.
+                </div>
+              </div>
           </div>
         <div class="text-left col-md-6">
           <button type="submit" class=" btn btn-get" (click)="onSave()"><span> Salvar</span></button>

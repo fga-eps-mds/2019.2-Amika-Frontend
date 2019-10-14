@@ -33,6 +33,8 @@ export class AgendaEditComponent implements OnInit {
       nome: ['', Validators.required],
       tipo: ['', Validators.required],
       descricao: ['', Validators.required],
+      data_disponibilizacao: ['', Validators.required],
+      data_encerramento: ['', Validators.required],
     });
    }
 
@@ -49,6 +51,8 @@ export class AgendaEditComponent implements OnInit {
       nome: agenda.nome,
       tipo: agenda.tipo,
       descricao: agenda.descricao,
+      data_disponibilizacao: agenda.data_disponibilizacao,
+      data_encerramento: agenda.data_encerramento,
     });
   }
 
