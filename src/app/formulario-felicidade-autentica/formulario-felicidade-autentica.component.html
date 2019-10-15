@@ -1,8 +1,13 @@
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+
 <p>Por favor, leia cada grupo de declarações cuidadosamente. 
   Depois seleciona a declaração de cada grupo que descreva 
   melhor a forma com que você está se sentindo na última semana, incluindo hoje. 
   Tenha certeza de ler todas as declarações de cada grupo antes de fazer sua escolha.
 </p>
+<br>
 
 <form [formGroup]="formPontuacao">
     <div class="form-group">
@@ -346,5 +351,4 @@
 
 
 <input type="submit" class="btn btn-primary mt-4" value="Salvar">
-<a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
-       
+<input type='button' class="btn btn-primary mt-4" value='Voltar' onclick='history.go(-1)' />       
