@@ -1,1 +1,28 @@
-<p>grupo-edit works!</p>
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+
+<nav class="navbar-center text-center">
+    <h1>Editar Grupo</h1>
+  </nav>
+<div class="col-sm-6" id="telaEditar">
+    <form class="main__form needs-validation formularioEditar" novalidade [formGroup] = "formularioGrupo">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="form-group label-float">
+                  <input type="text" class="form-control" id="nomeGrupo" aria-describedby="nomeGrupo" placeholder="Nome da Grupo" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
+                  <label for="nomeTurma">Nome da Grupo</label>
+                  <div class="invalid-feedback" *ngIf="hasError('nome')">
+                      Por favor, informe o nome da grupo.
+                    </div>
+              </div>
+          </div>
+        <div class="text-left col-md-6">
+          <button type="submit" class=" btn btn-get" (click)="onSave()"><span> Salvar</span></button>
+        </div>
+        <div class="text-right col-md-6">
+            <button type="submit" class=" btn btn-get" (click)="return()"><span> Cancelar</span></button>
+          </div>
+        </div>
+  </form>
+</div>

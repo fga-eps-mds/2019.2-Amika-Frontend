@@ -17,9 +17,11 @@
               <div class="card-body">
                 <h5 class="card-title" class="text-center">{{grupo.nome}}</h5>
                 <div *ngFor="let aluno of grupo.alunos">
-                  <p> class="card-text">{{grupo.alunos}}</p>
-                </div>  
-                <button type="submit" class="btn btn-get align-items" >Ver grupo</button>
+                  <p class="card-text">Aluno</p>
+                  <p class="card-text">Ithalo</p>
+                  
+                </div >  
+                <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(grupo)" class="fas fa-trash"  id="iconeExcluir"></i>
               </div>
             </div>
       </div>
@@ -27,5 +29,12 @@
   </div>  
 </div>
 
-
 </div>    
+
+<ng-template #deleteModal class="modal-body">
+  <div class="modal-body text-center">
+    <h5>Tem certeza que deseja remover esse grupo?</h5>
+    <button type="button" class="btn btn-confirm" (click)="onConfirmDelete()"> Sim</button>
+    <button type="button" class="btn btn-decline" (click)="onDeclineDelete()"> Não</button>
+  </div>
+</ng-template>

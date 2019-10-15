@@ -13,6 +13,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
+import { GrupoEditComponent } from './grupo-edit/grupo-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GrupoService } from './grupos/grupo.service';
     TurmasComponent,
     TurmaEditComponent,
     LoginComponent,
-    GruposComponent
+    GruposComponent,
+    GrupoEditComponent
   ],
   imports: [
     ReactiveFormsModule,
