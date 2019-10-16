@@ -11,6 +11,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component';
+
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+ // { path: 'hero/:id',      component: HeroDetailComponent },
+  { path: 'formulario', component: FormularioFelicidadeAutenticaComponent}
+
+];
 
 @NgModule({
   declarations: [
@@ -18,13 +27,18 @@ import { LoginComponent } from './login/login.component';
     HomepageComponent,
     TurmasComponent,
     TurmaEditComponent,
-    LoginComponent
+    LoginComponent,
+    FormularioFelicidadeAutenticaComponent
   ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+    ),
+    AppRoutingModule,
     ModalModule.forRoot()
   ],
 
