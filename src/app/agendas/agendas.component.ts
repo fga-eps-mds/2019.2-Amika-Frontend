@@ -13,7 +13,7 @@ import { AgendaService } from './agenda.service';
 export class AgendasComponent implements OnInit {
   agendas: Agenda;
   formularioAgenda: FormGroup;
-  error: any;
+  error:any={isError:false,errorMessage:''};  
   submitted = false;
   agendaSelecionada: Agenda;
   deleteModalRef: BsModalRef;
@@ -66,17 +66,26 @@ export class AgendasComponent implements OnInit {
     this.deleteModalRef.hide();
   }
 
-  onSubmit() {
-    console.log(this.formularioAgenda.value);
-    this.submitted = true;
+  validarData(){
+    if (this.formularioAgenda.value.data_disponibilizacao && this.formularioAgenda.value.data_encerramento){
+      if (new Date(this.formularioAgenda.value.data_disponibilizacao) < new Date(this.formularioAgenda.value.data_encerramento)){
+        this.error={isError:false,errorMessage:''};
+      } else {
+        this.error = {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
+      }
+    }
+    else {
+      this.error={isError:false,errorMessage:''};
+    }
+  }
 
+  onSubmit() {
+    this.submitted = true;
+    this.validarData();
     if (this.formularioAgenda.valid) {
-      console.log('Enviar');
       this.agendaService.create_agenda(this.formularioAgenda.value).subscribe((data: any) => {
-        console.log(data);
         this.formularioAgenda.reset();
         this.getter();
-
       }, (error: any) => {
         this.error = error;
       });
