@@ -53,7 +53,7 @@
               </div>
           </div>
         <div class="text-left col-md-6">
-          <button type="submit" class=" btn btn-get" (click)="onSave()"><span> Salvar</span></button>
+          <button type="submit" class=" btn btn-get" [disabled]="error.isError" (click)="onSave()"><span> Salvar</span></button>
         </div>
         <div class="text-right col-md-6">
             <button type="submit" class=" btn btn-get" (click)="return()"><span> Cancelar</span></button>

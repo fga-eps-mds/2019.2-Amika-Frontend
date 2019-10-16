@@ -36,7 +36,6 @@ export class AgendasComponent implements OnInit {
 
   getter() {
     this.agendaService.get_agendas().subscribe((data: any) => {
-      console.log(data);
       this.agendas = data;
     }, (error: any) => {
       this.error = error;
@@ -54,7 +53,6 @@ export class AgendasComponent implements OnInit {
 
   onConfirmDelete() {
      this.agendaService.delete_agenda(this.agendaSelecionada.id).subscribe((data: any) => {
-      console.log(data);
       this.getter();
     }, (error: any) => {
       this.error = error;
