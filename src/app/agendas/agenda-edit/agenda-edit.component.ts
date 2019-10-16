@@ -13,7 +13,7 @@ import { AgendasComponent } from '../agendas.component';
 
 export class AgendaEditComponent implements OnInit {
   agendas: Agenda;
-  error: any;
+  error:any={isError:false,errorMessage:''};  
   formularioAgenda: FormGroup;
   submitted = false;
   agendaComponent: AgendasComponent;
@@ -45,6 +45,19 @@ export class AgendaEditComponent implements OnInit {
     this.router.navigate(['agenda']);
   }
 
+  validarData(){
+    if (this.formularioAgenda.value.data_disponibilizacao && this.formularioAgenda.value.data_encerramento){
+      if (new Date(this.formularioAgenda.value.data_disponibilizacao) < new Date(this.formularioAgenda.value.data_encerramento)){
+        this.error={isError:false,errorMessage:''};
+      } else {
+        this.error = {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
+      }
+    }
+    else {
+      this.error={isError:false,errorMessage:''};
+    }
+  }
+
   updateForm(agenda) {
     this.formularioAgenda.patchValue({
       id: agenda.id,
@@ -58,16 +71,13 @@ export class AgendaEditComponent implements OnInit {
 
   onSave() {
     this.submitted = true;
+    this.validarData();
     this.route.params.subscribe(
       (params: any) => {
         if (this.formularioAgenda.valid) {
-          console.log('Editado');
-          console.log(this.formularioAgenda);
           this.agendaService.edit_agenda(params['id'], this.formularioAgenda.value).subscribe((data: any) => {
-            console.log(data);
             this.formularioAgenda.reset();
             this.return();
-
           }, (error: any) => {
             this.error = error;
           });
