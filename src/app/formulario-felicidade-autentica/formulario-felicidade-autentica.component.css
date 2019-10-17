@@ -117,7 +117,7 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: none; 
+  border: none;
   border-bottom: 2px solid #d68fae;
   outline: none;
   outline-color: #dd709f;
@@ -169,10 +169,16 @@ fieldset {
   user-select: none;
 }
 
+.form-check-label {
+  display: inline-block;
+}
+
 .form-check input {
   position: relative;
+  margin-right: 5px;
   opacity: 100;
   cursor: pointer;
+  display: inline-block;
 }
 
 .form-check:hover input ~ .checkmark {
