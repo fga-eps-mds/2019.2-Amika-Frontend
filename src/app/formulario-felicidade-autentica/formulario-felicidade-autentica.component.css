@@ -145,3 +145,54 @@
   width:100%;
   height:100%;
   }
+
+  .form-check {
+    display: block;
+    position: relative;
+    /* padding-left: 35px; */
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .form-check input {
+    position: relative;
+    opacity: 100;
+    cursor: pointer;
+  }
+  
+  .form-check:hover input ~ .checkmark {
+    background-color: rgb(173, 42, 156);
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .form-check input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .form-check input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .form-check .checkmark:after {
+     top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: black;
+  }

@@ -17,4 +17,16 @@ export class FormularioFelidadeAutenticaService {
     };
   
     constructor(private http: HttpClient, private router: Router) { }
+
+    enviar(dados) { 
+        return this.http.post("http://localhost:8000/form_felicidade/", dados, this.httpOptions)
+                .subscribe(data => {
+                    console.log(data);
+                    
+                }, 
+                error => {
+                    console.log(error);
+                    this.errors = error;
+                });
+    }
 }
