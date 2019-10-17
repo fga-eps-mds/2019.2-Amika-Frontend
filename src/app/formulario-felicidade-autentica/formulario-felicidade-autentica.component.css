@@ -49,9 +49,10 @@ body {
 }
 
 .btn {
-  width: 100%;
-  background-color: #3897f0;
-  border: 1px solid #3897f0;
+  width: 80%;
+  position: center;
+  margin-left: 10%;
+  background: linear-gradient(to left, #a0e0e4, #e194b5);
   padding: 5px 12px;
   color: #fff;
   font-weight: bold;
@@ -118,9 +119,9 @@ input {
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 2px solid #d68fae;
+  /* border-bottom: 2px solid #d68fae; */
   outline: none;
-  outline-color: #dd709f;
+  /* outline-color: #dd709f; */
   outline-width: thick;
   font-family: 'Ubuntu', sans-serif;
   font-size: 17px;
@@ -215,4 +216,5 @@ fieldset {
   height: 6em;
   padding: 1.5em;
   margin-bottom: 4rem;
+  color: #eee;
 }
