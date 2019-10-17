@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { TurmasComponent } from './turmas/turmas.component';
 import { TurmaService } from './turmas/turma.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,14 +17,13 @@ import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'agenda', component: AgendasComponent },
-  { path: 'agenda-edit/:id', component: AgendaEditComponent},
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomepageComponent,
     TurmasComponent,
     TurmaEditComponent,
     LoginComponent,
@@ -31,9 +31,6 @@ const appRoutes: Routes = [
     AgendaEditComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-    ),
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,

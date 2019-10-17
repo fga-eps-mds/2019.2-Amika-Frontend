@@ -1,1 +1,162 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css?family=Nunito|Raleway|Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:500&display=swap');
+
+/* BOTAO */
+
+.botao {
+  border-radius: 50px;
+  border: none;
+  font-family: "Raleway";
+  font-size: 11pt;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.botao:first-letter {
+  text-transform: uppercase;
+}
+
+.botao:focus {
+  outline: none;
+}
+
+.botao-rosa {
+  background: #e194b5;
+  color: #ffffff;
+}
+
+.botao-rosa:hover {
+  background: #e194b5b8;
+}
+
+.botao-rosa:active {
+  background: #d083a4;
+}
+
+
+.botao-amarelo {
+  background: #f1be6c;
+  color: #ffffff;
+}
+
+.botao-amarelo:hover {
+  background: #f1be6cb8;
+}
+
+.botao-amarelo:active {
+  background: #e0ad5b;
+}
+
+.botao-azul {
+  background: #a0e0e4;
+  color: #777777;
+}
+
+.botao-azul:hover {
+  background: #a0e0e4b8;
+}
+
+.botao-azul:active {
+  background: #90d0d3;
+}
+
+.botao-verde {
+  background: #94e1c0;
+  color: #777777;
+}
+
+.botao-verde:hover {
+  background: #94e1c0b8;
+}
+
+.botao-verde:active {
+  background: #83d0bf;
+}
+
+/* CAMPOS DE FORMULARIOS */
+
+.campo-formulario {
+  color: #777777;
+  font-size: 12pt;
+  font-family: "Raleway";
+  border: none;
+  border-bottom: 1.5px solid;
+  box-sizing: border-box;
+}
+
+.campo-formulario-amarelo {
+  border-color: #f1be6c;
+}
+
+.campo-formulario-rosa {
+  border-color: #dc7fab;
+}
+
+.campo-formulario:focus {
+  outline: 0;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #bababa;
+}
+
+/* BOTOES DE ICONES */
+
+.botao-icone {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: 0;
+}
+
+.botao-icone:focus {
+  outline: 0;
+}
+
+.botao-icone-rosa {
+  background: #e194b5;
+}
+
+.botao-icone-amarelo {
+  background: #f1be6c;
+}
+
+.botao-icone-azul {
+  background: #a0e0e4;
+}
+
+.botao-icone-verde {
+  background: #94e1c0;
+}
+
+/* HEADERS, PARÁGRAFOS, TEXTOS, BACKGROUND */
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 5px;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.texto-normal {
+  font-family: "Noto Sans TC";
+  font-size: 14px;
+  line-height: 20px;
+  color: #444444;
+}
+
+p {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cor-de-background {
+  background-color: #efefef;
+}
