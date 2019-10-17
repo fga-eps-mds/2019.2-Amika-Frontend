@@ -147,12 +147,14 @@ fieldset {
   width:80%;
   height:100%;
   font-size: 22px;
-  border: 2px solid;
+  border: 5px solid;
   padding-top: 0.35em;
   padding-bottom: 0.625em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  border-color: #e194b5;
+  /* border-color: #e194b5; */
+  border-image-source: linear-gradient(to left, #a0e0e4, #e194b5);
+  border-image-slice: 1;
 }
 
 .form-check {
@@ -160,7 +162,7 @@ fieldset {
   position: relative;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
