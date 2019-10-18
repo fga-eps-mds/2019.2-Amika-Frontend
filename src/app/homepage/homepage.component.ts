@@ -1,3 +1,4 @@
+import { AutenticacaoService } from './../autenticacao.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private autenticacao:AutenticacaoService) { 
+    this.autenticacao.setHeader();
+  }
 
   ngOnInit() {
   }

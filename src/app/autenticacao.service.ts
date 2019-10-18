@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AutenticacaoService {
-
   errors;
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,7 +17,7 @@ export class AutenticacaoService {
   constructor(private http: HttpClient, private router: Router) { }
 
   autenticar(dadosUsuario) {
-    return this.http.post(environment.urlApi + '/login/', dadosUsuario, this.httpOptions)
+    return this.http.post(environment.urlApi + 'login/', dadosUsuario, this.httpOptions)
                     .subscribe(data => {
                       console.log(data);
                       localStorage.setItem('Authorization', 'JWT ' + data['token']);
@@ -43,8 +42,10 @@ export class AutenticacaoService {
     }
   }
 
+
   deslogar() {
-    // this.httpOptions.headers = this.httpOptions.headers.set('Authorization', null);
     localStorage.removeItem('Authorization');
+    localStorage.removeItem('matricula');
+    localStorage.removeItem('user_id');
   }
 }
