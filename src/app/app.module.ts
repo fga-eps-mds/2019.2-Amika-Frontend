@@ -11,6 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AgendasComponent } from './agendas/agendas.component';
+import { AgendaService } from './agendas/agenda.service';
+import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
+
+const appRoutes: Routes = [
+
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +26,9 @@ import { LoginComponent } from './login/login.component';
     HomepageComponent,
     TurmasComponent,
     TurmaEditComponent,
-    LoginComponent
+    LoginComponent,
+    AgendasComponent,
+    AgendaEditComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -30,7 +40,8 @@ import { LoginComponent } from './login/login.component';
 
   providers: [
     TurmaService,
-    AutenticacaoService
+    AutenticacaoService,
+    AgendaService
   ],
   bootstrap: [AppComponent]
 })
