@@ -82,7 +82,7 @@ onSubmit() {
 }
 
 onEdit(id) {
-  this.router.navigate(['grupos_editar', id]);
+  this.router.navigate(['editar_grupo/:id', id]);
 
 }
 }
