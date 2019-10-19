@@ -13,6 +13,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component';
+import { FormularioSatisfacaoComVidaComponent } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     TurmasComponent,
     TurmaEditComponent,
     LoginComponent,
-    FormularioFelicidadeAutenticaComponent
+    FormularioFelicidadeAutenticaComponent,
+    FormularioSatisfacaoComVidaComponent
   ],
   imports: [
     ReactiveFormsModule,
