@@ -18,28 +18,35 @@
         <div class="col-md-6">
           <h2 class="text-center">Matrícula individual</h2>
           <div class="col-md-12 scroll" >
-            <form [formGroup]="formulario" class="turmas_form needs-validation" (ngSubmit)="cadastroIndividual(formulario.value)" id="formIndividual">
+            <form [formGroup]="formulario" class="turmas_form needs-validation" novalidate id="formIndividual">
                 <div class="form-group label-float">
-                    <input type="text" class="form-control" placeholder="Matrícula" formControlName="matricula"/>
-                    <label for="nomeTurma">Matrícula</label>
-                    <div class="invalid-feedback" *ngIf="formulario.hasError('nome')">
-                      Por favor, informe o nome da turma.
+                    <input type="text" name="matricula" id="matriculaIndividual" aria-describedby="matriculaIndividual" class="form-control" placeholder="Matrícula" formControlName="matricula"
+                    [ngClass]="{ 'is-invalid': submitted && hasError('matricula') }"/>
+                    <label for="matriculaIndividual">Matrícula</label>
+                    <div class="invalid-feedback" *ngIf="hasError('matricula').required">
+                      Por favor, informe a matrícula.
+                    </div>
+                    <div class="invalid-feedback" *ngIf="hasError('matricula').minlength">
+                      Por favor, a matrícula deve conter 9 números.
                     </div>
                 </div>
-                <div class="form-group">
-                    <select name="turma" class="form-control" form="formIndividual" formControlName="turma">
-                        <option selected></option>
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
-                        <option>D</option>
-                      </select>
-                    <div class="invalid-feedback" *ngIf="formulario.hasError('nome')">
-                      Por favor, informe o nome da turma.
-                    </div>
+                <div id="tituloTurma"><label for="turmaIndividual">Turma</label></div>
+                <div class="form-group" id="campoTurma">
+                  <select name="turma" class="form-control" form="formIndividual" formControlName="turma"
+                    id="turmaIndividual" aria-describedby="turmaIndividual" 
+                    [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
+                    <option value="" disabled selected>Selecione a turma</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                  </select>
+                  <div class="invalid-feedback" *ngIf="hasError('turma')">
+                      Por favor, informe uma turma válida.
+                  </div>
                 </div>
                 <div class="text-center" id="enviarForm">
-                  <button type="submit" class=" btn btn-get" value="CADASTRAR"><span> Cadastrar</span></button>
+                  <button type="submit" class=" btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button> 
                 </div>
               </form>
           </div>

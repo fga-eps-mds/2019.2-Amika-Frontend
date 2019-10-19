@@ -3,8 +3,9 @@ import {CSVRecord} from './CSVModel';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ListaService } from './../lista.service';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { RequisicaoService } from '../requisicao.service';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -25,10 +26,11 @@ export class ListaDeMatriculaComponent implements OnInit {
   title = 'Leitor CSV';
   formulario: FormGroup;
   arrayTeste = [];
+  submitted = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService, private listaService:ListaService) {
     this.formulario = this.formBuilder.group({
-      matricula: ['', Validators.required],
+      matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
       turma: ['', Validators.required],
     })
   }
@@ -136,4 +138,15 @@ export class ListaDeMatriculaComponent implements OnInit {
   ngOnInit() {
   }
 
+  hasError(field: string) {
+    return this.formulario.get(field).errors;
+  }
+
+  onSubmit(dadosFormulario){
+    this.submitted = true;
+    if (this.formulario.valid) {
+        this.cadastroIndividual(dadosFormulario);
+        this.formulario.reset();
+      }
+  }
 }
