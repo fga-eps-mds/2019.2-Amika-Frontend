@@ -1,3 +1,4 @@
+import { AutenticacaoService } from './../autenticacao.service';
 import { Turma } from './turmas.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TurmaService } from './turma.service';
@@ -22,7 +23,8 @@ export class TurmasComponent implements OnInit {
   turmaSelecionada: Turma;
 
   constructor(private turmaService: TurmaService, private formBuilder: FormBuilder,
-              private router: Router, private route: ActivatedRoute, private modalService: BsModalService) {
+              private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
+              private autenticacao: AutenticacaoService) {
     this.getter();
     this.formularioTurma = this.formBuilder.group({
       nome: ['', Validators.required]
@@ -35,7 +37,6 @@ export class TurmasComponent implements OnInit {
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
       console.log(data);
-
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
