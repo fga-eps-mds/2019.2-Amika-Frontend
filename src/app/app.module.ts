@@ -40,8 +40,12 @@ const appRoutes: Routes = [
 
   providers: [
     TurmaService,
+<<<<<<< HEAD
     AutenticacaoService,
     AgendaService
+=======
+    AutenticacaoService
+>>>>>>> develop
   ],
   bootstrap: [AppComponent]
 })
