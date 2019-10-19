@@ -211,4 +211,6 @@ h1, h5, h6 {
   
     .card-grupo {
       margin-bottom: 3em;
+      align-items: center;
+      font-size: medium;
     }
