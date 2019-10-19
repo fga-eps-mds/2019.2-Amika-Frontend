@@ -14,7 +14,7 @@ export class AgendaService {
     return this.http.get(environment.urlApi + 'agenda/');
   }
 
-  public delete_agenda(id): Observable<any>{
+  public delete_agenda(id): Observable<any> {
     return this.http.delete(environment.urlApi + 'agenda/' + id, id);
   }
 

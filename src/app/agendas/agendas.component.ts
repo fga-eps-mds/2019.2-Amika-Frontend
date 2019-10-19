@@ -13,7 +13,7 @@ import { AgendaService } from './agenda.service';
 export class AgendasComponent implements OnInit {
   agendas: Agenda;
   formularioAgenda: FormGroup;
-  error:any={isError:false,errorMessage:''};  
+  error: any={isError:false,errorMessage:''};
   submitted = false;
   agendaSelecionada: Agenda;
   deleteModalRef: BsModalRef;
