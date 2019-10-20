@@ -11,7 +11,7 @@ export class AgendaService {
   constructor(private http: HttpClient) { }
 
   public get_agendas(): Observable<any> {
-    return this.http.get(environment.urlApi + 'agenda/');
+    return this.http.get(environment.urlApi + 'agendas/');
   }
 
   public delete_agenda(id): Observable<any> {

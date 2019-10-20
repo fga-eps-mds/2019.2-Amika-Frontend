@@ -19,7 +19,7 @@ export class TurmaService {
   }
 
   public create_turmas(turma): Observable<any> {
-    return this.http.post(environment.urlApi + 'turmas/', turma);
+    return this.http.post(environment.urlApi + 'turma/', turma);
   }
 
   public edit_turmas(id, turma): Observable<any> {
