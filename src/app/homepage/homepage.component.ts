@@ -9,7 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private autenticacao:AutenticacaoService) { 
+  constructor(private router: Router, private autenticacao:AutenticacaoService) { 
+    this.autenticacao.setHeader();
   }
 
   ngOnInit() {

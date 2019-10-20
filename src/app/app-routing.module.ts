@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
-  { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] }
-  { path: 'agenda', component: AgendasComponent },
-  { path: 'agenda-edit/:id', component: AgendaEditComponent},
+  { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
+  { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
+  { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
   { path: 'login', component: LoginComponent },
 ];
 
