@@ -10,10 +10,10 @@
       <div class="row">
           <div class="col-md-12">
               <div class="form-group label-float">
-                  <input type="text" class="form-control" id="nomeTurma" aria-describedby="nomeTurma" placeholder="Nome da Turma" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
-                  <label for="nomeTurma">Nome da Turma</label>
-                  <div class="invalid-feedback" *ngIf="hasError('nome')">
-                      Por favor, informe o nome da turma.
+                  <input type="text" class="form-control" id="descricaoTurma" aria-describedby="descricaoTurma" placeholder="descricao da Turma" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                  <label for="descricaoTurma">Descricao da Turma</label>
+                  <div class="invalid-feedback" *ngIf="hasError('descricao')">
+                      Por favor, informe o descricao da turma.
                     </div>
               </div>
           </div>

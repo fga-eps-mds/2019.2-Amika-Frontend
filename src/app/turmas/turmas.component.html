@@ -16,16 +16,14 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nome</th>
-              <th>Período</th>
+              <th>Descrição</th>
               <th>Ação</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let turma of turmas" >
               <td>{{turma.id}}</td>
-              <td>{{turma.nome}}</td>
-              <td>{{turma.semestre}}º Semestre/{{turma.ano}}</td>
+              <td>{{turma.descricao}}</td>
               <td><i (click)="onEdit(turma.id)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(turma)" class="fas fa-trash"  id="iconeExcluir"></i></td>
             </tr>
           </tbody>
@@ -39,10 +37,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group label-float">
-                    <input type="text" class="form-control" id="nomeTurma" aria-describedby="nomeTurma" placeholder="Nome da Turma" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
-                    <label for="nomeTurma">Nome da Turma</label>
-                      <div class="invalid-feedback" *ngIf="hasError('nome')">
-                        Por favor, informe o nome da turma.
+                    <input type="text" class="form-control" id="descricaoTurma" aria-describedby="descricaoTurma" placeholder="descricao da Turma" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                    <label for="descricaoTurma">Descricao da Turma</label>
+                      <div class="invalid-feedback" *ngIf="hasError('descricao')">
+                        Por favor, informe o descricao da turma.
                       </div>
                 </div>
             </div>
