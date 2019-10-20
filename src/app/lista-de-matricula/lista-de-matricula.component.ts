@@ -5,7 +5,6 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { ListaService } from './../lista.service';
 import { Router } from '@angular/router';
 import { RequisicaoService } from '../requisicao.service';
-import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -29,7 +28,9 @@ export class ListaDeMatriculaComponent implements OnInit {
   arrayTeste = [];
   formIndividualEnviado = false;
   formListaEnviado = false;
-
+  public records: any[] = [];
+  @ViewChild('csvReader', {static: false}) csvReader: any;
+  
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService, private listaService:ListaService) {
     this.formulario = this.formBuilder.group({
       matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
@@ -40,17 +41,40 @@ export class ListaDeMatriculaComponent implements OnInit {
       semestre: ['', Validators.required],
     })
   }
+  
+  onSubmit(dadosFormulario) {
+    this.formIndividualEnviado = true;
 
-  public records: any[] = [];
-  @ViewChild('csvReader', {static: false}) csvReader: any;
+    if (this.formulario.valid) {
+        this.cadastroIndividual(dadosFormulario);
+        this.formulario.reset();
+        this.formIndividualEnviado = false;
+    }
+  }
+    
+  cadastroIndividual(dadosIndividuais){
+    let dados = [{"matricula": dadosIndividuais.matricula, "turma": dadosIndividuais.turma}];
+    this.requisicaoService.requisicaoMatriculaIndividual(dados);
+    this.requisicaoService.errors;
+  }
+    
+  hasError(field: string) {
+    return this.formulario.get(field).errors;
+  }
+
+  onSubmitLista(dadosFormulario){
+    this.formListaEnviado = true;
+    if (this.formularioLista.valid) {
+      this.cadastrar();
+      this.formularioLista.reset();
+      this.formListaEnviado = false;
+    }
+  }
 
   uploadListener($event: any): void {
-
-    let text = [];
     let files = $event.srcElement.files;
-
+    
     if (this.isValidCSVFile(files[0])) {
-
       let input = $event.target;
       let reader = new FileReader();
       reader.readAsText(input.files[0]);
@@ -58,7 +82,6 @@ export class ListaDeMatriculaComponent implements OnInit {
       reader.onload = () => {
         let csvData = reader.result;
         let csvRecordsArray = (<string>csvData).split(/\r\n|\n/);
-
         let headersRow = this.getHeaderArray(csvRecordsArray);
 
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
@@ -73,19 +96,17 @@ export class ListaDeMatriculaComponent implements OnInit {
       this.fileReset();
     }
   }
-
+  
   registrar(informacao){
     console.log("Lista enviada", informacao);
-    // let dados = {"matricula" : informacao.matricula, "turma": informacao.turma}
     console.log(JSON.stringify(informacao));
     this.listaService.enviar(JSON.stringify(informacao));
     console.log(this.listaService.errors);
   }
-
-
+  
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
     let csvArr = [];
-
+    
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let curruntRecord = (<string>csvRecordsArray[i]).split(',');
       if (curruntRecord.length == headerLength) {
@@ -98,17 +119,10 @@ export class ListaDeMatriculaComponent implements OnInit {
         });
       }
     }
-    //this.registrar(csvArr)
-    console.log(csvArr);
     this.arrayTeste = csvArr;
-    console.log(this.arrayTeste);
     return csvArr;
   }
-
-  cadastrar(){
-    this.registrar(this.arrayTeste);
-  }
-
+  
   isValidCSVFile(file: any) {
     return file.name.endsWith(".csv");
   }
@@ -121,53 +135,18 @@ export class ListaDeMatriculaComponent implements OnInit {
     }
     return headerArray;
   }
-
+  
   fileReset() {
     this.csvReader.nativeElement.value = "";
     this.records = [];
   }
-
-  //Métodos para matricula individual
-  cadastroIndividual(dadosIndividuais){
-    let dados = [{"matricula": dadosIndividuais.matricula, "turma": dadosIndividuais.turma}]
-    console.log("AQUI!")
-    console.log(dados)
-    console.log("AQUI!")
-    this.requisicaoService.requisicaoMatriculaIndividual(dados);
-    this.requisicaoService.errors
-  }
-
-  voltar(){
-    this.router.navigate(['/']);
-  }
-
-  ngOnInit() {
-  }
-
-  hasError(field: string) {
-    return this.formulario.get(field).errors;
-    console.log('ativo');
+  
+  cadastrar(){
+    this.registrar(this.arrayTeste);
   }
 
   hasErrorLista(field: string) {
     return this.formularioLista.get(field).errors;
   }
 
-  onSubmit(dadosFormulario){
-    this.formIndividualEnviado = true;
-    if (this.formulario.valid) {
-        this.cadastroIndividual(dadosFormulario);
-        this.formulario.reset();
-        this.formIndividualEnviado = false;
-    }
-  }
-
-  onSubmitLista(dadosFormulario){
-    this.formListaEnviado = true;
-    if (this.formularioLista.valid) {
-      this.cadastrar(dadosFormulario);
-      this.formularioLista.reset();
-      this.formListaEnviado = false;
-    }
-  }
 }
