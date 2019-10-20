@@ -21,12 +21,12 @@
             <form [formGroup]="formulario" class="turmas_form needs-validation" novalidate id="formIndividual">
                 <div class="form-group label-float">
                     <input type="text" name="matricula" id="matriculaIndividual" aria-describedby="matriculaIndividual" class="form-control" placeholder="Matrícula" formControlName="matricula"
-                    [ngClass]="{ 'is-invalid': submitted && hasError('matricula') }"/>
+                    [ngClass]="{ 'is-invalid': formIndividualEnviado && hasError('matricula') }"/>
                     <label for="matriculaIndividual">Matrícula</label>
                     <div class="invalid-feedback" *ngIf="hasError('matricula').required">
                       Por favor, informe a matrícula.
                     </div>
-                    <div class="invalid-feedback" *ngIf="hasError('matricula').minlength">
+                    <div class="invalid-feedback" *ngIf="(hasError('matricula').minlength || hasError('matricula').maxlength)">
                       Por favor, a matrícula deve conter 9 números.
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="form-group" id="campoTurma">
                   <select name="turma" class="form-control" form="formIndividual" formControlName="turma"
                     id="turmaIndividual" aria-describedby="turmaIndividual"
-                    [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
+                    [ngClass]="{ 'is-invalid': formIndividualEnviado && hasError('turma') }">
                     <option value="" disabled selected>Selecione a turma</option>
                     <option>A</option>
                     <option>B</option>
@@ -46,7 +46,7 @@
                   </div>
                 </div>
                 <div class="text-center" id="enviarForm">
-                  <button type="submit" class=" btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
+                  <button type="submit" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
                 </div>
               </form>
           </div>
@@ -59,7 +59,7 @@
                   <label for="arquivoLista">Adicionar Lista de Matrículas</label>
                   <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo" 
                   id="arquivoLista" aria-describedby="arquivoLista" class="form-control" 
-                  formControlName="arquivo" [ngClass]="{ 'is-invalid': submitted && hasErrorLista('arquivo') }"/>
+                  formControlName="arquivo" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('arquivo') }"/>
                   <div class="invalid-feedback" *ngIf="hasErrorLista('arquivo')">
                     Por favor, selecione um arquivo.
                   </div>
@@ -68,7 +68,7 @@
                 <div class="tituloSemestre">Semestre:</div>
                 <select class="form-control" name="semestre" id="semestreLista" 
                 aria-describedby="semestreLista" name="semestre" formControlName="semestre"
-                form="listaForm" [ngClass]="{ 'is-invalid': submitted && hasErrorLista('semestre') }">
+                form="listaForm" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('semestre') }">
                   <option value="" disabled selected>Selecione o semestre</option>
                   <option value="1">1º</option>
                   <option value="2">2º</option>

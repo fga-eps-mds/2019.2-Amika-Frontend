@@ -27,7 +27,8 @@ export class ListaDeMatriculaComponent implements OnInit {
   formulario: FormGroup;
   formularioLista: FormGroup;
   arrayTeste = [];
-  submitted = false;
+  formIndividualEnviado = false;
+  formListaEnviado = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService, private listaService:ListaService) {
     this.formulario = this.formBuilder.group({
@@ -145,6 +146,7 @@ export class ListaDeMatriculaComponent implements OnInit {
 
   hasError(field: string) {
     return this.formulario.get(field).errors;
+    console.log('ativo');
   }
 
   hasErrorLista(field: string) {
@@ -152,18 +154,20 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   onSubmit(dadosFormulario){
-    this.submitted = true;
+    this.formIndividualEnviado = true;
     if (this.formulario.valid) {
         this.cadastroIndividual(dadosFormulario);
         this.formulario.reset();
-      }
+        this.formIndividualEnviado = false;
+    }
   }
 
   onSubmitLista(dadosFormulario){
-    this.submitted = true;
+    this.formListaEnviado = true;
     if (this.formularioLista.valid) {
       this.cadastrar(dadosFormulario);
       this.formularioLista.reset();
+      this.formListaEnviado = false;
     }
   }
 }
