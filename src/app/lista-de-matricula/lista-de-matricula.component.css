@@ -229,3 +229,11 @@ h2 {
   #tituloTurma {
     color: #575757;
   }
+
+  #botaoEnviar {
+    margin-top: 10px;
+  }
+
+  #arquivoLista {
+    padding: .2em;
+  }

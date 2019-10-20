@@ -33,7 +33,7 @@
                 <div id="tituloTurma"><label for="turmaIndividual">Turma</label></div>
                 <div class="form-group" id="campoTurma">
                   <select name="turma" class="form-control" form="formIndividual" formControlName="turma"
-                    id="turmaIndividual" aria-describedby="turmaIndividual" 
+                    id="turmaIndividual" aria-describedby="turmaIndividual"
                     [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
                     <option value="" disabled selected>Selecione a turma</option>
                     <option>A</option>
@@ -46,42 +46,57 @@
                   </div>
                 </div>
                 <div class="text-center" id="enviarForm">
-                  <button type="submit" class=" btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button> 
+                  <button type="submit" class=" btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
                 </div>
               </form>
           </div>
         </div>
-
         <div class="col-md-6">
           <h2 class="text-center">Matrícula com CSV</h2>
           <div class="col-md-12 scroll" >
-            <div class="form-group">
-                <label for="nomeCampo">Adicionar Lista de Matrículas</label>
-                <input type="file" class="form-control" name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
-            </div>
-            <div class="form-group label-floats">
-              <div class="tituloSemestre">Semestre:</div>
-              <select class="form-control">
-                <option selected="selected"></option>
-                <option value="1">1º</option>
-                <option value="2">2º</option>
-                <option value="3">3º</option>
-                <option value="4">4º</option>
-                <option value="5">5º</option>
-                <option value="6">6º</option>
-                <option value="7">7º</option>
-                <option value="8">8º</option>
-                <option value="9">9º</option>
-                <option value="10">10º</option>
-                <option value="11">11º</option>
-                <option value="12">12º</option>
-                <option value="13">13º</option>
-                <option value="14">14º</option>
-                <option value="15">15º</option>
-                <option value="16">16º</option>
-              </select>
-              <div class="botaoCadastrar"><button (click)="cadastrar()">CADASTRAR</button></div>
-            </div>
+            <form [formGroup]="formularioLista" class="lista_form needs-validation" novalidate id="listaForm">
+              <div class="form-group">
+                  <label for="arquivoLista">Adicionar Lista de Matrículas</label>
+                  <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo" 
+                  id="arquivoLista" aria-describedby="arquivoLista" class="form-control" 
+                  formControlName="arquivo" [ngClass]="{ 'is-invalid': submitted && hasErrorLista('arquivo') }"/>
+                  <div class="invalid-feedback" *ngIf="hasErrorLista('arquivo')">
+                    Por favor, selecione um arquivo.
+                  </div>
+              </div>
+              <div class="form-group label-floats">
+                <div class="tituloSemestre">Semestre:</div>
+                <select class="form-control" name="semestre" id="semestreLista" 
+                aria-describedby="semestreLista" name="semestre" formControlName="semestre"
+                form="listaForm" [ngClass]="{ 'is-invalid': submitted && hasErrorLista('semestre') }">
+                  <option value="" disabled selected>Selecione o semestre</option>
+                  <option value="1">1º</option>
+                  <option value="2">2º</option>
+                  <option value="3">3º</option>
+                  <option value="4">4º</option>
+                  <option value="5">5º</option>
+                  <option value="6">6º</option>
+                  <option value="7">7º</option>
+                  <option value="8">8º</option>
+                  <option value="9">9º</option>
+                  <option value="10">10º</option>
+                  <option value="11">11º</option>
+                  <option value="12">12º</option>
+                  <option value="13">13º</option>
+                  <option value="14">14º</option>
+                  <option value="15">15º</option>
+                  <option value="16">16º</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="hasErrorLista('semestre')">
+                  Por favor, selecione um semestre.
+                </div>
+                <div class="botaoCadastrar">
+                  <button (click)="onSubmitLista(formularioLista.value)" 
+                    type="submit" class="btn btn-get" id="botaoEnviar" value="CADASTRAR">CADASTRAR
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <ng-template #deleteModal class="modal-body">

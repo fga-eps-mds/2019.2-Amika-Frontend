@@ -25,6 +25,7 @@ import { empty } from 'rxjs';
 export class ListaDeMatriculaComponent implements OnInit {
   title = 'Leitor CSV';
   formulario: FormGroup;
+  formularioLista: FormGroup;
   arrayTeste = [];
   submitted = false;
 
@@ -32,6 +33,10 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
       turma: ['', Validators.required],
+    }),
+    this.formularioLista = this.formBuilder.group({
+      arquivo: ['', Validators.required],
+      semestre: ['', Validators.required],
     })
   }
 
@@ -142,11 +147,23 @@ export class ListaDeMatriculaComponent implements OnInit {
     return this.formulario.get(field).errors;
   }
 
+  hasErrorLista(field: string) {
+    return this.formularioLista.get(field).errors;
+  }
+
   onSubmit(dadosFormulario){
     this.submitted = true;
     if (this.formulario.valid) {
         this.cadastroIndividual(dadosFormulario);
         this.formulario.reset();
       }
+  }
+
+  onSubmitLista(dadosFormulario){
+    this.submitted = true;
+    if (this.formularioLista.valid) {
+      this.cadastrar(dadosFormulario);
+      this.formularioLista.reset();
+    }
   }
 }
