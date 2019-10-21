@@ -30,7 +30,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   formListaEnviado = false;
   public records: any[] = [];
   @ViewChild('csvReader', {static: false}) csvReader: any;
-  
+
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService, private listaService:ListaService) {
     this.formulario = this.formBuilder.group({
       matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
@@ -41,7 +41,7 @@ export class ListaDeMatriculaComponent implements OnInit {
       semestre: ['', Validators.required],
     })
   }
-  
+
   onSubmit(dadosFormulario) {
     this.formIndividualEnviado = true;
 
@@ -51,13 +51,13 @@ export class ListaDeMatriculaComponent implements OnInit {
         this.formIndividualEnviado = false;
     }
   }
-    
+
   cadastroIndividual(dadosIndividuais){
     let dados = [{"matricula": dadosIndividuais.matricula, "turma": dadosIndividuais.turma}];
     this.requisicaoService.requisicaoMatriculaIndividual(dados);
     this.requisicaoService.errors;
   }
-    
+
   hasError(field: string) {
     return this.formulario.get(field).errors;
   }
@@ -73,7 +73,7 @@ export class ListaDeMatriculaComponent implements OnInit {
 
   uploadListener($event: any): void {
     let files = $event.srcElement.files;
-    
+
     if (this.isValidCSVFile(files[0])) {
       let input = $event.target;
       let reader = new FileReader();
@@ -96,17 +96,17 @@ export class ListaDeMatriculaComponent implements OnInit {
       this.fileReset();
     }
   }
-  
+
   registrar(informacao){
     console.log("Lista enviada", informacao);
     console.log(JSON.stringify(informacao));
     this.listaService.enviar(JSON.stringify(informacao));
     console.log(this.listaService.errors);
   }
-  
+
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
     let csvArr = [];
-    
+
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let curruntRecord = (<string>csvRecordsArray[i]).split(',');
       if (curruntRecord.length == headerLength) {
@@ -122,7 +122,7 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.arrayTeste = csvArr;
     return csvArr;
   }
-  
+
   isValidCSVFile(file: any) {
     return file.name.endsWith(".csv");
   }
@@ -135,12 +135,12 @@ export class ListaDeMatriculaComponent implements OnInit {
     }
     return headerArray;
   }
-  
+
   fileReset() {
     this.csvReader.nativeElement.value = "";
     this.records = [];
   }
-  
+
   cadastrar(){
     this.registrar(this.arrayTeste);
   }
@@ -148,5 +148,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   hasErrorLista(field: string) {
     return this.formularioLista.get(field).errors;
   }
+
+  ngOnInit(){}
 
 }
