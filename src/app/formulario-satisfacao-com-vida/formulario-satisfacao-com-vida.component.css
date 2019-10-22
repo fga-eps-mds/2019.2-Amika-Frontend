@@ -7,8 +7,6 @@ body {
   background-color: #eee;
 }
 
-
-
 .header {
   border: 0px solid #000;
 }
@@ -147,7 +145,7 @@ fieldset {
   position: relative;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -156,6 +154,8 @@ fieldset {
 
 .form-check-label {
   display: inline-block;
+  /* padding-left: 10px; */
+  /* padding-right: 15px; */
 }
 
 .form-check input {
@@ -201,4 +201,12 @@ fieldset {
   padding: 1.5em;
   margin-bottom: 4rem;
   color: #eee;
+}
+
+.checkboxgroup {
+  display: inline-block;
+  text-align: center;
+}
+.checkboxgroup label {
+  display: block;
 }

@@ -6,13 +6,13 @@
 </div>
 
 <fieldset>
-<p> Abaixo estão 5 declarações que você pode concordar os discordar delas.
-    Leia cada um e depois clique na lista suspensa próxima a declaração e selecione
-    a resposta que melhor descreve quão forte você concorda ou discorda.
-</p>
-<br>
+  <p> Abaixo estão 5 declarações que você pode concordar os discordar delas.
+      Leia cada um e depois clique na lista suspensa próxima a declaração e selecione
+      a resposta que melhor descreve quão forte você concorda ou discorda.
+  </p>
+  <br>
 
-<form [formGroup]="formPontuacao">
+  <form [formGroup]="formPontuacao">
     <div id="area" class="form-group">
       <div class="">
         <label>1. Em muitos aspectos, minha vida está próxima do meu ideal.</label>
@@ -28,6 +28,7 @@
         </select>
       </div>
       <br>
+    </div>
 
     <div id="area" class="form-group">
       <div class="">
@@ -44,6 +45,7 @@
         </select>
       </div>
       <br>
+    </div>
 
     <div id="area" class="form-group">
       <div class="">
@@ -60,6 +62,7 @@
         </select>
       </div>
       <br>
+    </div>
 
     <div id="area" class="form-group">
       <div class="">
@@ -76,6 +79,7 @@
         </select>
       </div>
       <br>
+    </div>
 
     <div id="area" class="form-group">
       <div class="">
@@ -92,3 +96,9 @@
         </select>
       </div>
       <br>
+    </div>
+  </form>
+</fieldset>
+
+<input type="submit" class="btn btn-primary mt-4" value="Salvar">
+<input type='button' class="btn btn-primary mt-4" value='Voltar' onclick='history.go(-1)' />
