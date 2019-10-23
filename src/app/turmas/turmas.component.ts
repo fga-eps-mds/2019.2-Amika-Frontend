@@ -25,7 +25,7 @@ export class TurmasComponent implements OnInit {
               private router: Router, private route: ActivatedRoute, private modalService: BsModalService) {
     this.getter();
     this.formularioTurma = this.formBuilder.group({
-      nome: ['', Validators.required]
+      descricao: ['', Validators.required]
     });
   }
 
