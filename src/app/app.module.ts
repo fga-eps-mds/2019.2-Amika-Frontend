@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
+import { HumorComponent } from './humor/humor.component';
 
 const appRoutes: Routes = [
 
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     TurmaEditComponent,
     LoginComponent,
     AgendasComponent,
-    AgendaEditComponent
+    AgendaEditComponent,
+    HumorComponent
   ],
   imports: [
     ReactiveFormsModule,
