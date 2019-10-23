@@ -33,7 +33,7 @@ export class AutenticacaoService implements CanActivate{
     return this.http.post(environment.urlApi + 'login/', dadosUsuario, this.httpOptions)
                     .subscribe(data => {
                       console.log(data);
-                      localStorage.setItem('Authorization', 'JWT ' + data['token']);
+                      localStorage.setItem('Authorization', data['token']);
                       this.informacoesUsuario();
                       this.setHeader();
                       this.errors = null;
