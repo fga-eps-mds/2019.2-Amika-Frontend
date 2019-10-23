@@ -29,7 +29,7 @@ export class TurmaEditComponent implements OnInit {
     );
     this.formularioTurma = this.formBuilder.group({
       id: [null],
-      nome: ['', Validators.required],
+      descricao: ['', Validators.required],
     });
    }
 
@@ -43,7 +43,7 @@ export class TurmaEditComponent implements OnInit {
   updateForm(turma) {
     this.formularioTurma.patchValue({
       id: turma.id,
-      nome: turma.nome,
+      descricao: turma.descricao,
     });
   }
 
