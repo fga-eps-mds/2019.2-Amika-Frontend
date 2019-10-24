@@ -1,1 +1,17 @@
-<p>humor works!</p>
+<div>
+  <nav class="navbar-center text-center">
+    <h1>Humor Diário</h1>
+  </nav>
+
+  <div class="row-sm-12" style=" margin-top: 5em; text-align: center;">
+    <rating class="row-sm-12" [max]="max" [(ngModel)]="rate" [customTemplate]="tt"></rating>
+    <br>
+    <button class="btn btn-get row-sm-12" (onclick)="save">salvar</button>
+  </div>
+
+
+  <ng-template #tt let-i="index" let-v="value">
+    <button style="margin:3em; height: 4em; width: 4em" class="btn btn-{{i < v ? 'done' : 'default'}}">
+      {{i < v ? ':)' : ':('}}
+    </button>
+  </ng-template>

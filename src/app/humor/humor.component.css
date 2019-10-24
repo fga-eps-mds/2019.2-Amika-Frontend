@@ -1,0 +1,75 @@
+h1, h5, h6 {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Nunito", sans-serif;
+}
+
+.navbar-center{
+  background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
+  background: linear-gradient(to right, #a0e0e4, #e194b5);
+  height: 6em;
+  padding: 1.5em;
+  margin-bottom: 4rem;
+}
+
+.btn-done{
+  background-color:#a0e0e4;
+}
+
+.btn-default{
+  background-color: #e9b1c9;
+}
+
+.btn-get {
+  font-family: "Nunito", sans-serif;
+  color: #000 !important;
+  text-transform: capitalize;
+  background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
+  background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+  padding: 10px 20px 10px;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  text-transform: capitalize !important;
+}
+
+.btn-get::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  height: 100%;
+  width: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
+  background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+@-webkit-keyframes AnimationGradient {
+  0% {
+    background-position: 26% 0%;
+  }
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 26% 0%;
+  }
+}
+
+@keyframes AnimationGradient {
+  0% {
+    background-position: 26% 0%;
+  }
+  50% {
+    background-position: 75% 100%;
+  }
+  100% {
+    background-position: 26% 0%;
+  }
+}
