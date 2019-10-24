@@ -16,6 +16,8 @@ import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 import { HumorComponent } from './humor/humor.component';
+import { RatingModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
 
@@ -37,7 +39,10 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    RatingModule.forRoot(),
+    RatingModule,
+    FormsModule
   ],
 
   providers: [
@@ -47,4 +52,5 @@ const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule{ }

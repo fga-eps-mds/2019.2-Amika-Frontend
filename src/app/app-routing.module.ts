@@ -7,7 +7,6 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AgendasComponent } from './agendas/agendas.component';
-import { HumorComponent } from './humor/humor.component';
 
 
 const routes: Routes = [
