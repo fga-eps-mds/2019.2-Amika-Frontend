@@ -35,7 +35,6 @@ export class TurmasComponent implements OnInit {
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
       console.log(data);
-
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
