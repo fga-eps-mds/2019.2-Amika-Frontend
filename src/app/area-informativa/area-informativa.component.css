@@ -37,3 +37,21 @@ fieldset {
   margin-top: 1em;
   margin-bottom: 3em;
 }
+
+.fieldsetcsv {
+  position: center;
+  width:94.65%;
+  height: 11em;
+  font-size: 22px;
+  border: 5px solid;
+  padding-top: 4%;
+  padding-bottom: 5%;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border-image-source: linear-gradient(to left, #a0e0e4, #e194b5);
+  border-image-slice: 1;
+  margin-bottom: 2em;
+  margin-left: 1em;
+  margin-left: 1.70em;
+  text-align: center;
+}
