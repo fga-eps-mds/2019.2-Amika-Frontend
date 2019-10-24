@@ -1,3 +1,4 @@
+import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TurmasComponent } from './turmas/turmas.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'agenda', component: AgendasComponent },
   { path: 'agenda-edit/:id', component: AgendaEditComponent},
+  { path: 'area-informativa', component: AreaInformativaComponent}
 ];
 
 @NgModule({
