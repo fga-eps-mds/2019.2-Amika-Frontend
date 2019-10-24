@@ -6,7 +6,7 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AgendasComponent } from './agendas/agendas.component';
-
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'agenda', component: AgendasComponent },
   { path: 'agenda-edit/:id', component: AgendaEditComponent},
+  { path: 'perfil_usuario', component : PerfilUsuarioComponent},
 ];
 
 @NgModule({
