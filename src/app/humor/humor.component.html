@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
 <div>
   <nav class="navbar-center text-center">
     <h1>Humor Diário</h1>
@@ -11,7 +14,6 @@
 
 
   <ng-template #tt let-i="index" let-v="value">
-    <button style="margin:3em; height: 4em; width: 4em" class="btn btn-{{i < v ? 'done' : 'default'}}">
-      {{i < v ? ':)' : ':('}}
+    <button class="btn btn-{{i < v ? 'done' : 'default'}} {{i < v ? 'far fa-smile' : 'far fa-frown'}}">
     </button>
   </ng-template>

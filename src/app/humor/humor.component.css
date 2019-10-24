@@ -12,15 +12,28 @@ h2 {
   background: linear-gradient(to right, #a0e0e4, #e194b5);
   height: 6em;
   padding: 1.5em;
-  margin-bottom: 4rem;
 }
 
 .btn-done{
   background-color:#a0e0e4;
+  font-size: 4rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 5rem;
+  margin-bottom: 8rem;
+  height: 6rem;
+  width: 6rem;
 }
 
 .btn-default{
   background-color: #e9b1c9;
+  font-size: 4rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 5rem;
+  margin-bottom: 8rem;
+  height: 6rem;
+  width: 6rem;
 }
 
 .btn-get {
