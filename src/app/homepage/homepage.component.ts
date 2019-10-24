@@ -1,4 +1,6 @@
+import { AutenticacaoService } from './../autenticacao.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private autenticacao:AutenticacaoService) { 
+    this.autenticacao.setHeader();
+  }
 
   ngOnInit() {
+  }
+
+  navigateAgenda() {
+    this.router.navigate(['agenda']);
   }
 
 }

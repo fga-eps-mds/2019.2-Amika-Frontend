@@ -14,6 +14,11 @@ import { LoginComponent } from './login/login.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupo-edit/grupo-edit.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AgendasComponent } from './agendas/agendas.component';
+import { AgendaService } from './agendas/agenda.service';
+import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,9 @@ import { GrupoEditComponent } from './grupo-edit/grupo-edit.component';
     TurmaEditComponent,
     LoginComponent,
     GruposComponent,
-    GrupoEditComponent
+    GrupoEditComponent,
+    AgendasComponent,
+    AgendaEditComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -36,7 +43,8 @@ import { GrupoEditComponent } from './grupo-edit/grupo-edit.component';
   providers: [
     TurmaService,
     AutenticacaoService,
-    GrupoService
+    GrupoService,
+    AgendaService
   ],
   bootstrap: [AppComponent]
 })
