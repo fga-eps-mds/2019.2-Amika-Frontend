@@ -30,7 +30,7 @@ export class HumorComponent implements OnInit {
     console.log("man");
     this.humor= ({
       aluno: 1,
-      valor: this.rate,
+      humor_do_dia: this.rate,
     });
     this.humorService.create_humor(this.humor).subscribe();
     console.log(this.humor);
