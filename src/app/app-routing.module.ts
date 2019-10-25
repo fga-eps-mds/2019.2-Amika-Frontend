@@ -1,3 +1,4 @@
+import { AutenticacaoService } from './autenticacao.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TurmasComponent } from './turmas/turmas.component';
@@ -11,11 +12,10 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },
-  {path: 'turmas', component: TurmasComponent},
-  {path: 'turmas_editar/:id', component: TurmaEditComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'agenda', component: AgendasComponent },
-  { path: 'agenda-edit/:id', component: AgendaEditComponent},
+  { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
+  { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
+  { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
+  { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
   { path: 'perfil_usuario', component : PerfilUsuarioComponent},
 ];
 
