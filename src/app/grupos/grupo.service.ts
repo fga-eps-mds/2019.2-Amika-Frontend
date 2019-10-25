@@ -31,4 +31,8 @@ export class GrupoService {
     return this.http.get(environment.urlApi + 'grupo/' + id, id);
   }
 
+  public get_alunos(): Observable<any> {
+    return this.http.get(environment.urlApi + 'alunos/');
+  }
+
 }

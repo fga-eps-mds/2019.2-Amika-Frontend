@@ -8,33 +8,28 @@
   <nav class="navbar-center text-center">
     <h1>Grupos</h1>
   </nav>
-  
+
   <div class="row" id="paginaGrupo">
         <div *ngFor="let grupo of grupos" class="col-md-4 card-grupo">
           <div class="card" style="width: 18rem;">
               <div class="card-body">
-                 
+
                 <h5 class="card-title" class="text-center">{{grupo.nome}}</h5>
-                <!-- <div *ngFor="let aluno of grupo.alunos"> -->
-                  <hr> 
-                  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:40px">
-                  <p class="card-text">Aluno 1</p>
-                  <hr>
-                  <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:40px">
-                  <p class="card-text">Aluno 2</p>
-                  <hr>
-                  <img src="https://www.w3schools.com/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:40px">
-                  <p class="card-text">Aluno 3</p>
-                  <hr>
-                  
-                <!-- </div >   -->
+                <div *ngFor="let aluno of alunos">
+                  <div *ngIf="aluno.grupo == grupo.nome" >
+                    <hr>
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:40px">
+                    <p class="card-text">{{aluno.first_name}}</p>
+                    <hr>
+                  </div>
+                </div >
                 <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(grupo)" class="fas fa-trash"  id="iconeExcluir"></i>
               </div>
             </div>
       </div>
 </div>
 
-</div>    
+</div>
 
 <ng-template #deleteModal class="modal-body">
   <div class="modal-body text-center">

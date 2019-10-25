@@ -15,13 +15,14 @@ export class GruposComponent implements OnInit {
   error: any;
   formularioGrupo: FormGroup;
   submitted = false;
+  alunos: any;
 
   deleteModalRef: BsModalRef;
   @ViewChild('deleteModal', {static: false}) deleteModal;
   grupoSelecionado: Grupo;
 
   constructor(private grupoService: GrupoService, private formBuilder: FormBuilder,
-              private router: Router, private route: ActivatedRoute, private modalService: BsModalService) { 
+              private router: Router, private route: ActivatedRoute, private modalService: BsModalService) {
     this.getter();
     this.formularioGrupo = this.formBuilder.group({
       nome : ['', Validators.required]
@@ -30,11 +31,17 @@ export class GruposComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   getter() {
     this.grupoService.get_grupos().subscribe((data: any) => {
       console.log(data);
       this.grupos = data;
+    }, (error: any) => {
+      this.error = error;
+    });
+    this.grupoService.get_alunos().subscribe((data: any) => {
+      console.log(data);
+      this.alunos = data;
     }, (error: any) => {
       this.error = error;
     });
