@@ -4,7 +4,7 @@
 
 .cabecalho {
   background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-  background: linear-gradient(to left, #a0e0e4, #e194b5);
+  background: linear-gradient(to right, #a0e0e4, #e194b5);
   text-align: center;
   height: 6em;
   padding: 1.5em;
@@ -22,7 +22,7 @@ fieldset {
   padding-bottom: 5%;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  border-image-source: linear-gradient(to left, #a0e0e4, #e194b5);
+  border-image-source: linear-gradient(to right, #a0e0e4, #e194b5);
   border-image-slice: 1;
   margin-bottom: 2em;
   margin-left: 1em;
@@ -44,7 +44,7 @@ fieldset {
   padding-bottom: 5%;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  border-image-source: linear-gradient(to left, #a0e0e4, #e194b5);
+  border-image-source: linear-gradient(to right, #a0e0e4, #e194b5);
   border-image-slice: 1;
   margin-bottom: 2em;
   margin-left: 1em;
