@@ -17,9 +17,6 @@ import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
 
-const appRoutes: Routes = [
-
-];
 
 @NgModule({
   declarations: [

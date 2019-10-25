@@ -21,16 +21,15 @@ export class TurmaEditComponent implements OnInit {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
-        console.log(id);
         const turma$ = this.turmaService.getById(id)
         turma$.subscribe(turma => {
           this.updateForm(turma);
         });
       }
-      );
+    );
     this.formularioTurma = this.formBuilder.group({
       id: [null],
-      nome: ['', Validators.required],
+      descricao: ['', Validators.required],
     });
    }
 
@@ -44,7 +43,7 @@ export class TurmaEditComponent implements OnInit {
   updateForm(turma) {
     this.formularioTurma.patchValue({
       id: turma.id,
-      nome: turma.nome,
+      descricao: turma.descricao,
     });
   }
 
@@ -70,11 +69,10 @@ export class TurmaEditComponent implements OnInit {
 
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
-      console.log(data);
-
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
+      this.router.navigate(['']);
     });
   }
 
