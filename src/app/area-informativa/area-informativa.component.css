@@ -55,3 +55,11 @@ fieldset {
   margin-left: 1.70em;
   text-align: center;
 }
+
+.button-voltar {
+  background: transparent;
+  margin-top: 0.65em;
+  margin-bottom: 1em;
+  width: 3em;
+  height: 2em;
+}
