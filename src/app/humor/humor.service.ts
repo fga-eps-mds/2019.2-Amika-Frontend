@@ -13,4 +13,9 @@ export class HumorService {
     return this.http.post(environment.urlApi + 'humor/', humor);
   }
 
+  public get_humor(): Observable<any> {
+    return this.http.get(environment.urlApi + 'humors/');
+  }
+
+
 }

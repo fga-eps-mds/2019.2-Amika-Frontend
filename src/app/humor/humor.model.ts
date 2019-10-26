@@ -1,4 +1,5 @@
 export class Humor {
-  static aluno: number;
-  static humor_do_dia: number;
+  public aluno: number;
+  public humor_do_dia: number;
+  public data: Date;
 }
