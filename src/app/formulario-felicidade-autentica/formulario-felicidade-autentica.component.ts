@@ -57,10 +57,14 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
     let total = ponto.reduce((total, valor) => total + valor.pontos, 0);
 
     console.log(total);
-    
-    this.formularioFelidadeAutenticaService.enviar(total);
-    this.formularioFelidadeAutenticaService.errors;
+   
   }
+
+    onSubmit(submicao){
+      this.formularioFelidadeAutenticaService.enviar(submicao.total);
+      console.log(submicao.total);
+      this.formularioFelidadeAutenticaService.errors;
+    }
   
 
   // ngOnInit() {
