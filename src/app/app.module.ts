@@ -16,6 +16,7 @@ import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
 @NgModule({
@@ -27,7 +28,11 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
     LoginComponent,
     AgendasComponent,
     AgendaEditComponent,
+<<<<<<< HEAD
     AreaInformativaComponent
+=======
+    PerfilUsuarioComponent
+>>>>>>> fb5e50915640086213d7d7365368962cbc66ca56
   ],
   imports: [
     ReactiveFormsModule,

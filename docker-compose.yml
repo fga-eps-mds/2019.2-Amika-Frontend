@@ -7,7 +7,7 @@ services:
     image: frontend:latest
     build: .
     ports:
-      - "4200:4200"
+      - 4200:4200
     volumes:
       - .:/amika-frontend
       - /amika-frontend/node_modules
@@ -15,7 +15,7 @@ services:
     networks:
       - amika-net
 
-networks: 
+networks:
   amika-net:
     name: amika-net
     driver: bridge
