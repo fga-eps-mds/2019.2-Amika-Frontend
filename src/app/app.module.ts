@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
     TurmaEditComponent,
     LoginComponent,
     AgendasComponent,
-    AgendaEditComponent
+    AgendaEditComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     ReactiveFormsModule,
