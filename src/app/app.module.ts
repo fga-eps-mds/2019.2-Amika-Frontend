@@ -18,10 +18,8 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
 import { HumorComponent } from './humor/humor.component';
 import { RatingModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
-const appRoutes: Routes = [
-
-];
 
 @NgModule({
   declarations: [
@@ -33,6 +31,7 @@ const appRoutes: Routes = [
     AgendasComponent,
     AgendaEditComponent,
     HumorComponent
+    PerfilUsuarioComponent
   ],
   imports: [
     ReactiveFormsModule,
