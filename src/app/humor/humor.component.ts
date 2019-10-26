@@ -1,5 +1,4 @@
 import { Component, OnInit, NgModule, ViewChild } from '@angular/core';
-import { catchError } from 'rxjs/operators'
 import { Humor } from './humor.model';
 import { HumorService } from './humor.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -17,7 +16,6 @@ export class HumorComponent implements OnInit {
 
   max = 5;
   rate = 0;
-  mensagem = "Humor Adicionado com sucesso";
   humor: Humor;
   erroModalRef: BsModalRef;
   @ViewChild('erroModal', {static: false}) erroModal;
@@ -38,15 +36,11 @@ export class HumorComponent implements OnInit {
       aluno: 1,
       humor_do_dia: this.rate,
     });
-    this.humorService.create_humor(this.humor).subscribe(catchError( this.mostraErro() ));
+    this.humorService.create_humor(this.humor).subscribe();
     console.log(this.humor);
-  }
-
-  mostraErro() : any{
-    console.log('UAI MANO')
-    this.mensagem = "Você já adicionou seu humor hoje!";
     this.erroModalRef = this.modalService.show(this.erroModal, {class: 'modal-sm'});
   }
+
 
   homePage() {
     this.router.navigate(['']);
