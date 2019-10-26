@@ -11,6 +11,7 @@ import {Pontuacao} from './pontos'
 export class FormularioFelicidadeAutenticaComponent implements OnInit {
   
   formPontuacao: FormGroup;
+
   //constructor() { }
 
   constructor(private formBuilder: FormBuilder) { }
@@ -33,8 +34,28 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
       ponto10: [pontos.pontos],
       ponto11: [pontos.pontos],
       ponto12: [pontos.pontos],
-      totalpontos: [pontos.pontos]
     })
+  }
+
+  fazerSoma(soma){
+    let ponto = [];
+
+    ponto[1] = {pontos: soma.ponto1};
+    ponto[2] = {pontos: soma.ponto2};
+    ponto[3] = {pontos: soma.ponto3};
+    ponto[4] = {pontos: soma.ponto4};
+    ponto[5] = {pontos: soma.ponto5};
+    ponto[6] = {pontos: soma.ponto6};
+    ponto[7] = {pontos: soma.ponto7};
+    ponto[8] = {pontos: soma.ponto8};
+    ponto[9] = {pontos: soma.ponto9};
+    ponto[10] = {pontos: soma.ponto10};
+    ponto[11] = {pontos: soma.ponto11};
+    ponto[12] = {pontos: soma.ponto12};
+
+    let total = ponto.reduce((total, valor) => total + valor.pontos, 0);
+
+    console.log(total)
   }
   
 
