@@ -1,6 +1,6 @@
 export class PerfilUsuario {
-    public matricula : string;
-    public nome: string;
-    public sobrenome : string;
+    public username : string;
+    public first_name: string;
+    public last_name : string;
     public grupo : string;
 }
