@@ -10,31 +10,31 @@ import { FormularioFelidadeAutenticaService } from './formulario_felicidade_aute
   styleUrls: ['./formulario-felicidade-autentica.component.css']
 })
 export class FormularioFelicidadeAutenticaComponent implements OnInit {
-  
+
   formPontuacao: FormGroup;
 
   //constructor() { }
 
   constructor(private formBuilder: FormBuilder, private formularioFelidadeAutenticaService: FormularioFelidadeAutenticaService) { }
- 
+
   ngOnInit() {
     this.createForm(new Pontuacao());
   }
 
-  createForm(pontos: Pontuacao){
+  createForm(pontos: Pontuacao) {
     this.formPontuacao = this.formBuilder.group({
-      ponto1: [pontos.pontos],
-      ponto2: [pontos.pontos],
-      ponto3: [pontos.pontos],
-      ponto4: [pontos.pontos],
-      ponto5: [pontos.pontos],
-      ponto6: [pontos.pontos],
-      ponto7: [pontos.pontos],
-      ponto8: [pontos.pontos],
-      ponto9: [pontos.pontos],
-      ponto10: [pontos.pontos],
-      ponto11: [pontos.pontos],
-      ponto12: [pontos.pontos],
+      ponto1: [pontos.ponto1],
+      ponto2: [pontos.ponto2],
+      ponto3: [pontos.ponto3],
+      ponto4: [pontos.ponto4],
+      ponto5: [pontos.ponto5],
+      ponto6: [pontos.ponto6],
+      ponto7: [pontos.ponto7],
+      ponto8: [pontos.ponto8],
+      ponto9: [pontos.ponto9],
+      ponto10: [pontos.ponto10],
+      ponto11: [pontos.ponto11],
+      ponto12: [pontos.ponto12],
     })
   }
 
@@ -57,7 +57,7 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
     let total = ponto.reduce((total, valor) => total + valor.pontos, 0);
 
     console.log(total);
-   
+
   }
 
     onSubmit(submicao){
@@ -65,7 +65,7 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
       console.log(submicao.total);
       this.formularioFelidadeAutenticaService.errors;
     }
-  
+
 
   // ngOnInit() {
   // }
