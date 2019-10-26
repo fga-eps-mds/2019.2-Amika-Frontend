@@ -1,9 +1,9 @@
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { GrupoService } from '../grupos/grupo.service';
+import { GrupoService } from '../grupo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Grupo } from '../grupos/grupos.model';
-import { GruposComponent } from '../grupos/grupos.component';
+import { Grupo } from '../grupos.model';
+import { GruposComponent } from '../grupos.component';
 
 @Component({
   selector: 'app-grupo-edit',
@@ -59,7 +59,7 @@ export class GrupoEditComponent implements OnInit {
             console.log(data);
             this.formularioGrupo.reset();
             this.return();
-    
+
           }, (error: any) => {
             this.error = error;
           });
@@ -75,6 +75,7 @@ export class GrupoEditComponent implements OnInit {
       this.grupos = data;
     }, (error: any) => {
       this.error = error;
+      this.router.navigate(['']);
     });
   }
 
