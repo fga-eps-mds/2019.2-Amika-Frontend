@@ -18,6 +18,7 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
 import { HumorComponent } from './humor/humor.component';
 import { RatingModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
@@ -30,8 +31,10 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     LoginComponent,
     AgendasComponent,
     AgendaEditComponent,
-    HumorComponent
-    PerfilUsuarioComponent
+    HumorComponent,
+    PerfilUsuarioComponent,
+    AreaInformativaComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     ReactiveFormsModule,
