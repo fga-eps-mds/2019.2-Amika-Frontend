@@ -4,7 +4,7 @@
 <div class="cabecalho">
   <h2>Formulário de felicidade autêntica</h2>
 </div>
-<div method="post" action="">
+<form [formGroup]="formPontuacao" method="post" action="">
 <fieldset>
 <p>Por favor, leia cuidadosamente cada grupo de declarações.
   Depois, selecione a declaração de cada grupo que descreva
@@ -13,7 +13,7 @@
 </p>
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group" aria-required="formControlName">
 
       <label>Grupo 1</label>
@@ -35,10 +35,10 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 2</label>
@@ -60,10 +60,10 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 3</label>
@@ -86,10 +86,10 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 4</label>
@@ -111,10 +111,10 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 5</label>
@@ -136,11 +136,11 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 6</label>
@@ -162,10 +162,10 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 7</label>
@@ -187,11 +187,11 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 8</label>
@@ -213,10 +213,10 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 9</label>
@@ -238,11 +238,11 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 10</label>
@@ -264,10 +264,10 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 11</label>
@@ -289,11 +289,11 @@
     </div>
     <!-- </fieldset> -->
   </div>
-</form>
+<!-- </form> -->
 <br>
 
 
-<form [formGroup]="formPontuacao">
+<!-- <form [formGroup]="formPontuacao"> -->
     <div id="area" class="form-group">
       <!-- <fieldset> -->
       <label>Grupo 12</label>
@@ -315,11 +315,11 @@
     </div>
 
   </div>
-</form>
+<!-- </form> -->
 </fieldset>
 <br>
 
 
 <input type="submit" class="btn btn-primary mt-4" value="Salvar" (click)="onSubmit(formPontuacao.value)">
 <input type='button' class="btn btn-primary mt-4" value='Voltar' onclick='history.go(-1)' />
-</div>
+</form>

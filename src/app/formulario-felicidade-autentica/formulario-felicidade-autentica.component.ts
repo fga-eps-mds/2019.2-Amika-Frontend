@@ -12,6 +12,7 @@ import { FormularioFelidadeAutenticaService } from './formulario_felicidade_aute
 export class FormularioFelicidadeAutenticaComponent implements OnInit {
 
   formPontuacao: FormGroup;
+  total: number = null;
 
   //constructor() { }
 
@@ -38,31 +39,33 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
     })
   }
 
-  fazerSoma(soma){
+  fazerSoma(dadosFormulario){
     let ponto = [];
 
-    ponto[1] = {pontos: soma.ponto1};
-    ponto[2] = {pontos: soma.ponto2};
-    ponto[3] = {pontos: soma.ponto3};
-    ponto[4] = {pontos: soma.ponto4};
-    ponto[5] = {pontos: soma.ponto5};
-    ponto[6] = {pontos: soma.ponto6};
-    ponto[7] = {pontos: soma.ponto7};
-    ponto[8] = {pontos: soma.ponto8};
-    ponto[9] = {pontos: soma.ponto9};
-    ponto[10] = {pontos: soma.ponto10};
-    ponto[11] = {pontos: soma.ponto11};
-    ponto[12] = {pontos: soma.ponto12};
+    ponto[1] = {pontos: dadosFormulario.ponto1};
+    ponto[2] = {pontos: dadosFormulario.ponto2};
+    ponto[3] = {pontos: dadosFormulario.ponto3};
+    ponto[4] = {pontos: dadosFormulario.ponto4};
+    ponto[5] = {pontos: dadosFormulario.ponto5};
+    ponto[6] = {pontos: dadosFormulario.ponto6};
+    ponto[7] = {pontos: dadosFormulario.ponto7};
+    ponto[8] = {pontos: dadosFormulario.ponto8};
+    ponto[9] = {pontos: dadosFormulario.ponto9};
+    ponto[10] = {pontos: dadosFormulario.ponto10};
+    ponto[11] = {pontos: dadosFormulario.ponto11};
+    ponto[12] = {pontos: dadosFormulario.ponto12};
 
-    let total = ponto.reduce((total, valor) => total + valor.pontos, 0);
+    this.total = ponto.reduce((total, valor) => total + valor.pontos, 0);
 
-    console.log(total);
+    console.log(this.total);
 
   }
 
-    onSubmit(submicao){
-      this.formularioFelidadeAutenticaService.enviar(submicao.total);
-      console.log(submicao.total);
+    onSubmit(dadosFormulario){
+      this.fazerSoma(dadosFormulario);
+      let totalpontos = {"formulario": [{"tipo": "A", "pontuacao": this.total}]}
+      this.formularioFelidadeAutenticaService.enviar(totalpontos);
+      console.log(totalpontos);
       this.formularioFelidadeAutenticaService.errors;
     }
 

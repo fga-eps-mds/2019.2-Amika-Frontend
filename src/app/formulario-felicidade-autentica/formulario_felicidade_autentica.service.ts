@@ -19,7 +19,7 @@ export class FormularioFelidadeAutenticaService {
     constructor(private http: HttpClient, private router: Router) { }
 
     enviar(dados) { 
-        return this.http.post("http://localhost:8000/form_felicidade/", dados, this.httpOptions)
+        return this.http.put("http://localhost:8000/aluno/<int:pk>/", dados, this.httpOptions)
                 .subscribe(data => {
                     console.log(data);
                     
