@@ -28,11 +28,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     LoginComponent,
     AgendasComponent,
     AgendaEditComponent,
-<<<<<<< HEAD
-    AreaInformativaComponent
-=======
-    PerfilUsuarioComponent
->>>>>>> fb5e50915640086213d7d7365368962cbc66ca56
+    AreaInformativaComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     ReactiveFormsModule,

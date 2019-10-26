@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
-  { path: 'area-informativa', component: AreaInformativaComponent}
+  { path: 'area-informativa', component: AreaInformativaComponent},
   { path: 'perfil_usuario', component : PerfilUsuarioComponent},
 ];
 
