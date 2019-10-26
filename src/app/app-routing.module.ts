@@ -7,7 +7,7 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { GruposComponent } from './grupos/grupos.component';
-import { GrupoEditComponent } from './grupo-edit/grupo-edit.component';
+import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
 
 const routes: Routes = [

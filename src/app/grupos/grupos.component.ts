@@ -92,4 +92,13 @@ onEdit(id) {
   this.router.navigate(['editar_grupo/:id', id]);
 
 }
+
+popula() {
+  this.grupoService.popula_grupo().subscribe((data: any) => {
+    console.log(data);
+    this.getter();
+  }, (error: any) => {
+    this.error = error;
+  });
+}
 }
