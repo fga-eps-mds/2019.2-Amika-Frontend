@@ -9,10 +9,11 @@
   </nav>
 
   <div class="row-sm-12" style=" margin-top: 5em; text-align: center;">
-    <rating class="row-sm-12" [max]="max" [(ngModel)]="rate" [customTemplate]="tt"></rating>
+    <div *ngIf="adicionado" ><h3>Seu humor já foi adicionado hoje!</h3></div>
+    <rating class="row-sm-12" [titles]="['muito triste', 'triste', 'indiferente', 'feliz', 'muito feliz'] " [max]="max" [(ngModel)]="rate" [readonly]="isReadonly"[customTemplate]="tt"></rating>
     <br>
     <button class="btn btn-get row-sm-12 " (click)="homePage()">Cancelar</button>
-    <button class="btn btn-get row-sm-12" (click)="save() ">Salvar</button>
+    <button class="btn btn-get row-sm-12" [disabled]="adicionado" (click)="save() ">Salvar</button>
   </div>
 
 

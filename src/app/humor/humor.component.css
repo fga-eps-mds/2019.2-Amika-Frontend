@@ -15,7 +15,7 @@ h2 {
 }
 
 .btn-done{
-  background-color:#a0e0e4;
+  background-color:#fff;
   font-size: 4rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -23,6 +23,7 @@ h2 {
   margin-bottom: 8rem;
   height: 6rem;
   width: 6rem;
+  border: 0;
 }
 
 .btn-voltar {
@@ -42,7 +43,7 @@ h2 {
 }
 
 .btn-default{
-  background-color: #e9b1c9;
+  background-color: #fff;
   font-size: 4rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -50,6 +51,7 @@ h2 {
   margin-bottom: 8rem;
   height: 6rem;
   width: 6rem;
+  border: 0;
 }
 
 .btn-get {
@@ -67,6 +69,20 @@ h2 {
   margin-left: 4rem;
   margin-right: 4rem;
   width: 10rem;
+}
+
+.fa-frown{
+  color: #e194b5;
+}
+
+.fa-smile{
+  color: aqua;
+  border: 0;
+}
+
+.fa-smile:hover{
+  color: aqua;
+  border: 0;
 }
 
 .btn-get::before {
