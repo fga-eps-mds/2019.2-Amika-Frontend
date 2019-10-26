@@ -51,10 +51,13 @@ fieldset {
   text-align: center;
 }
 
-.button-voltar {
-  background: transparent;
-  margin-top: 0.65em;
-  margin-bottom: 1em;
-  width: 3em;
-  height: 2em;
+#iconeVoltar {
+  margin-left: 12rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.fa-angle-left:hover {
+  color: #fff;
+  cursor: pointer;
 }
