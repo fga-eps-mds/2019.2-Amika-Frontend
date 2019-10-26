@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import {Pontuacao} from './pontos'
+import { FormularioFelidadeAutenticaService } from './formulario_felicidade_autentica.service';
 
 @Component({
   selector: 'app-formulario-felicidade-autentica',
@@ -14,7 +15,7 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
 
   //constructor() { }
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private formularioFelidadeAutenticaService: FormularioFelidadeAutenticaService) { }
  
   ngOnInit() {
     this.createForm(new Pontuacao());
@@ -55,7 +56,10 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
 
     let total = ponto.reduce((total, valor) => total + valor.pontos, 0);
 
-    console.log(total)
+    console.log(total);
+    
+    this.formularioFelidadeAutenticaService.enviar(total);
+    this.formularioFelidadeAutenticaService.errors;
   }
   
 
