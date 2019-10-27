@@ -18,6 +18,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
+import { HumorComponent } from './humor/humor.component';
+import { RatingModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
 @NgModule({
@@ -30,14 +35,21 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
     GruposComponent,
     GrupoEditComponent,
     AgendasComponent,
-    AgendaEditComponent
+    AgendaEditComponent,
+    HumorComponent,
+    PerfilUsuarioComponent,
+    AreaInformativaComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    RatingModule.forRoot(),
+    RatingModule,
+    FormsModule
   ],
 
   providers: [
@@ -48,4 +60,5 @@ import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule{ }

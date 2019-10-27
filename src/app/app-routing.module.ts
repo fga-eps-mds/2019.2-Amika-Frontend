@@ -1,5 +1,7 @@
+import { HumorComponent } from './humor/humor.component';
+import { NgModule, Component } from '@angular/core';
+import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
 import { AutenticacaoService } from './autenticacao.service';
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TurmasComponent } from './turmas/turmas.component';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
@@ -9,17 +11,20 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },
-  {path: 'turmas', component: TurmasComponent},
-  {path: 'turmas_editar/:id', component: TurmaEditComponent},
   {path: 'grupos', component: GruposComponent},
   {path: 'editar_grupo/:id', component: GrupoEditComponent},
+  { path: 'humor', component: HumorComponent},
+  { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
+  { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
-  { path: 'login', component: LoginComponent },
+  { path: 'area-informativa', component: AreaInformativaComponent},
+  { path: 'perfil_usuario', component : PerfilUsuarioComponent},
 ];
 
 @NgModule({
