@@ -23,6 +23,8 @@ import { RatingModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     ModalModule.forRoot(),
     RatingModule.forRoot(),
     RatingModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
 
   providers: [
