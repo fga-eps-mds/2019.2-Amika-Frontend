@@ -1,5 +1,7 @@
+import { HumorComponent } from './humor/humor.component';
+import { NgModule, Component } from '@angular/core';
+import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
 import { AutenticacaoService } from './autenticacao.service';
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TurmasComponent } from './turmas/turmas.component';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
@@ -12,10 +14,12 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'humor', component: HumorComponent},
   { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
   { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
+  { path: 'area-informativa', component: AreaInformativaComponent},
   { path: 'perfil_usuario', component : PerfilUsuarioComponent},
 ];
 

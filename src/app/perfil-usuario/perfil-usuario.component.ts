@@ -8,7 +8,7 @@ import { PerfilUsuario } from './perfil-usuario.model';
   styleUrls: ['./perfil-usuario.component.css']
 })
 export class PerfilUsuarioComponent implements OnInit {
-
+  error: any;
   usuario:PerfilUsuario;
 
   constructor( private perfiservice: PerfilUsuarioService ) { }

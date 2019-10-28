@@ -15,6 +15,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
+import { HumorComponent } from './humor/humor.component';
+import { RatingModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -29,7 +33,10 @@ import { environment } from '../environments/environment';
     LoginComponent,
     AgendasComponent,
     AgendaEditComponent,
-    PerfilUsuarioComponent
+    HumorComponent,
+    PerfilUsuarioComponent,
+    AreaInformativaComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -37,6 +44,9 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     ModalModule.forRoot(),
+    RatingModule.forRoot(),
+    RatingModule,
+    FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
 
@@ -47,4 +57,5 @@ import { environment } from '../environments/environment';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule{ }
