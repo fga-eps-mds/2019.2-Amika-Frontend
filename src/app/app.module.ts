@@ -25,6 +25,7 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { environment } from '../environments/environment';
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    GraficoHumorComponent,
   ],
   imports: [
     ReactiveFormsModule,
