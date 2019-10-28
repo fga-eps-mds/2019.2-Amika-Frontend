@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
+import { GruposComponent } from './grupos/grupos.component';
+import { GrupoService } from './grupos/grupo.service';
+import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
@@ -29,6 +32,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     TurmasComponent,
     TurmaEditComponent,
     LoginComponent,
+    GruposComponent,
+    GrupoEditComponent,
     AgendasComponent,
     AgendaEditComponent,
     HumorComponent,
@@ -50,6 +55,7 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
   providers: [
     TurmaService,
     AutenticacaoService,
+    GrupoService,
     AgendaService
   ],
   bootstrap: [AppComponent]

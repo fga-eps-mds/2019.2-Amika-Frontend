@@ -8,12 +8,16 @@ import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { GruposComponent } from './grupos/grupos.component';
+import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },
+  {path: 'grupos', component: GruposComponent},
+  {path: 'editar_grupo/:id', component: GrupoEditComponent},
   { path: 'humor', component: HumorComponent},
   { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
   { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
