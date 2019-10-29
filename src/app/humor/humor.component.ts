@@ -38,6 +38,7 @@ export class HumorComponent implements OnInit {
     this.humor= ({
       aluno: 1,
       humor_do_dia: this.rate,
+      data: this.datePipe.transform(this.myDate, 'yyyy-MM-dd'),
     });
     this.humorService.create_humor(this.humor).subscribe();
     console.log(this.humor);
