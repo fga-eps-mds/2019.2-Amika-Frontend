@@ -1,6 +1,6 @@
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
@@ -64,4 +64,18 @@ import { environment } from '../environments/environment';
   bootstrap: [AppComponent]
 })
 
-export class AppModule{ }
+export class AppModule {}
+
+// export class AppComponent{
+//   showLoadingIndicator = true;
+//   constructor(private router: Router) {
+//     this.router.events.subscribe((routerEvent: Event) => {
+//       if (routerEvent instanceof NavigationStart) {
+//         this.showLoadingIndicator = true;
+//       }
+//       if (routerEvent instanceof NavigationEnd) {
+//         this.showLoadingIndicator = false;
+//       }
+//     })
+//   }
+// }
