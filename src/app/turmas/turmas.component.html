@@ -11,14 +11,12 @@
         <table class="tabela-alunos table table-striped">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Descrição</th>
               <th>Ação</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let turma of turmas" >
-              <td>{{turma.id}}</td>
               <td>{{turma.descricao}}</td>
               <td><i (click)="onEdit(turma.id)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(turma)" class="fas fa-trash"  id="iconeExcluir"></i></td>
             </tr>

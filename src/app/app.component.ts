@@ -13,7 +13,7 @@ import { MatSidenav } from '@angular/material';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Amika';
   mobileQuery: MediaQueryList;
   isAdmin: boolean;
@@ -25,18 +25,14 @@ export class AppComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    this.isAdmin();
-  }
-
-  OnInit() {
-    this.isAdmin();
+    this.isSuperuser();
   }
 
   setTitle(nome: string) {
     this.title = nome;
   }
 
-  isAdmin() {
+  isSuperuser() {
     const params = this.autenticacao.getJWTParams();
     if (!params) {
       this.logado = false;

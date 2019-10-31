@@ -7,15 +7,46 @@ h2 {
   font-family: "Nunito", sans-serif;
 }
 
+table * {
+  border: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #f5e9ee;
+}
+
+
+.table-striped {
+  /* border-radius: 15px; */
+  /* border: 1px solid black; */
+}
+
 .tabela-alunos {
-  border: 1px solid #ccc;
+  max-width: 800px;
+  /* border-radius: 15px !important; */
   margin-top: 0;
-  box-shadow: 3px 3px 2px #ccc;
   transition: 0.5s;
   font-family: "Nunito", sans-serif;
   overflow-y: scroll;
-    background: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#eec4d6));
-    background: linear-gradient(to right, #a0e0e4,#eec4d6 );
+  background: #eec4d6;
+  }
+
+  .tabela-alunos td, th, tr{
+    text-align: center;
+    border-bottom: 0.5px solid black;
+  }
+
+  .tabela-alunos thead th {
+    border-bottom: 0.5px solid black;
+    border-top: 0.5px solid black;
+    /* border: 1px solid black; */
+    /* background: #de216f; */
+    /* border-radius: 15px; */
   }
 
   i {
@@ -27,7 +58,7 @@ h2 {
   }
 
 .tabela-alunos:hover {
-  box-shadow: 3px 3px 0px transparent;
+  /* box-shadow: 3px 3px 0px transparent; */
   transition: 0.5s;
   }
 
@@ -35,8 +66,8 @@ h2 {
     font-family: "Nunito", sans-serif;
     color: #000 !important;
     text-transform: capitalize;
-    background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-    background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+    background-image: -webkit-gradient(linear, left top, right top, from(#efe0e6), to(#e9b1c9));
+    background-image: linear-gradient(to right, #efe0e6, #e9b1c9);
     padding: 10px 20px 10px;
     position: relative;
     border: 0;
@@ -53,7 +84,7 @@ h2 {
     width: 0;
     left: 0;
     background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
-    background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+    background-image: linear-gradient(to right, #e9b1c9, #efe0e6);
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
   }
@@ -86,7 +117,7 @@ h2 {
 
   .navbar-center{
     background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-    background: linear-gradient(to right, #a0e0e4, #e194b5);
+    background: linear-gradient(to right, #efe0e6, #e194b5);
     height: 6em;
     padding: 1.5em;
     margin-bottom: 4rem;
@@ -198,7 +229,8 @@ h2 {
   }
 
   #paginaTurma {
-    max-width: 100%
+    max-width: 100%;
+    justify-content: center;
   }
 
   #iconeEditar {
