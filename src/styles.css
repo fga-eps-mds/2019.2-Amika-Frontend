@@ -1,6 +1,7 @@
 /* Importação de fontes */
 @import url('https://fonts.googleapis.com/css?family=Nunito|Raleway|Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Montserrat|Neucha|Satisfy|Titillium+Web|Varela+Round&display=swap');
 
 /* BOTAO */
 
@@ -163,4 +164,20 @@ p {
 
 .cor-de-background {
   background-color: #efefef;
+}
+
+.tela-cheia {
+  margin: 0;
+  margin-top: 6vh;
+  min-height: 89vh;
+  height: auto;
+  max-height: 93vh;
+}
+
+html, body {
+  min-height: 91vh;
+  height: auto;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
 }
