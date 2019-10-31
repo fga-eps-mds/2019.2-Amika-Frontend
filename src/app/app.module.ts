@@ -26,6 +26,7 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
     AreaInformativaComponent,
     PerfilUsuarioComponent,
     GraficoHumorComponent,
+
   ],
   imports: [
     ReactiveFormsModule,
@@ -54,7 +56,8 @@ import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
     RatingModule.forRoot(),
     RatingModule,
     FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ChartsModule
   ],
 
   providers: [
