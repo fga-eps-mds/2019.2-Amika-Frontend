@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
-import { RouterModule, Routes, Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
@@ -65,17 +65,3 @@ import { environment } from '../environments/environment';
 })
 
 export class AppModule {}
-
-// export class AppComponent{
-//   showLoadingIndicator = true;
-//   constructor(private router: Router) {
-//     this.router.events.subscribe((routerEvent: Event) => {
-//       if (routerEvent instanceof NavigationStart) {
-//         this.showLoadingIndicator = true;
-//       }
-//       if (routerEvent instanceof NavigationEnd) {
-//         this.showLoadingIndicator = false;
-//       }
-//     })
-//   }
-// }
