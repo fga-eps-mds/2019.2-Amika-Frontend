@@ -10,15 +10,15 @@
               <mat-list>
                 <div *ngIf="!isAdmin" class="perfil-celular">
                     <img class="foto-perfil" src="https://cf.ltkcdn.net/socialnetworking/images/orig/168646-425x425-Cat-Avatar-Primary.jpg" alt="">
-                    <h4 class="informacao-perfil">Matheus Roberto</h4>
-                    <h4 class="informacao-perfil">13/0126721</h4>
+                    <h4 class="informacao-perfil">Usuário</h4>
+                    <h4 class="informacao-perfil">Matrícula</h4>
                 </div>
                 <div *ngIf="isAdmin" class="perfil-celular">
                     <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
-                    <h4 class="informacao-perfil">Matheus Roberto</h4>
+                    <h4 class="informacao-perfil">Usuário</h4>
                 </div>
                 <div class="centralizar">
-                        <button class="deslogar-celular">Deslogar</button>
+                        <button class="deslogar-celular" (click)="this.autenticacao.deslogar()">Deslogar</button>
                     </div>
               </mat-list>
             </div>
@@ -47,8 +47,8 @@
                         <mat-list *ngIf="!isAdmin">
                             <div class="perfil">
                                 <img class="foto-perfil" src="https://cf.ltkcdn.net/socialnetworking/images/orig/168646-425x425-Cat-Avatar-Primary.jpg" alt="">
-                                <h4 class="informacao-perfil">Matheus Roberto</h4>
-                                <h4 class="informacao-perfil">13/0126721</h4>
+                                <h4 class="informacao-perfil">Usuário</h4>
+                                <h4 class="informacao-perfil">Matrícula</h4>
                             </div>
                             <mat-list-item>
                                 <mat-icon>folder_shared</mat-icon>
@@ -71,13 +71,13 @@
                                 <a mat-button routerLink="/area-informativa" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Área informativa');">Área informativa</a>
                             </mat-list-item>    
                             <div class="centralizar">
-                                <button class="deslogar">Deslogar</button>
+                                <button class="deslogar" (click)="this.autenticacao.deslogar()">Deslogar</button>
                             </div>
                         </mat-list>
                         <mat-list *ngIf="isAdmin">
                             <div class="perfil">
                                 <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
-                                <h4 class="informacao-perfil">Matheus Roberto</h4>
+                                <h4 class="informacao-perfil">Usuário</h4>
                             </div>
                             <mat-list-item>
                                 <mat-icon>subject</mat-icon>
