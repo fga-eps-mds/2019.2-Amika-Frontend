@@ -3,6 +3,7 @@ import {
   Component, 
   ChangeDetectorRef, 
   EventEmitter, 
+  OnInit,
   Output } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material';
@@ -12,7 +13,7 @@ import { MatSidenav } from '@angular/material';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Amika';
   mobileQuery: MediaQueryList;
   isAdmin: boolean;
@@ -24,13 +25,32 @@ export class AppComponent {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.isAdmin();
   }
 
+  OnInit() {
+    this.isAdmin();
+  }
 
   setTitle(nome: string) {
     this.title = nome;
   }
 
+  isAdmin() {
+    const params = this.autenticacao.getJWTParams();
+    if (!params) {
+      this.logado = false;
+    }
+    else if (params['superusuario']) {
+      this.isAdmin = true;
+      this.logado = true;
+    } 
+    else {
+      this.isAdmin = false;
+      this.logado = true;
+    }
+  }
+  
   toggleMobileNav(nav: MatSidenav) {
     if (this.mobileQuery.matches) {
       nav.toggle();
