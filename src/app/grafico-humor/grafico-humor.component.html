@@ -1,1 +1,12 @@
-<p>grafico-humor works!</p>
+<div style="width: 40%;">
+  <canvas
+      baseChart
+      [chartType]="'line'"
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      [legend]="true"
+      [colors]="myColors"
+      (chartClick)="onChartClick($event)">
+  </canvas>
+</div>
