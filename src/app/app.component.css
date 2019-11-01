@@ -1,4 +1,4 @@
-mat-toolbar {
+.toolbar-top {
     background: #6fafa0 !important;
     height: 6vh;
 }
@@ -21,7 +21,7 @@ mat-sidenav{
     flex: 1 1 auto;
     text-align: center;
 }
-  
+
 .example-spacer {
     flex: 1 1 auto;
 }
@@ -83,4 +83,38 @@ mat-sidenav{
     justify-content: center;
     display: flex;
     margin: 0px auto;
+}
+
+
+/* Place the navbar at the bottom of the page, and make it stick */
+.bottom-nav {
+  background-color: white;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  box-shadow: 0 -0.3px 0.3px -1px black;
+  z-index: 100;
+}
+
+/* Style the links inside the navigation bar */
+.bottom-nav a {
+  display: block;
+  color: #6fafa0;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+/* Change the color of links on hover */
+.bottom-nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.bottom-nav a.active {
+  background-color: #6fafa0;
+  color: white;
 }
