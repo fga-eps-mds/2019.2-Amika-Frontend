@@ -7,21 +7,19 @@
   <div class="row" id="paginaTurma">
     <div class="col-md-6">
       <h2 class="text-center">Histórico de Turmas</h2>
-      <div class="col-md-12 scroll" >
-        <table class="tabela-alunos table table-striped">
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let turma of turmas" >
-              <td>{{turma.descricao}}</td>
-              <td><i (click)="onEdit(turma.id)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(turma)" class="fas fa-trash"  id="iconeExcluir"></i></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-md-12 margin-top" >
+        <div class="scrollbar" id="style-3">
+          <div class="force-overflow">
+            <mat-toolbar class="turmas" *ngFor="let turma of turmas">
+              <mat-toolbar-row class="turmas-row">
+                <span>Turma {{turma.descricao}}</span>
+                <span class="example-spacer"></span>
+                <i (click)="onEdit(turma.id)" id="iconeEditar" class="fas fa-edit"></i>
+                <i (click)="onDelete(turma)" class="fas fa-trash"  id="iconeExcluir"></i>
+              </mat-toolbar-row>
+            </mat-toolbar>
+          </div>
+        </div>
       </div>
     </div>
 
