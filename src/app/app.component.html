@@ -123,3 +123,10 @@
           <a  routerLink="/grupo" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Grupo');"><mat-icon>people</mat-icon></a>
           <a  routerLink="/area-informativa" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
         </div>
+        <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && isAdmin">
+            <a  routerLink="/" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Disciplina');"><mat-icon>subject</mat-icon></a>
+            <a  routerLink="/notificacao" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Notificações');"><mat-icon>notifications_active</mat-icon></a>
+            <a  routerLink="/grupos" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Grupo');"><mat-icon>group</mat-icon></a>
+            <a  routerLink="/lista" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Lista');"><mat-icon>person_add</mat-icon></a>
+            <a  routerLink="/turmas" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Turmas');"><mat-icon>class</mat-icon></a>
+          </div>
