@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from "@angular/router";
 import {Pontuacao} from './pontos'
 import { FormularioFelidadeAutenticaService } from './formulario_felicidade_autentica.service';
 
@@ -24,18 +23,18 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
 
   createForm(pontos: Pontuacao) {
     this.formPontuacao = this.formBuilder.group({
-      ponto1: [pontos.ponto1],
-      ponto2: [pontos.ponto2],
-      ponto3: [pontos.ponto3],
-      ponto4: [pontos.ponto4],
-      ponto5: [pontos.ponto5],
-      ponto6: [pontos.ponto6],
-      ponto7: [pontos.ponto7],
-      ponto8: [pontos.ponto8],
-      ponto9: [pontos.ponto9],
-      ponto10: [pontos.ponto10],
-      ponto11: [pontos.ponto11],
-      ponto12: [pontos.ponto12],
+      ponto1: [pontos.ponto1, Validators.required],
+      ponto2: [pontos.ponto2, Validators.required],
+      ponto3: [pontos.ponto3, Validators.required],
+      ponto4: [pontos.ponto4, Validators.required],
+      ponto5: [pontos.ponto5, Validators.required],
+      ponto6: [pontos.ponto6, Validators.required],
+      ponto7: [pontos.ponto7, Validators.required],
+      ponto8: [pontos.ponto8, Validators.required],
+      ponto9: [pontos.ponto9, Validators.required],
+      ponto10: [pontos.ponto10, Validators.required],
+      ponto11: [pontos.ponto11, Validators.required],
+      ponto12: [pontos.ponto12, Validators.required],
     })
   }
 
