@@ -13,6 +13,11 @@ mat-sidenav{
     width: 200px;
 }
 
+.icone-adicionar {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
 .example-icon {
     padding: 0 14px;
 }
