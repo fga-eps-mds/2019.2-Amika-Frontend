@@ -55,7 +55,7 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
     ponto[12] = {pontos: dadosFormulario.ponto12};
 
     this.total = ponto.reduce((total, valor) => total + valor.pontos, 0);
-
+    this.total = Number(this.total);
     console.log(this.total);
 
   }
