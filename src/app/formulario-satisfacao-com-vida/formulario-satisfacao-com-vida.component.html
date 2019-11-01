@@ -5,6 +5,7 @@
   <h2>FORMULÁRIO DE ESCALA DE SATISFAÇÃO COM A VIDA</h2>
 </div>
 
+<form [formGroup]="formPontuacao">
 <fieldset>
   <p> Abaixo estão 5 declarações que você pode concordar os discordar delas.
       Leia cada um e depois clique na lista suspensa próxima a declaração e selecione
@@ -12,19 +13,19 @@
   </p>
   <br>
 
-  <form [formGroup]="formPontuacao">
+
     <div id="area" class="form-group">
       <div class="">
         <label>1. Em muitos aspectos, minha vida está próxima do meu ideal.</label>
-        <select class="browser-default custom-select">
+        <select class="browser-default custom-select" formControlName="ponto1">
           <option selected>Selecione uma opção</option>
-          <option class="form-check-input" name="ponto1" id="opcao_1" [value]=1 formControlName="ponto1">Concordo fortemente</option>
-          <option class="form-check-input" name="ponto1" id="opcao_2" [value]=2 formControlName="ponto1">Concordo</option>
-          <option class="form-check-input" name="ponto1" id="opcao_3" [value]=3 formControlName="ponto1">Concordo parcialmente</option>
-          <option class="form-check-input" name="ponto1" id="opcao_4" [value]=4 formControlName="ponto1">Nem concordo nem discordo</option>
-          <option class="form-check-input" name="ponto1" id="opcao_5" [value]=5 formControlName="ponto1">Discordo parcialmente</option>
-          <option class="form-check-input" name="ponto1" id="opcao_6" [value]=6 formControlName="ponto1">Discordo</option>
-          <option class="form-check-input" name="ponto1" id="opcao_7" [value]=7 formControlName="ponto1">Discordo fortemente</option>
+          <option id="opcao_1" [value]=1>Concordo fortemente</option>
+          <option id="opcao_2" [value]=2>Concordo</option>
+          <option id="opcao_3" [value]=3>Concordo parcialmente</option>
+          <option id="opcao_4" [value]=4>Nem concordo nem discordo</option>
+          <option id="opcao_5" [value]=5>Discordo parcialmente</option>
+          <option id="opcao_6" [value]=6>Discordo</option>
+          <option id="opcao_7" [value]=7>Discordo fortemente</option>
         </select>
       </div>
       <br>
@@ -33,15 +34,15 @@
     <div id="area" class="form-group">
       <div class="">
         <label>2. As condições da minha vida são excelentes.</label>
-        <select class="browser-default custom-select">
+        <select class="browser-default custom-select" formControlName="ponto2">
           <option selected>Selecione uma opção</option>
-          <option class="form-check-input" name="ponto2" id="opcao_1" [value]=1 formControlName="ponto2">Concordo fortemente</option>
-          <option class="form-check-input" name="ponto2" id="opcao_2" [value]=2 formControlName="ponto2">Concordo</option>
-          <option class="form-check-input" name="ponto2" id="opcao_3" [value]=3 formControlName="ponto2">Concordo parcialmente</option>
-          <option class="form-check-input" name="ponto2" id="opcao_4" [value]=4 formControlName="ponto2">Nem concordo nem discordo</option>
-          <option class="form-check-input" name="ponto2" id="opcao_5" [value]=5 formControlName="ponto2">Discordo parcialmente</option>
-          <option class="form-check-input" name="ponto2" id="opcao_6" [value]=6 formControlName="ponto2">Discordo</option>
-          <option class="form-check-input" name="ponto2" id="opcao_7" [value]=7 formControlName="ponto2">Discordo fortemente</option>
+          <option id="opcao_1" [value]=1>Concordo fortemente</option>
+          <option id="opcao_2" [value]=2>Concordo</option>
+          <option id="opcao_3" [value]=3>Concordo parcialmente</option>
+          <option id="opcao_4" [value]=4>Nem concordo nem discordo</option>
+          <option id="opcao_5" [value]=5>Discordo parcialmente</option>
+          <option id="opcao_6" [value]=6>Discordo</option>
+          <option id="opcao_7" [value]=7>Discordo fortemente</option>
         </select>
       </div>
       <br>
@@ -50,15 +51,15 @@
     <div id="area" class="form-group">
       <div class="">
         <label>3. Estou completamente satisfeito com minha vida.</label>
-        <select class="browser-default custom-select">
+        <select class="browser-default custom-select" formControlName="ponto3">
           <option selected>Selecione uma opção</option>
-          <option class="form-check-input" name="ponto3" id="opcao_1" [value]=1 formControlName="ponto3">Concordo fortemente</option>
-          <option class="form-check-input" name="ponto3" id="opcao_2" [value]=2 formControlName="ponto3">Concordo</option>
-          <option class="form-check-input" name="ponto3" id="opcao_3" [value]=3 formControlName="ponto3">Concordo parcialmente</option>
-          <option class="form-check-input" name="ponto3" id="opcao_4" [value]=4 formControlName="ponto3">Nem concordo nem discordo</option>
-          <option class="form-check-input" name="ponto3" id="opcao_5" [value]=5 formControlName="ponto3">Discordo parcialmente</option>
-          <option class="form-check-input" name="ponto3" id="opcao_6" [value]=6 formControlName="ponto3">Discordo</option>
-          <option class="form-check-input" name="ponto3" id="opcao_7" [value]=7 formControlName="ponto3">Discordo fortemente</option>
+          <option id="opcao_1" [value]=1>Concordo fortemente</option>
+          <option id="opcao_2" [value]=2>Concordo</option>
+          <option id="opcao_3" [value]=3>Concordo parcialmente</option>
+          <option id="opcao_4" [value]=4>Nem concordo nem discordo</option>
+          <option id="opcao_5" [value]=5>Discordo parcialmente</option>
+          <option id="opcao_6" [value]=6>Discordo</option>
+          <option id="opcao_7" [value]=7>Discordo fortemente</option>
         </select>
       </div>
       <br>
@@ -67,15 +68,15 @@
     <div id="area" class="form-group">
       <div class="">
         <label>4. Até agora, eu obtive as coisas que considero mais importantes que quero em minha vida.</label>
-        <select class="browser-default custom-select">
+        <select class="browser-default custom-select" formControlName="ponto4">
           <option selected>Selecione uma opção</option>
-          <option class="form-check-input" name="ponto4" id="opcao_1" [value]=1 formControlName="ponto4">Concordo fortemente</option>
-          <option class="form-check-input" name="ponto4" id="opcao_2" [value]=2 formControlName="ponto4">Concordo</option>
-          <option class="form-check-input" name="ponto4" id="opcao_3" [value]=3 formControlName="ponto4">Concordo parcialmente</option>
-          <option class="form-check-input" name="ponto4" id="opcao_4" [value]=4 formControlName="ponto4">Nem concordo nem discordo</option>
-          <option class="form-check-input" name="ponto4" id="opcao_5" [value]=5 formControlName="ponto4">Discordo parcialmente</option>
-          <option class="form-check-input" name="ponto4" id="opcao_6" [value]=6 formControlName="ponto4">Discordo</option>
-          <option class="form-check-input" name="ponto4" id="opcao_7" [value]=7 formControlName="ponto4">Discordo fortemente</option>
+          <option id="opcao_1" [value]=1>Concordo fortemente</option>
+          <option id="opcao_2" [value]=2>Concordo</option>
+          <option id="opcao_3" [value]=3>Concordo parcialmente</option>
+          <option id="opcao_4" [value]=4>Nem concordo nem discordo</option>
+          <option id="opcao_5" [value]=5>Discordo parcialmente</option>
+          <option id="opcao_6" [value]=6>Discordo</option>
+          <option id="opcao_7" [value]=7>Discordo fortemente</option>
         </select>
       </div>
       <br>
@@ -84,21 +85,23 @@
     <div id="area" class="form-group">
       <div class="">
         <label>5. Se eu pudesse viver minha vida novamente, eu não mudaria nada.</label>
-        <select class="browser-default custom-select">
+        <select class="browser-default custom-select" formControlName="ponto5">
           <option selected>Selecione uma opção</option>
-          <option class="form-check-input" name="ponto5" id="opcao_1" [value]=1 formControlName="ponto5">Concordo fortemente</option>
-          <option class="form-check-input" name="ponto5" id="opcao_2" [value]=2 formControlName="ponto5">Concordo</option>
-          <option class="form-check-input" name="ponto5" id="opcao_3" [value]=3 formControlName="ponto5">Concordo parcialmente</option>
-          <option class="form-check-input" name="ponto5" id="opcao_4" [value]=4 formControlName="ponto5">Nem concordo nem discordo</option>
-          <option class="form-check-input" name="ponto5" id="opcao_5" [value]=5 formControlName="ponto5">Discordo parcialmente</option>
-          <option class="form-check-input" name="ponto5" id="opcao_6" [value]=6 formControlName="ponto5">Discordo</option>
-          <option class="form-check-input" name="ponto5" id="opcao_7" [value]=7 formControlName="ponto5">Discordo fortemente</option>
+          <option id="opcao_1" [value]=1>Concordo fortemente</option>
+          <option id="opcao_2" [value]=2>Concordo</option>
+          <option id="opcao_3" [value]=3>Concordo parcialmente</option>
+          <option id="opcao_4" [value]=4>Nem concordo nem discordo</option>
+          <option id="opcao_5" [value]=5>Discordo parcialmente</option>
+          <option id="opcao_6" [value]=6>Discordo</option>
+          <option id="opcao_7" [value]=7>Discordo fortemente</option>
         </select>
       </div>
       <br>
     </div>
-  </form>
+  
 </fieldset>
+
 
 <input type="submit" class="btn btn-primary mt-4" [disabled]="formPontuacao.invalid" value="Salvar" (click)="onSubmit(formPontuacao.value)">
 <input type='button' class="btn btn-primary mt-4" value='Voltar' onclick='history.go(-1)' />
+</form>
