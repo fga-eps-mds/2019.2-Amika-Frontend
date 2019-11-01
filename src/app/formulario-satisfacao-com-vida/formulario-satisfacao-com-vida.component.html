@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 
 <div class="cabecalho">
-  <h2>Formulário de escala de satisfação com a vida</h2>
+  <h2>FORMULÁRIO DE ESCALA DE SATISFAÇÃO COM A VIDA</h2>
 </div>
 
 <fieldset>
@@ -100,5 +100,5 @@
   </form>
 </fieldset>
 
-<input type="submit" class="btn btn-primary mt-4" value="Salvar">
+<input type="submit" class="btn btn-primary mt-4" [disabled]="formPontuacao.invalid" value="Salvar" (click)="onSubmit(formPontuacao.value)">
 <input type='button' class="btn btn-primary mt-4" value='Voltar' onclick='history.go(-1)' />
