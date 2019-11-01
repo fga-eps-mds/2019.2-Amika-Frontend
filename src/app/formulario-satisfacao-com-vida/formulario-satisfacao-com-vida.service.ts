@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 
-export class FormularioFelidadeAutenticaService {
+export class FormularioSatisfacaoComVidaService {
 
     errors;
     httpOptions = {
