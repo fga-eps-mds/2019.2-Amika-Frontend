@@ -1,52 +1,51 @@
-h1, h5, h6 {
-  font-family: "Nunito", sans-serif;
-  font-weight: bold;
-}
-
-h2 {
-  font-family: "Nunito", sans-serif;
-}
-
-table * {
-  border: none;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-  background-color: #f5e9ee;
-}
-
-
-.table-striped {
-  /* border-radius: 15px; */
-  /* border: 1px solid black; */
-}
-
-.tabela-alunos {
-  max-width: 800px;
-  /* border-radius: 15px !important; */
-  margin-top: 0;
-  transition: 0.5s;
-  font-family: "Nunito", sans-serif;
-  overflow-y: scroll;
-  background: #eec4d6;
+  h1, h5, h6 {
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
   }
 
-  .tabela-alunos td, th, tr{
+  h2 {
+    font-family: "Nunito", sans-serif;
+  }
+
+  table * {
+    border: none;
+  }
+
+  .text-center {
     text-align: center;
-    border-bottom: 0.5px solid black;
   }
 
-  .tabela-alunos thead th {
-    border-bottom: 0.5px solid black;
-    border-top: 0.5px solid black;
-    /* border: 1px solid black; */
-    /* background: #de216f; */
-    /* border-radius: 15px; */
+  .margin-top {
+    margin-top: 2em;
+  }
+
+  .example-icon {
+    padding: 0 14px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .turmas-row {
+    font-family: 'Varela Round', sans-serif;
+    /* font-family: 'Bad Script', cursive; */
+    /* font-family: 'Farro', sans-serif; */
+    /* font-family: 'Racing Sans One', cursive; */
+    /* font-family: 'Contrail One', cursive; */
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+  }
+
+  .mat-toolbar-multiple-rows {
+    min-height: 40px !important;
+    max-height: 47px !important;
+  }
+
+  .turmas {
+    margin-top: 10px;
+    border-radius: 20px;
   }
 
   i {
@@ -64,10 +63,9 @@ table * {
 
   .btn-get {
     font-family: "Nunito", sans-serif;
-    color: #000 !important;
+    color: #fff !important;
     text-transform: capitalize;
-    background-image: -webkit-gradient(linear, left top, right top, from(#efe0e6), to(#e9b1c9));
-    background-image: linear-gradient(to right, #efe0e6, #e9b1c9);
+    background: #f44b72;
     padding: 10px 20px 10px;
     position: relative;
     border: 0;
@@ -141,9 +139,9 @@ table * {
   .turmas_form .form-group select {
     font-size: 1em;
     border: none;
-    border-bottom: 2px solid #d68fae;
-    outline: none;
-    outline-color: #dd709f;
+    border-bottom: 2px solid #f44b72;
+    /* outline: none; */
+    /* outline-color: #6fafa0; */
     outline-width: thick;
     padding: 0 2.5rem;
     position: relative;
@@ -157,30 +155,6 @@ table * {
     top: 0px;
     margin: 0 0 -80px;
     font-size:20px;
-  }
-
-  @-webkit-keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
-  }
-
-  @keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
   }
 
   .label-float {
@@ -235,11 +209,11 @@ table * {
 
   #iconeEditar {
     margin-right: 0.75em;
-    color: blue;
+    color: #206b43;
   }
 
   #iconeExcluir {
-    color: red;
+    color: #f30872;
   }
 
   .modal-body {
@@ -248,9 +222,35 @@ table * {
 
   }
 
-  .scroll{
-    overflow-y: scroll;
-    min-height: 13em;
-    max-height: 20em;
-    margin-top: 4em;
-  }
+  @media only screen and (min-width: 768px) {
+    .scroll {
+      overflow: auto;
+      max-height: 25em 
+    }
+    
+    .scrollbar {
+      height: 25em;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+  
+    .force-overflow {
+      max-height: 25em;
+    }
+  
+    #style-3::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+    }
+  
+    #style-3::-webkit-scrollbar {
+      width: 3px;
+      height: 5px;
+      background-color: #F5F5F5;
+    }
+  
+    #style-3::-webkit-scrollbar-thumb {
+      background-color: #000000;
+    }
+
+  }  
