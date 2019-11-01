@@ -36,10 +36,7 @@
                     id="turmaIndividual" aria-describedby="turmaIndividual"
                     [ngClass]="{ 'is-invalid': formIndividualEnviado && hasError('turma') }">
                     <option value="" disabled selected>Selecione a turma</option>
-                    <option>A</option>
-                    <option>B</option>
-                    <option>C</option>
-                    <option>D</option>
+                    <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="hasError('turma')">
                       Por favor, informe uma turma válida.

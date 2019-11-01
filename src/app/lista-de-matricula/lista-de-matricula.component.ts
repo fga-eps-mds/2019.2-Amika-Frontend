@@ -5,6 +5,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { ListaService } from './../lista.service';
 import { Router } from '@angular/router';
 import { RequisicaoService } from '../requisicao.service';
+import { Turma } from '../turmas/turmas.model';
+import { TurmaService } from '../turmas/turma.service';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -28,10 +30,14 @@ export class ListaDeMatriculaComponent implements OnInit {
   arrayTeste = [];
   formIndividualEnviado = false;
   formListaEnviado = false;
+  turmas: Turma;
+  error: any;
   public records: any[] = [];
   @ViewChild('csvReader', {static: false}) csvReader: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService, private listaService:ListaService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService,
+     private listaService:ListaService, private turmaService: TurmaService) {
+    this.getter();
     this.formulario = this.formBuilder.group({
       matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
       turma: ['', Validators.required],
@@ -39,7 +45,7 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.formularioLista = this.formBuilder.group({
       arquivo: ['', Validators.required],
       semestre: ['', Validators.required],
-    })
+    });
   }
 
   onSubmit(dadosFormulario) {
@@ -147,6 +153,15 @@ export class ListaDeMatriculaComponent implements OnInit {
 
   hasErrorLista(field: string) {
     return this.formularioLista.get(field).errors;
+  }
+
+  getter() {
+    this.turmaService.get_turmas().subscribe((data: any) => {
+      console.log(data);
+      this.turmas = data;
+    }, (error: any) => {
+      this.error = error;
+    });
   }
 
   ngOnInit(){}

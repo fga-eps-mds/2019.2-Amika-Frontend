@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { AutenticacaoService } from './autenticacao.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RequisicaoService {
   errors;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -17,7 +20,7 @@ export class RequisicaoService {
   }
 
   realizarRequisicao(dadosAluno) {
-    return this.http.post("http://localhost:8000/aluno/", dadosAluno, this.httpOptions)
+    return this.http.post(environment.urlApi + 'aluno/', dadosAluno, this.autenticacao.httpOptions)
                     .subscribe(data => {
                       console.log(data);
                       this.errors = null;
@@ -30,7 +33,7 @@ export class RequisicaoService {
   }
 
   requisicaoMatriculaIndividual(dadosIndividuais) {
-    return this.http.post("http://localhost:8000/registro/", dadosIndividuais, this.httpOptions)
+    return this.http.post(environment.urlApi + 'registro/', dadosIndividuais, this.autenticacao.httpOptions)
       .subscribe(data => {
         console.log(data);
         this.errors = null;
