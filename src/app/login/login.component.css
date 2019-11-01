@@ -1,0 +1,124 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    background-color: #eee;
+  }
+
+  #wrapper {
+    width: 500px;
+    height: 50%;
+    overflow: hidden;
+    border: 0px solid #000;
+    margin: 50px auto;
+    padding: 10px;
+  }
+
+  .main-content {
+    width: 75%;
+    height: 40%;
+    margin: 10px auto;
+    background-color: #fff;
+    border: 2px solid #e6e6e6;
+    padding: 40px 50px;
+  }
+
+  .header {
+    border: 0px solid #000;
+  }
+
+  .header img {
+    display: flex;
+    margin: 0px auto;
+  }
+  .overlap-text {
+    margin-top: 10px;
+    position: relative;
+  }
+
+  .overlap-text a {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #003569;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: 'Overpass Mono', monospace;
+    letter-spacing: -1px;
+  }
+
+  .btn {
+    width: 100%;
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    padding: 5px 12px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .sub-content {
+    width: 75%;
+    height: 40%;
+    margin: 10px auto;
+    border: 1px solid #e6e6e6;
+    padding: 20px 50px;
+    background-color: #fff;
+  }
+
+  .s-part {
+    text-align: center;
+    font-family: 'Overpass Mono', monospace;
+    word-spacing: -3px;
+    letter-spacing: -2px;
+    font-weight: normal;
+  }
+
+  .s-part a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #bb7f97;
+    font-family: 'Overpass Mono', monospace;
+    word-spacing: -3px;
+    letter-spacing: -2px;
+    font-weight: normal;
+  }
+
+
+  button {
+    background-color: #70aba0;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+    width: 200px;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  button:disabled {
+    background: #70aba08f;
+    cursor: default;
+  }
+
+  small {
+    color : red;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  input {
+    padding: 12px 20px;
+  }
+
+  .div-button {
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+  }
