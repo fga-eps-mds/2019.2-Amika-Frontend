@@ -24,7 +24,7 @@
     </div>
 
     <div class="col-md-6">
-      <button class="only-mobile adicionar-turma" mat-mini-fab aria-label="Example icon-button with a heart icon" (click)="openDialog()">
+      <button class="only-mobile adicionar-turma" mat-mini-fab aria-label="Example icon-button with a heart icon" (click)="criarDialogoAdicionarTurma()">
         <div class="text-center">
             <mat-icon class="add-icon">add</mat-icon>
         </div>
@@ -56,26 +56,5 @@
     <h5>Tem certeza que deseja remover essa turma?</h5>
     <button type="button" class="btn btn-confirm" (click)="onConfirmDelete()"> Sim</button>
     <button type="button" class="btn btn-decline" (click)="onDeclineDelete()"> Não</button>
-  </div>
-</ng-template>
-
-<ng-template #createModal class="modal-body">
-  <div class="modal-body text-center">
-    <form class="turmas_form needs-validation only-desktop" novalidade [formGroup] = "formularioTurma">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="form-group label-float">
-                  <input type="text" class="form-control" id="descricaoTurma" aria-describedby="descricaoTurma" placeholder="descricao da Turma" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
-                  <label for="descricaoTurma">Descricao da Turma</label>
-                    <div class="invalid-feedback" *ngIf="hasError('descricao')">
-                      Por favor, informe o descricao da turma.
-                    </div>
-              </div>
-          </div>
-      </div>
-      <div class="text-center">
-        <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button>
-      </div>
-    </form>
   </div>
 </ng-template>

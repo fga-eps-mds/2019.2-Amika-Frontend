@@ -38,7 +38,7 @@ export class TurmasComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(): void {
+  criarDialogoAdicionarTurma(): void {
     this.formularioTurma.get('descricao').setValue("A");
     const dialogRef = this.dialog.open(CriarTurmasDialogo, {
       width: '250px',
@@ -111,9 +111,7 @@ export class TurmasComponent implements OnInit {
   styleUrls: ['./turmas-create-dialogo.css']
 })
 export class CriarTurmasDialogo {
-
   formularioTurma: FormGroup;
-
   constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: FormGroup ) {
     this.formularioTurma = this.formBuilder.group({
       descricao: ['', Validators.required]
@@ -122,10 +120,10 @@ export class CriarTurmasDialogo {
 
   onClick(): void {
   }
-  
+
   submit(form) {
     console.log(form.value);
     this.dialogRef.close(`${JSON.stringify(form.value)}`);
   }
-
 }
+
