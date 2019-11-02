@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Adicionar turma</h1>
+<mat-dialog-content class="content-adicionar-turmas">
+  <form [formGroup]="formularioTurma" (ngSubmit)="submit(formularioTurma)">
+        <mat-form-field>
+          <input matInput
+                  placeholder="Course Description"
+                  formControlName="descricao">
+        </mat-form-field>
+        <mat-dialog-actions>
+          <button mat-button type="submit">Adicionar</button>
+          <button mat-button type="button" mat-dialog-close>Cancelar</button>
+        </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
