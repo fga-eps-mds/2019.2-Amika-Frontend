@@ -28,8 +28,8 @@ const routes: Routes = [
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
   { path: 'area-informativa', component: AreaInformativaComponent},
   { path: 'perfil_usuario', component : PerfilUsuarioComponent},
-  { path: 'cadastrar', component: AlunoAutoRegistroComponent },
-  { path: 'lista', component: ListaDeMatriculaComponent },
+  { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
+  { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
 ];
 
 @NgModule({

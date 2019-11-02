@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from "@angular/router";
+import { AutenticacaoService } from './autenticacao.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -10,20 +11,16 @@ export class ListaService {
 
     errors;
 
-    httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json'
-        })
-    }
+    constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
+      this.autenticacao.setHeader();
+     }
 
-    constructor(private http: HttpClient, private router:Router) { }
-
-    enviar(dados) { 
-        return this.http.post("http://localhost:8000/registro/", dados, this.httpOptions)
+    enviar(dados) {
+        return this.http.post(environment.urlApi + 'registro/', dados, this.autenticacao.httpOptions)
                 .subscribe(data => {
                     console.log(data);
-                    
-                }, 
+
+                },
                 error => {
                     console.log(error);
                     this.errors = error;

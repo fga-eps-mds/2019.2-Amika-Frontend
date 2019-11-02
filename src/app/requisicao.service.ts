@@ -10,14 +10,9 @@ import { AutenticacaoService } from './autenticacao.service';
 export class RequisicaoService {
   errors;
 
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token'
-    })
-  }
+  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
+    this.autenticacao.setHeader();
+   }
 
   realizarRequisicao(dadosAluno) {
     return this.http.post(environment.urlApi + 'aluno/', dadosAluno, this.autenticacao.httpOptions)

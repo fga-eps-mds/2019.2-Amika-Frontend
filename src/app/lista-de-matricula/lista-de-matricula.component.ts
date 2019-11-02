@@ -36,7 +36,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   @ViewChild('csvReader', {static: false}) csvReader: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService,
-     private listaService:ListaService, private turmaService: TurmaService) {
+              private listaService: ListaService, private turmaService: TurmaService) {
     this.getter();
     this.formulario = this.formBuilder.group({
       matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
@@ -44,7 +44,7 @@ export class ListaDeMatriculaComponent implements OnInit {
     }),
     this.formularioLista = this.formBuilder.group({
       arquivo: ['', Validators.required],
-      semestre: ['', Validators.required],
+      turma: ['', Validators.required],
     });
   }
 
@@ -58,8 +58,8 @@ export class ListaDeMatriculaComponent implements OnInit {
     }
   }
 
-  cadastroIndividual(dadosIndividuais){
-    let dados = [{"matricula": dadosIndividuais.matricula, "turma": dadosIndividuais.turma}];
+  cadastroIndividual(dadosIndividuais) {
+    const dados = [{'matricula': dadosIndividuais.matricula, 'turma': dadosIndividuais.turma}];
     this.requisicaoService.requisicaoMatriculaIndividual(dados);
     this.requisicaoService.errors;
   }
@@ -68,60 +68,60 @@ export class ListaDeMatriculaComponent implements OnInit {
     return this.formulario.get(field).errors;
   }
 
-  onSubmitLista(dadosFormulario){
+  onSubmitLista(dadosFormulario) {
     this.formListaEnviado = true;
     if (this.formularioLista.valid) {
-      this.cadastrar();
+      this.registrar(this.arrayTeste);
       this.formularioLista.reset();
       this.formListaEnviado = false;
     }
   }
 
   uploadListener($event: any): void {
-    let files = $event.srcElement.files;
+    const files = $event.srcElement.files;
 
     if (this.isValidCSVFile(files[0])) {
-      let input = $event.target;
-      let reader = new FileReader();
+      const input = $event.target;
+      const reader = new FileReader();
       reader.readAsText(input.files[0]);
 
       reader.onload = () => {
-        let csvData = reader.result;
-        let csvRecordsArray = (<string>csvData).split(/\r\n|\n/);
-        let headersRow = this.getHeaderArray(csvRecordsArray);
+        const csvData = reader.result;
+        const csvRecordsArray = ( csvData as string).split(/\r\n|\n/);
+        const headersRow = this.getHeaderArray(csvRecordsArray);
 
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
       };
 
-      reader.onerror = function () {
+      reader.onerror = function() {
         console.log('Ocorreu um erro ao ler o arquivo!');
       };
 
     } else {
-      alert("Por favor mande um arquivo CSV válido.");
+      alert('Por favor mande um arquivo CSV válido.');
       this.fileReset();
     }
   }
 
-  registrar(informacao){
-    console.log("Lista enviada", informacao);
+  registrar(informacao) {
+    console.log('Lista enviada', informacao);
     console.log(JSON.stringify(informacao));
     this.listaService.enviar(JSON.stringify(informacao));
     console.log(this.listaService.errors);
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
-    let csvArr = [];
+    const csvArr = [];
 
     for (let i = 1; i < csvRecordsArray.length; i++) {
-      let curruntRecord = (<string>csvRecordsArray[i]).split(',');
+      const curruntRecord = ( csvRecordsArray[i] as string).split(',');
       if (curruntRecord.length == headerLength) {
-        let csvRecord: CSVRecord = new CSVRecord();
+        const csvRecord: CSVRecord = new CSVRecord();
         csvRecord.matricula = curruntRecord[0].trim();
         csvRecord.turma = curruntRecord[1].trim();
         csvArr.push({
-          "matricula": curruntRecord[0].trim(),
-          "turma": curruntRecord[1].trim()
+          'matricula': curruntRecord[0].trim(),
+          'turma': curruntRecord[1].trim()
         });
       }
     }
@@ -130,12 +130,12 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   isValidCSVFile(file: any) {
-    return file.name.endsWith(".csv");
+    return file.name.endsWith('.csv');
   }
 
   getHeaderArray(csvRecordsArr: any) {
-    let headers = (<string>csvRecordsArr[0]).split(',');
-    let headerArray = [];
+    const headers = ( csvRecordsArr[0] as string).split(',');
+    const headerArray = [];
     for (let j = 0; j < headers.length; j++) {
       headerArray.push(headers[j]);
     }
@@ -143,12 +143,8 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   fileReset() {
-    this.csvReader.nativeElement.value = "";
+    this.csvReader.nativeElement.value = '';
     this.records = [];
-  }
-
-  cadastrar(){
-    this.registrar(this.arrayTeste);
   }
 
   hasErrorLista(field: string) {
@@ -164,6 +160,6 @@ export class ListaDeMatriculaComponent implements OnInit {
     });
   }
 
-  ngOnInit(){}
+  ngOnInit() {}
 
 }
