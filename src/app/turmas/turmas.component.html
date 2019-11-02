@@ -5,7 +5,7 @@
 
 <div class="tela-cheia">
   <div class="row" id="paginaTurma">
-    <div class="col-md-6">
+    <div class="col-md-6 margin-bottom">
       <h2 class="text-center">Histórico de Turmas</h2>
       <div class="col-md-12 margin-top" >
         <div class="scrollbar" id="style-3">
@@ -24,8 +24,13 @@
     </div>
 
     <div class="col-md-6">
-      <h2 class="text-center">Adicionar nova Turma</h2>
-      <form class="turmas_form needs-validation" novalidade [formGroup] = "formularioTurma">
+      <button class="only-mobile adicionar-turma" mat-mini-fab aria-label="Example icon-button with a heart icon" (click)="openDialog()">
+        <div class="text-center">
+            <mat-icon class="add-icon">add</mat-icon>
+        </div>
+      </button>
+      <h2 class="text-center only-desktop">Adicionar nova Turma</h2>
+      <form class="turmas_form needs-validation only-desktop" novalidade [formGroup] = "formularioTurma">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group label-float">
@@ -38,7 +43,8 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button></div>
+          <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button>
+        </div>
     </form>
     </div>
   </div>
@@ -50,5 +56,26 @@
     <h5>Tem certeza que deseja remover essa turma?</h5>
     <button type="button" class="btn btn-confirm" (click)="onConfirmDelete()"> Sim</button>
     <button type="button" class="btn btn-decline" (click)="onDeclineDelete()"> Não</button>
+  </div>
+</ng-template>
+
+<ng-template #createModal class="modal-body">
+  <div class="modal-body text-center">
+    <form class="turmas_form needs-validation only-desktop" novalidade [formGroup] = "formularioTurma">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="form-group label-float">
+                  <input type="text" class="form-control" id="descricaoTurma" aria-describedby="descricaoTurma" placeholder="descricao da Turma" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                  <label for="descricaoTurma">Descricao da Turma</label>
+                    <div class="invalid-feedback" *ngIf="hasError('descricao')">
+                      Por favor, informe o descricao da turma.
+                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button>
+      </div>
+    </form>
   </div>
 </ng-template>

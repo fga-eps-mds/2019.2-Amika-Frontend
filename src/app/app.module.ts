@@ -27,7 +27,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { CriarTurmasDialogo } from './turmas/turmas.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    CriarTurmasDialogo,
   ],
+  entryComponents: [CriarTurmasDialogo],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
