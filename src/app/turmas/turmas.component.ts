@@ -17,7 +17,7 @@ export interface CriarTurmasDialogoData {
 })
 export class TurmasComponent implements OnInit {
 
-  turmas: Turma;
+  turmas: Array<Turma>;
   error: any;
   formularioTurma: FormGroup;
   submitted = false;
@@ -31,7 +31,8 @@ export class TurmasComponent implements OnInit {
               public dialog: MatDialog) {
     this.getter();
     this.formularioTurma = this.formBuilder.group({
-      descricao: ['', Validators.required]
+      descricao: ['', Validators.required],
+      id: ['']
     });
   }
 
@@ -39,17 +40,41 @@ export class TurmasComponent implements OnInit {
   }
 
   criarDialogoAdicionarTurma(): void {
-    this.formularioTurma.get('descricao').setValue("A");
     const dialogRef = this.dialog.open(CriarTurmasDialogo, {
       width: '250px',
-      data: {formularioTurma: this.formularioTurma}
+      data: {formularioTurma: null, title: "Adicionar turma"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      this.formularioTurma.value = JSON.parse(data)
+      console.log("DATA");
+      console.log(JSON.parse(data));
+      this.formularioTurma.patchValue(JSON.parse(data));
       this.onSubmit();
     });
   }
+
+  criarDialogoEditarTurma(turma): void {
+    const dialogRef = this.dialog.open(CriarTurmasDialogo, {
+      width: '250px',
+      data: {formularioTurma: turma, title: "Editar turma"}
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      data = JSON.parse(data)
+      console.log(data);
+      this.formularioTurma.patchValue(data);
+      console.log(this.formularioTurma.value);
+      this.edit();
+    });
+  }
   
+  edit() {
+    this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
+      this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
+    }, (error: any) => {
+      console.log("ERRO MAROTÃO")
+      this.error = error;
+    });
+  }
+
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
       console.log(data);
@@ -71,7 +96,6 @@ export class TurmasComponent implements OnInit {
 
   onConfirmDelete() {
      this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
-      console.log(data);
       this.getter();
     }, (error: any) => {
       this.error = error;
@@ -84,20 +108,14 @@ export class TurmasComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formularioTurma.value);
     this.submitted = true;
+    this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
+      this.formularioTurma.reset();
+      this.getter();
 
-    if (this.formularioTurma.valid) {
-      console.log('Enviar');
-      this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
-        console.log(data);
-        this.formularioTurma.reset();
-        this.getter();
-
-      }, (error: any) => {
-        this.error = error;
-      });
-    }
+    }, (error: any) => {
+      this.error = error;
+    });
   }
 
   onEdit(id) {
@@ -112,17 +130,25 @@ export class TurmasComponent implements OnInit {
 })
 export class CriarTurmasDialogo {
   formularioTurma: FormGroup;
-  constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: FormGroup ) {
-    this.formularioTurma = this.formBuilder.group({
-      descricao: ['', Validators.required]
-    });
+  constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+    if (this.data.formularioTurma) {
+      this.formularioTurma = this.formBuilder.group({
+        descricao: ['', Validators.required],
+        id: ""
+      });
+      this.formularioTurma.patchValue(this.data.formularioTurma);
+    }
+    else {
+      this.formularioTurma = this.formBuilder.group({
+        descricao: ['', Validators.required]
+      });
+    }
   }
 
   onClick(): void {
   }
 
   submit(form) {
-    console.log(form.value);
     this.dialogRef.close(`${JSON.stringify(form.value)}`);
   }
 }
