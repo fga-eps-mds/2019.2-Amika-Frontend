@@ -27,7 +27,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
+import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    AlunoAutoRegistroComponent,
+    ListaDeMatriculaComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -20,7 +20,7 @@ export class AppComponent {
   logado: boolean;
   private _mobileQueryListener: () => void;
   @Output() toggleSideNav = new EventEmitter();
- 
+
   constructor( changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public autenticacao: AutenticacaoService ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
