@@ -1,8 +1,8 @@
 import { AutenticacaoService } from './autenticacao.service';
-import { 
-  Component, 
-  ChangeDetectorRef, 
-  EventEmitter, 
+import {
+  Component,
+  ChangeDetectorRef,
+  EventEmitter,
   OnInit,
   Output } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
@@ -20,8 +20,8 @@ export class AppComponent {
   logado: boolean;
   private _mobileQueryListener: () => void;
   @Output() toggleSideNav = new EventEmitter();
-  
-  constructor( changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private autenticacao: AutenticacaoService ) {
+
+  constructor( changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public autenticacao: AutenticacaoService ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -40,13 +40,13 @@ export class AppComponent {
     else if (params['superusuario']) {
       this.isAdmin = true;
       this.logado = true;
-    } 
+    }
     else {
       this.isAdmin = false;
       this.logado = true;
     }
   }
-  
+
   toggleMobileNav(nav: MatSidenav) {
     if (this.mobileQuery.matches) {
       nav.toggle();
