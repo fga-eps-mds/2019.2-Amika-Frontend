@@ -25,7 +25,10 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { MaterialModule } from './material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
+import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { environment } from '../environments/environment';
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    AlunoAutoRegistroComponent,
+    ListaDeMatriculaComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -52,7 +57,9 @@ import { environment } from '../environments/environment';
     RatingModule.forRoot(),
     RatingModule,
     FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MaterialModule,
+    BrowserAnimationsModule
   ],
 
   providers: [

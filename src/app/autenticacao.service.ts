@@ -21,8 +21,8 @@ export class AutenticacaoService implements CanActivate{
   canActivate() {
     const params = this.getJWTParams();
     if (params && !params['superusuario']) {
-      console.log("TESTESTESTES");
-      this.router.navigate(['']);
+      // this.router.navigate(['']);
+      location.reload()
     } 
     else {
       return true;
@@ -37,7 +37,8 @@ export class AutenticacaoService implements CanActivate{
                       this.informacoesUsuario();
                       this.setHeader();
                       this.errors = null;
-                      this.router.navigateByUrl('/');
+                      location.reload()
+                      // this.router.navigateByUrl('/');
                     },
                     error => {
                       console.log(error);
@@ -80,5 +81,6 @@ export class AutenticacaoService implements CanActivate{
     localStorage.removeItem('Authorization');
     localStorage.removeItem('matricula');
     localStorage.removeItem('user_id');
+    location.reload()
   }
 }
