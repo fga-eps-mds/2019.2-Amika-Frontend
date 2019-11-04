@@ -202,10 +202,19 @@
     color: #dd709f;
   }
 
-  #paginaTurma {
-    max-width: 100%;
-    justify-content: center;
+  @media only screen and (min-width: 768px) {
+    #paginaTurma {
+      max-width: 100%;
+      justify-content: center;
+    }
   }
+
+  @media only screen and (max-width: 768px) {
+    #paginaTurma {
+      justify-content: center;
+    }
+  }
+
 
   #iconeEditar {
     margin-right: 0.75em;
