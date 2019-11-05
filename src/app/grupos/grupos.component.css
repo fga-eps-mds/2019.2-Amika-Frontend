@@ -13,6 +13,45 @@ h1, h5, h6 {
       margin-left: 0;
   }
 
+  .grupos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: 
+  }
+
+  .grupos-cards {
+    border-radius: 8px !important;
+    margin-bottom: 10px;
+    width: 25em;
+  }
+
+  mat-panel-title {
+    flex-basis: 100%;
+  }
+
+  .aluno {
+    padding: 1em;
+    border: 2px solid #6fafa0;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+  
+  /* mat-panel-description {
+    flex-basis: 0%;
+  } */
+  
+  mat-form-field {
+    margin-right: 12px;
+  }
+
+
+
+  .funcoes-grupos {
+    width: 2.3em;
+    justify-content: space-between;
+  }
+
     i {
       cursor: pointer;
     }
@@ -154,15 +193,13 @@ h1, h5, h6 {
     }
 
     #iconeEditar {
-      color: blue;
+      color: #206b43;
       float: right;
     }
 
     #iconeExcluir {
-      color: red;
+      color: #f30872;
       float: right;
-      margin-right: 2%;
-
     }
 
     .modal-body {
@@ -183,4 +220,8 @@ h1, h5, h6 {
       margin-top: 3em;
       align-items: center;
       font-size: medium;
+    }
+
+    .card-text {
+      margin: 0px;
     }

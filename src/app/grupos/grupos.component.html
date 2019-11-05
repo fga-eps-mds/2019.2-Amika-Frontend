@@ -6,50 +6,55 @@
 
 <div class="tela-cheia">
   <div class="row" id="paginaGrupo">
-      <div class="col-md-12">
-          <h2 class="text-center">Gerenciar Grupos</h2>
-          <form class="grupos_form needs-validation" novalidade [formGroup] = "formularioGrupo">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group label-float">
-                        <input type="text" class="form-control" id="nomeGrupo" aria-describedby="nomeGrupo" placeholder="Nome do Grupo" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
-                        <label for="nomeGrupo">Nome do Grupo</label>
-                          <div class="invalid-feedback" *ngIf="hasError('nome')">
-                            Por favor, informe o nome do grupo.
-                          </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row text-center">
-              <div class="col-md-6">
-                  <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button>
-                </div>
-                <div class="col-md-6">
-                    <button type="submit" class=" btn btn-get" (click)="popula()"><span> Gerar Grupos</span></button>
+    <div class="col-md-12">
+        <h2 class="text-center">Gerenciar Grupos</h2>
+        <form class="grupos_form needs-validation" novalidade [formGroup] = "formularioGrupo">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group label-float">
+                      <input type="text" class="form-control" id="nomeGrupo" aria-describedby="nomeGrupo" placeholder="Nome do Grupo" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
+                      <label for="nomeGrupo">Nome do Grupo</label>
+                        <div class="invalid-feedback" *ngIf="hasError('nome')">
+                          Por favor, informe o nome do grupo.
+                        </div>
                   </div>
-            </div>
-        </form>
-      </div>
-
-      <div *ngFor="let grupo of grupos" class="col-md-4 card-grupo texte3 -center">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-
-              <h5 class="card-title" class="text-center">{{grupo.nome}}</h5>
-              <div *ngFor="let aluno of alunos">
-                <div *ngIf="aluno.grupo == grupo.nome" >
-                  <hr>
-                  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:40px">
-                  <p class="card-text">{{aluno.first_name}}</p>
-                  <hr>
-                </div>
-              </div >
-              <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(grupo)" class="fas fa-trash"  id="iconeExcluir"></i>
-            </div>
+              </div>
           </div>
+          <div class="row text-center">
+            <div class="col-md-6">
+                <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button>
+              </div>
+              <div class="col-md-6">
+                  <button type="submit" class=" btn btn-get" (click)="popula()"><span> Gerar Grupos</span></button>
+                </div>
+          </div>
+      </form>
     </div>
+  </div>
+  <div class="grupos">
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel class="grupos-cards" *ngFor="let grupo of grupos" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{grupo.nome}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <div class="row funcoes-grupos">
+              <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit grupos-funcoes"></i> 
+              <i (click)="onDelete(grupo)" class="fas fa-trash grupos-funcoes"  id="iconeExcluir"></i>
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div *ngFor="let aluno of alunos">
+          <div *ngIf="aluno.grupo == grupo.nome" class="aluno" >
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:20px">
+            <p class="card-text">{{aluno.first_name}} - {{aluno.username}}</p>
+          </div>
+        </div >
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>  
 
-</div>
 
 </div>
 
