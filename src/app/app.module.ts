@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricu
     CriarTurmasDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
+    PageNotFoundComponent,
   ],
   entryComponents: [CriarTurmasDialogo],
   imports: [

@@ -14,7 +14,7 @@ import { AgendasComponent } from './agendas/agendas.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import {ListaDeMatriculaComponent} from './lista-de-matricula/lista-de-matricula.component';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'perfil_usuario', component : PerfilUsuarioComponent},
   { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
   { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
+  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
