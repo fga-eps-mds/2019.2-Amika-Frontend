@@ -18,117 +18,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <style>
-    /* https://codepen.io/mrrocks/pen/EiplA */
-    html,
-    body {
-      height: 100%;
-      margin: 0px;
-    }
-    .contentChart {
-      height: 100%;
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-    }
-    .spinner {
-      -webkit-animation: rotator 6s linear infinite;
-      animation: rotator 6s linear infinite;
-    }
-    @-webkit-keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-        transform: rotate(270deg);
-      }
-    }
-    @keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-        transform: rotate(270deg);
-      }
-    }
-    .path {
-      stroke-dasharray: 187;
-      stroke-dashoffset: 0;
-      -webkit-transform-origin: center;
-      transform-origin: center;
-      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-      animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-    }
-    @-webkit-keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-    }
-    @keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-    }
-    @-webkit-keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-        transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-        transform: rotate(450deg);
-      }
-    }
-    @keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-        transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-        transform: rotate(450deg);
-      }
-    }
-  </style>
-
   <app-root>
     <div class="contentChart">
       <svg class="spinner" width="95px" height="100px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -136,7 +25,6 @@
       </svg>
     </div>
   </app-root>
-
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>
