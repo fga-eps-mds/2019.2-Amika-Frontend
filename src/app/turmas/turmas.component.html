@@ -15,7 +15,7 @@
                 <span>Turma {{turma.descricao}}</span>
                 <span class="example-spacer"></span>
                 <i (click)="criarDialogoEditarTurma(turma)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
-                <i (click)="onEdit(turma.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
+                <i class="fas fa-edit only-desktop" id="iconeEditar" [routerLink]="['/turmas_editar', turma.id]" routerLinkActive="active"></i>
                 <i (click)="onDelete(turma)" class="fas fa-trash"  id="iconeExcluir"></i>
               </mat-toolbar-row>
             </mat-toolbar>
