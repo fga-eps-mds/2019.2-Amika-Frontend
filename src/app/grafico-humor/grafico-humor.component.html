@@ -1,9 +1,10 @@
 <div style="width: 40%;">
   <canvas
       baseChart
+      [id]="grafico"
       [chartType]="'line'"
-      [datasets]="medias"
-      [labels]="datas"
+      [datasets]="chartData"
+      [labels]="chartLabels"
       [options]="chartOptions"
       [legend]="true"
       [colors]="myColors"

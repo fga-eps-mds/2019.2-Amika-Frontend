@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GraficoHumorService } from './grafico-humor.service';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-grafico-humor',
@@ -7,17 +8,19 @@ import { GraficoHumorService } from './grafico-humor.service';
   styleUrls: ['./grafico-humor.component.css']
 })
 export class GraficoHumorComponent implements OnInit {
-  medias = [];
+  medias = [1];
   datas = [];
-  
+
+  chartLabels = ['January', 'February'];
+
   chartOptions = {
     responsive: true
   };
-  
+
   chartData = [
-    { data: [330, 600, 260, 700], label: 'Turma' },
+    { data: this.medias, label: 'Turma' },
   ];
-  
+
   myColors = [
     {
       backgroundColor: 'rgba(103, 58, 183, .1)',
@@ -29,9 +32,11 @@ export class GraficoHumorComponent implements OnInit {
     },
     // ...colors for additional data sets
   ];
-  
+
   constructor(private graficoHumorService: GraficoHumorService) {
     this.getter();
+    // this.buildChart();
+    // this.iniciaGrafico();
   }
 
   onChartClick(event) {
@@ -39,12 +44,21 @@ export class GraficoHumorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getter();
   }
 
   getter() {
-    this.graficoHumorService.get_grafico().subscribe(graficoData => {
+    this.graficoHumorService.get_grafico(1).subscribe(graficoData => {
       this.medias = graficoData.medias;
       this.datas = graficoData.datas;
+      console.log(graficoData)
+      console.log(this.medias);
+      console.log(this.datas);
+      this.chartData = [
+        { data: this.medias, label: 'Turma' },
+      ];
+      this.chartLabels = this.datas;
+      // this.baseChart.update();
     })
   }
 }
