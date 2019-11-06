@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GraficoHumorService } from './grafico-humor.service';
 
 @Component({
   selector: 'app-grafico-humor',
@@ -6,17 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grafico-humor.component.css']
 })
 export class GraficoHumorComponent implements OnInit {
-
-  constructor() { }
-
+  medias = [];
+  datas = [];
+  
   chartOptions = {
     responsive: true
   };
-
+  
   chartData = [
     { data: [330, 600, 260, 700], label: 'Turma' },
   ];
-
+  
   myColors = [
     {
       backgroundColor: 'rgba(103, 58, 183, .1)',
@@ -28,8 +29,10 @@ export class GraficoHumorComponent implements OnInit {
     },
     // ...colors for additional data sets
   ];
-
-  chartLabels = ['January', 'February', 'Mars', 'April'];
+  
+  constructor(private graficoHumorService: GraficoHumorService) {
+    this.getter();
+  }
 
   onChartClick(event) {
     console.log(event);
@@ -38,4 +41,10 @@ export class GraficoHumorComponent implements OnInit {
   ngOnInit() {
   }
 
+  getter() {
+    this.graficoHumorService.get_grafico().subscribe(graficoData => {
+      this.medias = graficoData.medias;
+      this.datas = graficoData.datas;
+    })
+  }
 }

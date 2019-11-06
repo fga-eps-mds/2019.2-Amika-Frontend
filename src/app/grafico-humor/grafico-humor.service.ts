@@ -7,11 +7,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class GraficoHumorService {
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {}
 
-  {
     public get_grafico(turma): Observable<any>{
       return this.http.get(environment.urlApi + 'grafico/', turma);
     }
-  }
-} 
+  } 
+
