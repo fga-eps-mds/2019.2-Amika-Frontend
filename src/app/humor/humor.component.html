@@ -5,11 +5,15 @@
 
 <div class="tela-cheia">
   <div class="row-sm-12 tela-humor">
-    <div *ngIf="adicionado" ><h3 class="mensagem-humor">Seu humor já foi adicionado hoje!</h3></div>
+    <div *ngIf="adicionado"><h3 class="mensagem-humor">Seu humor já foi adicionado hoje!</h3></div>
     <div *ngIf="!adicionado" ><h3 class="mensagem-humor">Como está se sentindo hoje?</h3></div>
-    <rating class="row-sm-12" [titles]="['muito triste', 'triste', 'indiferente', 'feliz', 'muito feliz'] " [max]="max" [(ngModel)]="rate" [readonly]="isReadonly"[customTemplate]="tt"></rating>
+    <rating class="row-sm-12" [disabled]="adicionado" [titles]="['muito triste', 'triste', 'indiferente', 'feliz', 'muito feliz'] " [max]="max" [(ngModel)]="rate" [readonly]="isReadonly"[customTemplate]="tt"></rating>
     <br>
-    <button *ngIf="!adicionado" class="btn btn-get row-sm-12" [disabled]="adicionado" (click)="save() ">Salvar</button>
+    <div *ngIf="!adicionado" class="btns">
+      <button class="btn btn-get row-sm-12" [disabled]="adicionado" (click)="save() ">Salvar</button>
+      <button class="btn btn-voltar" (click)="homePage()">Voltar</button>
+    </div>
+    <button *ngIf="adicionado" class="btn btn-voltar" (click)="homePage()">Voltar</button>
   </div>
 
 
