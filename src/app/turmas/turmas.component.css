@@ -58,6 +58,15 @@ h2 {
     transition: .5s ease-out;
   }
 
+  .btn-get:hover::before {
+    width: 100%;
+  }
+
+  .btn-get span {
+    position: relative;
+    z-index: 2;
+  }
+
   .btn-confirm{
     padding: 10px 20px 10px;
     content: '';
@@ -73,15 +82,6 @@ h2 {
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
     margin: 0.5rem;
-  }
-
-  .btn-get:hover::before {
-    width: 100%;
-  }
-
-  .btn-get span {
-    position: relative;
-    z-index: 2;
   }
 
   .navbar-center{
@@ -216,9 +216,46 @@ h2 {
 
   }
 
-  .scroll{
-    overflow-y: scroll;
-    min-height: 13em;
-    max-height: 20em;
-    margin-top: 4em;
+  @media only screen and (min-width: 768px) {
+    .scroll {
+      overflow: auto;
+      max-height: 25em 
+    }
+    
+    .scrollbar {
+      height: 25em;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+  
+    .force-overflow {
+      max-height: 25em;
+    }
+  
+    #style-scroll::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+    }
+  
+    #style-scroll::-webkit-scrollbar {
+      width: 3px;
+      height: 5px;
+      background-color: #F5F5F5;
+    }
+  
+    #style-scroll::-webkit-scrollbar-thumb {
+      background-color: #000000;
+    }
+  }  
+
+  @media only screen and (max-width: 768px) {
+    .only-desktop {
+      display:  none;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .only-mobile {
+      display:  none;
+    }
   }
