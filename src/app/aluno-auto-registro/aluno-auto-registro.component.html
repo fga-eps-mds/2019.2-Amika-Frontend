@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>Auto registro
+    </title>
+</head>
+
+<body>
+    <div class="interface">
+      <div class="formulario">
+        <form [formGroup]="formulario" (ngSubmit)="cadastrarAluno(formulario.value)">
+          <div class="form-group">
+            <!-- O nome de usuário deve ser o mesmo da matrícula. Passamos como string, mas por detrás dos panos
+            é a matrícula do aluno.-->
+            <label for="matricula">Matrícula</label>
+            <input type="text" name="username" placeholder="apenas números..." formControlName="username"/>
+          </div>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="first_name" placeholder="primeiro nome" formControlName="first_name" required/>
+          </div>
+          <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="last_name" placeholder="sobrenome" formControlName="last_name"/>
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" name="password" placeholder="senha..." formControlName="password"/>
+          </div>
+          <div id="enviar">
+              <button (click)="voltar()">VOLTAR</button><input type="submit" value="REGISTRAR">
+          </div>
+        </form>
+      </div>
+    </div>
+</body>

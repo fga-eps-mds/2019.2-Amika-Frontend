@@ -28,6 +28,11 @@ import { environment } from '../environments/environment';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { ChartsModule } from 'ng2-charts';
 
+import { MaterialModule } from './material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CriarTurmasDialogo } from './turmas/turmas.component';
+import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
+import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,11 @@ import { ChartsModule } from 'ng2-charts';
     PerfilUsuarioComponent,
     GraficoHumorComponent,
 
+    CriarTurmasDialogo,
+    AlunoAutoRegistroComponent,
+    ListaDeMatriculaComponent,
   ],
+  entryComponents: [CriarTurmasDialogo],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
@@ -57,7 +66,9 @@ import { ChartsModule } from 'ng2-charts';
     RatingModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ChartsModule
+    ChartsModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
 
   providers: [

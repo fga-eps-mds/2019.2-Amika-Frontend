@@ -7,12 +7,12 @@ h2 {
   font-family: "Nunito", sans-serif;
 }
 
+
   .btn-get {
     font-family: "Nunito", sans-serif;
     color: #000 !important;
     text-transform: capitalize;
-    background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-    background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+    background: #f64a6eb8;
     padding: 10px 20px 10px;
     position: relative;
     border: 0;
@@ -29,15 +29,21 @@ h2 {
     height: 100%;
     width: 0;
     left: 0;
-    background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
-    background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+    background: #f64a6ecf;
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
   }
 
+  .btn-save {
+    background: #6fafa0;
+  }
+
+  .btn-save::before {
+    background: #659e91;
+  }
+
   .navbar-center{
-    background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-    background: linear-gradient(to right, #a0e0e4, #e194b5);
+    background: #ff006f;
     height: 6em;
     padding: 1.5em;
     margin-bottom: 3em;
@@ -79,9 +85,9 @@ h2 {
     font-size: 1rem;
     border-color: #f7f7f7;
     border: none;
-    border-bottom: 2px solid #d68fae;
+    border-bottom: 2px solid #ff006f;
     outline: none;
-    outline-color: #dd709f;
+    /* outline-color: #dd709f; */
     outline-width: thick;
     padding: 0 2.5rem;
     position: relative;
