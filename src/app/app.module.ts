@@ -1,6 +1,6 @@
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricu
     CriarTurmasDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
+    PageNotFoundComponent,
   ],
   entryComponents: [CriarTurmasDialogo],
   imports: [
@@ -74,4 +76,4 @@ import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricu
   bootstrap: [AppComponent]
 })
 
-export class AppModule{ }
+export class AppModule {}
