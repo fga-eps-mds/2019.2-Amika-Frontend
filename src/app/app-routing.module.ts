@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
   { path: 'area-informativa', component: AreaInformativaComponent},
   { path: 'perfil_usuario', component : PerfilUsuarioComponent},
-  { path: 'grafico', component : GraficoHumorComponent},
+  { path: 'grafico/:id', component : GraficoHumorComponent},
   { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
   { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
 ];

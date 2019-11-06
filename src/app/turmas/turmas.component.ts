@@ -121,6 +121,10 @@ export class TurmasComponent implements OnInit {
   onEdit(id) {
     this.router.navigate(['turmas_editar', id]);
   }
+
+  mostrarGrafico(id) {
+    this.router.navigate(['grafico', id]);
+  }
 }
 
 @Component({
