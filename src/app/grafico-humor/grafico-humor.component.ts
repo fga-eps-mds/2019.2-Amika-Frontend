@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GraficoHumorService } from './grafico-humor.service';
-import { Chart } from 'chart.js';
+
+
 
 @Component({
   selector: 'app-grafico-humor',
@@ -57,7 +58,7 @@ export class GraficoHumorComponent implements OnInit {
   }
 
   getter() {
-    this.graficoHumorService.get_grafico(turma).subscribe(graficoData => {
+    this.graficoHumorService.get_grafico(1).subscribe(graficoData => {
       this.medias = graficoData.medias;
       this.datas = graficoData.datas;
       console.log(graficoData)

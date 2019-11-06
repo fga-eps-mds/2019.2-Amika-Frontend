@@ -215,6 +215,12 @@
     }
   }
 
+  #iconeMostrarGrafico {
+    margin-left: 1em;
+    color: blue;
+  }
+
+
 
   #iconeEditar {
     margin-right: 0.75em;
