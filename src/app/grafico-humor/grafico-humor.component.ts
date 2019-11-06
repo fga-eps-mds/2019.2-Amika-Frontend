@@ -57,7 +57,7 @@ export class GraficoHumorComponent implements OnInit {
   }
 
   getter() {
-    this.graficoHumorService.get_grafico(1).subscribe(graficoData => {
+    this.graficoHumorService.get_grafico(turma).subscribe(graficoData => {
       this.medias = graficoData.medias;
       this.datas = graficoData.datas;
       console.log(graficoData)
