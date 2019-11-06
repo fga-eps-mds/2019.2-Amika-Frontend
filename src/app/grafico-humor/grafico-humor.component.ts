@@ -12,9 +12,18 @@ export class GraficoHumorComponent implements OnInit {
   datas = [];
 
   chartLabels = ['January', 'February'];
-
+  
   chartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{
+          ticks: {
+              max: 5,
+              min: 0,
+              stepSize: 1
+          }
+      }]
+  }
   };
 
   chartData = [
@@ -23,12 +32,12 @@ export class GraficoHumorComponent implements OnInit {
 
   myColors = [
     {
-      backgroundColor: 'rgba(103, 58, 183, .1)',
-      borderColor: 'rgb(103, 58, 183)',
-      pointBackgroundColor: 'rgb(103, 58, 183)',
-      pointBorderColor: '#fff',
+      backgroundColor: 'rgb(4, 147, 147, .2)',
+      borderColor: 'rgb(4, 147, 147)',
+      pointBackgroundColor: 'rgb(4, 147, 147)',
+      pointBorderColor: 'rgb(4, 147, 147)',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(103, 58, 183, .8)'
+      pointHoverBorderColor: 'rgb(4, 147, 147)'
     },
     // ...colors for additional data sets
   ];
