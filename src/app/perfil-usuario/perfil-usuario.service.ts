@@ -15,7 +15,7 @@ export class PerfilUsuarioService {
    }
 
    public get_usuario(id): Observable<any> {
-    return this.http.get(environment.urlApi + 'aluno/perfil/' + id + '/', this.autenticacao.httpOptions);
+    return this.http.get(environment.urlApi + 'aluno/' + id + '/', this.autenticacao.httpOptions);
   }
 
 }
