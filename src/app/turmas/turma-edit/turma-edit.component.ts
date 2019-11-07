@@ -36,10 +36,6 @@ export class TurmaEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  return() {
-    this.router.navigate(['turmas']);
-  }
-
   updateForm(turma) {
     this.formularioTurma.patchValue({
       id: turma.id,
@@ -57,8 +53,7 @@ export class TurmaEditComponent implements OnInit {
           this.turmaService.edit_turmas(params['id'], this.formularioTurma.value).subscribe((data: any) => {
             console.log(data);
             this.formularioTurma.reset();
-            this.return();
-    
+            this.router.navigate(['turmas']);
           }, (error: any) => {
             this.error = error;
           });
