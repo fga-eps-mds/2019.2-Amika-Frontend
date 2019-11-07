@@ -26,7 +26,7 @@
               <td>{{agenda.tipo}}</td>
               <td>{{agenda.data_disponibilizacao}}</td>
               <td>{{agenda.data_encerramento}}</td>
-              <td><i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i></td>
+              <td><i class="fas fa-edit" id="iconeEditar" [routerLink]="['/agenda-edit', agenda.id]" routerLinkActive="active"></i> <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i></td>
             </tr>
           </tbody>
         </table>

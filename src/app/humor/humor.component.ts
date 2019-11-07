@@ -56,10 +56,6 @@ export class HumorComponent implements OnInit {
     });
   }
 
-  homePage() {
-    this.router.navigate(['']);
-  }
-
   voltar(){
     this.erroModalRef.hide();
   }
