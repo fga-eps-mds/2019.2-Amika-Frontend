@@ -44,7 +44,8 @@
                   <hr>
                 </div>
               </div >
-              <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(grupo)" class="fas fa-trash"  id="iconeExcluir"></i>
+              <i class="fas fa-edit" id="iconeEditar" [routerLink]="['/editar_grupo', grupo.id]" routerLinkActive="active" ></i>
+              <i (click)="onDelete(grupo)" class="fas fa-trash"  id="iconeExcluir"></i>
             </div>
           </div>
     </div>
