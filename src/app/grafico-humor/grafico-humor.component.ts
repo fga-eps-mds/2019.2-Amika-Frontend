@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GraficoHumorService } from './grafico-humor.service';
-
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,9 +11,10 @@ import { GraficoHumorService } from './grafico-humor.service';
 export class GraficoHumorComponent implements OnInit {
   medias = [1];
   datas = [];
+  id = 1
 
   chartLabels = ['January', 'February'];
-  
+
   chartOptions = {
     responsive: true,
     scales: {
@@ -43,8 +44,13 @@ export class GraficoHumorComponent implements OnInit {
     // ...colors for additional data sets
   ];
 
-  constructor(private graficoHumorService: GraficoHumorService) {
-    this.getter();
+  constructor(private graficoHumorService: GraficoHumorService, private route: ActivatedRoute) {
+    this.route.params.subscribe(
+      (params: any) => {
+        this.id = params['id'];
+      }
+    );
+    this.getter(this.id);
     // this.buildChart();
     // this.iniciaGrafico();
   }
@@ -58,7 +64,7 @@ export class GraficoHumorComponent implements OnInit {
   }
 
   getter() {
-    this.graficoHumorService.get_grafico(1).subscribe(graficoData => {
+    this.graficoHumorService.get_grafico(this.id).subscribe(graficoData => {
       this.medias = graficoData.medias;
       this.datas = graficoData.datas;
       console.log(graficoData)
