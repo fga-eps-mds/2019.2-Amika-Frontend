@@ -89,9 +89,5 @@ export class AgendasComponent implements OnInit {
       });
     }
   }
-
-  onEdit(id) {
-    this.router.navigate(['agenda-edit', id]);
-  }
 }
 
