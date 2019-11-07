@@ -13,10 +13,10 @@ export class HumorService {
   }
 
   public create_humor(humor): Observable<any> {
-    return this.http.post(environment.urlApi + 'humor/', humor);
+    return this.http.post(environment.urlApi + 'humor/', humor, this.autenticacao.httpOptions);
   }
 
   public get_humor(): Observable<any> {
-    return this.http.get(environment.urlApi + 'humors/');
+    return this.http.get(environment.urlApi + 'humors/', this.autenticacao.httpOptions);
   }
 }
