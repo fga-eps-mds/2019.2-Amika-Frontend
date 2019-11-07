@@ -37,10 +37,6 @@ export class GrupoEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  return() {
-    this.router.navigate(['grupos']);
-  }
-
   updateForm(grupo) {
     this.formularioGrupo.patchValue({
       id: grupo.id,
@@ -58,8 +54,7 @@ export class GrupoEditComponent implements OnInit {
           this.grupoService.edit_grupos(params['id'], this.formularioGrupo.value).subscribe((data: any) => {
             console.log(data);
             this.formularioGrupo.reset();
-            this.return();
-
+            this.router.navigate(['grupos']);
           }, (error: any) => {
             this.error = error;
           });
