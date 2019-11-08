@@ -12,7 +12,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./grupos.component.css']
 })
 export class GruposComponent implements OnInit {
-  grupos: Grupo;
+  grupos: Array<Grupo>;
   error: any;
   formularioGrupo: FormGroup;
   submitted = false;
@@ -27,9 +27,10 @@ export class GruposComponent implements OnInit {
               public dialog: MatDialog) {
     this.getter();
     this.formularioGrupo = this.formBuilder.group({
-      nome : ['', Validators.required]
+      nome : ['', Validators.required],
+      id: ['']
     });
-    }
+  }
 
   ngOnInit() {
   }
@@ -47,15 +48,32 @@ export class GruposComponent implements OnInit {
     });
   }
 
+  criarDialogoEditarGrupo(grupo): void {
+    const dialogRef = this.dialog.open(CriarGruposDialogo, {
+      width: '250px',
+      data: {formularioGrupo: grupo, title: "Editar grupo"}
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      this.formularioGrupo.patchValue(JSON.parse(data));
+      this.edit();
+    });
+  }
+
+  edit() {
+    this.grupoService.edit_grupos(this.formularioGrupo.value.id, this.formularioGrupo.value).subscribe((data: any) => {
+      this.grupos[this.grupos.findIndex(item => item.id === this.formularioGrupo.value.id)] = this.formularioGrupo.value;
+    }, (error: any) => {
+      this.error = error;
+    });
+  }
+
   getter() {
     this.grupoService.get_grupos().subscribe((data: any) => {
-      console.log(data);
       this.grupos = data;
     }, (error: any) => {
       this.error = error;
     });
     this.grupoService.get_alunos().subscribe((data: any) => {
-      console.log(data);
       this.alunos = data;
     }, (error: any) => {
       this.error = error;
@@ -74,7 +92,6 @@ export class GruposComponent implements OnInit {
 
   onConfirmDelete() {
     this.grupoService.delete_grupos(this.grupoSelecionado.id).subscribe((data: any) => {
-      console.log(data);
       this.getter();
     }, (error: any) => {
       this.error = error;
@@ -87,16 +104,12 @@ export class GruposComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formularioGrupo.value);
     this.submitted = true;
 
     if (this.formularioGrupo.valid) {
-      console.log('Enviar');
       this.grupoService.create_grupos(this.formularioGrupo.value).subscribe((data: any) => {
-        console.log(data);
         this.formularioGrupo.reset();
         this.getter();
-
       }, (error: any) => {
         this.error = error;
       });
@@ -107,14 +120,29 @@ export class GruposComponent implements OnInit {
     this.router.navigate(['editar_grupo/:id', id]);
 
   }
-
+  
   popula() {
     this.grupoService.popula_grupo().subscribe((data: any) => {
-      console.log(data);
       this.getter();
     }, (error: any) => {
       this.error = error;
     });
+  }
+
+  tamanhoNome(first_name: string, last_name: string) {
+    let tamanho_nome = (first_name + last_name).length + 1;
+    if (tamanho_nome < 23) {
+      return '12px';
+    } 
+    else if (tamanho_nome < 26) {
+      return '11px';
+    }
+    else if (tamanho_nome < 31) {
+      return '10px';   
+    }
+    else {
+      return '9px';
+    }
   }
 }
 

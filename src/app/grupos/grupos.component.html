@@ -21,7 +21,8 @@
                   </mat-panel-title>
                   <mat-panel-description>
                     <div class="row funcoes-grupos">
-                      <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit grupos-funcoes"></i> 
+                      <i (click)="criarDialogoEditarGrupo(grupo)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
+                      <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit grupos-funcoes only-desktop"></i> 
                       <i (click)="onDelete(grupo)" class="fas fa-trash grupos-funcoes"  id="iconeExcluir"></i>
                     </div>
                   </mat-panel-description>
@@ -30,7 +31,8 @@
                   <div *ngIf="aluno.grupo == grupo.nome" class="aluno" >
                     <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="foto-aluno" >
                     <div>
-                      <p class="card-text card-nome">{{aluno.first_name}} {{aluno.last_name}}</p>
+                      <p class="card-text card-nome only-desktop">{{aluno.first_name}} {{aluno.last_name}}</p>
+                      <p class="card-text card-nome only-mobile" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}">{{aluno.first_name}} {{aluno.last_name}}</p>
                       <p class="card-text card-matricula">{{aluno.username}}</p>
                     </div>
                   </div>
@@ -69,8 +71,8 @@
                 </div>
               </div>
           </div>
-          <div class="row text-center">
-            <div class="text-center">
+          <div class="row centralize-button">
+            <div>
               <button type="submit" class=" btn btn-get" (click)="onSubmit()"><span> Enviar</span></button>
             </div>
           </div>
