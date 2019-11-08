@@ -7,6 +7,17 @@ h2 {
   font-family: "Nunito", sans-serif;
 }
 
+.btns {    
+  justify-content: space-between;
+  display: flex;
+  max-width: 30em;
+  margin: 0 auto;
+}
+.tela-humor {
+  margin-top: 5em; 
+  text-align: center;
+}
+
 .navbar-center{
   background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
   background: linear-gradient(to right, #a0e0e4, #e194b5);
@@ -14,74 +25,118 @@ h2 {
   padding: 1.5em;
 }
 
-.btn-done{
-  background-color:#fff;
-  font-size: 4rem;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-  margin-top: 5rem;
-  margin-bottom: 8rem;
-  height: 6rem;
-  width: 6rem;
-  border: 0;
-}
-
 .btn-voltar {
   font-family: "Nunito", sans-serif;
   color: #000 !important;
   text-transform: capitalize;
-  background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-  background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+  background: #f30872a8;
   padding: 10px 20px 10px;
   position: relative;
   border: 0;
   border-radius: 5px;
   overflow: hidden;
   text-transform: capitalize !important;
-  margin-top: 2rem;
-
+  width: 10rem;
 }
 
-.btn-default{
-  background-color: #fff;
+.btn-done{
+  background: #fafafa;
   font-size: 4rem;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
   margin-top: 5rem;
   margin-bottom: 8rem;
   height: 6rem;
   width: 6rem;
   border: 0;
+}
+
+.btn-default{
+  background: #fafafa;
+  font-size: 4rem;
+  margin-top: 5rem;
+  margin-bottom: 8rem;
+  height: 6rem;
+  width: 6rem;
+  border: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-done {
+    font-size: 2em;
+    margin: 0.20em;
+    padding: 0px;
+    width: 1.5em;
+    height: 1.5em;
+  }
+  
+  .btn-default {
+    font-size: 2em;
+    margin: 0.20em;
+    padding: 0px;
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  .btn-done {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;  
+  }
+  
+  .btn-default {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;  
+  }
 }
 
 .btn-get {
   font-family: "Nunito", sans-serif;
   color: #000 !important;
   text-transform: capitalize;
-  background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-  background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+  background: #ffb032;
   padding: 10px 20px 10px;
   position: relative;
   border: 0;
   border-radius: 5px;
   overflow: hidden;
   text-transform: capitalize !important;
-  margin-left: 4rem;
-  margin-right: 4rem;
+  /* margin-left: 4rem; */
   width: 10rem;
+}
+@media only screen and (max-width: 768px) {
+  .btn-get {
+    margin-top: 4em;
+    width: 6em;
+  }
+
+  .btn-voltar {
+    margin-top: 4em;
+    width: 6em;
+  }
+
+  .mensagem-humor {
+    font-size: 20px;
+    margin-bottom: 2em;
+  }
+
+  .btns {    
+    max-width: 15em;
+  }
+  
 }
 
 .fa-frown{
-  color: #e194b5;
+  color: #8a8989;
 }
 
 .fa-smile{
-  color: aqua;
+  color: #3aa9af;
   border: 0;
 }
 
 .fa-smile:hover{
-  color: aqua;
+  color: #3aa9af;
   border: 0;
 }
 
@@ -97,6 +152,20 @@ h2 {
   -webkit-transition: .5s ease-out;
   transition: .5s ease-out;
 }
+
+.btn-voltar::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  height: 100%;
+  width: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
+  background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
 
 @-webkit-keyframes AnimationGradient {
   0% {
