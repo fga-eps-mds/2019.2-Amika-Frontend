@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlApi: 'https://amika-backend-dev.herokuapp.com/'
+  urlApi: 'https://amika-backend.herokuapp.com/'
 };

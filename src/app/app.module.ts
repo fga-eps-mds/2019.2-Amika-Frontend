@@ -1,6 +1,6 @@
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
@@ -25,8 +25,13 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MaterialModule } from './material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CriarTurmasDialogo } from './turmas/turmas.component';
+import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
+import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MateriaisComponent } from './materiais/materiais.component';
-
 
 @NgModule({
   declarations: [
@@ -43,8 +48,13 @@ import { MateriaisComponent } from './materiais/materiais.component';
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    CriarTurmasDialogo,
+    AlunoAutoRegistroComponent,
+    ListaDeMatriculaComponent,
+    PageNotFoundComponent,
     MateriaisComponent,
   ],
+  entryComponents: [CriarTurmasDialogo],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
@@ -54,7 +64,9 @@ import { MateriaisComponent } from './materiais/materiais.component';
     RatingModule.forRoot(),
     RatingModule,
     FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MaterialModule,
+    BrowserAnimationsModule
   ],
 
   providers: [
@@ -66,4 +78,4 @@ import { MateriaisComponent } from './materiais/materiais.component';
   bootstrap: [AppComponent]
 })
 
-export class AppModule{ }
+export class AppModule {}

@@ -1,7 +1,8 @@
 /* Importação de fontes */
 @import url('https://fonts.googleapis.com/css?family=Nunito|Raleway|Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:500&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Montserrat|Neucha|Satisfy|Titillium+Web|Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Contrail+One|Farro|Racing+Sans+One&display=swap');
 /* BOTAO */
 
 .botao {
@@ -163,4 +164,125 @@ p {
 
 .cor-de-background {
   background-color: #efefef;
+}
+
+.tela-cheia {
+  margin: 0;
+  margin-top: 6vh;
+  min-height: 89vh;
+  height: auto;
+  max-height: 93vh;
+}
+
+html, body {
+  min-height: 91vh;
+  height: auto;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+}
+
+/* https://codepen.io/mrrocks/pen/EiplA */
+.contentChart {
+  height: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15em;
+}
+.spinner {
+  -webkit-animation: rotator 6s linear infinite;
+  animation: rotator 6s linear infinite;
+}
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+.path {
+  stroke-dasharray: 109.75;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+@-webkit-keyframes colors {
+  0% {
+    stroke: #94e1c0;
+  }
+  25% {
+    stroke: #e194b5;
+  }
+  50% {
+    stroke: #a0e0e4;
+  }
+  75% {
+    stroke: #f1be6c;
+  }
+  100% {
+    stroke: #94e1c0;
+  }
+}
+@keyframes colors {
+  0% {
+    stroke: #94e1c0;
+  }
+  25% {
+    stroke: #e194b5;
+  }
+  50% {
+    stroke: #a0e0e4;
+  }
+  75% {
+    stroke: #f1be6c;
+  }
+  100% {
+    stroke: #94e1c0;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 250;
+  }
+  50% {
+    stroke-dashoffset: 109.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 250;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 250;
+  }
+  50% {
+    stroke-dashoffset: 109.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 250;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
 }
