@@ -20,8 +20,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4" *ngFor="let atendente of atendentes">
-      <div class="card text-center">
+    <div class="col-sm-4 d-flex align-items-stretch" *ngFor="let atendente of atendentes">
+      <div class="card flex-fill text-center">
         <div class="card-body">
           <h6 class="card-title">{{atendente.local}}</h6>
           <div class="card-text" *ngFor="let telefone of atendente.telefones">
