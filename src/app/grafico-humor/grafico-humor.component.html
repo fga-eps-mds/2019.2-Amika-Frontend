@@ -1,13 +1,19 @@
-<div style="width: 40%;">
-  <canvas
-      baseChart
-      [id]="grafico"
-      [chartType]="'line'"
-      [datasets]="chartData"
-      [labels]="chartLabels"
-      [options]="chartOptions"
-      [legend]="false"
-      [colors]="myColors"
-      (chartClick)="onChartClick($event)">
-  </canvas>
+<div style="width: 100%">
+  <div style="width: 50%; margin-left: 25%; margin-top: 10rem; text-align: center;">
+    <canvas
+        baseChart
+        [id]="grafico"
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="false"
+        [colors]="myColors"
+        (chartClick)="onChartClick($event)">
+    </canvas>
+    <div class="col-md-12">
+      <button type="submit" class=" btn btn-get" style="margin-top: 2rem;" (click)="return()"><span> Voltar </span></button>
+    </div>
+  </div>
 </div>
+
