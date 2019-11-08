@@ -1,0 +1,99 @@
+.content-adicionar-agendas {
+  width: 30em;
+  height: 16em;
+}
+
+.agendas_form .form-group label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  color: #575757;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  width: 50%%;
+}
+
+.agendas_form .form-group input,
+.agendas_form .form-group textarea,
+.agendas_form .form-group select {
+  font-size: 1em;
+  border: none;
+  border-bottom: 2px solid #f44b72;
+  /* outline: none; */
+  /* outline-color: #6fafa0; */
+  outline-width: thick;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  height: 6rem;
+}
+
+.agendas_form button.btn.btn-get {
+  position: relative;
+  top: 0px;
+  margin: 0 0 -80px;
+  font-size:20px;
+}
+
+.label-float {
+  position: relative;
+  padding-top: 3em;
+}
+
+.label-float input {
+  border: 0;
+  outline: none;
+  font-size: 0.5em;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -webkit-appearance:none;
+  border-radius:0;
+}
+
+.label-float input:focus {
+  border-bottom: 2px solid #dd709f;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.label-float input::placeholder {
+  color:transparent;
+}
+
+.label-float label {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 3em;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label {
+  font-size: 0.8em;
+  margin-top: 0;
+  color: #dd709f;
+}
+
+.tipoData {
+  font-size: 1em;
+  border: none;
+  border-bottom: 2px solid #3f51b5;
+  width: 43%;
+  margin-bottom: 1.5em;
+
+}
+.tipoData:focus {
+  border: none;
+
+}
