@@ -30,6 +30,7 @@ export class AgendasComponent implements OnInit {
       tipo: ['', Validators.required],
       data_disponibilizacao: ['', Validators.required],
       data_encerramento: ['', Validators.required],
+      id: ['']
     });
   }
 
@@ -128,6 +129,7 @@ export class AgendasComponent implements OnInit {
       this.agendas[this.agendas.findIndex(item => item.id === this.formularioAgenda.value.id)] = this.formularioAgenda.value;
     }, (error: any) => {
       console.log("ERRO MAROTÃO")
+      console.log(this.formularioAgenda.value.id)
       this.error = error;
     });
   }
@@ -148,6 +150,7 @@ export class CriarAgendasDialogo {
       tipo: ['', Validators.required],
       data_disponibilizacao: ['', Validators.required],
       data_encerramento: ['', Validators.required],
+      id: ['']
       });
       this.formularioAgenda.patchValue(this.data.formularioAgenda);
     }
@@ -158,6 +161,7 @@ export class CriarAgendasDialogo {
         tipo: ['', Validators.required],
         data_disponibilizacao: ['', Validators.required],
         data_encerramento: ['', Validators.required],
+        id: ['']
       });
     }
   }

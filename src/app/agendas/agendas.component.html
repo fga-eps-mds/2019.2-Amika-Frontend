@@ -12,19 +12,6 @@
       <div class="col-md-12 margin-top" >
         <div class="scrollbar" id="style-3">
           <div class="force-overflow">
-            <!-- <mat-toolbar class="agendas" *ngFor="let agenda of agendas">
-              <mat-toolbar-row class="agendas-row">
-                <span>{{agenda.nome}}</span>
-                <span>{{agenda.descricao}}</span>
-                <span>{{agenda.tipo}}</span>
-                <span>{{agenda.data_disponibilizacao}}</span>
-                <span>{{agenda.data_encerramento}}</span>
-                <span class="example-spacer"></span>
-                <i (click)="criarDialogoEditaragenda(agenda)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
-                <i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
-                <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i>
-              </mat-toolbar-row>
-            </mat-toolbar> -->
             <mat-expansion-panel class="agendas expansion-panel" *ngFor="let agenda of agendas" hideToggle>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
