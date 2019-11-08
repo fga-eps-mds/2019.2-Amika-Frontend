@@ -27,12 +27,28 @@ h1, h5, h6 {
     margin-top: 2em;
   }
 
-  .grupos-cards {
-    border-radius: 8px !important;
-    margin-bottom: 10px;
-    background: #6fafa02b;
-    width: 29em;
+  @media only screen and (min-width: 768px) {
+    .grupos-cards {
+      border-radius: 8px !important;
+      margin-bottom: 10px;
+      background: #6fafa02b;
+      width: 29em;
+    }
   }
+
+  @media only screen and (max-width: 768px) {
+    .grupos-cards {
+      border-radius: 8px !important;
+      margin-bottom: 10px;
+      background: #6fafa02b;
+      width: 20.5em;
+    }
+
+    .grupos {
+      margin-bottom: 10em;
+    }
+  }
+
 
   mat-panel-title {
     flex-basis: 100%;
@@ -254,6 +270,12 @@ h1, h5, h6 {
       text-align: center;
     }
 
+    .text-right {
+      display: flex;
+      justify-content: right;
+      text-align: right;
+    }
+
     .gerar-grupos {
       margin-top: 1em;
       display: flex;
@@ -296,3 +318,45 @@ h1, h5, h6 {
         background-color: #000000;
       }
     }  
+
+  @media only screen and (max-width: 768px) {
+    .only-desktop {
+      display:  none;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .only-mobile {
+      display:  none;
+    }
+  }
+
+  .adicionar-turma {
+    background: #ffb032;
+    position: fixed;
+    bottom: 5.5em;
+    width: 4em;
+    height: 4em;
+    margin: 5% auto;
+    left: 0;
+    right: 11em;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .add-icon {
+    height: 54px;
+    width: 54px;
+    font-size:41px !important;
+  }
+  
+  .grupo-aleatorio {
+    background: #b098d2;
+    right: 0em;
+    left: 11em;
+  }
+
+  .imagem-grupo-aleatorio {
+    width: 2.5em;
+    height: 2.5em;
+  }
