@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GraficoHumorService } from './grafico-humor.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TurmaService } from '../turmas/turma.service';
 
 @Component({
   selector: 'app-grafico-humor',
@@ -10,7 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class GraficoHumorComponent implements OnInit {
   medias = [1];
   datas = [];
-  id = 1
+  id = 1;
+  turma = '';
 
   chartLabels = ['Janeiro', 'Fevereiro'];
 
@@ -43,15 +45,23 @@ export class GraficoHumorComponent implements OnInit {
     // ...colors for additional data sets
   ];
 
-  constructor(private graficoHumorService: GraficoHumorService, private router: Router, private route: ActivatedRoute) {
+  constructor(private turmaService: TurmaService, private graficoHumorService: GraficoHumorService, private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(
       (params: any) => {
         this.id = params['id'];
+        const turma$ = this.turmaService.getById(this.id)
+        turma$.subscribe(turma => {
+          this.updateLabel(turma);
+        });
       }
     );
     this.getter();
     // this.buildChart();
     // this.iniciaGrafico();
+  }
+
+  updateLabel(turma){
+    this.turma = turma.descricao;
   }
 
   onChartClick(event) {
