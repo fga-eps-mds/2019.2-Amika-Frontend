@@ -27,6 +27,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CriarTurmasDialogo } from './turmas/turmas.component';
+import { CriarGruposDialogo } from './grupos/grupos.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 
@@ -45,8 +47,14 @@ import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricu
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    CriarTurmasDialogo,
+    CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
+  ],
+  entryComponents: [
+    CriarTurmasDialogo,
+    CriarGruposDialogo,
   ],
   imports: [
     ReactiveFormsModule,
