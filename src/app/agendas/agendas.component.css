@@ -1,22 +1,58 @@
-h1, h5, h6 {
-  font-family: "Nunito", sans-serif;
-  font-weight: bold;
-}
-
-h2 {
-  font-family: "Nunito", sans-serif;
-}
 
 
-.tabela-alunos {
-  border: 1px solid #ccc;
-  margin-top: 0;
-  box-shadow: 3px 3px 2px #ccc;
-  transition: 0.5s;
-  font-family: "Nunito", sans-serif;
-  overflow-y: scroll;
-    background: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#eec4d6));
-    background: linear-gradient(to right, #a0e0e4,#eec4d6 );
+
+
+  /* Teste */
+
+
+  h1, h5, h6 {
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-family: "Nunito", sans-serif;
+  }
+
+  table * {
+    border: none;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .margin-top {
+    margin-top: 2em;
+  }
+
+  .example-icon {
+    padding: 0 14px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .agendas-row {
+    font-family: 'Varela Round', sans-serif;
+    /* font-family: 'Bad Script', cursive; */
+    /* font-family: 'Farro', sans-serif; */
+    /* font-family: 'Racing Sans One', cursive; */
+    /* font-family: 'Contrail One', cursive; */
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+  }
+
+  .mat-toolbar-multiple-rows {
+    min-height: 40px !important;
+    max-height: 47px !important;
+  }
+
+  .agendas {
+    margin-top: 10px;
+    border-radius: 20px;
   }
 
   i {
@@ -28,16 +64,15 @@ h2 {
   }
 
 .tabela-alunos:hover {
-  box-shadow: 3px 3px 0px transparent;
+  /* box-shadow: 3px 3px 0px transparent; */
   transition: 0.5s;
   }
 
   .btn-get {
     font-family: "Nunito", sans-serif;
-    color: #000 !important;
+    color: #fff !important;
     text-transform: capitalize;
-    background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-    background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+    background: #f44b72;
     padding: 10px 20px 10px;
     position: relative;
     border: 0;
@@ -54,7 +89,7 @@ h2 {
     width: 0;
     left: 0;
     background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
-    background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+    background-image: linear-gradient(to right, #e9b1c9, #efe0e6);
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
   }
@@ -87,7 +122,7 @@ h2 {
 
   .navbar-center{
     background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-    background: linear-gradient(to right, #a0e0e4, #e194b5);
+    background: linear-gradient(to right, #efe0e6, #e194b5);
     height: 6em;
     padding: 1.5em;
     margin-bottom: 4rem;
@@ -98,6 +133,7 @@ h2 {
     font-size: 1em;
     color: #575757;
     position: absolute;
+    top: 50%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
     z-index: 0;
@@ -110,15 +146,15 @@ h2 {
   .agendas_form .form-group select {
     font-size: 1em;
     border: none;
-    border-bottom: 2px solid #d68fae;
-    outline: none;
-    outline-color: #dd709f;
+    border-bottom: 2px solid #f44b72;
+    /* outline: none; */
+    /* outline-color: #6fafa0; */
     outline-width: thick;
     padding: 0 2.5rem;
     position: relative;
     z-index: 1;
     background: transparent;
-    height: 4rem;
+    height: 6rem;
   }
 
   .agendas_form button.btn.btn-get {
@@ -128,33 +164,9 @@ h2 {
     font-size:20px;
   }
 
-  @-webkit-keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
-  }
-
-  @keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
-  }
-
   .label-float {
     position: relative;
-    /* padding-top: 2em; */
+    padding-top: 3em;
   }
 
   .label-float input {
@@ -184,75 +196,40 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 0em;
+    margin-top: 3em;
     transition: all .3s ease-out;
     -webkit-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
   }
 
   .label-float input:focus + label,
-  .label-float input:not(:placeholder-shown) + label d{
+  .label-float input:not(:placeholder-shown) + label {
     font-size: 0.8em;
-    margin-top: 30;
+    margin-top: 0;
     color: #dd709f;
   }
 
-  .label-float select:focus + label,
-  .label-float select:not(:placeholder-shown) + label d{
-    font-size: 0.8em;
-    margin-top: 30;
-    color: #dd709f;
+  @media only screen and (min-width: 768px) {
+    #paginaagenda {
+      max-width: 100%;
+      justify-content: center;
+    }
   }
 
-  .label-float select:focus, 
-  .label-float input:focus {
-    border-bottom: 2px solid #dd709f;
-    outline: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+  @media only screen and (max-width: 768px) {
+    #paginaagenda {
+      justify-content: center;
+    }
   }
 
-  .border-none:focus
-  {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-  }
-
-  .border-none:active
-  {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-  }
-
-  /* .border-none:focus {
-    border:0px !important;
-    outline: none;
-  }
-
-  .border-none:active {
-    border:0px !important;
-    outline: none;
-  } */
-
-
-  option {
-    border:0px;
-    outline:0px;
-  }
-
-  #paginaAgenda {
-    max-width: 100%
-  }
 
   #iconeEditar {
     margin-right: 0.75em;
-    color: blue;
+    color: #206b43;
   }
 
   #iconeExcluir {
-    color: red;
+    color: #f30872;
   }
 
   .modal-body {
@@ -261,19 +238,76 @@ h2 {
 
   }
 
-  .scroll{
-    overflow-y: scroll;
-    overflow-x: hidden;
-    min-height: 13em;
-    max-height: 24em;
+  @media only screen and (min-width: 768px) {
+    .scroll {
+      overflow: auto;
+      max-height: 25em
+    }
+
+    .scrollbar {
+      height: 25em;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .force-overflow {
+      max-height: 25em;
+    }
+
+    #style-3::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+    }
+
+    #style-3::-webkit-scrollbar {
+      width: 3px;
+      height: 5px;
+      background-color: #F5F5F5;
+    }
+
+    #style-3::-webkit-scrollbar-thumb {
+      background-color: #000000;
+    }
   }
 
-  .titulo{
-    margin-bottom: 3em;
+  @media only screen and (max-width: 768px) {
+    .only-desktop {
+      display:  none;
+    }
   }
 
-  input[type="date"]::-webkit-inner-spin-button,
-  input[type="date"]::-webkit-calendar-picker-indicator {
-      display: none;
-      -webkit-appearance: none;
+  @media only screen and (min-width: 768px) {
+    .only-mobile {
+      display:  none;
+    }
+  }
+
+  .adicionar-agenda {
+    background: #ffb032;
+    position: fixed;
+    bottom: 0.5em;
+    width: 4em;
+    height: 4em;
+    margin: 5% auto;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .margin-bottom {
+    margin-bottom: 8em;
+  }
+
+  .add-icon {
+    height: 54px;
+    width: 54px;
+    font-size:41px !important;
+  }
+
+
+  .expansion-panel {
+    flex-basis: 0;
+    justify-content: space-between;
+    align-items: center;
   }

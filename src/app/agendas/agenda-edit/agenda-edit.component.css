@@ -156,7 +156,7 @@ h2 {
     padding-top: 4em;
   }
 
-  .label-float select, 
+  .label-float select,
   .label-float input {
     border: 0;
     outline: none;
@@ -168,7 +168,7 @@ h2 {
     border-radius:0;
   }
 
-  .label-float select:focus, 
+  .label-float select:focus,
   .label-float input:focus {
     border-bottom: 2px solid #dd709f;
     outline: none;

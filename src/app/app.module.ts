@@ -15,7 +15,7 @@ import { GruposComponent } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AgendasComponent } from './agendas/agendas.component';
+import { AgendasComponent, CriarAgendasDialogo } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 import { HumorComponent } from './humor/humor.component';
@@ -49,8 +49,12 @@ import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricu
     CriarTurmasDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
+    CriarAgendasDialogo
   ],
-  entryComponents: [CriarTurmasDialogo],
+  entryComponents: [
+    CriarTurmasDialogo,
+    CriarAgendasDialogo
+  ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
