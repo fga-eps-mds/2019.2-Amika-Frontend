@@ -28,10 +28,8 @@ table * {
 }
 
 .agendas-row {
-  font-family: 'Varela Round', sans-serif;
-  height: 64px;
   background: #6fafa02b;
-  border-radius: 8px;
+  width: 100%;
 }
 
 .mat-toolbar-multiple-rows {
