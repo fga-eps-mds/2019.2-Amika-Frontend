@@ -1,63 +1,9 @@
-* {
-  margin: 0px;
+.container {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-.cabecalho {
-  background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-  background: linear-gradient(to right, #a0e0e4, #e194b5);
-  text-align: center;
-  height: 6em;
-  padding: 1.5em;
-  margin-bottom: 2rem;
-  color: #000;
-}
-
-fieldset {
-  position: center;
-  width:90%;
-  height: 5em;
-  font-size: 22px;
-  border: 5px solid;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  border-image-source: linear-gradient(to right, #a0e0e4, #e194b5);
-  border-image-slice: 1;
-  margin-bottom: 2em;
-  margin-left: 1em;
-  text-align: center;
-}
-
-.titulo {
-  margin-top: 1em;
-  margin-bottom: 3em;
-}
-
-.fieldsetcsv {
-  position: center;
-  width:94.65%;
-  height: 11em;
-  font-size: 22px;
-  border: 5px solid;
-  padding-top: 4%;
-  padding-bottom: 5%;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  border-image-source: linear-gradient(to right, #a0e0e4, #e194b5);
-  border-image-slice: 1;
-  margin-bottom: 2em;
-  margin-left: 1.70em;
-  text-align: center;
-}
-
-#iconeVoltar {
-  margin-left: 12rem;
-  margin-top: 0.5rem;
-  font-size: 1.5rem;
-}
-
-.fa-angle-left:hover {
-  color: #fff;
-  cursor: pointer;
+.card {
+  margin: 15px;
+  background: #E6F2F0;
 }
