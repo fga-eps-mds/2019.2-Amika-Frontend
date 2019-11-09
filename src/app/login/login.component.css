@@ -72,15 +72,16 @@
   #wrapper {
     width: 60%;
     height: 50%;
+    align-items: center;
+    margin: 0px auto;
     overflow: hidden;
     border: 0px solid #000;
-    margin: 50px auto;
     padding: 10px;
   }
 
   .main-content {
     width: 75%;
-    height: 40%;
+    height: 94vh !important;
     margin: 10px auto;
     background-color: #fff;
     border: 2px solid #e6e6e6;
@@ -90,12 +91,17 @@
 
   @media only screen and (max-width: 768px) {
 
+    .main-content {
+      overflow: auto;
+    }
+
     #wrapper {
       width: 90%;
       height: 50%;
+      align-items: center;
+      margin: 0px auto;
       overflow: hidden;
       border: 0px solid #000;
-      margin: 50px auto;
       padding: 10px;
     }
 
@@ -109,3 +115,23 @@
     }
 
   }
+  
+  .mat-tab-header-pagination.mat-tab-header-pagination-disabled {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .logo-login {
+      width: 7em;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .logo-login {
+      width: 8em;
+    }
+    .main-content {
+      width: 60%;
+    }
+  }
+
