@@ -8,6 +8,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.test
+    volumes:
+      - .:/amika-frontend-tests
+      - /amika-frontend-tests/node_modules
     ports:
       - 4201:4200
     command: ng serve --host 0 --port 4201
