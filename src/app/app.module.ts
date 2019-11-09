@@ -1,6 +1,6 @@
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,26 @@ const appRoutes: Routes = [
   { path: 'formulario', component: FormularioFelicidadeAutenticaComponent}
 
 ];
+import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
+import { GrupoService } from './grupos/grupo.service';
+import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
+import { RouterModule, Routes} from '@angular/router';
+import { AgendasComponent } from './agendas/agendas.component';
+import { AgendaService } from './agendas/agenda.service';
+import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
+import { HumorComponent } from './humor/humor.component';
+import { RatingModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { MaterialModule } from './material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CriarTurmasDialogo } from './turmas/turmas.component';
+import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
+import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +51,23 @@ const appRoutes: Routes = [
     LoginComponent,
     FormularioFelicidadeAutenticaComponent,
     FormularioSatisfacaoComVidaComponent
+    GruposComponent,
+    GrupoEditComponent,
+    AgendasComponent,
+    AgendaEditComponent,
+    HumorComponent,
+    PerfilUsuarioComponent,
+    AreaInformativaComponent,
+    PerfilUsuarioComponent,
+    CriarTurmasDialogo,
+    CriarGruposDialogo,
+    AlunoAutoRegistroComponent,
+    ListaDeMatriculaComponent,
+    PageNotFoundComponent,
+  ],
+  entryComponents: [
+    CriarTurmasDialogo,
+    CriarGruposDialogo,
   ],
   imports: [
     ReactiveFormsModule,
@@ -42,12 +79,22 @@ const appRoutes: Routes = [
     ),
     AppRoutingModule,
     ModalModule.forRoot()
+    ModalModule.forRoot(),
+    RatingModule.forRoot(),
+    RatingModule,
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MaterialModule,
+    BrowserAnimationsModule
   ],
 
   providers: [
     TurmaService,
-    AutenticacaoService
+    AutenticacaoService,
+    GrupoService,
+    AgendaService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
