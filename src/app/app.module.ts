@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
-import { GruposComponent } from './grupos/grupos.component';
+import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { RouterModule, Routes} from '@angular/router';
@@ -48,11 +48,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AreaInformativaComponent,
     PerfilUsuarioComponent,
     CriarTurmasDialogo,
+    CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     PageNotFoundComponent,
   ],
-  entryComponents: [CriarTurmasDialogo],
+  entryComponents: [
+    CriarTurmasDialogo,
+    CriarGruposDialogo,
+  ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
