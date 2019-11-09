@@ -88,7 +88,7 @@
 .tipoData {
   font-size: 1em;
   border: none;
-  border-bottom: 2px solid #3f51b5;
+  border-bottom: 2px solid #dd709f;
   width: 43%;
   margin-bottom: 1.5em;
 
@@ -96,4 +96,18 @@
 .tipoData:focus {
   border: none;
 
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #dd709f !important;
+ }
+
+ ::ng-deep .mat-form-field-underline {
+  background-color: #dd709f !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #dd709f !important;;
 }
