@@ -1,21 +1,51 @@
-h1, h5, h6 {
-  font-family: "Nunito", sans-serif;
-  font-weight: bold;
-}
+  h1, h5, h6 {
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+  }
 
-h2 {
-  font-family: "Nunito", sans-serif;
-}
+  h2 {
+    font-family: "Nunito", sans-serif;
+  }
 
-.tabela-alunos {
-  border: 1px solid #ccc;
-  margin-top: 0;
-  box-shadow: 3px 3px 2px #ccc;
-  transition: 0.5s;
-  font-family: "Nunito", sans-serif;
-  overflow-y: scroll;
-    background: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#eec4d6));
-    background: linear-gradient(to right, #a0e0e4,#eec4d6 );
+  table * {
+    border: none;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .margin-top {
+    margin-top: 2em;
+  }
+
+  .example-icon {
+    padding: 0 14px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .turmas-row {
+    font-family: 'Varela Round', sans-serif;
+    /* font-family: 'Bad Script', cursive; */
+    /* font-family: 'Farro', sans-serif; */
+    /* font-family: 'Racing Sans One', cursive; */
+    /* font-family: 'Contrail One', cursive; */
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+  }
+
+  .mat-toolbar-multiple-rows {
+    min-height: 40px !important;
+    max-height: 47px !important;
+  }
+
+  .turmas {
+    margin-top: 10px;
+    border-radius: 20px;
   }
 
   i {
@@ -27,16 +57,15 @@ h2 {
   }
 
 .tabela-alunos:hover {
-  box-shadow: 3px 3px 0px transparent;
+  /* box-shadow: 3px 3px 0px transparent; */
   transition: 0.5s;
   }
 
   .btn-get {
     font-family: "Nunito", sans-serif;
-    color: #000 !important;
+    color: #fff !important;
     text-transform: capitalize;
-    background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-    background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+    background: #f44b72;
     padding: 10px 20px 10px;
     position: relative;
     border: 0;
@@ -53,7 +82,7 @@ h2 {
     width: 0;
     left: 0;
     background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
-    background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+    background-image: linear-gradient(to right, #e9b1c9, #efe0e6);
     -webkit-transition: .5s ease-out;
     transition: .5s ease-out;
   }
@@ -86,7 +115,7 @@ h2 {
 
   .navbar-center{
     background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-    background: linear-gradient(to right, #a0e0e4, #e194b5);
+    background: linear-gradient(to right, #efe0e6, #e194b5);
     height: 6em;
     padding: 1.5em;
     margin-bottom: 4rem;
@@ -110,9 +139,9 @@ h2 {
   .turmas_form .form-group select {
     font-size: 1em;
     border: none;
-    border-bottom: 2px solid #d68fae;
-    outline: none;
-    outline-color: #dd709f;
+    border-bottom: 2px solid #f44b72;
+    /* outline: none; */
+    /* outline-color: #6fafa0; */
     outline-width: thick;
     padding: 0 2.5rem;
     position: relative;
@@ -126,30 +155,6 @@ h2 {
     top: 0px;
     margin: 0 0 -80px;
     font-size:20px;
-  }
-
-  @-webkit-keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
-  }
-
-  @keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
   }
 
   .label-float {
@@ -197,17 +202,27 @@ h2 {
     color: #dd709f;
   }
 
-  #paginaTurma {
-    max-width: 100%
+  @media only screen and (min-width: 768px) {
+    #paginaTurma {
+      max-width: 100%;
+      justify-content: center;
+    }
   }
+
+  @media only screen and (max-width: 768px) {
+    #paginaTurma {
+      justify-content: center;
+    }
+  }
+
 
   #iconeEditar {
     margin-right: 0.75em;
-    color: blue;
+    color: #206b43;
   }
 
   #iconeExcluir {
-    color: red;
+    color: #f30872;
   }
 
   .modal-body {
