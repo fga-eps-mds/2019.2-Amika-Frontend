@@ -28,7 +28,6 @@ import { environment } from '../environments/environment';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
-import { CriarGruposDialogo } from './grupos/grupos.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -58,7 +57,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CriarTurmasDialogo,
     CriarGruposDialogo,
   ],
-  entryComponents: [CriarTurmasDialogo, CriarGruposDialogo],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
