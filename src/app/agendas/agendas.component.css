@@ -196,6 +196,10 @@ transition: 0.5s;
   color: #dd709f;
 }
 
+#paginaAgenda {
+  width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
   #paginaagenda {
     max-width: 100%;
@@ -206,6 +210,7 @@ transition: 0.5s;
 @media only screen and (max-width: 768px) {
   #paginaagenda {
     justify-content: center;
+    max-width: 100%;
   }
 }
 
@@ -222,7 +227,18 @@ transition: 0.5s;
 .modal-body {
   background-color: #fff;
       border-radius: 30px;
-
+      .agendas_form .form-group label {
+        font-family: "Nunito", sans-serif;
+        font-size: 1em;
+        color: #575757;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        z-index: 0;
+        -webkit-transition: .3s all;
+        transition: .3s all;
+      }
 }
 
 @media only screen and (min-width: 768px) {
@@ -298,3 +314,108 @@ transition: 0.5s;
   justify-content: space-between;
   align-items: center;
 }
+
+
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover {
+  background: #6fafa02b;
+}
+
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description {
+  color: rgb(0, 0, 0);
+  font-size: 1.2em;
+}
+
+.mat-expansion-panel-header-title {
+  font-size: 1.8em;
+}
+
+
+.painel_descricao {
+  margin-top: 0.5em;
+  font-size: 1.7em;
+  line-height: 1em;
+}
+
+.painel_data_disponibilizacao {
+  color: #206b43;
+  font-size: 1em;
+  margin: 0;
+}
+
+.painel_data_encerramento {
+  color: #f30872;
+  font-size: 1em;
+  margin: 0;
+}.agendas_form .form-group label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  color: #575757;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.painel_icone {
+  align-items: center;
+  display: flex;
+  color: #6fafa0;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+.painel_geral {
+  height: 3em;
+}
+
+.painel_acao {
+  margin-top: 0.5em;
+}
+
+.agendas_form .form-group label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  color: #575757;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.mat-form-field {
+  width: 90%;
+}
+.tipoData {
+  font-size: 1em;
+  border: none;
+  border-bottom: 1px solid #dd709f;
+  margin-bottom: 1.5em;
+  width: 90%;
+  background-color: transparent;
+
+}
+.tipoData:focus {
+  border: none;
+
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #dd709f !important;
+ }
+
+ ::ng-deep .mat-form-field-underline {
+  background-color: #dd709f !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #dd709f !important;;
+}
+

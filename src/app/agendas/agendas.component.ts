@@ -142,7 +142,8 @@ export class AgendasComponent implements OnInit {
 })
 export class CriarAgendasDialogo {
   formularioAgenda: FormGroup;
-  constructor( public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  submitted = false;
+  constructor(private agendaService: AgendaService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     if (this.data.formularioAgenda) {
     this.formularioAgenda = this.formBuilder.group({
       nome: ['', Validators.required],
@@ -170,7 +171,28 @@ export class CriarAgendasDialogo {
   }
 
   submit(form) {
-    this.dialogRef.close(`${JSON.stringify(form.value)}`);
+    this.submitted = true;
+    this.validarData();
+    if (this.formularioAgenda.valid) {
+      this.dialogRef.close(`${JSON.stringify(form.value)}`);
+    }
+  }
+
+  validarData(){
+    if (this.formularioAgenda.value.data_disponibilizacao && this.formularioAgenda.value.data_encerramento){
+      if (new Date(this.formularioAgenda.value.data_disponibilizacao) < new Date(this.formularioAgenda.value.data_encerramento)){
+        this.error={isError:false,errorMessage:''};
+      } else {
+        this.error = {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
+      }
+    }
+    else {
+      this.error={isError:false,errorMessage:''};
+    }
+  }
+
+  hasError(field: string) {
+    return this.formularioAgenda.get(field).errors;
   }
 }
 
