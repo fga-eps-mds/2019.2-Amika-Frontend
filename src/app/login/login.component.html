@@ -4,11 +4,11 @@
 
 <div id="wrapper">
   <div class="main-content">
-    <mat-tab-group mat-align-tabs="center">
+    <mat-tab-group mat-stretch-tabs mat-align-tabs="center">
       <mat-tab label="Login" style="width: 100%">
         <form [formGroup]="formularioLogin" (ngSubmit)="logar(formularioLogin.value)" class="text-center">
                 <div class="header">
-                  <img src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
+                  <img class="logo-login" src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
                 </div>
                 <div class="div-button">
                     <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
@@ -28,7 +28,7 @@
           <mat-tab label="Registro">
               <form [formGroup]="formularioRegistro" (ngSubmit)="cadastrarAluno(formularioRegistro.value)" class="text-center">
                   <div class="header">
-                    <img src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
+                    <img class="logo-login" src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
                   </div>
                   <div class="div-button">
                       <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
