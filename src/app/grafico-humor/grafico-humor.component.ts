@@ -25,12 +25,15 @@ export class GraficoHumorComponent implements OnInit {
               min: 0,
               stepSize: 1
           }
+        }],
+      xAxes:[{
+        display: false
       }]
   }
   };
 
   chartData = [
-    { data: this.medias, label: 'Turma' },
+    { data: this.medias, label: 'Média' },
   ];
 
   myColors = [
@@ -84,7 +87,7 @@ export class GraficoHumorComponent implements OnInit {
       console.log(this.medias);
       console.log(this.datas);
       this.chartData = [
-        { data: this.medias, label: 'Turma' },
+        { data: this.medias, label: 'Média' },
       ];
       this.chartLabels = this.datas;
       // this.baseChart.update();
