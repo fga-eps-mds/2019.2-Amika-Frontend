@@ -25,6 +25,9 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
+import { ChartsModule } from 'ng2-charts';
+
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
@@ -47,6 +50,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    GraficoHumorComponent,
+
     CriarTurmasDialogo,
     CriarGruposDialogo,
     AlunoAutoRegistroComponent,
@@ -67,6 +72,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RatingModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ChartsModule,
     MaterialModule,
     BrowserAnimationsModule
   ],
