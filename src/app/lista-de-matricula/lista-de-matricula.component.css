@@ -247,3 +247,41 @@ h2 {
   .form-file {
     height: 3em !important;
   }
+
+  input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-upload {
+    width: 15em;
+    border: 2px solid #d68fae;
+    display: inline-block;
+    border-radius: 0.4em;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .md-tab-label {
+    max-width: 72px;
+  }
+
+  .mat-tab-header {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin: 0px auto !important;
+    width: 30em !important;
+    border: 1px solid #6fafa0;
+    /* padding: 10px; */
+    flex-shrink: 0;
+  }
+
+  .size-mat-tab {
+    display: flex;
+    justify-content: center;
+  }
+
+  .width-mat-tab {
+    width: 30em;
+  }

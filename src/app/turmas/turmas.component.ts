@@ -70,8 +70,10 @@ export class TurmasComponent implements OnInit {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
     }, (error: any) => {
-      console.log("ERRO MAROTÃO")
       this.error = error;
+      console.log("ERRORZÃO");
+      console.log(error.error);
+      alert(error.error.descricao);
     });
   }
 
