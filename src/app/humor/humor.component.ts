@@ -17,7 +17,7 @@ import {Observable} from 'rxjs';
 export class HumorComponent implements OnInit {
 
   max = 5;
-  rate = 0;
+  rate = 1;
   humor: Humor;
   hoje: string;
   humores: Array<Humor>;
@@ -30,7 +30,7 @@ export class HumorComponent implements OnInit {
   @ViewChild('erroModal', {static: false}) erroModal;
 
   constructor(private humorService: HumorService,private datePipe: DatePipe, private modalService: BsModalService, private router: Router) {
-    this.getter();
+    this.getStatus();
   }
 
   save(){
@@ -46,13 +46,11 @@ export class HumorComponent implements OnInit {
     window.location.reload();
   }
 
-  getter() {
-    this.humorService.get_humor().subscribe((data: any) => {
-      this.humores = data;
-      console.log('getting');
-      this.verificaHumor();
-    }, (error: any) => {
-      this.error = error;
+  getStatus() {
+    this.humorService.get_status().subscribe((data:any) => {
+      this.rate = data.humor;
+      this.adicionado = data.adicionado;
+      console.log('this.rate')
     });
   }
 
@@ -62,19 +60,6 @@ export class HumorComponent implements OnInit {
 
   voltar(){
     this.erroModalRef.hide();
-  }
-
-  verificaHumor(){
-    this.hoje = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
-    this.humores.forEach(item => {
-      if (this.hoje == item.data) {
-        console.log('JA TEVE HOJE');
-        this.adicionado = true;
-        this.rate = item.humor_do_dia;
-        this.isReadonly = true;
-      }
-    });
-    console.log(this.rate);
   }
 
   ngOnInit() {
