@@ -34,6 +34,7 @@ import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GrupoComponent } from './grupo/grupo.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     PageNotFoundComponent,
+    GrupoComponent,
   ],
   entryComponents: [
     CriarTurmasDialogo,
