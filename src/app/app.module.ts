@@ -14,17 +14,9 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component';
 import { FormularioSatisfacaoComVidaComponent } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
-
-const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
- // { path: 'hero/:id',      component: HeroDetailComponent },
-  { path: 'formulario', component: FormularioFelicidadeAutenticaComponent}
-
-];
 import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
-import { RouterModule, Routes} from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
@@ -42,6 +34,13 @@ import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-reg
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+ // { path: 'hero/:id',      component: HeroDetailComponent },
+  { path: 'formulario', component: FormularioFelicidadeAutenticaComponent}
+
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +49,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TurmaEditComponent,
     LoginComponent,
     FormularioFelicidadeAutenticaComponent,
-    FormularioSatisfacaoComVidaComponent
+    FormularioSatisfacaoComVidaComponent,
     GruposComponent,
     GrupoEditComponent,
     AgendasComponent,
@@ -78,7 +77,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       appRoutes,
     ),
     AppRoutingModule,
-    ModalModule.forRoot()
     ModalModule.forRoot(),
     RatingModule.forRoot(),
     RatingModule,
