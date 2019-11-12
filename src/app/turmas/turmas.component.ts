@@ -29,7 +29,6 @@ export class TurmasComponent implements OnInit {
   constructor(private turmaService: TurmaService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
               public dialog: MatDialog) {
-    this.getter();
     this.formularioTurma = this.formBuilder.group({
       descricao: ['', Validators.required],
       id: ['']
@@ -37,6 +36,7 @@ export class TurmasComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getter();
   }
 
   criarDialogoAdicionarTurma(): void {

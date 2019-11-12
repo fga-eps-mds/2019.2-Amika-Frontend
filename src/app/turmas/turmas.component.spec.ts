@@ -1,12 +1,19 @@
+import { LoginComponent } from './../login/login.component';
 import { Turma } from './turmas.model';
 import { TurmaService } from './turma.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
 
+import { AutenticacaoService } from '../autenticacao.service';
 import { TurmasComponent } from './turmas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { MaterialModule } from '../material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { environment } from 'src/environments/environment';
 
 describe('TurmasComponent', () => {
   let component: TurmasComponent;
@@ -19,14 +26,30 @@ describe('TurmasComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TurmasComponent ],
+      declarations: [ 
+        TurmasComponent,
+        LoginComponent,
+      ],
       imports: [
+        RouterTestingModule.withRoutes(
+          [
+            { path: 'login', component: LoginComponent },
+            { path: 'turmas', component: TurmasComponent },
+          ]
+        ),
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
+        ModalModule.forRoot(),
+        MaterialModule,
+        RouterTestingModule,
       ],
-      providers: [TurmaService],
+      providers: [
+        TurmaService,
+        AutenticacaoService,
+        BsModalService,
+      ],
     })
     .compileComponents().then(() => {
       fixture = TestBed.createComponent(TurmasComponent);
@@ -34,7 +57,7 @@ describe('TurmasComponent', () => {
     });
     injector = getTestBed();
     service = injector.get(TurmaService);
-    httpMock = injector.get(HttpTestingController);
+    httpMock = TestBed.get(HttpTestingController);
   }));
 
   afterEach(() => {
@@ -60,33 +83,37 @@ describe('TurmasComponent', () => {
     ]
   };
 
-  it('get_turmas() should return data', () => {
-    service.get_turmas().subscribe((res) => {
-      expect(res).toEqual(listaTurmasTeste);
-    });
-
-    const req = httpMock.expectOne('http://localhost:8000/turmas/');
-    expect(req.request.method).toBe('GET');
-    req.flush(listaTurmasTeste);
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 
-  it('getById() should return turma detail', () => {
-    service.getById('1').subscribe((data: any) => {
-      expect(data.descricao).toEqual('A');
+  it('get_turmas() should return data', () => {
+    service.get_turmas().subscribe((res:any) => {
+      expect(res).toEqual(listaTurmasTeste);
     });
+    const req = httpMock.match(environment.urlApi + 'turmas/');
+    expect(req[0].request.method).toBe('GET');
+    req[0].flush(listaTurmasTeste);
+  });
 
 
-    const req = httpMock.expectOne('http://localhost:8000/turma/1');
-    expect(req.request.method).toBe('GET');
-    req.flush(turmaDetails);
+  it('getById() should return turma detail', () => {
+    // const req = httpMock.match({method: 'GET', url: environment.urlApi + 'turma/1'});
+    service.getById('1').subscribe((data: any) => {
+      console.log(data);
+      expect(data[0].descricao).toEqual('A');
+    });
+    const req = httpMock.match(environment.urlApi + 'turma/1');
+    console.log(req[0].request.method);
+    expect(req[0].request.method).toBe('GET');
+    // req[0].flush(turmaDetails);
   });
 
   it('create_turmas() should POST and return data', () => {
     service.create_turmas(turmaE).subscribe((res) => {
       expect(res).toEqual({ msg: 'success' });
     });
-
-    const req = httpMock.expectOne('http://localhost:8000/turma/');
+    const req = httpMock.expectOne(environment.urlApi + 'turma/');
     expect(req.request.method).toBe('POST');
     req.flush({ msg: 'success' });
   });
@@ -98,7 +125,7 @@ describe('TurmasComponent', () => {
       });
 
     const req = httpMock.expectOne(
-      `http://localhost:8000/turma/`,
+      environment.urlApi + `turma/`,
       'post to api'
     );
     expect(req.request.method).toBe('POST');
@@ -112,11 +139,11 @@ describe('TurmasComponent', () => {
 
   it('should put the correct data', () => {
     service.edit_turmas(1, { descricao: 'G' }).subscribe((data: any) => {
-        expect(data.descricao).toBe('g');
+        expect(data.descricao).toBe('G');
       });
 
     const req = httpMock.expectOne(
-      `http://localhost:8000/turma/1`,
+      environment.urlApi + `turma/1`,
       'put to api'
     );
     expect(req.request.method).toBe('PUT');
@@ -134,7 +161,7 @@ describe('TurmasComponent', () => {
     });
 
     const req = httpMock.expectOne(
-      `http://localhost:8000/turma/3`,
+      environment.urlApi + `turma/3`,
       'delete to api'
     );
     expect(req.request.method).toBe('DELETE');
