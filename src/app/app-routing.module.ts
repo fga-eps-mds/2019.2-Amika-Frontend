@@ -1,3 +1,4 @@
+import { GrupoComponent } from './grupo/grupo.component';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { HumorComponent } from './humor/humor.component';
 import { NgModule, Component } from '@angular/core';
@@ -14,13 +15,15 @@ import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
-import {ListaDeMatriculaComponent} from './lista-de-matricula/lista-de-matricula.component';
+import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'grupos', component: GruposComponent},
+  { path: 'grupo', component: GrupoComponent},
   { path: 'editar_grupo/:id', component: GrupoEditComponent},
   { path: 'humor', component: HumorComponent},
   { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
@@ -33,6 +36,7 @@ const routes: Routes = [
   { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
   { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
   { path: '**', component: PageNotFoundComponent},
+  
 ];
 
 @NgModule({
