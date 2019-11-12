@@ -10,14 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component'
 import { FormularioSatisfacaoComVidaComponent } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component'
-
-const routes: Routes = [
-  {path: '',      component: HomepageComponent },
-  {path: 'login', component: LoginComponent },
-  {path: 'turmas', component: TurmasComponent},
-  {path: 'turmas_editar/:id', component: TurmaEditComponent},
-  {path: 'formulario-felicidade', component: FormularioFelicidadeAutenticaComponent},
-  {path: 'formulario-satisfacao', component: FormularioSatisfacaoComVidaComponent}
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
@@ -26,23 +18,26 @@ import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-reg
 import {ListaDeMatriculaComponent} from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const routes: Routes = [
-  { path: '',      component: HomepageComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'grupos', component: GruposComponent},
-  { path: 'editar_grupo/:id', component: GrupoEditComponent},
-  { path: 'humor', component: HumorComponent},
-  { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
-  { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
-  { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
-  { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
-  { path: 'area-informativa', component: AreaInformativaComponent},
-  { path: 'perfil_usuario', component : PerfilUsuarioComponent},
-  { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
-  { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
-  { path: '**', component: PageNotFoundComponent},
-];
-
+  
+  const routes: Routes = [
+    { path: '',      component: HomepageComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'grupos', component: GruposComponent},
+    { path: 'editar_grupo/:id', component: GrupoEditComponent},
+    { path: 'humor', component: HumorComponent},
+    { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
+    { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
+    { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
+    { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
+    { path: 'area-informativa', component: AreaInformativaComponent},
+    { path: 'perfil_usuario', component : PerfilUsuarioComponent},
+    { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
+    { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
+    { path: '**', component: PageNotFoundComponent},
+    { path: 'formulario-felicidade', component: FormularioFelicidadeAutenticaComponent},
+    { path: 'formulario-satisfacao', component: FormularioSatisfacaoComVidaComponent},
+  ];
+  
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
