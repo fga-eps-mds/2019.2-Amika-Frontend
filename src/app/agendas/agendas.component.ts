@@ -143,6 +143,8 @@ export class AgendasComponent implements OnInit {
 export class CriarAgendasDialogo {
   formularioAgenda: FormGroup;
   submitted = false;
+  error: any={isError:false,errorMessage:''};
+
   constructor(private agendaService: AgendaService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     if (this.data.formularioAgenda) {
     this.formularioAgenda = this.formBuilder.group({
