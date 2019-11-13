@@ -111,3 +111,7 @@
  /*change color of underline when focused*/
  background-color: #dd709f !important;;
 }
+
+::ng-deep .mat-dialog-container {
+  overflow-x: hidden !important;
+}
