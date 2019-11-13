@@ -58,7 +58,7 @@ export class TurmaEditComponent implements OnInit {
             console.log(data);
             this.formularioTurma.reset();
             this.return();
-    
+
           }, (error: any) => {
             this.error = error;
           });

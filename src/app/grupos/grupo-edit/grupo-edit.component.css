@@ -1,211 +1,216 @@
 h1 {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Nunito", sans-serif;
+}
+
+
+  .btn-get {
     font-family: "Nunito", sans-serif;
-    font-weight: bold;
+    color: #000 !important;
+    text-transform: capitalize;
+    background: #f64a6eb8;
+    padding: 10px 20px 10px;
+    position: relative;
+    border: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    text-transform: capitalize !important;
   }
-  
-  h2 {
+
+
+  .btn-get::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    height: 100%;
+    width: 0;
+    left: 0;
+    background: #f64a6ecf;
+    -webkit-transition: .5s ease-out;
+    transition: .5s ease-out;
+  }
+
+  .btn-save {
+    background: #6fafa0;
+  }
+
+  .btn-save::before {
+    background: #659e91;
+  }
+
+  .navbar-center{
+    background: #ff006f;
+    height: 6em;
+    padding: 1.5em;
+    margin-bottom: 3em;
+  }
+
+  .btn-get:hover::before {
+    width: 100%;
+  }
+
+  .btn-get span {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  .main__form .form-group {
+    position: relative;
+    margin-bottom: 2rem;
+    margin-top: 2em;
+    width: 100%;
+  }
+
+  .main__form .form-group label {
     font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    color: #575757;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 0;
+    -webkit-transition: .3s all;
+    transition: .3s all;
   }
-  
-    .btn-get {
-      font-family: "Nunito", sans-serif;
-      color: #000 !important;
-      text-transform: capitalize;
-      background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-      background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
-      padding: 10px 20px 10px;
-      position: relative;
-      border: 0;
-      border-radius: 5px;
-      overflow: hidden;
-      text-transform: capitalize !important;
+
+  .main__form .form-group input,
+  .main__form .form-group textarea,
+  .main__form .form-group select{
+    font-size: 1rem;
+    border-color: #f7f7f7;
+    border: none;
+    border-bottom: 2px solid #ff006f;
+    outline: none;
+    /* outline-color: #dd709f; */
+    outline-width: thick;
+    padding: 0 2.5rem;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+  }
+
+  .main__form .form-group select{
+    height: 6rem;
+    font-size: 0.8rem;
+  }
+
+
+  .main__form .form-group input:not(:placeholder-shown) + label,
+  .main__form .form-group textarea:not(:placeholder-shown) + label {
+    top: 2%;
+    background: #fff;
+    z-index: 2;
+    font-weight: 600;
+  }
+
+  .main__form .form-group input:focus,
+  .main__form .form-group textarea:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .main__form .form-group input::placeholder,
+  .main__form .form-group textarea::placeholder {
+    color: transparent;
+  }
+
+  .main__form .form-group input {
+    height: 6rem;
+  }
+
+  .main__form button.btn.btn-get {
+    position: relative;
+    top: 0px;
+    margin: 0 0 -80px;
+    font-size:20px;
+  }
+
+  @-webkit-keyframes AnimationGradient {
+    0% {
+      background-position: 26% 0%;
     }
-  
-  
-    .btn-get::before {
-      position: absolute;
-      content: '';
-      top: 0;
-      height: 100%;
-      width: 0;
-      left: 0;
-      background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
-      background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
-      -webkit-transition: .5s ease-out;
-      transition: .5s ease-out;
+    50% {
+      background-position: 75% 100%;
     }
-  
-    .navbar-center{
-      background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-      background: linear-gradient(to right, #a0e0e4, #e194b5);
-      height: 6em;
-      padding: 1.5em;
-      margin-bottom: 3em;
+    100% {
+      background-position: 26% 0%;
     }
-  
-    .btn-get:hover::before {
-      width: 100%;
+  }
+
+  @keyframes AnimationGradient {
+    0% {
+      background-position: 26% 0%;
     }
-  
-    .btn-get span {
-      position: relative;
-      z-index: 2;
+    50% {
+      background-position: 75% 100%;
     }
-  
-  
-    .main__form .form-group {
-      position: relative;
-      margin-bottom: 2rem;
-      margin-top: 2em;
-      width: 100%;
+    100% {
+      background-position: 26% 0%;
     }
-  
-    .main__form .form-group label {
-      font-family: "Nunito", sans-serif;
-      font-size: 1rem;
-      color: #575757;
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-              transform: translateY(-50%);
-      z-index: 0;
-      -webkit-transition: .3s all;
-      transition: .3s all;
-    }
-  
-    .main__form .form-group input,
-    .main__form .form-group textarea,
-    .main__form .form-group select{
-      font-size: 1rem;
-      border-color: #f7f7f7;
-      border: none;
-      border-bottom: 2px solid #d68fae;
-      outline: none;
-      outline-color: #dd709f;
-      outline-width: thick;
-      padding: 0 2.5rem;
-      position: relative;
-      z-index: 1;
-      background: transparent;
-    }
-  
-    .main__form .form-group select{
-      height: 6rem;
-      font-size: 0.8rem;
-    }
-  
-  
-    .main__form .form-group input:not(:placeholder-shown) + label,
-    .main__form .form-group textarea:not(:placeholder-shown) + label {
-      top: 2%;
-      background: #fff;
-      z-index: 2;
-      font-weight: 600;
-    }
-  
-    .main__form .form-group input:focus,
-    .main__form .form-group textarea:focus {
-      outline: none;
-      -webkit-box-shadow: none;
-              box-shadow: none;
-    }
-  
-    .main__form .form-group input::placeholder,
-    .main__form .form-group textarea::placeholder {
-      color: transparent;
-    }
-  
-    .main__form .form-group input {
-      height: 6rem;
-    }
-  
-    .main__form button.btn.btn-get {
-      position: relative;
-      top: 0px;
-      margin: 0 0 -80px;
-      font-size:20px;
-    }
-  
-    @-webkit-keyframes AnimationGradient {
-      0% {
-        background-position: 26% 0%;
-      }
-      50% {
-        background-position: 75% 100%;
-      }
-      100% {
-        background-position: 26% 0%;
-      }
-    }
-  
-    @keyframes AnimationGradient {
-      0% {
-        background-position: 26% 0%;
-      }
-      50% {
-        background-position: 75% 100%;
-      }
-      100% {
-        background-position: 26% 0%;
-      }
-    }
-  
-  
-    .label-float {
-      position: relative;
-      padding-top: 3em;
-    }
-  
-    .label-float input {
-      border: 0;
-      outline: none;
-      font-size: 0.5em;
-      transition: all .3s ease-out;
-      -webkit-transition: all .3s ease-out;
-      -moz-transition: all .3s ease-out;
-      -webkit-appearance:none;
-      border-radius:0;
-    }
-  
-    .label-float input:focus {
-      border-bottom: 2px solid #dd709f;
-      outline: none;
-      -webkit-box-shadow: none;
-              box-shadow: none;
-    }
-  
-    .label-float input::placeholder {
-      color:transparent;
-    }
-  
-    .label-float label {
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin-top: 3em;
-      transition: all .3s ease-out;
-      -webkit-transition: all .3s ease-out;
-      -moz-transition: all .3s ease-out;
-    }
-  
-    .label-float input:required:invalid + label {
-      color: red;
-    }
-    .label-float input:focus:required:invalid {
-      border-bottom: 2px solid red;
-    }
-    .label-float input:required:invalid + label:before {
-      content: '*';
-    }
-    .label-float input:focus + label,
-    .label-float input:not(:placeholder-shown) + label d{
-      font-size: 0.8em;
-      margin-top: 0;
-      color: #dd709f;
-    }
-  
-    #telaEditar {
-      margin-left: 25%
-    }
-  
+  }
+
+
+  .label-float {
+    position: relative;
+    padding-top: 3em;
+  }
+
+  .label-float input {
+    border: 0;
+    outline: none;
+    font-size: 0.5em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance:none;
+    border-radius:0;
+  }
+
+  .label-float input:focus {
+    border-bottom: 2px solid #dd709f;
+    outline: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .label-float input::placeholder {
+    color:transparent;
+  }
+
+  .label-float label {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 3em;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+  }
+
+  .label-float input:required:invalid + label {
+    color: red;
+  }
+  .label-float input:focus:required:invalid {
+    border-bottom: 2px solid red;
+  }
+  .label-float input:required:invalid + label:before {
+    content: '*';
+  }
+  .label-float input:focus + label,
+  .label-float input:not(:placeholder-shown) + label d{
+    font-size: 0.8em;
+    margin-top: 0;
+    color: #dd709f;
+  }
+
+  #telaEditar {
+    margin-left: 25%
+  }

@@ -1,0 +1,7 @@
+.btn-get {
+  background: #6fafa0;
+}
+
+.btn-get::before {
+  background: #659e91;
+}
