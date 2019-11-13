@@ -71,6 +71,8 @@ describe('TurmasComponent', () => {
     ]
   };
 
+  const turma = { id: 1, descricao: 'A' };
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -95,9 +97,44 @@ describe('TurmasComponent', () => {
   });
 
   it('hasError() ', () => {
-    let descricao = component.formularioTurma.controls['descricao'];
+    component.formularioTurma.controls['descricao'];
     let error = component.hasError('descricao');
     expect(error).toBeTruthy();
+  });
+
+  it('onDelete() ', () => {
+    spyOn(component.modalService, 'show').and.returnValue(component.deleteModal);
+    component.onDelete(turma);
+    expect(component.turmaSelecionada).toBe(turma);
+    expect(component.modalService.show).toHaveBeenCalledWith(component.deleteModal, {class: 'modal-sm'});
+  });
+
+  it('onEdit() ', () => {
+    spyOn(component.router, 'navigate').and.stub();
+    component.onEdit(1);
+    expect(component.router.navigate).toHaveBeenCalledWith(['turmas_editar', 1]);
+  });
+
+//   it('onSubmit() ', () => {
+//     component.formularioTurma.controls['descricao'].setValue('G');
+//     component.formularioTurma.controls['id'].setValue('4');
+//     console.log("component.formularioTurma.value");
+//     console.log(component.formularioTurma.value);
+//     console.log("component.formularioTurma.value");
+//     let spy = spyOn(component.turmaService, 'create_turmas');
+//     component.onSubmit();
+//     const req = httpMock.match(environment.urlApi + 'turmas/');
+//     expect(spy).toHaveBeenCalled();
+//     req[0].flush({ msg: 'success' });
+// });
+
+
+  it('onConfirmDelete() ', () => {
+    component.onDelete(turma);
+    spyOn(component.deleteModalRef, 'hide');
+    component.onConfirmDelete();
+    const req = httpMock.match(environment.urlApi + 'turma/1');
+    expect(component.deleteModalRef.hide).toHaveBeenCalled();
   });
 
 
@@ -131,6 +168,14 @@ describe('TurmasComponent', () => {
     component.criarDialogoAdicionarTurma();
     let spy = spyOn(dialogo.dialogRef, 'close').and.callThrough();
     dialogo.dialogRef.close();
+    expect(spy).toHaveBeenCalled(); 
+  })
+
+  it('dialogo submit', () => {
+    component.formularioTurma.controls['descricao'].setValue('G');
+    component.formularioTurma.controls['id'].setValue('4');
+    let spy = spyOn(dialogo.dialogRef, 'close').and.callThrough();
+    dialogo.submit(component.formularioTurma);
     expect(spy).toHaveBeenCalled(); 
   })
 

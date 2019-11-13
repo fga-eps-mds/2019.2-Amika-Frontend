@@ -26,8 +26,8 @@ export class TurmasComponent implements OnInit {
   @ViewChild('deleteModal', {static: false}) deleteModal;
   turmaSelecionada: Turma;
 
-  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder,
-              private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
+  constructor(public turmaService: TurmaService, public formBuilder: FormBuilder,
+              public router: Router, public route: ActivatedRoute, public modalService: BsModalService,
               public dialog: MatDialog) {
     this.formularioTurma = this.formBuilder.group({
       descricao: ['', Validators.required],
@@ -90,12 +90,12 @@ export class TurmasComponent implements OnInit {
   }
 
   onConfirmDelete() {
-     this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
+    this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
       this.getter();
     }, (error: any) => {
       this.error = error;
     });
-     this.deleteModalRef.hide();
+    this.deleteModalRef.hide();
   }
 
   onDeclineDelete() {
@@ -104,6 +104,9 @@ export class TurmasComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    console.log("this.formularioTurma.value");
+    console.log(this.formularioTurma.value);
+    console.log("this.formularioTurma.value");
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
@@ -124,7 +127,7 @@ export class TurmasComponent implements OnInit {
 })
 export class CriarTurmasDialogo {
   formularioTurma: FormGroup;
-  constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, public formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     if (this.data.formularioTurma) {
       this.formularioTurma = this.formBuilder.group({
         descricao: ['', Validators.required],
