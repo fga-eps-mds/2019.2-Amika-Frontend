@@ -45,8 +45,6 @@ export class TurmasComponent implements OnInit {
       data: {formularioTurma: null, title: "Adicionar turma"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log("DATA");
-      console.log(JSON.parse(data));
       this.formularioTurma.patchValue(JSON.parse(data));
       this.onSubmit();
     });
@@ -59,9 +57,7 @@ export class TurmasComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(data => {
       data = JSON.parse(data)
-      console.log(data);
       this.formularioTurma.patchValue(data);
-      console.log(this.formularioTurma.value);
       this.edit();
     });
   }
@@ -70,7 +66,6 @@ export class TurmasComponent implements OnInit {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
     }, (error: any) => {
-      console.log("ERRO MAROTÃO")
       this.error = error;
     });
   }
@@ -112,7 +107,6 @@ export class TurmasComponent implements OnInit {
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
-
     }, (error: any) => {
       this.error = error;
     });
@@ -143,9 +137,6 @@ export class CriarTurmasDialogo {
         descricao: ['', Validators.required]
       });
     }
-  }
-
-  onClick(): void {
   }
 
   submit(form) {
