@@ -45,7 +45,9 @@
                   [opened]="!mobileQuery.matches">
                     <div class="content">
                         <mat-list *ngIf="!isAdmin">
-                            <div *ngTemplateOutlet="perfilAluno" class="perfil"></div>
+                            <div class="perfil">
+                              <div *ngTemplateOutlet="perfilAluno"></div>
+                            </div>
                             <mat-list-item>
                                 <mat-icon>folder_shared</mat-icon>
                                 <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Materiais</a>
