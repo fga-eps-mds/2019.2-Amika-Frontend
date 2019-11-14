@@ -40,7 +40,7 @@ export class TurmasComponent implements OnInit {
   }
 
   criarDialogoAdicionarTurma(): void {
-    const dialogRef = this.dialog.open(CriarTurmasDialogo, {
+    let dialogRef = this.dialog.open(CriarTurmasDialogo, {
       width: '250px',
       data: {formularioTurma: null, title: "Adicionar turma"}
     });
@@ -56,8 +56,7 @@ export class TurmasComponent implements OnInit {
       data: {formularioTurma: turma, title: "Editar turma"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      data = JSON.parse(data)
-      this.formularioTurma.patchValue(data);
+      this.formularioTurma.patchValue(JSON.parse(data));
       this.edit();
     });
   }
@@ -72,7 +71,6 @@ export class TurmasComponent implements OnInit {
 
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
-      console.log(data);
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
@@ -104,9 +102,6 @@ export class TurmasComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log("this.formularioTurma.value");
-    console.log(this.formularioTurma.value);
-    console.log("this.formularioTurma.value");
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
