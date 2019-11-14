@@ -291,30 +291,33 @@ transition: 0.5s;
 
 .mat-expansion-indicator::after, .mat-expansion-panel-header-description {
   color: rgb(0, 0, 0);
-  /* font-size: 1.2em; */
+  font-size: 1.2em;
+  font-family: "Varela Round", sans-serif;
 }
 
 .mat-expansion-panel-header-title {
-  /* font-size: 1.7em; */
+  font-size: 1.5em;
+  font-family: "Varela Round", sans-serif;
 }
 
 
 .painel_descricao {
   margin-top: 0.5em;
-  /* font-size: 1.7em; */
+  font-size: 100%;
+  font-family: "Varela Round", sans-serif;
   line-height: 1em;
 }
 
 .painel_data_disponibilizacao {
   color: #206b43;
-  font-size: 1em;
+  font-size: 80%;
   margin: 0;
   text-align: end;
 }
 
 .painel_data_encerramento {
   color: #f30872;
-  font-size: 1em;
+  font-size: 80%;
   margin: 0;
   text-align: end;
 }
@@ -336,7 +339,7 @@ transition: 0.5s;
   display: flex;
   color: #6fafa0;
   font-size: 2em;
-  padding-bottom: 0.5em;
+  /* padding-bottom: 0.5em; */
 }
 
 .painel_geral {
@@ -395,4 +398,44 @@ transition: 0.5s;
 {
     min-height: 4em !important;
     height: 100% !important;
+}
+
+.scroll{
+  overflow-y: scroll;
+  min-height: 13em;
+  max-height: 30em;
+  margin-top: 4em;
+}
+
+@media only screen and (min-width: 768px) {
+  .scroll {
+    overflow: auto;
+    max-height: 40em
+  }
+
+  .scrollbar {
+    margin-top: 1em;
+    height: 40em;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+
+  .force-overflow {
+    max-height: 40em;
+  }
+
+  #style-scroll::-webkit-scrollbar-track {
+    -webkit-box5shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+  }
+
+  #style-scroll::-webkit-scrollbar {
+    width: 3px;
+    height: 5px;
+    background-color: #F5F5F5;
+  }
+
+  #style-scroll::-webkit-scrollbar-thumb {
+    background-color: #000000;
+  }
 }

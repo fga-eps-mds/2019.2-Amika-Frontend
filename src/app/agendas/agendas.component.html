@@ -8,42 +8,46 @@
   <div class="row" id="paginaAgenda">
     <div class="col-md-6 margin-bottom">
       <h2 class="text-center">Histórico de agendas</h2>
-      <div class="col-md-12 margin-top" >
-            <mat-expansion-panel class="agendas expansion-panel agendas-row" *ngFor="let agenda of agendas" hideToggle>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{agenda.nome}}
-                  </mat-panel-title>
-                  <mat-panel-description class="d-flex justify-content-end painel_acao">
-                    <i (click)="criarDialogoEditarAgenda(agenda)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
-                    <i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
-                    <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i>
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
+      <div class="scrollbar" id="style-scroll">
+        <div class="force-overflow">
+          <div class="col-md-12 margin-top" >
+                <mat-expansion-panel class="agendas expansion-panel agendas-row" *ngFor="let agenda of agendas" hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{agenda.nome}}
+                      </mat-panel-title>
+                      <mat-panel-description class="d-flex justify-content-end painel_acao">
+                        <i (click)="criarDialogoEditarAgenda(agenda)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
+                        <i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
+                        <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
 
-                <mat-panel-description class="painel_descricao">
-                    {{agenda.descricao}}
-                </mat-panel-description>
+                    <mat-panel-description class="painel_descricao">
+                        {{agenda.descricao}}
+                    </mat-panel-description>
 
-                <div class="row" style="margin-top: 2em;">
-                  <mat-panel-description class="painel_geral">
-                    <div class="col-md-6 painel_icone text-center d-flex justify-content-start">
-                      <i  matTooltip="Atividade Individual" *ngIf="agenda.tipo == 'Individual'"  class="fas fa-user"></i>
-                      <i  matTooltip="Atividade em Grupo" *ngIf="agenda.tipo == 'Grupo'"  class="fas fa-users"></i>
-                    </div>
-                     <div class="col-md-6">
-                       <div class="row  d-flex justify-content-end">
-                        <div class="col-md-12">
-                              <p class="painel_data_disponibilizacao"><mat-icon matTooltip="Data de Disponibilização" class="painel_data_disponibilizacao">calendar_today</mat-icon> {{agenda.data_disponibilizacao | date  : 'dd/MM/yyyy' }}</p>
+                    <div class="row" style="margin-top: 2em;">
+                      <mat-panel-description class="painel_geral">
+                        <div class="col-md-6 painel_icone text-center d-flex justify-content-start">
+                          <i  matTooltip="Atividade Individual" *ngIf="agenda.tipo == 'Individual'"  class="fas fa-user"></i>
+                          <i  matTooltip="Atividade em Grupo" *ngIf="agenda.tipo == 'Grupo'"  class="fas fa-users"></i>
                         </div>
-                        <div class="col-md-12">
-                              <p class="painel_data_encerramento"><mat-icon matTooltip="Data de Encerramento" class="painel_data_encerramento">calendar_today</mat-icon> {{agenda.data_encerramento | date  : 'dd/MM/yyyy' }}</p>
-                       </div>
-                      </div>
-                     </div>
-                  </mat-panel-description>
-                </div>
-              </mat-expansion-panel>
+                        <div class="col-md-6">
+                          <div class="row  d-flex justify-content-end">
+                            <div class="col-md-12">
+                                  <p class="painel_data_disponibilizacao"><mat-icon matTooltip="Data de Disponibilização" class="painel_data_disponibilizacao">calendar_today</mat-icon> {{agenda.data_disponibilizacao | date  : 'dd/MM/yyyy' }}</p>
+                            </div>
+                            <div class="col-md-12">
+                                  <p class="painel_data_encerramento"><mat-icon matTooltip="Data de Encerramento" class="painel_data_encerramento">calendar_today</mat-icon> {{agenda.data_encerramento | date  : 'dd/MM/yyyy' }}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </mat-panel-description>
+                    </div>
+                  </mat-expansion-panel>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -84,14 +88,14 @@
               </div>
 
               <div class="col-md-12">
-                  <input type="date" class="form-control tipoData" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Descrição da Agenda" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="validarData()">
+                  <input onfocus="(this.type='date')" class="form-control tipoData" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Data de disponibilização" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="validarData()">
                   <mat-error *ngIf="submitted && hasError('data_disponibilizacao')">
                       Por favor, informe uma data de disponibilização válida.
                     </mat-error>
                 </div>
 
                 <div class="col-md-12">
-                    <input type="date" class="form-control tipoData" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Descrição da Agenda" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="validarData()" >
+                    <input onfocus="(this.type='date')" class="form-control tipoData" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Data de encerramento" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="validarData()" >
                     <div *ngIf="error.isError">
                         <small class="texto-erro"> {{ error.errorMessage }} </small>
                       </div>
