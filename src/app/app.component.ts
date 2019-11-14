@@ -27,7 +27,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   username: string;
   firstName: string;
-  grupo: string;
   foto: string;
 
   private readonly _mobileQueryListener: () => void;
@@ -82,7 +81,6 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((data: any) => {
         this.username = data.username;
         this.firstName = data.first_name;
-        this.grupo = data.grupo;
         if (data.foto) {
           this.foto = `${environment.urlApi}${data.foto.slice(1)}`;
         } else {
