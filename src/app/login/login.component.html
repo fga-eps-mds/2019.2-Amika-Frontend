@@ -14,9 +14,18 @@
                     <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
                 </div>
                 <div class="l-part">
-                  <input type="text" placeholder="Matricula" class="campo-formulario campo-formulario-rosa" [formGroup]="formularioLogin" formControlName="matricula" />
+                  <mat-form-field [color]="accent">
+                    <input matInput
+                            placeholder="Matricula"
+                            formControlName="matricula">
+                  </mat-form-field>
                   <div class="overlap-text">
-                    <input type="password" placeholder="Senha" class="campo-formulario campo-formulario-rosa" [formGroup]="formularioLogin" formControlName="senha" />
+                    <mat-form-field [color]="accent">
+                      <input matInput
+                              type="password"
+                              placeholder="Senha"
+                              formControlName="senha">
+                    </mat-form-field>
                   </div>
                   <div class="div-button">
                       <button class="botao botao-verde" [disabled]="formularioLogin.get('matricula').hasError('required') || formularioLogin.get('senha').hasError('required')" type="submit"> Login </button>
@@ -34,18 +43,27 @@
                       <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
                   </div>
                   <div class="l-part">
-                    <div class="overlap-text">
-                      <input type="text" placeholder="Matricula" class="campo-formulario campo-formulario-rosa" [formGroup]="formularioRegistro" formControlName="username" />
-                    </div>
-                    <div class="overlap-text">
-                      <input type="text" placeholder="Nome" class="campo-formulario campo-formulario-rosa" [formGroup]="formularioRegistro" formControlName="first_name" />
-                      </div>
-                      <div class="overlap-text">
-                        <input type="text" placeholder="Sobrenome" class="campo-formulario campo-formulario-rosa" [formGroup]="formularioRegistro" formControlName="last_name" />
-                        </div>
-                    <div class="overlap-text">
-                      <input type="password" placeholder="Senha" class="campo-formulario campo-formulario-rosa" [formGroup]="formularioRegistro" formControlName="password" />
-                    </div>
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                placeholder="Matricula"
+                                formControlName="username">
+                      </mat-form-field>
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                placeholder="Nome"
+                                formControlName="first_name">
+                      </mat-form-field>
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                placeholder="Sobrenome"
+                                formControlName="last_name">
+                      </mat-form-field>
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                type="password"
+                                placeholder="Senha"
+                                formControlName="password">
+                      </mat-form-field>
                     <div class="div-button">
                         <button class="botao botao-verde" type="submit"> Cadastrar </button>
                     </div>
