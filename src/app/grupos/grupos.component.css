@@ -70,13 +70,13 @@ h1, h5, h6 {
     border: 2px solid #dad9d9a1;
     margin-top: 0.5em;
   }
-  
+
   mat-form-field {
     margin-right: 12px;
   }
 
 
-  .card-nome {  
+  .card-nome {
     color: #000000;
     font-weight: bold;
     font-style: italic;
@@ -113,7 +113,7 @@ h1, h5, h6 {
       overflow: hidden;
       text-transform: capitalize !important;
     }
-  
+
     .btn-get::before {
       position: absolute;
       content: '';
@@ -126,16 +126,16 @@ h1, h5, h6 {
       -webkit-transition: .5s ease-out;
       transition: .5s ease-out;
     }
-  
+
     .btn-get:hover::before {
       width: 100%;
     }
-  
+
     .btn-get span {
       position: relative;
       z-index: 2;
     }
-    
+
     .btn-confirm{
       padding: 10px 20px 10px;
       content: '';
@@ -227,7 +227,7 @@ h1, h5, h6 {
       min-height: 13em;
       max-height: 20em;
       margin-top: 4em;
-    } 
+    }
 
     .card-grupo {
       margin-bottom: 3em;
@@ -253,7 +253,7 @@ h1, h5, h6 {
       -webkit-transition: .3s all;
       transition: .3s all;
     }
-  
+
     .turmas_form .form-group input,
     .turmas_form .form-group textarea,
     .turmas_form .form-group select {
@@ -269,7 +269,7 @@ h1, h5, h6 {
       background: transparent;
       height: 6rem;
     }
-    
+
     .centralize-button {
       display: flex;
       justify-content: center;
@@ -300,42 +300,42 @@ h1, h5, h6 {
     @media only screen and (min-width: 768px) {
       .scroll {
         overflow: auto;
-        max-height: 30em 
+        max-height: 30em
       }
-      
+
       .scrollbar {
         margin-top: 1em;
         height: 30em;
         overflow-y: auto;
         padding-right: 5px;
       }
-    
+
       .force-overflow {
         max-height: 30em;
       }
-    
+
       #style-scroll::-webkit-scrollbar-track {
         -webkit-box5shadow: inset 0 0 6px rgba(0,0,0,0.3);
         background-color: #F5F5F5;
       }
-    
+
       #style-scroll::-webkit-scrollbar {
         width: 3px;
         height: 5px;
         background-color: #F5F5F5;
       }
-    
+
       #style-scroll::-webkit-scrollbar-thumb {
         background-color: #000000;
       }
-    }  
+    }
 
   @media only screen and (max-width: 768px) {
     .only-desktop {
       display:  none;
     }
   }
-  
+
   @media only screen and (min-width: 768px) {
     .only-mobile {
       display:  none;
@@ -360,7 +360,7 @@ h1, h5, h6 {
     width: 54px;
     font-size:41px !important;
   }
-  
+
   .grupo-aleatorio {
     background: #9cc2cc;
     right: 0em;
@@ -370,4 +370,22 @@ h1, h5, h6 {
   .imagem-grupo-aleatorio {
     width: 2.5em;
     height: 2.5em;
+  }
+
+  .mat-form-field {
+    width: 90%;
+  }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #dd709f !important;
+   }
+
+   ::ng-deep .mat-form-field-underline {
+    background-color: #dd709f !important;
+  }
+
+  ::ng-deep .mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #dd709f !important;;
   }
