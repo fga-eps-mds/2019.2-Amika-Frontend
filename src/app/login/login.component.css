@@ -115,7 +115,7 @@
     }
 
   }
-  
+
   .mat-tab-header-pagination.mat-tab-header-pagination-disabled {
     display: none !important;
   }
@@ -135,3 +135,20 @@
     }
   }
 
+  .mat-form-field {
+    width: 90%;
+  }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #dd709f !important;
+   }
+
+   ::ng-deep .mat-form-field-underline {
+    background-color: #dd709f !important;
+  }
+
+  ::ng-deep .mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #dd709f !important;;
+  }
