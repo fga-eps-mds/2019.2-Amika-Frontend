@@ -21,7 +21,7 @@ before_install:
 
 script:
   - docker-compose -f docker-compose-tests.yml up -d --build
-  - docker-compose run frontend-tests ng test --code-coverage --reporters=teamcity,coverage-istanbul
+  - docker exec -it frontend-tests ng test --code-coverage --reporters=teamcity,coverage-istanbul
 
 after_script:
   - docker-compose down --remove-orphans
