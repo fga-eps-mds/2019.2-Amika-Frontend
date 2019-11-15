@@ -5,7 +5,17 @@
       <h2 class="text-center">Materiais Disponíveis</h2>
       <div class="col-md-12 margin-top">
         <div class="scrollbar" id="style-3">
-
+          <div class="force-overflow">
+            <mat-toolbar class="materiais" *ngFor="let material of materiais">
+              <mat-toolbar-row class="materiais-row">
+                <span>{{material.arquivo}}</span>
+                <span class="example-spacer"></span>
+                <i (click)="criarDialogoEditarTurma(material)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
+                <i (click)="onEdit(material.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
+                <i (click)="onDelete(material)" class="fas fa-trash"  id="iconeExcluir"></i>
+              </mat-toolbar-row>
+            </mat-toolbar>
+          </div>
         </div>
       </div>
 

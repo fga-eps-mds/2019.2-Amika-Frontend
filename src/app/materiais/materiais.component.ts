@@ -60,6 +60,14 @@ export class MateriaisComponent implements OnInit {
 
   }
 
+  onDelete(material) {
+    this.materiaisService.delete_materiais(material.id).subscribe((data: any) => {
+      // this.getter();
+    }, (error: any) => {
+      this.error = error;
+    });
+  }
+
   getter() {
     this.materiaisService.get_materiais().subscribe((data: any) => {
       console.log(data);
