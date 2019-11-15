@@ -69,8 +69,11 @@ export class MateriaisComponent implements OnInit {
 
   getter() {
     this.materiaisService.get_materiais().subscribe((data: any) => {
-      console.log(data);
       this.materiais = data;
+      this.materiais.forEach(material => {
+        material.arquivo = material.arquivo.slice(17);
+      });
+      console.log(this.materiais);
     }, (error: any) => {
       this.error = error;
     });
