@@ -76,15 +76,12 @@ describe('TurmasComponent', () => {
 
     edit_turmas(id, turma) {
       if (typeof listaTurmasTeste[id-1] != 'undefined'){
-        console.log("ENTROU TURMA");
         const turma_editada = turma;
-        console.log(listaTurmasTeste[id-1]); 
+        listaTurmasNova[id-1] = turma;
         listaTurmasTeste[id-1] = turma;
-        console.log(listaTurmasTeste[id-1]); 
         return of(turma_editada);
       }
       else {
-        console.log("ENTROU ERROOR");
         component.error = mensagemErro;
         return throwError(of(mensagemErro) ); 
       }
@@ -190,22 +187,6 @@ describe('TurmasComponent', () => {
     expect(component.router.navigate).toHaveBeenCalledWith(['turmas_editar', 1]);
   });
 
-  it('Deveria criar uma nova turma', () => {
-    component.formularioTurma.controls['descricao'].setValue('K');
-    component.formularioTurma.controls['id'].setValue(5);
-    component.onSubmit();
-    expect(component.turmas).toEqual(listaTurmasNova);
-  });
-
-  it('Deveria dar erro ao criar uma nova turma', () => {
-    component.formularioTurma.controls['descricao'].setValue('ABCDE');
-    component.formularioTurma.controls['id'].setValue(5);
-    component.onSubmit();
-    expect(component.error).toBeTruthy();
-
-    // expect(component.error).toBe(throwError(mensagemErro));
-  });
-
   it('Deveria fechar a modal de exclusão após a confirmação', () => {
     component.onDelete(turma);
     spyOn(component.deleteModalRef, 'hide');
@@ -231,7 +212,7 @@ describe('TurmasComponent', () => {
     component.formularioTurma.controls['id'].setValue('4');
     component.turmas = listaTurmasTeste;
     component.edit();
-    expect(component.turmas[3].descricao).toBe('PQ');
+    expect(component.turmas[component.formularioTurma.value.id-1].descricao).toBe('PQ');
   })
 
   it('Deveria dar erro ao editar a turma', () => {
@@ -240,9 +221,27 @@ describe('TurmasComponent', () => {
     component.turmas = listaTurmasTeste;
     component.edit();
     expect(component.error).toBeTruthy();
-
-    // expect(component.error).toBe(throwError(mensagemErro));
   })
+
+  it('Deveria criar uma nova turma', () => {
+    component.formularioTurma.controls['descricao'].setValue('K');
+    component.formularioTurma.controls['id'].setValue(5);
+    console.log(component.turmas);
+    component.onSubmit();
+    console.log("TESTESSSSSS");
+    console.log(component.turmas);
+    console.log(listaTurmasTeste);
+    console.log(listaTurmasNova);
+    console.log("TESTESSSSSS");
+    expect(component.turmas).toEqual(listaTurmasNova);
+  });
+
+  it('Deveria dar erro ao criar uma nova turma', () => {
+    component.formularioTurma.controls['descricao'].setValue('ABCDE');
+    component.formularioTurma.controls['id'].setValue(5);
+    component.onSubmit();
+    expect(component.error).toBeTruthy();
+  });
 
   it('Deveria fechar o dialogo de adiconar turma', () => {
     component.formularioTurma.controls['descricao'].setValue('D');
