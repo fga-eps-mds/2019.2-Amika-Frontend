@@ -50,6 +50,7 @@ export class MateriaisComponent implements OnInit {
       this.materiaisService.create_materiais(formData).subscribe(
         (data: any) => {
           this.uploadForm.reset();
+          this.getter();
         },
         (error: any) => {
           this.error = error;
@@ -60,12 +61,10 @@ export class MateriaisComponent implements OnInit {
 
   }
 
-  onDelete(material) {
-    this.materiaisService.delete_materiais(material.id).subscribe((data: any) => {
-      // this.getter();
-    }, (error: any) => {
-      this.error = error;
-    });
+  onDelete(material){
+      this.materiaisService.delete_materiais(material.id).subscribe((data: any) => {
+        this.getter();
+      });
   }
 
   getter() {
