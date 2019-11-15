@@ -12,7 +12,7 @@
           <div class="force-overflow">
             <mat-toolbar class="materiais" *ngFor="let material of materiais">
               <mat-toolbar-row class="materiais-row">
-                <span>{{material.arquivo}}</span>
+                <span class="testandodemais" title="{{material.arquivo}}">{{material.arquivo}}</span>
                 <span class="example-spacer"></span>
                 <!-- <i (click)="criarDialogoEditarTurma(material)" id="iconeEditar" class="fas fa-edit only-mobile"></i> -->
                 <i (click)="onEdit(material.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
@@ -28,7 +28,7 @@
     <div class="col-md-6 margin-bottom">
       <h2 class="text-center">Adicionar Material</h2>
       <form>
-        Selecione o arquivo: <input type="file" class="form-control-file" id="arquivo" name="file" (change)="onChange($event)"/>
+        <h4>Selecione o arquivo:</h4><input type="file" class="form-control-file" id="arquivo" name="file" (change)="onChange($event)"/>
         <input  (click)="onSubmit()" type="submit">
       </form>
     </div>

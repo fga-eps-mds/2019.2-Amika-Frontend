@@ -1,3 +1,7 @@
+h2, h4 {
+  font-family: "Nunito", sans-serif;
+}
+
 @media only screen and (min-width: 768px) {
   #paginaMateriais {
     max-width: 100%;
@@ -27,6 +31,29 @@
     max-height: 25em;
   }
 
+  .materiais-row {
+    font-family: 'Varela Round', sans-serif;
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .materiais {
+    margin-top: 10px;
+    border-radius: 20px;
+  }
+
+  .mat-toolbar-multiple-rows {
+    min-height: 40px !important;
+    max-height: 47px !important;
+  }
+
   #style-3::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #F5F5F5;
@@ -40,5 +67,14 @@
 
   #style-3::-webkit-scrollbar-thumb {
     background-color: #000000;
+  }
+
+  #iconeEditar {
+    margin-right: 0.75em;
+    color: #206b43;
+  }
+
+  #iconeExcluir {
+    color: #f30872;
   }
 }
