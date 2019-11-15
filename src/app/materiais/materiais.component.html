@@ -13,7 +13,7 @@
     <div class="col-md-6 margin-bottom">
       <h2 class="text-center">Adicionar Material</h2>
       <form>
-        Selecione o arquivo: <input type="file" name="myFile"><br><br>
+        Selecione o arquivo: <input type="file" class="form-control-file" id="arquivo" name="file" (change)="onChange($event)"/>
         <input  (click)="onSubmit()" type="submit">
       </form>
     </div>
