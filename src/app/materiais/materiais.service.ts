@@ -1,7 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AutenticacaoService } from './../autenticacao.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 
 export class MateriaisService {
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) { 
+  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
     this.autenticacao.setHeader();
   }
 
@@ -21,8 +21,10 @@ export class MateriaisService {
     return this.http.delete(environment.urlApi + 'material/' + id, this.autenticacao.httpOptions);
   }
 
-  public create_materiais(material): Observable<any> {
-    return this.http.post(environment.urlApi + 'material/', material, this.autenticacao.httpOptions);
+  public create_materiais(formData): Observable<any> {
+    return this.http.post(environment.urlApi + 'material/', formData, {
+      headers: new HttpHeaders({'Authorization': `${localStorage.getItem('Authorization')}`})
+    });
   }
 
   public edit_materiais(id, material): Observable<any> {
