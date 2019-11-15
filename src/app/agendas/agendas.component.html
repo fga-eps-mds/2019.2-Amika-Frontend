@@ -58,7 +58,7 @@
         </div>
       </button>
       <h2 class="text-center only-desktop">Adicionar nova agenda</h2>
-      <form class="agendas_form needs-validation only-desktop" novalidade [formGroup]="formularioAgenda" (ngSubmit)="onSubmit()">
+      <form class="agendas_form needs-validation only-desktop" novalidade [formGroup]="formularioAgenda">
           <div class="row">
             <div class="col-md-12">
               <mat-form-field [color]="accent">
@@ -112,11 +112,11 @@
                           <option>Grupo</option>
                         </select>
                         <mat-error *ngIf="submitted && hasError('tipo')">Por favor, informe o tipo da agenda.</mat-error>
-                    </mat-form-field>
+                    </mat-form-field> 
                     </div>
-            <div class="col-md-12">
+            <div class="col-md-12 d-flex justify-content-center"> 
               <mat-dialog-actions>
-                <button mat-button class="btn btn-get" type="submit">Enviar</button>
+                <button mat-button class="btn btn-get" type="button" (click)="onSubmit()">Enviar</button>
               </mat-dialog-actions>
             </div>
           </div>

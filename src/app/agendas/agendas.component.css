@@ -30,6 +30,7 @@ table * {
 .agendas-row {
   background: #6fafa02b;
   width: 100%;
+  border-radius: 8px !important;
 }
 
 .mat-toolbar-multiple-rows {
@@ -364,14 +365,14 @@ transition: 0.5s;
 }
 
 .mat-form-field {
-  width: 90%;
+  width: 100%;
 }
 .tipoData {
   font-size: 1em;
   border: none;
   border-bottom: 1px solid #dd709f;
   margin-bottom: 1.5em;
-  width: 90%;
+  width: 100%;
   background-color: transparent;
 
 }
@@ -403,25 +404,25 @@ transition: 0.5s;
 .scroll{
   overflow-y: scroll;
   min-height: 13em;
-  max-height: 30em;
+  max-height: 20em;
   margin-top: 4em;
 }
 
 @media only screen and (min-width: 768px) {
   .scroll {
     overflow: auto;
-    max-height: 40em
+    max-height: 30em
   }
 
   .scrollbar {
     margin-top: 1em;
-    height: 40em;
+    height: 30em;
     overflow-y: auto;
     padding-right: 5px;
   }
 
   .force-overflow {
-    max-height: 40em;
+    max-height: 30em;
   }
 
   #style-scroll::-webkit-scrollbar-track {
