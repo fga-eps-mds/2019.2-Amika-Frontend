@@ -31,17 +31,23 @@ h2, h4 {
     max-height: 25em;
   }
 
-  .materiais-row {
-    font-family: 'Varela Round', sans-serif;
-    height: 64px;
-    background: #6fafa02b;
-    border-radius: 8px;
-
+  .materiais-row-div {
     display: block;
     text-overflow: ellipsis;
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
+  }
+
+  .materiais-row {
+    font-family: 'Varela Round', sans-serif;
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+  }
+
+  .editar-excluir {
+    float: right;
   }
 
   .materiais {

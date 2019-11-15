@@ -12,12 +12,16 @@
           <div class="force-overflow">
             <mat-toolbar class="materiais" *ngFor="let material of materiais">
               <mat-toolbar-row class="materiais-row">
-                <span class="testandodemais" title="{{material.arquivo}}">{{material.arquivo}}</span>
-                <span class="example-spacer"></span>
-                <!-- <i (click)="criarDialogoEditarTurma(material)" id="iconeEditar" class="fas fa-edit only-mobile"></i> -->
-                <i (click)="onEdit(material.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
-                <i (click)="onDelete(material)" class="fas fa-trash"  id="iconeExcluir"></i>
+                <div class="materiais-row-div">
+                  <span class="testandodemais" title="{{material.arquivo}}">{{material.arquivo}}</span>
+                  <span class="example-spacer"></span>
+                </div>
+                <div class="editar-excluir">
+                  <i (click)="onEdit(material.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
+                  <i (click)="onDelete(material)" class="fas fa-trash"  id="iconeExcluir"></i>
+                </div>
               </mat-toolbar-row>
+
             </mat-toolbar>
           </div>
         </div>
