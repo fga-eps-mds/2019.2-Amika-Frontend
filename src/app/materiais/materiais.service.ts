@@ -14,7 +14,7 @@ export class MateriaisService {
   }
 
   public get_materiais(): Observable<any> {
-    return this.http.get(environment.urlApi + 'material/', this.autenticacao.httpOptions);
+    return this.http.get(environment.urlApi + 'materiais/', this.autenticacao.httpOptions);
   }
 
   public delete_materiais(id): Observable<any>{

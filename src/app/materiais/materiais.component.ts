@@ -10,13 +10,13 @@ import { MateriaisService } from './materiais.service';
 })
 export class MateriaisComponent implements OnInit {
 
-  SERVER_URL = "http://localhost:4200/upload"
   uploadForm: FormGroup;
   anexo;
   error: any = {isError: false, errorMessage: ''};
+  materiais;
 
   constructor(private materiaisService: MateriaisService, private formBuilder: FormBuilder, private httpClient: HttpClient) {
-
+    this.getter();
     this.uploadForm = this.formBuilder.group({
       arquivo: ['']
     });
@@ -31,7 +31,6 @@ export class MateriaisComponent implements OnInit {
     if (event.target.files.length > 0){
       const file =  event.target.files[0];
       this.anexo = file;
-
       this.uploadForm.controls['arquivo'].setValue(file);
       console.log(this.uploadForm)
     }
@@ -61,16 +60,13 @@ export class MateriaisComponent implements OnInit {
 
   }
 
-  // onSubmit() {
-  //   // console.log(this.uploadForm.value);
-  //   const formData = new FormData();
-  //   formData.append('material', this.uploadForm.get('arquivo').value);
-
-  //   console.log(formData);
-  //   this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(
-  //   (res) => console.log(res),
-  //   (err) => console.log(err)
-  // );
-  // }
-
+  getter() {
+    this.materiaisService.get_materiais().subscribe((data: any) => {
+      console.log(data);
+      this.materiais = data;
+    }, (error: any) => {
+      this.error = error;
+    });
+    console.log(this.materiais)
+  }
 }
