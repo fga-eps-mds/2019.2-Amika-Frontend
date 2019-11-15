@@ -1,3 +1,4 @@
+import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { HumorComponent } from './humor/humor.component';
 import { NgModule, Component } from '@angular/core';
 import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
   { path: 'area-informativa', component: AreaInformativaComponent},
   { path: 'perfil_usuario', component : PerfilUsuarioComponent},
+  { path: 'grafico/:id', component : GraficoHumorComponent},
   { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
   { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
   { path: '**', component: PageNotFoundComponent},

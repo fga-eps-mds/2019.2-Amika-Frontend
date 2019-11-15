@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HumorService {
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) { 
+  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
     this.autenticacao.setHeader();
   }
 
@@ -18,5 +18,9 @@ export class HumorService {
 
   public get_humor(): Observable<any> {
     return this.http.get(environment.urlApi + 'humors/', this.autenticacao.httpOptions);
+  }
+
+  public get_status(): Observable<any> {
+    return this.http.get(environment.urlApi + 'humor_status/', this.autenticacao.httpOptions)
   }
 }

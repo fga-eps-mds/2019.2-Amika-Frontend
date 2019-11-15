@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
-import { GruposComponent } from './grupos/grupos.component';
+import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { RouterModule, Routes} from '@angular/router';
@@ -25,6 +25,9 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
+import { ChartsModule } from 'ng2-charts';
+
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
@@ -48,12 +51,18 @@ import { MatDialogModule } from '@angular/material/dialog';
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    GraficoHumorComponent,
+
     CriarTurmasDialogo,
+    CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     PageNotFoundComponent,
   ],
-  entryComponents: [CriarTurmasDialogo],
+  entryComponents: [
+    CriarTurmasDialogo,
+    CriarGruposDialogo,
+  ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
@@ -65,6 +74,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ChartsModule,
     MaterialModule,
     BrowserAnimationsModule
   ],

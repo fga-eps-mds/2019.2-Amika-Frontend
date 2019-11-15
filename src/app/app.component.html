@@ -56,19 +56,19 @@
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>group</mat-icon>
-                                <a mat-button routerLink="/turmas" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Grupo</a>
+                                <a mat-button routerLink="/turmas" (click)="toggleMobileNav(lnav); setTitle('Grupo');">Grupo</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>tag_faces</mat-icon>
-                                <a mat-button routerLink="/humor" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Humor');">Humor do dia</a>
+                                <a mat-button routerLink="/humor" (click)="toggleMobileNav(lnav); setTitle('Humor do dia');">Humor do dia</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>home_work</mat-icon>
-                                <a mat-button routerLink="/agenda" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Agenda');">Agenda</a>
+                                <a mat-button routerLink="/agenda" (click)="toggleMobileNav(lnav); setTitle('Agenda');">Agenda</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>contact_phone</mat-icon>
-                                <a mat-button routerLink="/area-informativa" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Área informativa');">Área informativa</a>
+                                <a mat-button routerLink="/area-informativa" (click)="toggleMobileNav(lnav); setTitle('Área informativa');">Área informativa</a>
                             </mat-list-item>
                             <div class="centralizar">
                                 <button class="deslogar" (click)="this.autenticacao.deslogar()">Deslogar</button>
@@ -81,23 +81,23 @@
                             </div>
                             <mat-list-item>
                                 <mat-icon>subject</mat-icon>
-                                <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Disciplina</a>
+                                <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Disciplina');">Disciplina</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>notifications_active</mat-icon>
-                                <a mat-button routerLink="/notificacao" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Enviar notificações</a>
+                                <a mat-button routerLink="/notificacao" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Enviar Notificações');">Enviar notificações</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>group</mat-icon>
-                                <a mat-button routerLink="/grupos" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Humor');">Grupos</a>
+                                <a mat-button routerLink="/grupos" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Grupos');">Grupos</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>person_add</mat-icon>
-                                <a mat-button routerLink="/lista" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Agenda');">Matrícula</a>
+                                <a mat-button routerLink="/lista" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Matrícula');">Matrícula</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>class</mat-icon>
-                                <a mat-button routerLink="/turmas" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Área informativa');">Turmas</a>
+                                <a mat-button routerLink="/turmas" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Turmas</a>
                             </mat-list-item>
                             <div class="centralizar">
                                 <button class="deslogar" (click)="this.autenticacao.deslogar()">
@@ -118,17 +118,17 @@
       </div>
       <mat-toolbar>
         <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && !isAdmin">
-            <a  routerLink="/humor" routerLinkActive="active" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
+            <a  routerLink="/humor" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
             <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>info</mat-icon></a>
-            <a  routerLink="/agenda" routerLinkActive="active" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
+            <a  routerLink="/agenda" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
             <a  routerLink="/grupo" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>people</mat-icon></a>
-            <a  routerLink="/area-informativa" routerLinkActive="active" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
+            <a  routerLink="/area-informativa" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
           </div>
           <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && isAdmin">
               <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Disciplina');"><mat-icon>subject</mat-icon></a>
               <a  routerLink="/notificacao" routerLinkActive="active" (click)="setTitle('Notificações');"><mat-icon>notifications_active</mat-icon></a>
               <a  routerLink="/grupos" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>group</mat-icon></a>
               <a  routerLink="/lista" routerLinkActive="active" (click)="setTitle('Lista');"><mat-icon>person_add</mat-icon></a>
-              <a  routerLink="/turmas" routerLinkActive="active" (click)="setTitle('Turmas');"><mat-icon>class</mat-icon></a>
+              <a  routerLink="/turmas" (click)="setTitle('Turmas');"><mat-icon>class</mat-icon></a>
             </div>
       </mat-toolbar>

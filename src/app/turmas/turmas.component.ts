@@ -60,7 +60,7 @@ export class TurmasComponent implements OnInit {
       this.edit();
     });
   }
-  
+
   edit() {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
@@ -112,6 +112,10 @@ export class TurmasComponent implements OnInit {
 
   onEdit(id) {
     this.router.navigate(['turmas_editar', id]);
+  }
+
+  mostrarGrafico(id) {
+    this.router.navigate(['grafico', id]);
   }
 }
 

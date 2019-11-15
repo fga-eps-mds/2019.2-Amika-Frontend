@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<mat-dialog-content class="content-adicionar-turmas">
+  <form [formGroup]="formularioGrupo" (ngSubmit)="submit(formularioGrupo)">
+        <mat-form-field>
+          <input matInput
+                  placeholder="Nome do grupo"
+                  formControlName="nome">
+        </mat-form-field>
+        <mat-dialog-actions>
+          <button mat-button type="submit">Adicionar</button>
+          <button mat-button type="button" mat-dialog-close>Cancelar</button>
+        </mat-dialog-actions>
+  </form>
+</mat-dialog-content> 
