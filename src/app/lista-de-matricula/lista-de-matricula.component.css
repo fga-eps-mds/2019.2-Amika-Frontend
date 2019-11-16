@@ -285,3 +285,11 @@ h2 {
   .width-mat-tab {
     width: 30em;
   }
+
+  #tab-group{
+    height: 100%;
+  }
+  #tab-group mat-tab-body {
+    flex-grow: 1;
+  }
+  

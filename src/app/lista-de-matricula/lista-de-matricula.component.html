@@ -3,8 +3,11 @@
         <div class="col-md-12">
           <h2 class="text-center">Registro de alunos</h2>
           <div class="col-md-12 scroll size-mat-tab" >
-            <mat-tab-group mat-stretch-tabs dynamicHeight class="width-mat-tab">
-              <mat-tab label="Individual">
+            <mat-tab-group mat-stretch-tabs dynamicHeight id="tab-group" class="width-mat-tab">
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">person_add</mat-icon>
+                </ng-template>
                 <div class="example-small-box">
                   <form [formGroup]="formulario" class="turmas_form needs-validation" novalidate id="formIndividual">
                     <div class="form-group label-float">
@@ -36,7 +39,10 @@
                   </form>
                 </div>
               </mat-tab>
-              <mat-tab label="Lista">
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">group_add</mat-icon>
+                </ng-template>
                 <div class="example-large-box">
                   <form [formGroup]="formularioLista" class="turmas_form needs-validation" novalidate id="listaForm">
                     <div class="form-group label-float">
@@ -46,7 +52,7 @@
                     </div>
                     <div id="tituloTurma"><label for="turmaIndividual">Lista</label></div>
                     <label for="arquivoLista" class="custom-file-upload">
-                        <i class="fa fa-cloud-upload"></i> Custom Upload
+                        <i class="fa fa-cloud-upload"></i> Anexar lista
                     </label>
                     <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo"
                     id="arquivoLista" aria-describedby="arquivoLista" class="form-control form-file"
@@ -63,11 +69,10 @@
                           Por favor, selecione uma turma.
                         </div>
                         <div class="botaoCadastrar">
-                          <button (click)="onSubmitLista(formularioLista.value)"
-                            type="submit" class="btn btn-get" id="botaoEnviar" value="CADASTRAR">CADASTRAR
-                          </button>
+                          <div class="text-center" id="enviarForm">
+                            <button type="submit" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
+                          </div>
                         </div>
-                        <h1>TESTES MASTER PORRA </h1>
                       </div>
                   </form>
                 </div>
