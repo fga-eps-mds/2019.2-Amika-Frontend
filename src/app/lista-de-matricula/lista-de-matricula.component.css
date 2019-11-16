@@ -225,7 +225,7 @@ h2 {
     max-height: 20em;
     margin-top: 4em;
   }
-   
+
   #tituloTurma {
     color: #575757;
   }
@@ -249,9 +249,10 @@ h2 {
 
    ::ng-deep .mat-form-field-underline {
     background-color: #dd709f !important;
+    height: 0.1em !important;
   }
 
   ::ng-deep .mat-form-field-ripple {
    /*change color of underline when focused*/
-   background-color: #dd709f !important;;
+   background-color: #dd709f !important;
   }
