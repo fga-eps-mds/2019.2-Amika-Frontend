@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MateriaisService } from './materiais.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {saveAs as importedSaveAs} from "file-saver";
 
 @Component({
   selector: 'app-materiais',
@@ -67,8 +68,15 @@ export class MateriaisComponent implements OnInit {
         }
         )
       }
-
   }
+
+  abreArquivo(caminho){
+    this.materiaisService.get_material(caminho).subscribe(blob => {
+      this.getter();
+      // importedSaveAs(blob, caminho);
+    });
+  }
+
 
   onDelete(material){
     this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'});
@@ -89,9 +97,6 @@ export class MateriaisComponent implements OnInit {
   getter() {
     this.materiaisService.get_materiais().subscribe((data: any) => {
       this.materiais = data;
-      this.materiais.forEach(material => {
-        material.arquivo = material.arquivo.slice(17);
-      });
       console.log(this.materiais);
     }, (error: any) => {
       this.error = error;
