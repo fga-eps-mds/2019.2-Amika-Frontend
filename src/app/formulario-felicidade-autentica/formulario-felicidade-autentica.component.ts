@@ -9,7 +9,7 @@ import { FormularioFelidadeAutenticaService } from './formulario_felicidade_aute
   styleUrls: ['./formulario-felicidade-autentica.component.css']
 })
 export class FormularioFelicidadeAutenticaComponent implements OnInit {
-
+  errors;
   formPontuacao: FormGroup;
   total: number = null;
 
@@ -62,11 +62,17 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
 
     onSubmit(dadosFormulario){
       this.fazerSoma(dadosFormulario);
+      
       let totalpontos = {"formulario": [{"tipo": "A", "pontuacao": this.total}]}
-      this.formularioFelidadeAutenticaService.enviar(totalpontos);
+      this.formularioFelidadeAutenticaService.enviar(JSON.stringify(totalpontos)).subscribe(data => { 
+        console.log(data);
+      }, 
+        error => {
+          console.log(error);
+          this.errors = error;
+        });
       console.log(totalpontos);
-      this.formularioFelidadeAutenticaService.errors;
-    }
+      }
 
 
   // ngOnInit() {
