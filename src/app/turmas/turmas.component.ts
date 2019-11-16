@@ -26,10 +26,9 @@ export class TurmasComponent implements OnInit {
   @ViewChild('deleteModal', {static: false}) deleteModal;
   turmaSelecionada: Turma;
 
-  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder,
-              private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
+  constructor(public turmaService: TurmaService, public formBuilder: FormBuilder,
+              public router: Router, public route: ActivatedRoute, public modalService: BsModalService,
               public dialog: MatDialog) {
-    this.getter();
     this.formularioTurma = this.formBuilder.group({
       descricao: ['', Validators.required],
       id: ['']
@@ -37,16 +36,15 @@ export class TurmasComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getter();
   }
 
   criarDialogoAdicionarTurma(): void {
-    const dialogRef = this.dialog.open(CriarTurmasDialogo, {
+    let dialogRef = this.dialog.open(CriarTurmasDialogo, {
       width: '250px',
       data: {formularioTurma: null, title: "Adicionar turma"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log("DATA");
-      console.log(JSON.parse(data));
       this.formularioTurma.patchValue(JSON.parse(data));
       this.onSubmit();
     });
@@ -58,10 +56,7 @@ export class TurmasComponent implements OnInit {
       data: {formularioTurma: turma, title: "Editar turma"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      data = JSON.parse(data)
-      console.log(data);
-      this.formularioTurma.patchValue(data);
-      console.log(this.formularioTurma.value);
+      this.formularioTurma.patchValue(JSON.parse(data));
       this.edit();
     });
   }
@@ -70,14 +65,12 @@ export class TurmasComponent implements OnInit {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
     }, (error: any) => {
-      console.log("ERRO MAROTÃO")
       this.error = error;
     });
   }
 
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
-      console.log(data);
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
@@ -95,12 +88,12 @@ export class TurmasComponent implements OnInit {
   }
 
   onConfirmDelete() {
-     this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
+    this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
       this.getter();
     }, (error: any) => {
       this.error = error;
     });
-     this.deleteModalRef.hide();
+    this.deleteModalRef.hide();
   }
 
   onDeclineDelete() {
@@ -112,7 +105,6 @@ export class TurmasComponent implements OnInit {
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
-
     }, (error: any) => {
       this.error = error;
     });
@@ -134,7 +126,7 @@ export class TurmasComponent implements OnInit {
 })
 export class CriarTurmasDialogo {
   formularioTurma: FormGroup;
-  constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, public formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     if (this.data.formularioTurma) {
       this.formularioTurma = this.formBuilder.group({
         descricao: ['', Validators.required],
@@ -147,9 +139,6 @@ export class CriarTurmasDialogo {
         descricao: ['', Validators.required]
       });
     }
-  }
-
-  onClick(): void {
   }
 
   submit(form) {

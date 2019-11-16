@@ -34,6 +34,7 @@ import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RatingModule.forRoot(),
     RatingModule,
     FormsModule,
+    MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ChartsModule,
     MaterialModule,
