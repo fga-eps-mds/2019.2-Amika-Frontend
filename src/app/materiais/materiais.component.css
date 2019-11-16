@@ -83,4 +83,27 @@ h2, h4 {
   #iconeExcluir {
     color: #f30872;
   }
+
+  .form-control-file{
+    font-family: "Nunito", sans-serif;
+    color: #000 !important;
+    text-transform: capitalize;
+    background: #ffb032;
+    position: relative;
+    border: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    text-transform: capitalize !important;
+    /* margin-left: 4rem; */
+    width: 15rem;
+    height: 3rem;
+    vertical-align: center;
+  }
+
+  .file-submit{
+    margin-top: 4rem;
+    width: 15rem;
+    background: #6fafa0;
+    padding: 10px 20px 10px;
+  }
 }

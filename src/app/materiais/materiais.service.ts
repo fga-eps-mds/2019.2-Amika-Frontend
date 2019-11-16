@@ -13,6 +13,10 @@ export class MateriaisService {
     this.autenticacao.setHeader();
   }
 
+  public get_material(caminho): Observable<any> {
+    return this.http.get(environment.urlApi + caminho, this.autenticacao.httpOptions);
+  }
+
   public get_materiais(): Observable<any> {
     return this.http.get(environment.urlApi + 'materiais/', this.autenticacao.httpOptions);
   }

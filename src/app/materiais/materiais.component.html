@@ -18,7 +18,7 @@
                 </div>
                 <div class="editar-excluir">
                   <i (click)="onEdit(material.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
-                  <i (click)="onDelete(material)" class="fas fa-trash"  id="iconeExcluir"></i>
+                  <i (click)="onDelete(material.id)" class="fas fa-trash"  id="iconeExcluir"></i>
                 </div>
               </mat-toolbar-row>
 
@@ -26,15 +26,38 @@
           </div>
         </div>
       </div>
-
-
     </div>
-    <div class="col-md-6 margin-bottom">
+
+
+    <!-- <div class="col-md-6 margin-bottom">
       <h2 class="text-center">Adicionar Material</h2>
       <form>
         <h4>Selecione o arquivo:</h4><input type="file" class="form-control-file" id="arquivo" name="file" (change)="onChange($event)"/>
         <input  (click)="onSubmit()" type="submit">
+        {{nome}}
       </form>
+    </div> -->
+
+    <div class="col-md-6 margin-bottom">
+        <h2 class="text-center">Adicionar Material</h2>
+        <form>
+            <div>
+            <label class="btn form-control-file">
+               Procurar arquivo  <input type="file" class="btn form-control-file" id="arquivo" name="file" (change)="onChange($event)" hidden>
+            </label>
+            {{nome}}
+            </div>
+            <input class="btn form-control-file " (click)="onSubmit()" type="submit">
+        </form>
     </div>
+
   </div>
 </div>
+
+<ng-template #deleteModal class="modal-body">
+  <div class="modal-body text-center">
+    <h5>Tem certeza que deseja remover esse arquivo?</h5>
+    <button type="button" class="btn btn-confirm" (click)="onConfirmDelete()"> Sim</button>
+    <button type="button" class="btn btn-decline" (click)="onDeclineDelete()"> Não</button>
+  </div>
+</ng-template>

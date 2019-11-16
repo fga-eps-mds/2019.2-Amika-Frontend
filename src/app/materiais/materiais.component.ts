@@ -1,26 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MateriaisService } from './materiais.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-materiais',
   templateUrl: './materiais.component.html',
   styleUrls: ['./materiais.component.css']
 })
+
+
 export class MateriaisComponent implements OnInit {
 
   uploadForm: FormGroup;
   anexo;
   error: any = {isError: false, errorMessage: ''};
   materiais;
+  nome: string;
+  materialSelecionado;
 
-  constructor(private materiaisService: MateriaisService, private formBuilder: FormBuilder, private httpClient: HttpClient) {
+  deleteModalRef: BsModalRef;
+  @ViewChild('deleteModal', {static: false}) deleteModal;
+
+  constructor(private materiaisService: MateriaisService, private modalService: BsModalService, private formBuilder: FormBuilder, private httpClient: HttpClient) {
     this.getter();
     this.uploadForm = this.formBuilder.group({
       arquivo: ['']
     });
-
   }
 
   ngOnInit() {
@@ -30,9 +37,10 @@ export class MateriaisComponent implements OnInit {
   onChange(event){
     if (event.target.files.length > 0){
       const file =  event.target.files[0];
+      this.nome = "selecionado: " + file.name;
       this.anexo = file;
       this.uploadForm.controls['arquivo'].setValue(file);
-      console.log(this.uploadForm)
+      console.log(this.uploadForm);
     }
   }
 
@@ -51,6 +59,7 @@ export class MateriaisComponent implements OnInit {
         (data: any) => {
           this.uploadForm.reset();
           this.getter();
+          this.nome = "";
         },
         (error: any) => {
           this.error = error;
@@ -62,9 +71,19 @@ export class MateriaisComponent implements OnInit {
   }
 
   onDelete(material){
-      this.materiaisService.delete_materiais(material.id).subscribe((data: any) => {
-        this.getter();
-      });
+    this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'});
+    this.materialSelecionado = material;
+  }
+
+  onConfirmDelete() {
+    this.materiaisService.delete_materiais(this.materialSelecionado).subscribe((data: any) => {
+      this.getter();
+    });
+    this.deleteModalRef.hide();
+ }
+
+  onDeclineDelete() {
+    this.deleteModalRef.hide();
   }
 
   getter() {
