@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grupo.component.css']
 })
 export class GrupoComponent implements OnInit {
-
+  nome : string;
+  alunos : any;
   constructor() { }
 
   ngOnInit() {
