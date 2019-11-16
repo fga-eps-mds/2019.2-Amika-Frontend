@@ -5,6 +5,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { GrupoService } from './grupo.service';
 import { Grupo } from './grupos.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-grupos',
@@ -64,6 +65,15 @@ export class GruposComponent implements OnInit {
       this.grupos[this.grupos.findIndex(item => item.id === this.formularioGrupo.value.id)] = this.formularioGrupo.value;
     }, (error: any) => {
       this.error = error;
+      Swal.fire({
+        icon: 'error',
+        title: 'O nome informado é inválido!',
+        text: error.error.nome[0],
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
   }
 
@@ -111,6 +121,15 @@ export class GruposComponent implements OnInit {
         this.formularioGrupo.reset();
         this.getter();
       }, (error: any) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'O nome informado é inválido!',
+          text: error.error.nome[0],
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'botao',
+          }
+        });
         this.error = error;
       });
     }
@@ -120,7 +139,7 @@ export class GruposComponent implements OnInit {
     this.router.navigate(['editar_grupo/:id', id]);
 
   }
-  
+
   popula() {
     this.grupoService.popula_grupo().subscribe((data: any) => {
       this.getter();
@@ -133,12 +152,12 @@ export class GruposComponent implements OnInit {
     let tamanho_nome = (first_name + last_name).length + 1;
     if (tamanho_nome < 23) {
       return '12px';
-    } 
+    }
     else if (tamanho_nome < 26) {
       return '11px';
     }
     else if (tamanho_nome < 31) {
-      return '10px';   
+      return '10px';
     }
     else {
       return '9px';
