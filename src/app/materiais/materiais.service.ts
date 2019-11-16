@@ -14,7 +14,13 @@ export class MateriaisService {
   }
 
   public get_material(caminho): Observable<any> {
-    return this.http.get(environment.urlApi + caminho, this.autenticacao.httpOptions);
+    console.log(caminho)
+    return this.http.get(environment.urlApi + caminho, {
+      responseType : 'blob',
+      headers: new HttpHeaders({
+        'Authorization': `${localStorage.getItem('Authorization')}`,
+      })
+    });
   }
 
   public get_materiais(): Observable<any> {

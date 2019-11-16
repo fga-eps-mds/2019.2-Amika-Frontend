@@ -72,8 +72,7 @@ export class MateriaisComponent implements OnInit {
 
   abreArquivo(caminho){
     this.materiaisService.get_material(caminho).subscribe(blob => {
-      this.getter();
-      // importedSaveAs(blob, caminho);
+      importedSaveAs(blob, caminho);
     });
   }
 
