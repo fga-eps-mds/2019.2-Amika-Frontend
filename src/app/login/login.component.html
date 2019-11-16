@@ -6,7 +6,7 @@
   <div class="main-content">
     <mat-tab-group mat-stretch-tabs mat-align-tabs="center">
       <mat-tab label="Login" style="width: 100%">
-        <form [formGroup]="formularioLogin" (ngSubmit)="logar(formularioLogin.value)" class="text-center">
+        <form [formGroup]="formularioLogin" class="text-center">
                 <div class="header">
                   <img class="logo-login" src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
                 </div>
@@ -28,14 +28,14 @@
                     </mat-form-field>
                   </div>
                   <div class="div-button">
-                      <button class="botao botao-verde" [disabled]="formularioLogin.get('matricula').hasError('required') || formularioLogin.get('senha').hasError('required')" type="submit"> Login </button>
+                      <button class="botao botao-verde" (click)="logar(formularioLogin.value)" [disabled]="formularioLogin.get('matricula').hasError('required') || formularioLogin.get('senha').hasError('required')" type="button"> Login </button>
                   </div>
                 </div>
           </form>
           </mat-tab>
 
           <mat-tab label="Registro">
-              <form [formGroup]="formularioRegistro" (ngSubmit)="cadastrarAluno(formularioRegistro.value)" class="text-center">
+              <form [formGroup]="formularioRegistro" class="text-center">
                   <div class="header">
                     <img class="logo-login" src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
                   </div>
@@ -65,7 +65,7 @@
                                 formControlName="password">
                       </mat-form-field>
                     <div class="div-button">
-                        <button class="botao botao-verde" type="submit"> Cadastrar </button>
+                        <button class="botao botao-verde" (click)="cadastrarAluno(formularioRegistro.value)" type="button"> Cadastrar </button>
                     </div>
                   </div>
             </form>
