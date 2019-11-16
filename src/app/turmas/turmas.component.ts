@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 export interface CriarTurmasDialogoData {
   formularioTurma: FormGroup;
@@ -65,12 +66,21 @@ export class TurmasComponent implements OnInit {
       this.edit();
     });
   }
-  
+
   edit() {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
     }, (error: any) => {
-      console.log("ERRO MAROTÃO")
+      console.log(error.error);
+      Swal.fire({
+        icon: 'error',
+        title: 'O nome informado é inválido!',
+        text: error.error.descricao[0],
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
       this.error = error;
     });
   }
@@ -114,6 +124,15 @@ export class TurmasComponent implements OnInit {
       this.getter();
 
     }, (error: any) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'O nome informado é inválido!',
+        text: error.error.descricao[0],
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
       this.error = error;
     });
   }
