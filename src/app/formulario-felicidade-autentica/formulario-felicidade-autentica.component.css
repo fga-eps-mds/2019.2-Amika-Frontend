@@ -52,7 +52,7 @@ body {
   width: 80%;
   position: center;
   margin-left: 10%;
-  background: linear-gradient(to left, #a0e0e4, #e194b5);
+  background: #6fafa0;
   padding: 5px 12px;
   color: #fff;
   font-weight: bold;
@@ -154,7 +154,7 @@ fieldset {
   padding-left: 0.75em;
   padding-right: 0.75em;
   /* border-color: #e194b5; */
-  border-image-source: linear-gradient(to left, #a0e0e4, #e194b5);
+  border-image-source: linear-gradient(to left, #6fafa0, #6fafa0);
   border-image-slice: 1;
 }
 
@@ -210,11 +210,10 @@ fieldset {
 }
 
 .cabecalho {
-  background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-  background: linear-gradient(to left, #a0e0e4, #e194b5);
+  /* background: #6fafa0; */
   text-align: center;
   height: 6em;
   padding: 1.5em;
   margin-bottom: 4rem;
-  color: #eee;
+  color: #000;
 }
