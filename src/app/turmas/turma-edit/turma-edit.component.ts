@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Turma } from '../turmas.model';
 import { TurmasComponent } from '../turmas.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-turma-edit',
@@ -58,8 +59,17 @@ export class TurmaEditComponent implements OnInit {
             console.log(data);
             this.formularioTurma.reset();
             this.return();
-    
+
           }, (error: any) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'O nome informado é inválido!',
+              text: error.error.descricao[0],
+              buttonsStyling: false,
+              customClass: {
+                confirmButton: 'botao',
+              }
+            });
             this.error = error;
           });
         }
