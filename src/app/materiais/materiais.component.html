@@ -13,10 +13,11 @@
             <mat-toolbar class="materiais" *ngFor="let material of materiais">
               <mat-toolbar-row class="materiais-row">
                 <div class="materiais-row-div">
-                  <span class="testandodemais" title="{{material.arquivo}}" (click)="abreArquivo(material.arquivo.slice(1))">{{material.arquivo.slice(17)}}</span>
+                  <span class="testandodemais" title="{{material.arquivo}}">{{material.arquivo.slice(17)}}</span>
                   <span class="example-spacer"></span>
                 </div>
                 <div class="editar-excluir">
+                  <i (click)="abreArquivo(material.arquivo.slice(1))" class="fas fa-download"  id="iconeDownload"></i>
                   <i (click)="onDelete(material.id)" class="fas fa-trash"  id="iconeExcluir"></i>
                 </div>
               </mat-toolbar-row>
@@ -37,17 +38,21 @@
       </form>
     </div> -->
 
-    <div class="col-md-6 margin-bottom">
+    <div class="col-md-6 enviar-materiais">
         <h2 class="text-center titulo">Adicionar Material</h2>
         <h4 class="text-center"> {{nome}} </h4>
-        <form class="text-center">
+        <div class="row botoes-materiais d-flex justify-content-around">
+          <form class="text-center">
+          <div class="row">
             <label class="file-browse">
-               Procurar arquivo  <input type="file" id="arquivo" name="file" (change)="onChange($event)" hidden>
+              Procurar arquivo  <input type="file" id="arquivo" name="file" (change)="onChange($event)" hidden>
             </label>
-
+          </div>
+          <div class="row">
             <input class="file-submit" (click)="onSubmit()" type="submit">
-
-        </form>
+          </div>
+          </form>
+        </div>
     </div>
 
   </div>

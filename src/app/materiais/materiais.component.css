@@ -16,13 +16,14 @@ h2, h4 {
 }
 
 @media only screen and (min-width: 768px) {
+}
   .scroll {
     overflow: auto;
-    max-height: 25em
+    max-height: 35em;
   }
 
   .scrollbar {
-    height: 25em;
+    height: 35em;
     overflow-y: auto;
     padding-right: 5px;
   }
@@ -75,54 +76,61 @@ h2, h4 {
     background-color: #000000;
   }
 
-  #iconeEditar {
+  #iconeDownload {
     margin-right: 0.75em;
     color: #206b43;
+    cursor: pointer;
   }
 
   #iconeExcluir {
     color: #f30872;
+    cursor: pointer;
   }
 
-  .form-control-file{
-    font-family: "Nunito", sans-serif;
-    color: #000 !important;
-    text-transform: capitalize;
-    background: #ffb032;
-    position: relative;
-    border: 0;
-    border-radius: 5px;
-    overflow: hidden;
-    text-transform: capitalize !important;
-    /* margin-left: 4rem; */
-    width: 15rem;
-    height: 3rem;
-    vertical-align: center;
-  }
 
-  .file-submit{
-    margin-top: 2rem;
-    width: 15rem;
-    background: #ffb032;
-    padding: 10px 20px 10px;
-    border-radius: 5px;
-    vertical-align: center;
-    border-color: #ffb032;
-    margin-left: 2rem;
-  }
 
-  .file-browse{
-    margin-top: 2rem;
-    margin-right: 2rem;
-    width: 15rem;
-    background: #6fafa0;
-    padding: 10px 20px 10px;
-    border-radius: 5px;
-    vertical-align: center;
-    border-color: #6fafa0;
-  }
+.file-submit{
+  margin-top: 2rem;
+  width: 100%;
+  background: #ffb032;
+  padding: 10px 20px 10px;
+  border-radius: 5px;
+  vertical-align: center;
+  border: none;
+}
 
-  .titulo{
-    margin-bottom: 4rem;
-  }
+.file-browse{
+  margin-top: 2rem;
+  width: 100%;
+  cursor: pointer;
+  background: #6fafa0;
+  padding: 10px 20px 10px;
+  border-radius: 5px;
+  vertical-align: center;
+  border-color: #6fafa0;
+}
+
+.titulo{
+  margin-bottom: 4rem;
+}
+
+.btn-confirm{
+  padding: 10px 20px 10px;
+  content: '';
+  background-color: #6fafa0;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.btn-decline{
+  padding: 10px 20px 10px;
+  content: '';
+  background-color: #ffb032;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+  margin: 0.5rem;
+}
+
+.enviar-materiais{
+  margin-bottom: 5em;
 }
