@@ -17,7 +17,6 @@
                   <span class="example-spacer"></span>
                 </div>
                 <div class="editar-excluir">
-                  <i (click)="onEdit(material.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
                   <i (click)="onDelete(material.id)" class="fas fa-trash"  id="iconeExcluir"></i>
                 </div>
               </mat-toolbar-row>
@@ -39,15 +38,15 @@
     </div> -->
 
     <div class="col-md-6 margin-bottom">
-        <h2 class="text-center">Adicionar Material</h2>
-        <form>
-            <div>
-            <label class="btn form-control-file">
-               Procurar arquivo  <input type="file" class="btn form-control-file" id="arquivo" name="file" (change)="onChange($event)" hidden>
+        <h2 class="text-center titulo">Adicionar Material</h2>
+        <h4 class="text-center"> {{nome}} </h4>
+        <form class="text-center">
+            <label class="file-browse">
+               Procurar arquivo  <input type="file" id="arquivo" name="file" (change)="onChange($event)" hidden>
             </label>
-            {{nome}}
-            </div>
-            <input class="btn form-control-file " (click)="onSubmit()" type="submit">
+
+            <input class="file-submit" (click)="onSubmit()" type="submit">
+
         </form>
     </div>
 

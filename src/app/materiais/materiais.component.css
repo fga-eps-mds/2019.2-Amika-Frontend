@@ -101,9 +101,28 @@ h2, h4 {
   }
 
   .file-submit{
-    margin-top: 4rem;
+    margin-top: 2rem;
+    width: 15rem;
+    background: #ffb032;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border-color: #ffb032;
+    margin-left: 2rem;
+  }
+
+  .file-browse{
+    margin-top: 2rem;
+    margin-right: 2rem;
     width: 15rem;
     background: #6fafa0;
     padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border-color: #6fafa0;
+  }
+
+  .titulo{
+    margin-bottom: 4rem;
   }
 }
