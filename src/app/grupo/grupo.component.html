@@ -1,46 +1,22 @@
-
-
-  <!-- <div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-2">
-        <img src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikasSemNome.png" class="card-img avatar-grupo">
-      </div>
-      <div class="col-md-4 card-grupo">
-        <div class="card-body" >
-          <h5 class="card-title">João das Neves</h5>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <div class="tela-cheia">
-        <h2>Integrantes do {{grupo.nome}}</h2>
-    <div class="row" id="paginaGrupo">
-        <div class="scrollbar" id="style-scroll">
-          <div class="force-overflow">
-            <div class="grupos">
-              <mat-accordion class="example-headers-align">
-                <mat-expansion-panel class="grupos-cards" hideToggle *ngFor="let aluno of grupo">
-                  <mat-expansion-panel-header>
-                    <mat-panel-description>
-                      <div class="row funcoes-grupos">
-                        <i (click)="criarDialogoEditarGrupo(grupo)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
-                        <i (click)="onEdit(grupo)" id="iconeEditar" class="fas fa-edit grupos-funcoes only-desktop"></i> 
-                        <i (click)="onDelete(grupo)" class="fas fa-trash grupos-funcoes"  id="iconeExcluir"></i>
-                      </div>
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                      <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="foto-aluno" >
-                      <div>
-                          <p class="card-text card-nome only-desktop">Nome do aluno</p>
-                          <p class="card-text card-nome only-mobile" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}">Nome do aluno</p>
-                          <p class="card-text card-matricula">Matricula</p>
-                        </div>
-                </mat-expansion-panel>
-              </mat-accordion>
+<div class="tela-cheia">
+        <h2>Meu grupo</h2>
+  <div class="row">
+          <div class="col-md-6" id="paginaGrupo" *ngFor="let aluno of alunos">
+            <div class="force-overflow">
+              <div class="grupos">
+                <mat-accordion class="example-headers-align">
+                  <mat-expansion-panel class="grupos-cards flex-fill" hideToggle  >
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="foto-aluno" >
+                    <div>
+                      <p class="card-text card-nome only-desktop">{{aluno.first_name}} {{aluno.last_name}}</p>
+                      <p class="card-text card-nome only-mobile" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}">{{aluno.first_name}} {{aluno.last_name}}</p>
+                      <p class="card-text card-matricula">{{aluno.username}}</p>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
             </div>
           </div>
-        </div> 
     </div>
-  </div>
+</div>
   
