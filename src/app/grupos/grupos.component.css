@@ -13,6 +13,86 @@ h1, h5, h6 {
       margin-left: 0;
   }
 
+  .foto-aluno {
+    width: 3em;
+    float: left;
+    margin-right: 1em;
+    border-radius: 50%;
+  }
+
+  .grupos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+  }
+
+  @media (hover: none) {
+    .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover {
+        background: #e2eeeb;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .grupos-cards {
+      border-radius: 8px !important;
+      margin-bottom: 10px;
+      background: #6fafa02b;
+      width: 29em;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .grupos-cards {
+      border-radius: 8px !important;
+      margin-bottom: 10px;
+      background: #6fafa02b;
+      width: 52vh;
+    }
+
+    .grupos {
+      margin-bottom: 10em;
+    }
+  }
+
+
+  mat-panel-title {
+    flex-basis: 100%;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 19px;
+  }
+
+  .aluno {
+    padding: 0.5em;
+    background: #eaf2f0;
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+    border: 2px solid #dad9d9a1;
+    margin-top: 0.5em;
+  }
+  
+  mat-form-field {
+    margin-right: 12px;
+  }
+
+
+  .card-nome {  
+    color: #000000;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .card-matricula {
+    color: #505050;
+    font-style: oblique;
+  }
+
+  .funcoes-grupos {
+    width: 2.3em;
+    font-size: 1.3em;
+    justify-content: space-between;
+  }
+
     i {
       cursor: pointer;
     }
@@ -23,10 +103,9 @@ h1, h5, h6 {
 
     .btn-get {
       font-family: "Nunito", sans-serif;
-      color: #000 !important;
+      color: #fff !important;
       text-transform: capitalize;
-      background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-      background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
+      background: #f44b72;
       padding: 10px 20px 10px;
       position: relative;
       border: 0;
@@ -34,7 +113,7 @@ h1, h5, h6 {
       overflow: hidden;
       text-transform: capitalize !important;
     }
-
+  
     .btn-get::before {
       position: absolute;
       content: '';
@@ -43,11 +122,20 @@ h1, h5, h6 {
       width: 0;
       left: 0;
       background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
-      background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+      background-image: linear-gradient(to right, #e9b1c9, #efe0e6);
       -webkit-transition: .5s ease-out;
       transition: .5s ease-out;
     }
-
+  
+    .btn-get:hover::before {
+      width: 100%;
+    }
+  
+    .btn-get span {
+      position: relative;
+      z-index: 2;
+    }
+    
     .btn-confirm{
       padding: 10px 20px 10px;
       content: '';
@@ -65,47 +153,12 @@ h1, h5, h6 {
       margin: 0.5rem;
     }
 
-    .btn-get:hover::before {
-      width: 100%;
-    }
-
-    .btn-get span {
-      position: relative;
-      z-index: 2;
-    }
-
     .navbar-center{
       background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
       background: linear-gradient(to right, #a0e0e4, #e194b5);
       height: 6em;
       padding: 1.5em;
       margin-bottom: 4rem;
-    }
-
-
-
-    @-webkit-keyframes AnimationGradient {
-      0% {
-        background-position: 26% 0%;
-      }
-      50% {
-        background-position: 75% 100%;
-      }
-      100% {
-        background-position: 26% 0%;
-      }
-    }
-
-    @keyframes AnimationGradient {
-      0% {
-        background-position: 26% 0%;
-      }
-      50% {
-        background-position: 75% 100%;
-      }
-      100% {
-        background-position: 26% 0%;
-      }
     }
 
     .label-float {
@@ -154,15 +207,13 @@ h1, h5, h6 {
     }
 
     #iconeEditar {
-      color: blue;
+      color: #206b43;
       float: right;
     }
 
     #iconeExcluir {
-      color: red;
+      color: #f30872;
       float: right;
-      margin-right: 2%;
-
     }
 
     .modal-body {
@@ -176,11 +227,147 @@ h1, h5, h6 {
       min-height: 13em;
       max-height: 20em;
       margin-top: 4em;
-    }
+    } 
 
     .card-grupo {
       margin-bottom: 3em;
       margin-top: 3em;
       align-items: center;
-      font-size: medium;
+      /* font-size: medium; */
     }
+
+    .card-text {
+      margin: 0px;
+      font-family: 'Varela Round', sans-serif;
+    }
+
+    .turmas_form .form-group label {
+      font-family: "Nunito", sans-serif;
+      font-size: 1em;
+      color: #575757;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+      z-index: 0;
+      -webkit-transition: .3s all;
+      transition: .3s all;
+    }
+  
+    .turmas_form .form-group input,
+    .turmas_form .form-group textarea,
+    .turmas_form .form-group select {
+      font-size: 1em;
+      border: none;
+      border-bottom: 2px solid #f44b72;
+      /* outline: none; */
+      /* outline-color: #6fafa0; */
+      outline-width: thick;
+      padding: 0 2.5rem;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      height: 6rem;
+    }
+    
+    .centralize-button {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      display: flex;
+      justify-content: right;
+      text-align: right;
+    }
+
+    .gerar-grupos {
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-gerar-grupos {
+      background: #ffb032;
+    }
+
+
+    @media only screen and (min-width: 768px) {
+      .scroll {
+        overflow: auto;
+        max-height: 30em 
+      }
+      
+      .scrollbar {
+        margin-top: 1em;
+        height: 30em;
+        overflow-y: auto;
+        padding-right: 5px;
+      }
+    
+      .force-overflow {
+        max-height: 30em;
+      }
+    
+      #style-scroll::-webkit-scrollbar-track {
+        -webkit-box5shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+      }
+    
+      #style-scroll::-webkit-scrollbar {
+        width: 3px;
+        height: 5px;
+        background-color: #F5F5F5;
+      }
+    
+      #style-scroll::-webkit-scrollbar-thumb {
+        background-color: #000000;
+      }
+    }  
+
+  @media only screen and (max-width: 768px) {
+    .only-desktop {
+      display:  none;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .only-mobile {
+      display:  none;
+    }
+  }
+
+  .adicionar-turma {
+    background: #ffb032;
+    position: fixed;
+    bottom: 5.5em;
+    width: 4em;
+    height: 4em;
+    margin: 5% auto;
+    left: 0;
+    right: 11em;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .add-icon {
+    height: 54px;
+    width: 54px;
+    font-size:41px !important;
+  }
+  
+  .grupo-aleatorio {
+    background: #9cc2cc;
+    right: 0em;
+    left: 11em;
+  }
+
+  .imagem-grupo-aleatorio {
+    width: 2.5em;
+    height: 2.5em;
+  }

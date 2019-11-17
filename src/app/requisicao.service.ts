@@ -9,6 +9,11 @@ import { AutenticacaoService } from './autenticacao.service';
 })
 export class RequisicaoService {
   errors;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
   constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
     this.autenticacao.setHeader();
@@ -28,7 +33,7 @@ export class RequisicaoService {
   }
 
   requisicaoMatriculaIndividual(dadosIndividuais) {
-    return this.http.post(environment.urlApi + 'registro/', dadosIndividuais, this.autenticacao.httpOptions)
+    return this.http.post(environment.urlApi + 'registro/', dadosIndividuais, this.httpOptions)
       .subscribe(data => {
         console.log(data);
         this.errors = null;
