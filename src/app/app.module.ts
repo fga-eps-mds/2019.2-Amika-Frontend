@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
@@ -34,6 +34,7 @@ import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -57,11 +58,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
-    PageNotFoundComponent,
+    CriarAgendasDialogo,
+    PageNotFoundComponent
   ],
   entryComponents: [
     CriarTurmasDialogo,
-    CriarGruposDialogo,
+    CriarAgendasDialogo,
+    CriarGruposDialogo
   ],
   imports: [
     ReactiveFormsModule,

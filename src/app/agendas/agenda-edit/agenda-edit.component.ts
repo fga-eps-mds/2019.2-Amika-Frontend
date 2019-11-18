@@ -13,7 +13,7 @@ import { AgendasComponent } from '../agendas.component';
 
 export class AgendaEditComponent implements OnInit {
   agendas: Agenda;
-  error:any={isError:false,errorMessage:''};  
+  error:any={isError:false,errorMessage:''};
   formularioAgenda: FormGroup;
   submitted = false;
   agendaComponent: AgendasComponent;
