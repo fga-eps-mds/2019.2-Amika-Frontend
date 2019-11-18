@@ -6,48 +6,58 @@
   <form class="agendas_form needs-validation only-desktop formularioEditar" novalidade [formGroup] = "formularioAgenda">
     <div class="row">
         <div class="col-md-12">
-            <div class="form-group label-float">
-                <input type="text" class="form-control" id="nomeAgenda" aria-describedby="nomeAgenda" placeholder="Nome da Agenda" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
-                <label for="nomeAgenda">Nome da Agenda</label>
-                <div class="invalid-feedback" *ngIf="hasError('nome')">
-                  Por favor, informe o nome da agenda.
-                </div>
-              </div>
-              <div class="form-group label-float">
-                <input type="text" class="form-control" id="descricaoAgenda" aria-describedby="descricaoAgenda" placeholder="Descrição da Agenda" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
-                <label for="descricaoAgenda">Descrição Agenda</label>
-                <div class="invalid-feedback" *ngIf="hasError('descricao')">
-                  Por favor, informe a descrição da agenda.
-                </div>
-              </div>
-              <div class="form-group label-float">
-                <input type="date" class="form-control" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" name="data_disponibilizacao" placeholder="Descrição da Agenda" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="validarData()">
-                <label for="data_disponibilizacaoAgenda">Data de disponibilização</label>
-                <div class="invalid-feedback" *ngIf="hasError('data_disponibilizacao')">
+          <mat-form-field [color]="accent">
+            <input matInput
+                    placeholder="Nome da Agenda"
+                    formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
+                    <mat-error *ngIf="submitted && hasError('nome')">
+                        Por favor, informe o nome da agenda.
+                      </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-12">
+          <mat-form-field [color]="accent">
+            <textarea matInput
+                    cdkTextareaAutosize
+                    #autosize="cdkTextareaAutosize"
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    placeholder="Descrição da Agenda"
+                    formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+            </textarea>
+            <mat-error *ngIf="submitted && hasError('descricao')">
+                Por favor, informe a descrição da agenda.
+              </mat-error>
+          </mat-form-field>
+          </div>
+
+          <div class="col-md-12">
+              <input onfocus="(this.type='date')" class="form-control tipoData" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Data de disponibilização" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="validarData()">
+              <mat-error *ngIf="submitted && hasError('data_disponibilizacao')">
                   Por favor, informe uma data de disponibilização válida.
-                </div>
-              </div>
-              <div class="form-group label-float">
-                <input type="date" class="form-control" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Descrição da Agenda" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="validarData()">
-                <label for="data_encerramentoAgenda">Data de encerramento</label>
+                </mat-error>
+            </div>
+
+            <div class="col-md-12">
+                <input onfocus="(this.type='date')" class="form-control tipoData" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Data de encerramento" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="validarData()" >
                 <div *ngIf="error.isError">
-                  <small class="texto-erro"> {{ error.errorMessage }} </small>
-                </div>
-                <div class="invalid-feedback" *ngIf="hasError('data_encerramento')">
-                  Por favor, informe uma data de encerramento válida.
-                </div>
+                    <small class="texto-erro"> {{ error.errorMessage }} </small>
+                  </div>
+                <mat-error *ngIf="submitted && hasError('data_encerramento')">
+                    Por favor, informe uma data de encerramento válida.
+                  </mat-error>
               </div>
-              <div class="form-group label-float">
-                <select type="text" class="form-control border-none" pattern="" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
-                  <option value="" disabled selected>Selecionar o Tipo</option>
-                  <option>Individual</option>
-                  <option>Grupo</option>
-                </select>
-                <label for="tipoAgenda">Tipo da Agenda</label>
-                <div class="invalid-feedback" *ngIf="hasError('tipo')">
-                  Por favor, informe o tipo da agenda.
-                </div>
-              </div>
+
+              <div class="col-md-12">
+                <mat-form-field [color]="accent">
+                  <select matNativeControl class="form-control border-none" pattern="" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
+                      <option value="" disabled selected>Selecionar o Tipo</option>
+                      <option>Individual</option>
+                      <option>Grupo</option>
+                    </select>
+                    <mat-error *ngIf="submitted && hasError('tipo')">Por favor, informe o tipo da agenda.</mat-error>
+                </mat-form-field>
         </div>
     </div>
     <div class="text-left col-md-12">

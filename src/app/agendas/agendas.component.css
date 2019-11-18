@@ -370,10 +370,11 @@ transition: 0.5s;
 .tipoData {
   font-size: 1em;
   border: none;
-  border-bottom: 1px solid #dd709f;
+  border-bottom: 0.1em solid #dd709f;
   margin-bottom: 1.5em;
   width: 100%;
   background-color: transparent;
+  border-radius: 0;
 
 }
 .tipoData:focus {
@@ -388,11 +389,12 @@ transition: 0.5s;
 
  ::ng-deep .mat-form-field-underline {
   background-color: #dd709f !important;
+  height: 0.1em !important;
 }
 
 ::ng-deep .mat-form-field-ripple {
  /*change color of underline when focused*/
- background-color: #dd709f !important;;
+ background-color: #dd709f !important;
 }
 
 ::ng-deep .mat-expansion-panel-header
