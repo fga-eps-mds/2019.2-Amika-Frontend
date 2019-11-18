@@ -124,6 +124,18 @@
     .logo-login {
       width: 7em;
     }
+    .mat-form-field {
+      width: 90% !important;
+    }
+    .componenteRegistro {
+      zoom: 0.8;
+      -moz-transform: scale(0.8);
+    }
+
+    .main-content {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   @media only screen and (min-width: 768px) {
@@ -134,13 +146,10 @@
       width: 60%;
     }
     .mat-form-field {
-      width: 90% !important;
+      width: 55% !important;
     }
   }
 
-  .mat-form-field {
-    width: 55% !important;
-  }
 
   ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/
