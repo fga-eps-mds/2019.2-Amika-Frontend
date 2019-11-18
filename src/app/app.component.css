@@ -53,6 +53,11 @@ mat-sidenav{
     border-radius: 50%;
 }
 
+.foto-perfil:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .content {
     position: fixed;
 }

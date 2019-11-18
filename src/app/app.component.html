@@ -8,14 +8,14 @@
             class="sidenav">
             <div class="content">
               <mat-list>
-                <div *ngIf="!isAdmin" class="perfil-celular">
-                    <img class="foto-perfil" src="https://cf.ltkcdn.net/socialnetworking/images/orig/168646-425x425-Cat-Avatar-Primary.jpg" alt="">
-                    <h4 class="informacao-perfil">Usuário</h4>
-                    <h4 class="informacao-perfil">Matrícula</h4>
-                </div>
-                <div *ngIf="isAdmin" class="perfil-celular">
-                    <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
-                    <h4 class="informacao-perfil">Usuário</h4>
+                <div class="perfil-celular">
+                  <div *ngIf="!isAdmin">
+                    <div *ngTemplateOutlet="perfilAluno"></div>
+                  </div>
+                  <div *ngIf="isAdmin">
+                      <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
+                      <h4 class="informacao-perfil">Usuário</h4>
+                  </div>
                 </div>
                 <div class="centralizar">
                         <button class="deslogar-celular" (click)="this.autenticacao.deslogar()">Deslogar</button>
@@ -46,9 +46,7 @@
                     <div class="content">
                         <mat-list *ngIf="!isAdmin">
                             <div class="perfil">
-                                <img class="foto-perfil" src="https://cf.ltkcdn.net/socialnetworking/images/orig/168646-425x425-Cat-Avatar-Primary.jpg" alt="">
-                                <h4 class="informacao-perfil">Usuário</h4>
-                                <h4 class="informacao-perfil">Matrícula</h4>
+                              <div *ngTemplateOutlet="perfilAluno"></div>
                             </div>
                             <mat-list-item>
                                 <mat-icon>folder_shared</mat-icon>
@@ -132,3 +130,10 @@
               <a  routerLink="/turmas" (click)="setTitle('Turmas');"><mat-icon>class</mat-icon></a>
             </div>
       </mat-toolbar>
+
+
+<ng-template #perfilAluno>
+  <img (click)="adicionaFoto()" class="foto-perfil" src="{{foto}}"/>
+  <h4 class="informacao-perfil">{{username}}</h4>
+  <h4 class="informacao-perfil">{{firstName}}</h4>
+</ng-template>
