@@ -127,10 +127,6 @@
     .mat-form-field {
       width: 90% !important;
     }
-    .componenteRegistro {
-      zoom: 0.8;
-      -moz-transform: scale(0.8);
-    }
 
     .main-content {
       margin: 0;
@@ -148,6 +144,10 @@
     .mat-form-field {
       width: 55% !important;
     }
+    .componenteRegistro {
+      zoom: 1;
+      -moz-transform: scale(1);
+    }
   }
 
 
@@ -164,4 +164,9 @@
   ::ng-deep .mat-form-field-ripple {
    /*change color of underline when focused*/
    background-color: #dd709f !important;
+  }
+
+  .componenteRegistro {
+    zoom: 0.70;
+    -moz-transform: scale(0.70);
   }
