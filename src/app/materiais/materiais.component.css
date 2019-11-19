@@ -2,6 +2,19 @@ h2, h4 {
   font-family: "Nunito", sans-serif;
 }
 
+@media only screen and (max-width: 768px) {
+  .only-desktop {
+    display:  none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .only-mobile {
+    display:  none;
+  }
+}
+
+
 @media only screen and (min-width: 768px) {
   #paginaMateriais {
     max-width: 100%;
@@ -13,20 +26,95 @@ h2, h4 {
   #paginaMateriais {
     justify-content: center;
   }
+  .scroll {
+    overflow: auto;
+    max-height: 20em;
+  }
+  .scrollbar {
+    max-height: 20em;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+  .titulo{
+    margin-bottom: 1rem;
+  }
+
+  .file-browse{
+    margin-top: 0.5rem;
+    width: 100%;
+    cursor: pointer;
+    background: #6fafa0;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border-color: #6fafa0;
+  }
+
+  .file-submit{
+    margin-top: 0rem;
+    width: 100%;
+    background: #ffb032;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border: none;
+  }
+
+  .tela-cheia-materiais {
+    margin: 0;
+    margin-top: 2vh;
+    min-height: 89vh;
+    height: auto;
+    max-height: 93vh;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-}
+
   .scroll {
     overflow: auto;
     max-height: 35em;
   }
 
   .scrollbar {
-    height: 35em;
+    max-height: 35em;
     overflow-y: auto;
     padding-right: 5px;
   }
+
+  .titulo{
+    margin-bottom: 4rem;
+  }
+
+  .file-browse{
+    margin-top: 2rem;
+    width: 100%;
+    cursor: pointer;
+    background: #6fafa0;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border-color: #6fafa0;
+  }
+
+  .file-submit{
+    margin-top: 2rem;
+    width: 100%;
+    background: #ffb032;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border: none;
+  }
+
+  .tela-cheia-materiais {
+    margin: 0;
+    margin-top: 2vh;
+    min-height: 89vh;
+    height: auto;
+    max-height: 93vh;
+  }
+}
 
   .force-overflow {
     max-height: 25em;
@@ -86,33 +174,6 @@ h2, h4 {
     color: #f30872;
     cursor: pointer;
   }
-
-
-
-.file-submit{
-  margin-top: 2rem;
-  width: 100%;
-  background: #ffb032;
-  padding: 10px 20px 10px;
-  border-radius: 5px;
-  vertical-align: center;
-  border: none;
-}
-
-.file-browse{
-  margin-top: 2rem;
-  width: 100%;
-  cursor: pointer;
-  background: #6fafa0;
-  padding: 10px 20px 10px;
-  border-radius: 5px;
-  vertical-align: center;
-  border-color: #6fafa0;
-}
-
-.titulo{
-  margin-bottom: 4rem;
-}
 
 .btn-confirm{
   padding: 10px 20px 10px;
