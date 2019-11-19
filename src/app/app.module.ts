@@ -27,12 +27,17 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
+import { ChartsModule } from 'ng2-charts';
+
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CriarAgendasDialogo } from './agendas/agendas.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -58,15 +63,19 @@ const appRoutes: Routes = [
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    GraficoHumorComponent,
+
     CriarTurmasDialogo,
     CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
-    PageNotFoundComponent,
+    CriarAgendasDialogo,
+    PageNotFoundComponent
   ],
   entryComponents: [
     CriarTurmasDialogo,
-    CriarGruposDialogo,
+    CriarAgendasDialogo,
+    CriarGruposDialogo
   ],
   imports: [
     ReactiveFormsModule,
@@ -81,7 +90,9 @@ const appRoutes: Routes = [
     RatingModule.forRoot(),
     RatingModule,
     FormsModule,
+    MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ChartsModule,
     MaterialModule,
     BrowserAnimationsModule
   ],

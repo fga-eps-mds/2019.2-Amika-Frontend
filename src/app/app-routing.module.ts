@@ -1,3 +1,4 @@
+import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { HumorComponent } from './humor/humor.component';
 import { NgModule, Component } from '@angular/core';
 import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
@@ -18,7 +19,7 @@ import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-reg
 import {ListaDeMatriculaComponent} from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-  
+
   const routes: Routes = [
     { path: '',      component: HomepageComponent },
     { path: 'login', component: LoginComponent },
@@ -35,9 +36,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
     { path: 'formulario-felicidade', component: FormularioFelicidadeAutenticaComponent},
     { path: 'formulario-satisfacao', component: FormularioSatisfacaoComVidaComponent},
+    { path: 'grafico/:id', component : GraficoHumorComponent},
     { path: '**', component: PageNotFoundComponent},
-  ];
-  
+];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

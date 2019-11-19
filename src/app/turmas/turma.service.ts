@@ -27,7 +27,7 @@ export class TurmaService {
     console.log("turma");
     return this.http.post(environment.urlApi + 'turma/', turma, this.autenticacao.httpOptions);
   }
-
+  
   public edit_turmas(id, turma): Observable<any> {
     return this.http.put(environment.urlApi + 'turma/' + id, turma, this.autenticacao.httpOptions);
   }

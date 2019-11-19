@@ -20,7 +20,8 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 
 script:
-  - docker-compose up -d --build
+  - docker-compose -f docker-compose-tests.yml up -d --build
+  - docker exec -it frontend-tests ng test --watch=false --code-coverage --reporters=teamcity,coverage-istanbul
 
 after_script:
   - docker-compose down --remove-orphans

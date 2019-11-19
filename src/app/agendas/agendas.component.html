@@ -3,90 +3,124 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js" data-autoinit="true"></script>
 
+
 <div class="tela-cheia">
   <div class="row" id="paginaAgenda">
-    <div class="col-md-6">
-      <h2 class="text-center titulo">Histórico de Agendas</h2>
-      <div class="col-md-12 scroll" >
-        <table class="tabela-alunos table table-striped">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Descrição</th>
-              <th>Tipo</th>
-              <th>Data disponibilização</th>
-              <th>Data encerramento</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let agenda of agendas" >
-              <td>{{agenda.nome}}</td>
-              <td>{{agenda.descricao}}</td>
-              <td>{{agenda.tipo}}</td>
-              <td>{{agenda.data_disponibilizacao}}</td>
-              <td>{{agenda.data_encerramento}}</td>
-              <td><i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit"></i> <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i></td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="col-md-6 margin-bottom">
+      <h2 class="text-center">Histórico de agendas</h2>
+      <div class="scrollbar" id="style-scroll">
+        <div class="force-overflow">
+          <div class="col-md-12 margin-top" >
+                <mat-expansion-panel class="agendas expansion-panel agendas-row" *ngFor="let agenda of agendas" hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{agenda.nome}}
+                      </mat-panel-title>
+                      <mat-panel-description class="d-flex justify-content-end painel_acao">
+                        <i (click)="criarDialogoEditarAgenda(agenda)" id="iconeEditar" class="fas fa-edit only-mobile"></i>
+                        <i (click)="onEdit(agenda.id)" id="iconeEditar" class="fas fa-edit only-desktop"></i>
+                        <i (click)="onDelete(agenda)" class="fas fa-trash"  id="iconeExcluir"></i>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-panel-description class="painel_descricao">
+                        {{agenda.descricao}}
+                    </mat-panel-description>
+
+                    <div class="row" style="margin-top: 2em;">
+                      <mat-panel-description class="painel_geral">
+                        <div class="col-md-6 painel_icone text-center d-flex justify-content-start">
+                          <i  matTooltip="Atividade Individual" *ngIf="agenda.tipo == 'Individual'"  class="fas fa-user"></i>
+                          <i  matTooltip="Atividade em Grupo" *ngIf="agenda.tipo == 'Grupo'"  class="fas fa-users"></i>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="row  d-flex justify-content-end">
+                            <div class="col-md-12">
+                                  <p class="painel_data_disponibilizacao"><mat-icon matTooltip="Data de Disponibilização" class="painel_data_disponibilizacao">calendar_today</mat-icon> {{agenda.data_disponibilizacao | date  : 'dd/MM/yyyy' }}</p>
+                            </div>
+                            <div class="col-md-12">
+                                  <p class="painel_data_encerramento"><mat-icon matTooltip="Data de Encerramento" class="painel_data_encerramento">calendar_today</mat-icon> {{agenda.data_encerramento | date  : 'dd/MM/yyyy' }}</p>
+                          </div>
+                          </div>
+                        </div>
+                      </mat-panel-description>
+                    </div>
+                  </mat-expansion-panel>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="col-md-6">
-      <h2 class="text-center titulo">Adicionar nova Agenda</h2>
-      <form class="agendas_form needs-validation" novalidade [formGroup] = "formularioAgenda">
-        <div class="row">
-            <div class="col-md-12">
-
-              <div class="form-group label-float">
-                <input type="text" class="form-control" id="nomeAgenda" aria-describedby="nomeAgenda" placeholder="Nome da Agenda" formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
-                <label for="nomeAgenda">Nome da Agenda</label>
-                <div class="invalid-feedback" *ngIf="hasError('nome')">
-                  Por favor, informe o nome da agenda.
-                </div>
-              </div>
-              <div class="form-group label-float">
-                <input type="text" class="form-control" id="descricaoAgenda" aria-describedby="descricaoAgenda" placeholder="Descrição da Agenda" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
-                <label for="descricaoAgenda">Descrição Agenda</label>
-                <div class="invalid-feedback" *ngIf="hasError('descricao')">
-                  Por favor, informe a descrição da agenda.
-                </div>
-              </div>
-              <div class="form-group label-float">
-                <input type="date" class="form-control" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" name="data_disponibilizacao" placeholder="Descrição da Agenda" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="validarData()">
-                <label for="data_disponibilizacaoAgenda">Data de disponibilização</label>
-                <div class="invalid-feedback" *ngIf="hasError('data_disponibilizacao')">
-                  Por favor, informe uma data de disponibilização válida.
-                </div>
-              </div>
-              <div class="form-group label-float">
-                <input type="date" class="form-control" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Descrição da Agenda" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="validarData()">
-                <label for="data_encerramentoAgenda">Data de encerramento</label>
-                <div *ngIf="error.isError">
-                  <small class="texto-erro"> {{ error.errorMessage }} </small>
-                </div>
-                <div class="invalid-feedback" *ngIf="hasError('data_encerramento')">
-                  Por favor, informe uma data de encerramento válida.
-                </div>
-              </div>
-              <div class="form-group label-float">
-                <select type="text" class="form-control border-none" pattern="" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
-                  <option value="" disabled selected>Selecionar o Tipo</option>
-                  <option>Individual</option>
-                  <option>Grupo</option>
-                </select>
-                <label for="tipoAgenda">Tipo da Agenda</label>
-                <div class="invalid-feedback" *ngIf="hasError('tipo')">
-                  Por favor, informe o tipo da agenda.
-                </div>
-              </div>
-
-            </div>
-        </div>
+      <button style="margin-bottom: 5em;" class="only-mobile adicionar-agenda" mat-mini-fab aria-label="Example icon-button with a heart icon" (click)="criarDialogoAdicionarAgenda()">
         <div class="text-center">
-            <button type="submit" class=" btn btn-get" [disabled]="error.isError" (click)="onSubmit()"><span> Enviar</span></button></div>
-    </form>
+            <mat-icon class="add-icon">add</mat-icon>
+        </div>
+      </button>
+      <h2 class="text-center only-desktop">Adicionar nova agenda</h2>
+      <form class="agendas_form needs-validation only-desktop" novalidade [formGroup]="formularioAgenda">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field [color]="accent">
+                <input matInput
+                        placeholder="Nome da Agenda"
+                        formControlName="nome" [ngClass]="{ 'is-invalid': submitted && hasError('nome') }">
+                        <mat-error *ngIf="submitted && hasError('nome')">
+                            Por favor, informe o nome da agenda.
+                          </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-12">
+              <mat-form-field [color]="accent">
+                <textarea matInput
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="1"
+                        cdkAutosizeMaxRows="5"
+                        placeholder="Descrição da Agenda"
+                        formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                </textarea>
+                <mat-error *ngIf="submitted && hasError('descricao')">
+                    Por favor, informe a descrição da agenda.
+                  </mat-error>
+              </mat-form-field>
+              </div>
+
+              <div class="col-md-12">
+                  <input onfocus="(this.type='date')" class="form-control tipoData" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Data de disponibilização" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="validarData()">
+                  <mat-error *ngIf="submitted && hasError('data_disponibilizacao')">
+                      Por favor, informe uma data de disponibilização válida.
+                    </mat-error>
+                </div>
+
+                <div class="col-md-12">
+                    <input onfocus="(this.type='date')" class="form-control tipoData" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Data de encerramento" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="validarData()" >
+                    <div *ngIf="error.isError">
+                        <small class="texto-erro"> {{ error.errorMessage }} </small>
+                      </div>
+                    <mat-error *ngIf="submitted && hasError('data_encerramento')">
+                        Por favor, informe uma data de encerramento válida.
+                      </mat-error>
+                  </div>
+
+                  <div class="col-md-12">
+                    <mat-form-field [color]="accent">
+                      <select matNativeControl class="form-control border-none" pattern="" id="tipoAgenda" aria-describedby="tipoAgenda" placeholder="Tipo da Agenda" formControlName="tipo" [ngClass]="{ 'is-invalid': submitted && hasError('tipo') }">
+                          <option value="" disabled selected>Selecionar o Tipo</option>
+                          <option>Individual</option>
+                          <option>Grupo</option>
+                        </select>
+                        <mat-error *ngIf="submitted && hasError('tipo')">Por favor, informe o tipo da agenda.</mat-error>
+                    </mat-form-field> 
+                    </div>
+            <div class="col-md-12 d-flex justify-content-center"> 
+              <mat-dialog-actions>
+                <button mat-button class="btn btn-get" type="button" (click)="onSubmit()">Enviar</button>
+              </mat-dialog-actions>
+            </div>
+          </div>
+      </form>
     </div>
   </div>
 
