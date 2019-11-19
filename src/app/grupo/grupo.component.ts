@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { ListaGrupoService } from './lista-grupo.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -26,5 +27,26 @@ export class GrupoComponent implements OnInit {
       this.error = error;
     });
   }
+
+  fotoUrl(foto) {
+    return environment.urlApi.slice(0, -1) + foto;
+  }
+
+  tamanhoNome(first_name: string, last_name: string) {
+    let tamanho_nome = (first_name + last_name).length + 1;
+    if (tamanho_nome < 23) {
+      return '12px';
+    } 
+    else if (tamanho_nome < 26) {
+      return '11px';
+    }
+    else if (tamanho_nome < 31) {
+      return '10px';   
+    }
+    else {
+      return '9px';
+    }
+  }
+
 
 }

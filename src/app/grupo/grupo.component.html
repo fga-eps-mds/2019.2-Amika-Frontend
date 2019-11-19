@@ -6,7 +6,13 @@
               <div class="grupos">
                 <mat-accordion class="example-headers-align">
                   <mat-expansion-panel class="grupos-cards flex-fill" hideToggle  >
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="foto-aluno" >
+                    <mat-expansion-panel-header>
+                      <mat-panel-description>
+                        <img [src]="aluno.foto ? fotoUrl(aluno.foto) : 'https://www.w3schools.com/howto/img_avatar.png'" alt="Avatar" class="foto-aluno" >
+                        <div>
+                        </div>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
                     <div>
                       <p class="card-text card-nome only-desktop">{{aluno.first_name}} {{aluno.last_name}}</p>
                       <p class="card-text card-nome only-mobile" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}">{{aluno.first_name}} {{aluno.last_name}}</p>
