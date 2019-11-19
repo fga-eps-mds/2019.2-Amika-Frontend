@@ -7,7 +7,7 @@
 
 <form [formGroup]="formPontuacao">
 <fieldset>
-  <p> Abaixo estão 5 declarações que você pode concordar os discordar delas.
+  <p> Abaixo estão 5 declarações que você pode concordar ou discordar delas.
       Leia cada um e depois clique na lista suspensa próxima a declaração e selecione
       a resposta que melhor descreve quão forte você concorda ou discorda.
   </p>
@@ -17,7 +17,7 @@
 <div id="area" class="form-group" aria-required="formControlName">
 
   <label>1. Em muitos aspectos, minha vida está próxima do meu ideal.</label>
-  
+
   <div class="form-check">
       <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto1" id="opcao_1" [value]=1 formControlName="ponto1"> Concordo fortemente.</label>
   </div>
@@ -46,7 +46,7 @@
 <div id="area" class="form-group" aria-required="formControlName">
 
     <label>2. As condições da minha vida são excelentes.</label>
-    
+
     <div class="form-check">
         <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto2" id="opcao_1" [value]=1 formControlName="ponto2"> Concordo fortemente.</label>
     </div>
@@ -68,14 +68,14 @@
     <div class="form-check">
       <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto2" id="opcao_7" [value]=7 formControlName="ponto2"> Discordo fortemente.</label>
     </div>
-</div>  
+</div>
 <br>
 
 
 <div id="area" class="form-group" aria-required="formControlName">
 
     <label>3. Estou completamente satisfeito com minha vida.</label>
-    
+
     <div class="form-check">
         <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto3" id="opcao_1" [value]=1 formControlName="ponto3"> Concordo fortemente.</label>
     </div>
@@ -97,13 +97,13 @@
     <div class="form-check">
       <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto3" id="opcao_7" [value]=7 formControlName="ponto3"> Discordo fortemente.</label>
     </div>
-</div>  
+</div>
 <br>
 
 <div id="area" class="form-group" aria-required="formControlName">
 
     <label>4. Até agora, eu obtive as coisas que considero mais importantes que quero em minha vida.</label>
-    
+
     <div class="form-check">
         <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto4" id="opcao_1" [value]=1 formControlName="ponto4"> Concordo fortemente.</label>
     </div>
@@ -125,13 +125,13 @@
     <div class="form-check">
       <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto4" id="opcao_7" [value]=7 formControlName="ponto4"> Discordo fortemente.</label>
     </div>
-</div>  
+</div>
 <br>
 
 <div id="area" class="form-group" aria-required="formControlName">
 
     <label>5. Se eu pudesse viver minha vida novamente, eu não mudaria nada.</label>
-    
+
     <div class="form-check">
         <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto5" id="opcao_1" [value]=1 formControlName="ponto5"> Concordo fortemente.</label>
     </div>
@@ -153,11 +153,28 @@
     <div class="form-check">
       <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto5" id="opcao_7" [value]=7 formControlName="ponto5"> Discordo fortemente.</label>
     </div>
-</div>  
+</div>
 <br>
 
 </fieldset>
 
-<input type="submit" class="btn btn-primary mt-4" [disabled]="formPontuacao.invalid" value="Salvar" (click)="onSubmit(formPontuacao.value)">
+<input type="submit" class="btn btn-primary mt-4" [disabled]="formPontuacao.invalid" value="Salvar" data-toggle="modal" data-target="#modalEnviar">
 </form>
 <input type='button' class="btn btn-primary mt-4" value='Voltar' routerLink="/agendas-listar" routerLinkActive="active">
+
+<div class="modal fade modal-backdrop" id="modalEnviar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tem certeza que deseja enviar a resposta?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-decline" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-confirm" (click)="onSubmit(formPontuacao.value)">Sim</button>
+      </div>
+      </div>
+  </div>
+</div>
