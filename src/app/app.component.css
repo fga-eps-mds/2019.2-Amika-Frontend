@@ -25,6 +25,16 @@ mat-sidenav{
 .title-center {
     flex: 1 1 auto;
     text-align: center;
+    color: #ffffff;
+}
+
+#link-homepage {
+  color: #ffffff;
+}
+
+#link-homepage:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .example-spacer {
