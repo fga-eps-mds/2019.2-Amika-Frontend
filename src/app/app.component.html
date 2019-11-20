@@ -34,8 +34,8 @@
                 *ngIf="mobileQuery.matches">
                 <mat-icon>menu</mat-icon>
               </button>
-              <h1 class="title-center"><a id="link-homepage" href="/">{{title}}</a></h1>
-              <a href="/"><img src="https://raw.githubusercontent.com/fga-eps-mds/2019.2-Amika-Wiki/master/assets/img/AmikasSemNome.png"  alt="Amika" width="40px" height="40px"></a>
+              <h1 class="title-center">{{title}}</h1>
+              <a routerLink="/" (click)="toggleMobileNav(lnav); setTitle('Amika');"><img src="https://raw.githubusercontent.com/fga-eps-mds/2019.2-Amika-Wiki/master/assets/img/AmikasSemNome.png"  alt="Amika" width="40px" height="40px"></a>
               <div class="fill-space"></div>
               <span whoami></span>
             </mat-toolbar>
