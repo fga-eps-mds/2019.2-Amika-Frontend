@@ -52,7 +52,7 @@
     </div>
 
     <div class="col-md-6">
-      <button style="margin-bottom: 5em;" class="only-mobile adicionar-agenda" mat-mini-fab aria-label="Example icon-button with a heart icon" (click)="criarDialogoAdicionarAgenda()">
+      <button class="only-mobile adicionar-agenda" mat-mini-fab aria-label="Example icon-button with a heart icon" (click)="criarDialogoAdicionarAgenda()">
         <div class="text-center">
             <mat-icon class="add-icon">add</mat-icon>
         </div>
@@ -112,9 +112,9 @@
                           <option>Grupo</option>
                         </select>
                         <mat-error *ngIf="submitted && hasError('tipo')">Por favor, informe o tipo da agenda.</mat-error>
-                    </mat-form-field> 
+                    </mat-form-field>
                     </div>
-            <div class="col-md-12 d-flex justify-content-center"> 
+            <div class="col-md-12 d-flex justify-content-center">
               <mat-dialog-actions>
                 <button mat-button class="btn btn-get" type="button" (click)="onSubmit()">Enviar</button>
               </mat-dialog-actions>
