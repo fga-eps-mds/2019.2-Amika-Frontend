@@ -1,138 +1,74 @@
-    <div class="tela-cheia">
-      <div class="row" id="paginaTurma">
-        <div class="col-md-12">
-          <h2 class="text-center">Registro de alunos</h2>
-          <div class="col-md-12 scroll size-mat-tab" >
-            <mat-tab-group mat-stretch-tabs dynamicHeight id="tab-group" class="width-mat-tab">
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <mat-icon class="example-tab-icon">person_add</mat-icon>
-                </ng-template>
-                <div class="example-small-box">
-                  <form [formGroup]="formulario" class="turmas_form needs-validation" novalidate id="formIndividual">
-                    <div class="form-group label-float">
-                        <input type="text" name="matricula" id="matriculaIndividual" aria-describedby="matriculaIndividual" class="form-control" placeholder="Matrícula" formControlName="matricula"
-                        [ngClass]="{ 'is-invalid': formIndividualEnviado && hasError('matricula') }"/>
-                        <label for="matriculaIndividual">Matrícula</label>
-                        <div class="invalid-feedback" *ngIf="(hasError('matricula') && hasError('matricula').required)">
-                          Por favor, informe a matrícula.
-                        </div>
-                        <div class="invalid-feedback" *ngIf="(hasError('matricula') && (hasError('matricula').minlength || hasError('matricula').maxlength))">
-                          Por favor, a matrícula deve conter 9 números.
-                        </div>
-                    </div>
-                    <div id="tituloTurma"><label for="turmaIndividual">Turma</label></div>
-                    <div class="form-group" id="campoTurma">
-                      <select name="turma" class="form-control" form="formIndividual" formControlName="turma"
-                        id="turmaIndividual" aria-describedby="turmaIndividual"
-                        [ngClass]="{ 'is-invalid': formIndividualEnviado && hasError('turma') }">
-                        <option value="" disabled selected>Selecione a turma</option>
-                        <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
-                      </select>
-                      <div class="invalid-feedback" *ngIf="hasError('turma')">
-                          Por favor, informe uma turma válida.
-                      </div>
-                    </div>
-                    <div class="text-center" id="enviarForm">
-                      <button type="submit" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
-                    </div>
-                  </form>
-                </div>
-              </mat-tab>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <mat-icon class="example-tab-icon">group_add</mat-icon>
-                </ng-template>
-                <div class="example-large-box">
-                  <form [formGroup]="formularioLista" class="turmas_form needs-validation" novalidate id="listaForm">
-                    <div class="form-group label-float">
-                      <div class="invalid-feedback" *ngIf="hasErrorLista('arquivo')">
-                        Por favor, selecione uma turma.
-                      </div>
-                    </div>
-                    <div id="tituloTurma"><label for="turmaIndividual">Lista</label></div>
-                    <label for="arquivoLista" class="custom-file-upload">
-                        <i class="fa fa-cloud-upload"></i> Anexar lista
-                    </label>
-                    <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo"
-                    id="arquivoLista" aria-describedby="arquivoLista" class="form-control form-file"
-                    formControlName="arquivo" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('arquivo') }"/>
-                    <div id="tituloTurma"><label for="turmaIndividual">Turma</label></div>
-                      <div class="form-group" id="campoTurma">
-                        <select  class="form-control" name="turma" id="turmaLista"
-                        aria-describedby="turmaLista" name="turma" formControlName="turma"
-                        form="listaForm" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('turma') }">
-                          <option value="" disabled selected>Selecione a turma</option>
-                          <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
-                        </select>
-                        <div class="invalid-feedback" *ngIf="hasErrorLista('turma')">
-                          Por favor, selecione uma turma.
-                        </div>
-                        <div class="botaoCadastrar">
-                          <div class="text-center" id="enviarForm">
-                            <button type="submit" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
-                          </div>
-                        </div>
-                      </div>
-                  </form>
-        <div class="col-md-6">
-          <h2 class="text-center">Matrícula individual</h2>
-          <div class="col-md-12 scroll" >
+<div class="tela-cheia">
+  <div class="col-md-12">
+    <h2 class="text-center">Registro de matrículas</h2>
+    <div class="col-md-12 size-mat-tab" >
+      <mat-tab-group mat-stretch-tabs dynamicHeight id="tab-group" class="width-mat-tab" >
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icons">person_add</mat-icon>
+          </ng-template>
+          <div class="example-small-box">
             <form [formGroup]="formulario" class="turmas_form needs-validation" novalidate id="formIndividual">
-                    <mat-form-field [color]="accent">
-                      <input matInput
-                              placeholder="Matrícula"
-                              formControlName="matricula" [ngClass]="{ 'is-invalid': submitted && hasError('matricula') }">
-                              <mat-error *ngIf="submitted && hasError('matricula')">
-                                  Por favor, informe uma matrícula válida.
-                                </mat-error>
-                    </mat-form-field>
+              <div>
+                <mat-form-field [color]="accent" class="input-full-width">
+                  <input matInput
+                    placeholder="Matrícula"
+                    formControlName="matricula" [ngClass]="{ 'is-invalid': submitted && hasError('matricula') }">
+                    <mat-error *ngIf="submitted && hasError('matricula')">
+                        Por favor, informe uma matrícula válida.
+                    </mat-error>
+                </mat-form-field>
+              </div>
 
-                <mat-form-field [color]="accent">
+              <div>
+                <mat-form-field [color]="accent" class="input-full-width">
                   <select matNativeControl class="form-control border-none" pattern="" id="turma" aria-describedby="turma" placeholder="Turma" formControlName="turma" [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
                     <option value="" disabled selected>Selecione a turma</option>
                     <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
                     </select>
                     <mat-error *ngIf="submitted && hasError('turma')">Por favor, informe a turma.</mat-error>
                 </mat-form-field> 
-                <div class="text-center" id="enviarForm">
-                  <button type="button" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
-                </div>
-              </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <h2 class="text-center">Matrícula com CSV</h2>
-          <div class="col-md-12 scroll" >
-            <form [formGroup]="formularioLista" class="lista_form needs-validation" novalidate id="listaForm">
-              <div class="form-group">
-                  <label for="arquivoLista">Adicionar Lista de Matrículas</label>
-                  <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo"
-                  id="arquivoLista" aria-describedby="arquivoLista" class="form-control"
-                  formControlName="arquivo" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('arquivo') }"/>
-                  <div class="invalid-feedback" *ngIf="hasErrorLista('arquivo')">
-                    Por favor, selecione um arquivo.
-                  </div>
               </div>
-              <div class="form-group label-floats">
-                <div class="tituloTurma">Turma:</div>
-                <select class="form-control" name="turma" id="turmaLista"
-                aria-describedby="turmaLista" name="turma" formControlName="turma"
-                form="listaForm" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('turma') }">
-                <option value="" disabled selected>Selecione a turma</option>
-                <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
-                </select>
-                <div class="invalid-feedback" *ngIf="hasErrorLista('turma')">
-                  Por favor, selecione uma turma.
-                </div>
-                <div class="botaoCadastrar">
-                  <button (click)="onSubmitLista(formularioLista.value)"
-                    type="submit" class="btn btn-get" id="botaoEnviar" value="CADASTRAR">CADASTRAR
-                  </button>
-                </div>
-              </mat-tab>
-            </mat-tab-group>
+              <div class="text-center" id="enviarForm">
+                <button type="button" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
+              </div>
+            </form>
           </div>
-        </div>
-      </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icons">group_add</mat-icon>
+          </ng-template>
+          <div class="example-large-box">
+            <form [formGroup]="formularioLista" class="turmas_form needs-validation" novalidate id="listaForm">
+              <div id="tituloTurma"><label for="turmaIndividual">Arquivo CSV</label></div>
+              <label for="arquivoLista" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Enviar 
+              </label>
+              <div>
+                <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo"
+                id="arquivoLista" aria-describedby="arquivoLista" class="form-control form-file"
+                formControlName="arquivo" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('arquivo') }"/>
+              </div>
+              <div>
+                <mat-form-field [color]="accent" class="input-full-width">
+                    <select matNativeControl class="form-control border-none" pattern="" id="turma" aria-describedby="turma" placeholder="Turma" formControlName="turma" [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
+                      <option value="" disabled selected>Selecione a turma</option>
+                      <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
+                    </select>
+                  <mat-error *ngIf="submitted && hasError('turma')">Por favor, informe a turma.</mat-error>
+                </mat-form-field> 
+              </div>
+
+              <div class="botaoCadastrar">
+                <div class="text-center" id="enviarForm">
+                  <button type="submit" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
+</div>

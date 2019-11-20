@@ -66,9 +66,6 @@ export class TurmasComponent implements OnInit {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
     }, (error: any) => {
       this.error = error;
-      console.log("ERRORZÃO");
-      console.log(error.error);
-      alert(error.error.descricao);
     });
   }
 
