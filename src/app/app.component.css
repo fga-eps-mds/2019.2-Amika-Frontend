@@ -51,7 +51,8 @@ mat-sidenav{
 
 .perfil {
     border-bottom: 1px solid #ced5d4;
-    max-width: 200px;
+    min-width: 6.6em;
+    max-width: 7em;
 }
 
 .foto-perfil {
@@ -70,6 +71,7 @@ mat-sidenav{
 
 .content {
     position: fixed;
+    font-size: 30px;
 }
 
 .informacao-perfil{

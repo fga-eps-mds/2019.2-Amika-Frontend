@@ -78,12 +78,12 @@
                                 <h4 class="informacao-perfil">Usuário</h4>
                             </div>
                             <mat-list-item>
-                                <mat-icon>subject</mat-icon>
-                                <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Disciplina');">Disciplina</a>
+                                <mat-icon>insert_invitation</mat-icon>
+                                <a mat-button routerLink="/agenda" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Agendas');">Agendas</a>
                             </mat-list-item>
                             <mat-list-item>
-                                <mat-icon>notifications_active</mat-icon>
-                                <a mat-button routerLink="/notificacao" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Enviar Notificações');">Enviar notificações</a>
+                                <mat-icon>insert_drive_file</mat-icon>
+                                <a mat-button routerLink="/manter-materiais" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Materiais</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>group</mat-icon>
@@ -123,8 +123,8 @@
             <a  routerLink="/area-informativa" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
           </div>
           <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && isAdmin">
-              <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Disciplina');"><mat-icon>subject</mat-icon></a>
-              <a  routerLink="/notificacao" routerLinkActive="active" (click)="setTitle('Notificações');"><mat-icon>notifications_active</mat-icon></a>
+              <a  routerLink="/agenda" routerLinkActive="active" (click)="setTitle('Agendas');"><mat-icon>insert_invitation</mat-icon></a>
+              <a  routerLink="/manter-materiais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>insert_drive_file</mat-icon></a>
               <a  routerLink="/grupos" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>group</mat-icon></a>
               <a  routerLink="/lista" routerLinkActive="active" (click)="setTitle('Lista');"><mat-icon>person_add</mat-icon></a>
               <a  routerLink="/turmas" (click)="setTitle('Turmas');"><mat-icon>class</mat-icon></a>
