@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AutenticacaoService } from './autenticacao.service';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +12,7 @@ export class ListaService {
     constructor(private autenticacao: AutenticacaoService) {}
 
     enviar(dados) {
-        return this.autenticacao.post(environment.urlApi + 'registro/', dados)
+        return this.autenticacao.post('registro/', dados)
                 .subscribe(data => {
                     console.log(data);
 

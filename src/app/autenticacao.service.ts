@@ -19,24 +19,24 @@ export class AutenticacaoService implements CanActivate {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  get(url) {
+  get(caminho) {
     this.setHeader();
-    return this.http.get(url, this.httpOptions);
+    return this.http.get(environment.urlApi + caminho, this.httpOptions);
   }
 
-  delete(url) {
+  delete(caminho) {
     this.setHeader();
-    return this.http.delete(url, this.httpOptions);
+    return this.http.delete(environment.urlApi + caminho, this.httpOptions);
   }
 
-  post(url, data) {
+  post(caminho, data) {
     this.setHeader();
-    return this.http.post(url, data, this.httpOptions);
+    return this.http.post(environment.urlApi + caminho, data, this.httpOptions);
   }
 
-  put(url, data) {
+  put(caminho, data) {
     this.setHeader();
-    return this.http.put(url, data, this.httpOptions);
+    return this.http.put(environment.urlApi + caminho, data, this.httpOptions);
   }
 
 

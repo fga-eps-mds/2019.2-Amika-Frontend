@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { AutenticacaoService } from './autenticacao.service';
 
 @Injectable({
@@ -13,7 +10,7 @@ export class RequisicaoService {
   constructor(private autenticacao: AutenticacaoService) {}
 
   realizarRequisicao(dadosAluno) {
-    return this.autenticacao.post(environment.urlApi + 'aluno/', dadosAluno)
+    return this.autenticacao.post('aluno/', dadosAluno)
                     .subscribe(data => {
                       console.log(data);
                       this.errors = null;
@@ -26,7 +23,7 @@ export class RequisicaoService {
   }
 
   requisicaoMatriculaIndividual(dadosIndividuais) {
-    return this.autenticacao.post(environment.urlApi + 'registro/', dadosIndividuais)
+    return this.autenticacao.post('registro/', dadosIndividuais)
       .subscribe(data => {
         console.log(data);
         this.errors = null;
