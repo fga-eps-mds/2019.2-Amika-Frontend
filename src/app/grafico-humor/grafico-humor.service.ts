@@ -9,12 +9,10 @@ import { AutenticacaoService } from './../autenticacao.service';
   providedIn: 'root'
 })
 export class GraficoHumorService {
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-    this.autenticacao.setHeader();
-   }
+  constructor(private autenticacao: AutenticacaoService) {}
 
     public get_grafico(turma): Observable<any>{
-      return this.http.get(environment.urlApi + 'grafico/'+turma, this.autenticacao.httpOptions);
+      return this.autenticacao.get(environment.urlApi + 'grafico/'+turma);
     }
   }
 

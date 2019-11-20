@@ -9,18 +9,11 @@ import { AutenticacaoService } from './autenticacao.service';
 })
 export class RequisicaoService {
   errors;
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
 
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-    this.autenticacao.setHeader();
-   }
+  constructor(private autenticacao: AutenticacaoService) {}
 
   realizarRequisicao(dadosAluno) {
-    return this.http.post(environment.urlApi + 'aluno/', dadosAluno, this.autenticacao.httpOptions)
+    return this.autenticacao.post(environment.urlApi + 'aluno/', dadosAluno)
                     .subscribe(data => {
                       console.log(data);
                       this.errors = null;
@@ -33,7 +26,7 @@ export class RequisicaoService {
   }
 
   requisicaoMatriculaIndividual(dadosIndividuais) {
-    return this.http.post(environment.urlApi + 'registro/', dadosIndividuais, this.httpOptions)
+    return this.autenticacao.post(environment.urlApi + 'registro/', dadosIndividuais)
       .subscribe(data => {
         console.log(data);
         this.errors = null;

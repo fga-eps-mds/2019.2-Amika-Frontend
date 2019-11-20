@@ -11,12 +11,10 @@ export class ListaService {
 
     errors;
 
-    constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-      this.autenticacao.setHeader();
-     }
+    constructor(private autenticacao: AutenticacaoService) {}
 
     enviar(dados) {
-        return this.http.post(environment.urlApi + 'registro/', dados, this.autenticacao.httpOptions)
+        return this.autenticacao.post(environment.urlApi + 'registro/', dados)
                 .subscribe(data => {
                     console.log(data);
 

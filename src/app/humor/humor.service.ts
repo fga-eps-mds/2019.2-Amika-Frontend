@@ -8,19 +8,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class HumorService {
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-    this.autenticacao.setHeader();
+  constructor(private autenticacao: AutenticacaoService) {
   }
 
   public create_humor(humor): Observable<any> {
-    return this.http.post(environment.urlApi + 'humor/', humor, this.autenticacao.httpOptions);
+    return this.autenticacao.post(environment.urlApi + 'humor/', humor);
   }
 
   public get_humor(): Observable<any> {
-    return this.http.get(environment.urlApi + 'humors/', this.autenticacao.httpOptions);
+    return this.autenticacao.get(environment.urlApi + 'humors/');
   }
 
   public get_status(): Observable<any> {
-    return this.http.get(environment.urlApi + 'humor_status/', this.autenticacao.httpOptions)
+    return this.autenticacao.get(environment.urlApi + 'humor_status/')
   }
 }

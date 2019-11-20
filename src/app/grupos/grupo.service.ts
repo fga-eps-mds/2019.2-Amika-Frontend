@@ -10,36 +10,34 @@ import { AutenticacaoService } from './../autenticacao.service';
 
 export class GrupoService {
 
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-    this.autenticacao.setHeader();
-   }
+  constructor(private autenticacao: AutenticacaoService) {}
 
   public get_grupos(): Observable<any> {
-    return this.http.get(environment.urlApi + 'grupos/', this.autenticacao.httpOptions);
+    return this.autenticacao.get(environment.urlApi + 'grupos/');
   }
 
   public delete_grupos(id): Observable<any> {
-    return this.http.delete(environment.urlApi + 'grupo/' + id + '/', this.autenticacao.httpOptions);
+    return this.autenticacao.delete(environment.urlApi + 'grupo/' + id + '/');
   }
 
   public create_grupos(grupo): Observable<any> {
-    return this.http.post(environment.urlApi + 'grupo/', grupo, this.autenticacao.httpOptions);
+    return this.autenticacao.post(environment.urlApi + 'grupo/', grupo);
   }
 
   public edit_grupos(id, grupo): Observable<any> {
-    return this.http.put(environment.urlApi + 'grupo/' + id + '/', grupo, this.autenticacao.httpOptions);
+    return this.autenticacao.put(environment.urlApi + 'grupo/' + id + '/', grupo);
   }
 
   public getById(id) {
-    return this.http.get(environment.urlApi + 'grupo/' + id + '/', this.autenticacao.httpOptions);
+    return this.autenticacao.get(environment.urlApi + 'grupo/' + id + '/');
   }
 
   public get_alunos(): Observable<any> {
-    return this.http.get(environment.urlApi + 'alunos/', this.autenticacao.httpOptions);
+    return this.autenticacao.get(environment.urlApi + 'alunos/');
   }
 
   public popula_grupo(): Observable<any> {
-    return this.http.get(environment.urlApi + 'popula-grupo/', this.autenticacao.httpOptions);
+    return this.autenticacao.get(environment.urlApi + 'popula-grupo/');
   }
 
 }
