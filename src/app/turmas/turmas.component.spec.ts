@@ -33,8 +33,6 @@ describe('TurmasComponent', () => {
     { id: 4, descricao: 'G' },
     { id: 5, descricao: 'K' },
   ];
-  const turmaE = { descricao: 'E' };
-  const turmaDetails = { id: 1, descricao: 'A' };
   const turma = { id: 1, descricao: 'A' };
   const turmaErro = { id:99, descricao: 'ABC'}
   const mensagemErro = {erro: "Não é possível fazer esta requisição"};
@@ -61,10 +59,8 @@ describe('TurmasComponent', () => {
     },
 
     create_turmas(turma) {
-      console.log(turma)
       if (turma.descricao.length < 2){
         const nova_turma = turma;
-        console.log(turma);
         listaTurmasTeste.push(turma);
         return of(nova_turma);
       }
@@ -226,13 +222,7 @@ describe('TurmasComponent', () => {
   it('Deveria criar uma nova turma', () => {
     component.formularioTurma.controls['descricao'].setValue('K');
     component.formularioTurma.controls['id'].setValue(5);
-    console.log(component.turmas);
     component.onSubmit();
-    console.log("TESTESSSSSS");
-    console.log(component.turmas);
-    console.log(listaTurmasTeste);
-    console.log(listaTurmasNova);
-    console.log("TESTESSSSSS");
     expect(component.turmas).toEqual(listaTurmasNova);
   });
 
