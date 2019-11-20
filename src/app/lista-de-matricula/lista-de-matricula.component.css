@@ -223,7 +223,7 @@ h2 {
     min-height: 13em;
     max-height: 20em;
   }
-   
+
   #tituloTurma {
     color: #575757;
   }
@@ -293,3 +293,21 @@ h2 {
     flex-grow: 1;
   }
   
+  .mat-form-field {
+    width: 90%;
+  }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #dd709f !important;
+   }
+
+   ::ng-deep .mat-form-field-underline {
+    background-color: #dd709f !important;
+    height: 0.1em !important;
+  }
+
+  ::ng-deep .mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #dd709f !important;
+  }

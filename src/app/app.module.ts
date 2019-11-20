@@ -11,10 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
-import { GruposComponent } from './grupos/grupos.component';
+import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AgendasComponent } from './agendas/agendas.component';
 import { AgendaService } from './agendas/agenda.service';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
@@ -25,12 +25,17 @@ import { AreaInformativaComponent } from './area-informativa/area-informativa.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
+import { ChartsModule } from 'ng2-charts';
+
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CriarAgendasDialogo } from './agendas/agendas.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -47,12 +52,20 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PerfilUsuarioComponent,
     AreaInformativaComponent,
     PerfilUsuarioComponent,
+    GraficoHumorComponent,
+
     CriarTurmasDialogo,
+    CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
-    PageNotFoundComponent,
+    CriarAgendasDialogo,
+    PageNotFoundComponent
   ],
-  entryComponents: [CriarTurmasDialogo],
+  entryComponents: [
+    CriarTurmasDialogo,
+    CriarAgendasDialogo,
+    CriarGruposDialogo
+  ],
   imports: [
     ReactiveFormsModule,
     BrowserModule,
@@ -62,7 +75,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RatingModule.forRoot(),
     RatingModule,
     FormsModule,
+    MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ChartsModule,
     MaterialModule,
     BrowserAnimationsModule
   ],

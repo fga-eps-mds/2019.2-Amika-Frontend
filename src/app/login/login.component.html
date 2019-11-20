@@ -2,28 +2,74 @@
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 
-<form [formGroup]="formularioLogin" (ngSubmit)="logar(formularioLogin.value)" class="text-center">
 <div id="wrapper">
   <div class="main-content">
-    <div class="header">
-      <img src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
-    </div>
-    <div class="div-button">
-        <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
-    </div>
-    <div class="l-part">
-      <input type="text" placeholder="Matricula" class="campo-formulario campo-formulario-rosa" formControlName="matricula" />
-      <div class="overlap-text">
-        <input type="password" placeholder="Senha" class="campo-formulario campo-formulario-rosa" formControlName="senha" />
-      </div>
-      <div class="div-button">
-          <button class="botao botao-verde" [disabled]="formularioLogin.get('matricula').hasError('required') || formularioLogin.get('senha').hasError('required')" type="submit"> Login </button>
-      </div>
-    </div>
-  </div>
-  <div class="sub-content">
-    <div class="s-part">
-      <a href="#">Cadastre-se</a>
-    </div>
+    <mat-tab-group mat-stretch-tabs mat-align-tabs="center">
+      <mat-tab label="Login" style="width: 100%">
+        <form [formGroup]="formularioLogin" class="text-center">
+                <div class="header">
+                  <img class="logo-login" src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
+                </div>
+                <div class="div-button">
+                    <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
+                </div>
+                <div class="l-part">
+                  <mat-form-field [color]="accent">
+                    <input matInput
+                            placeholder="Matricula"
+                            formControlName="matricula">
+                  </mat-form-field>
+                  <div class="overlap-text">
+                    <mat-form-field [color]="accent">
+                      <input matInput
+                              type="password"
+                              placeholder="Senha"
+                              formControlName="senha">
+                    </mat-form-field>
+                  </div>
+                  <div class="div-button">
+                      <button class="botao botao-verde" (click)="logar(formularioLogin.value)" [disabled]="formularioLogin.get('matricula').hasError('required') || formularioLogin.get('senha').hasError('required')" type="button"> Login </button>
+                  </div>
+                </div>
+          </form>
+          </mat-tab>
+
+          <mat-tab label="Registro">
+              <form [formGroup]="formularioRegistro" class="text-center">
+                  <div class="header">
+                    <img class="logo-login" src="https://fga-eps-mds.github.io/2019.2-Amika-Wiki/assets/img/AmikaComNome.png" />
+                  </div>
+                  <div class="div-button">
+                      <small *ngIf='this.autenticacaoService.errors'>Os dados estão incorretos.</small>
+                  </div>
+                  <div class="l-part componenteRegistro">
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                placeholder="Matricula"
+                                formControlName="username">
+                      </mat-form-field>
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                placeholder="Nome"
+                                formControlName="first_name">
+                      </mat-form-field>
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                placeholder="Sobrenome"
+                                formControlName="last_name">
+                      </mat-form-field>
+                      <mat-form-field [color]="accent">
+                        <input matInput
+                                type="password"
+                                placeholder="Senha"
+                                formControlName="password">
+                      </mat-form-field>
+                    <div class="div-button">
+                        <button class="botao botao-verde" (click)="cadastrarAluno(formularioRegistro.value)" type="button"> Cadastrar </button>
+                    </div>
+                  </div>
+            </form>
+          </mat-tab>
+      </mat-tab-group>
   </div>
 </div>
