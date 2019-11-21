@@ -128,3 +128,9 @@ mat-sidenav{
   background-color: #6fafa0;
   color: white;
 }
+
+::ng-deep .mat-drawer-content {
+  overflow-x: hidden !important;
+  overflow-y: auto!important;
+  height: 101% !important;
+ }
