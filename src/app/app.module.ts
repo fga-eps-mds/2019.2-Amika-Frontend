@@ -34,6 +34,7 @@ import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-reg
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
+import { MateriaisComponent } from './materiais/materiais.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -56,7 +57,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     CriarAgendasDialogo,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MateriaisComponent,
   ],
   entryComponents: [
     CriarTurmasDialogo,
