@@ -56,9 +56,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
+    CriarAgendasDialogo,
     PageNotFoundComponent,
     MateriaisComponent,
-    CriarAgendasDialogo,
   ],
   entryComponents: [
     CriarTurmasDialogo,
