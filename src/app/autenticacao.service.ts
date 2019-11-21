@@ -19,27 +19,6 @@ export class AutenticacaoService implements CanActivate {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  get(caminho) {
-    this.setHeader();
-    return this.http.get(environment.urlApi + caminho, this.httpOptions);
-  }
-
-  delete(caminho) {
-    this.setHeader();
-    return this.http.delete(environment.urlApi + caminho, this.httpOptions);
-  }
-
-  post(caminho, data) {
-    this.setHeader();
-    return this.http.post(environment.urlApi + caminho, data, this.httpOptions);
-  }
-
-  put(caminho, data) {
-    this.setHeader();
-    return this.http.put(environment.urlApi + caminho, data, this.httpOptions);
-  }
-
-
   canActivate() {
     const params = this.getJWTParams();
     if (params && !params['superusuario']) {

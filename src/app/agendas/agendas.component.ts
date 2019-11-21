@@ -1,3 +1,4 @@
+import { FormularioService } from './../formulario.service';
 import { Agenda } from './agendas.model';
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,9 +23,9 @@ export class AgendasComponent implements OnInit {
 
   constructor(private agendaService: AgendaService, private formBuilder: FormBuilder,
     private router: Router, private modalService: BsModalService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog, private formularioService: FormularioService) {
     this.getter();
-    this.formularioAgenda = this.agendaService.createFormAgenda();
+    this.formularioAgenda = this.formularioService.createFormAgenda();
   }
 
   ngOnInit() {
@@ -60,14 +61,9 @@ export class AgendasComponent implements OnInit {
     this.deleteModalRef.hide();
   }
 
-  validarData() {
-    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
-  }
-
-
   onSubmit() {
     this.submitted = true;
-    this.validarData();
+    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
     if (this.formularioAgenda.valid) {
       this.agendaService.create_agenda(this.formularioAgenda.value).subscribe((data: any) => {
         this.formularioAgenda.reset();
@@ -131,9 +127,9 @@ export class CriarAgendasDialogo {
   error: any={isError:false,errorMessage:''};
   agendasComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
-    this.formularioAgenda = this.agendaService.createFormAgenda();
-    if (this.data.formularioAgenda) {
+  constructor(private agendaService: AgendaService, private formularioService: FormularioService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+    this.formularioAgenda = this.formularioService.createFormAgenda();
+    if (this.data.formularioAgenda) {agendaService
       this.formularioAgenda.patchValue(this.data.formularioAgenda);
     }
   }
@@ -141,13 +137,9 @@ export class CriarAgendasDialogo {
   onClick(): void {
   }
   
-  validarData() {
-    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
-  }
-
   submit(form) {
     this.submitted = true;
-    this.validarData();
+    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
     if (this.formularioAgenda.valid) {
       this.dialogRef.close(`${JSON.stringify(form.value)}`);
     }

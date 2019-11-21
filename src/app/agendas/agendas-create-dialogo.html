@@ -30,14 +30,14 @@
             </div>
 
               <div class="col-md-12">
-                  <input onfocus="(this.type='date')" class="form-control tipoData" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Data de disponibilização" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="validarData()">
+                  <input onfocus="(this.type='date')" class="form-control tipoData" id="data_disponibilizacaoAgenda" aria-describedby="data_disponibilizacaoAgenda" placeholder="Data de disponibilização" formControlName="data_disponibilizacao" [ngClass]="{ 'is-invalid': submitted && hasError('data_disponibilizacao') }" (blur)="this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento)">
                   <mat-error *ngIf="submitted && hasError('data_disponibilizacao')">
                       Por favor, informe uma data de disponibilização válida.
                     </mat-error>
                 </div>
 
                 <div class="col-md-12">
-                    <input onfocus="(this.type='date')" class="form-control tipoData" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Data de encerramento" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="validarData()" >
+                    <input onfocus="(this.type='date')" class="form-control tipoData" id="data_encerramentoAgenda" aria-describedby="data_encerramentoAgenda" placeholder="Data de encerramento" formControlName="data_encerramento" [ngClass]="{ 'is-invalid': submitted && hasError('data_encerramento') }" (blur)="this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento)" >
                     <div *ngIf="error.isError">
                         <small class="texto-erro"> {{ error.errorMessage }} </small>
                       </div>

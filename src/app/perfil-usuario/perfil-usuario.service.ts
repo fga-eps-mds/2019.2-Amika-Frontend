@@ -1,5 +1,5 @@
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
-import { AutenticacaoService } from './../autenticacao.service';
 import { Observable } from 'rxjs';
 
 
@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 
 export class PerfilUsuarioService {
-  constructor(private autenticacao: AutenticacaoService) {}
+  constructor(private requisicao: RequisicoesService) {}
    public get_usuario(id): Observable<any> {
-    return this.autenticacao.get('aluno/' + id + '/');
+    return this.requisicao.get('aluno/' + id + '/');
   }
 }

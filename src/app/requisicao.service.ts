@@ -1,5 +1,5 @@
+import { RequisicoesService } from './requisicoes.service';
 import { Injectable } from '@angular/core';
-import { AutenticacaoService } from './autenticacao.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +7,10 @@ import { AutenticacaoService } from './autenticacao.service';
 export class RequisicaoService {
   errors;
 
-  constructor(private autenticacao: AutenticacaoService) {}
+  constructor(private requisicao: RequisicoesService) {}
 
   realizarRequisicao(dadosAluno) {
-    return this.autenticacao.post('aluno/', dadosAluno)
+    return this.requisicao.post('aluno/', dadosAluno)
                     .subscribe(data => {
                       console.log(data);
                       this.errors = null;
@@ -23,7 +23,7 @@ export class RequisicaoService {
   }
 
   requisicaoMatriculaIndividual(dadosIndividuais) {
-    return this.autenticacao.post('registro/', dadosIndividuais)
+    return this.requisicao.post('registro/', dadosIndividuais)
       .subscribe(data => {
         console.log(data);
         this.errors = null;

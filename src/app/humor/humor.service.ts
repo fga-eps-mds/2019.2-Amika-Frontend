@@ -1,4 +1,4 @@
-import { AutenticacaoService } from './../autenticacao.service';
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -6,18 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HumorService {
-  constructor(private autenticacao: AutenticacaoService) {
+  constructor(private requisicao: RequisicoesService) {
   }
 
   public create_humor(humor): Observable<any> {
-    return this.autenticacao.post('humor/', humor);
+    return this.requisicao.post('humor/', humor);
   }
 
   public get_humor(): Observable<any> {
-    return this.autenticacao.get('humors/');
+    return this.requisicao.get('humors/');
   }
 
   public get_status(): Observable<any> {
-    return this.autenticacao.get('humor_status/')
+    return this.requisicao.get('humor_status/')
   }
 }

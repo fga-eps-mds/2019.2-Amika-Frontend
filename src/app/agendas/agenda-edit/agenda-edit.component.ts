@@ -1,3 +1,4 @@
+import { FormularioService } from './../../formulario.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AgendaService } from './../agenda.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,7 @@ export class AgendaEditComponent implements OnInit {
   submitted = false;
   agendaComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(private agendaService: AgendaService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -28,7 +29,7 @@ export class AgendaEditComponent implements OnInit {
         });
       }
       );
-    this.formularioAgenda = this.agendaService.createFormAgenda();
+    this.formularioAgenda = this.formularioService.createFormAgenda();
    }
 
   ngOnInit() {
@@ -36,10 +37,6 @@ export class AgendaEditComponent implements OnInit {
 
   return() {
     this.router.navigate(['agenda']);
-  }
-
-  validarData() {
-    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
   }
 
   updateForm(agenda) {
@@ -55,7 +52,7 @@ export class AgendaEditComponent implements OnInit {
 
   onSave() {
     this.submitted = true;
-    this.validarData();
+    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento)
     this.route.params.subscribe(
       (params: any) => {
         if (this.formularioAgenda.valid) {

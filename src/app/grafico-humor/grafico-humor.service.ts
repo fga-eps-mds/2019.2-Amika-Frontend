@@ -1,16 +1,15 @@
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AutenticacaoService } from './../autenticacao.service';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class GraficoHumorService {
-  constructor(private autenticacao: AutenticacaoService) {}
+  constructor(private requisicao: RequisicoesService) {}
 
     public get_grafico(turma): Observable<any>{
-      return this.autenticacao.get('grafico/'+turma);
+      return this.requisicao.get('grafico/'+turma);
     }
   }
 

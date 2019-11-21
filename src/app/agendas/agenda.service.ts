@@ -1,32 +1,31 @@
-import { AutenticacaoService } from './../autenticacao.service';
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormBuilder, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AgendaService {
-  constructor(private formBuilder: FormBuilder, private autenticacao: AutenticacaoService) {}
+  constructor(private requisicao: RequisicoesService) {}
 
   public get_agendas(): Observable<any> {
-    return this.autenticacao.get('agendas/');
+    return this.requisicao.get('agendas/');
   }
 
   public delete_agenda(id): Observable<any> {
-    return this.autenticacao.delete('agenda/' + id);
+    return this.requisicao.delete('agenda/' + id);
   }
 
   public create_agenda(agenda): Observable<any> {
-    return this.autenticacao.post('agenda/', agenda);
+    return this.requisicao.post('agenda/', agenda);
   }
 
   public edit_agenda(id, agenda): Observable<any> {
-    return this.autenticacao.put('agenda/' + id, agenda);
+    return this.requisicao.put('agenda/' + id, agenda);
   }
 
   public get_agenda(id) {
-    return this.autenticacao.get('agenda/' + id);
+    return this.requisicao.get('agenda/' + id);
   }
 
   public validarData(data_disponibilizacao, data_encerramento){
@@ -36,16 +35,5 @@ export class AgendaService {
     else {
       return {isError:false,errorMessage:''};
     }
-  }
-
-  public createFormAgenda() {
-    return this.formBuilder.group({
-      nome: ['', Validators.required],
-      descricao: ['', Validators.required],
-      tipo: ['', Validators.required],
-      data_disponibilizacao: ['', Validators.required],
-      data_encerramento: ['', Validators.required],
-      id: ['']
-      })
   }
 }

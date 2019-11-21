@@ -1,7 +1,6 @@
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AutenticacaoService } from './../autenticacao.service';
-import { FormBuilder, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -9,41 +8,33 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 export class GrupoService {
 
-  constructor(private formBuilder: FormBuilder, private autenticacao: AutenticacaoService) {}
+  constructor(private requisicao: RequisicoesService) {}
 
   public get_grupos(): Observable<any> {
-    return this.autenticacao.get('grupos/');
+    return this.requisicao.get('grupos/');
   }
 
   public delete_grupos(id): Observable<any> {
-    return this.autenticacao.delete('grupo/' + id + '/');
+    return this.requisicao.delete('grupo/' + id + '/');
   }
 
   public create_grupos(grupo): Observable<any> {
-    return this.autenticacao.post('grupo/', grupo);
+    return this.requisicao.post('grupo/', grupo);
   }
 
   public edit_grupos(id, grupo): Observable<any> {
-    return this.autenticacao.put('grupo/' + id + '/', grupo);
+    return this.requisicao.put('grupo/' + id + '/', grupo);
   }
 
   public getById(id) {
-    return this.autenticacao.get('grupo/' + id + '/');
+    return this.requisicao.get('grupo/' + id + '/');
   }
 
   public get_alunos(): Observable<any> {
-    return this.autenticacao.get('alunos/');
+    return this.requisicao.get('alunos/');
   }
 
   public popula_grupo(): Observable<any> {
-    return this.autenticacao.get('popula-grupo/');
+    return this.requisicao.get('popula-grupo/');
   }
-
-  public createFormGrupo() {
-    return this.formBuilder.group({
-      nome: ['', Validators.required],
-      id: ""
-    });
-  }
-
 }

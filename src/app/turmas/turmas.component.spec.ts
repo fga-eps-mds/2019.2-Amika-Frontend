@@ -1,3 +1,4 @@
+import { LISTA_TURMA, LISTA_TURMA_NOVA, TURMA_E, TURMA_DETAILS, TURMA_A, TURMA_ERRO, MENSAGEM_ERRO } from './turma.constants';
 import { AppModule } from './../app.module';
 import { LoginComponent } from './../login/login.component';
 import { TurmaService } from './turma.service';
@@ -20,24 +21,13 @@ describe('TurmasComponent', () => {
   let httpMock: HttpTestingController;
   let service: TurmaService;
   let injector: TestBed;
-  const listaTurmasTeste = [
-    { id: 1, descricao: 'A' },
-    { id: 2, descricao: 'B' },
-    { id: 3, descricao: 'C' },
-    { id: 4, descricao: 'G' },
-  ];
-  const listaTurmasNova = [
-    { id: 1, descricao: 'A' },
-    { id: 2, descricao: 'B' },
-    { id: 3, descricao: 'C' },
-    { id: 4, descricao: 'G' },
-    { id: 5, descricao: 'K' },
-  ];
-  const turmaE = { descricao: 'E' };
-  const turmaDetails = { id: 1, descricao: 'A' };
-  const turma = { id: 1, descricao: 'A' };
-  const turmaErro = { id:99, descricao: 'ABC'}
-  const mensagemErro = {erro: "Não é possível fazer esta requisição"};
+  const listaTurmasTeste = LISTA_TURMA;
+  const listaTurmasNova = LISTA_TURMA_NOVA;
+  const turmaE = TURMA_E;
+  const turmaDetails = TURMA_DETAILS;
+  const turma = TURMA_A;
+  const turmaErro = TURMA_ERRO
+  const mensagemErro = MENSAGEM_ERRO;
   const turmasServiceStub = {
     get_turmas() {
       if (!component.error){
