@@ -23,8 +23,18 @@ mat-sidenav{
 }
 
 .title-center {
-  flex: 1 1 auto;
-  text-align: center;
+    flex: 1 1 auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+#link-homepage {
+  color: #ffffff;
+}
+
+#link-homepage:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .example-spacer {
@@ -40,8 +50,9 @@ mat-sidenav{
 }
 
 .perfil {
-  border-bottom: 1px solid #ced5d4;
-  max-width: 200px;
+    border-bottom: 1px solid #ced5d4;
+    min-width: 6.6em;
+    max-width: 7em;
 }
 
 .foto-perfil {
@@ -54,7 +65,8 @@ mat-sidenav{
 }
 
 .content {
-  position: fixed;
+    position: fixed;
+    font-size: 30px;
 }
 
 .informacao-perfil{

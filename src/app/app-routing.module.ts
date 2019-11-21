@@ -14,7 +14,6 @@ import { FormularioSatisfacaoComVidaComponent } from './formulario-satisfacao-co
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
-import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import {ListaDeMatriculaComponent} from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
