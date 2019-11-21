@@ -24,14 +24,7 @@ export class AgendasComponent implements OnInit {
     private router: Router, private modalService: BsModalService,
     public dialog: MatDialog) {
     this.getter();
-    this.formularioAgenda = this.formBuilder.group({
-      nome: ['', Validators.required],
-      descricao: ['', Validators.required],
-      tipo: ['', Validators.required],
-      data_disponibilizacao: ['', Validators.required],
-      data_encerramento: ['', Validators.required],
-      id: ['']
-    });
+    this.formularioAgenda = this.agendaService.createForm();
   }
 
   ngOnInit() {
@@ -139,26 +132,9 @@ export class CriarAgendasDialogo {
   agendasComponent: AgendasComponent;
 
   constructor(private agendaService: AgendaService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+    this.formularioAgenda = this.agendaService.createForm();
     if (this.data.formularioAgenda) {
-    this.formularioAgenda = this.formBuilder.group({
-      nome: ['', Validators.required],
-      descricao: ['', Validators.required],
-      tipo: ['', Validators.required],
-      data_disponibilizacao: ['', Validators.required],
-      data_encerramento: ['', Validators.required],
-      id: ['']
-      });
       this.formularioAgenda.patchValue(this.data.formularioAgenda);
-    }
-    else {
-      this.formularioAgenda = this.formBuilder.group({
-        nome: ['', Validators.required],
-        descricao: ['', Validators.required],
-        tipo: ['', Validators.required],
-        data_disponibilizacao: ['', Validators.required],
-        data_encerramento: ['', Validators.required],
-        id: ['']
-      });
     }
   }
 

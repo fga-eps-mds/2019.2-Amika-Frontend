@@ -1,12 +1,13 @@
 import { AutenticacaoService } from './../autenticacao.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AgendaService {
-  constructor(private autenticacao: AutenticacaoService) {}
+  constructor(private formBuilder: FormBuilder, private autenticacao: AutenticacaoService) {}
 
   public get_agendas(): Observable<any> {
     return this.autenticacao.get('agendas/');
@@ -37,4 +38,14 @@ export class AgendaService {
     }
   }
 
+  public createForm() {
+    return this.formBuilder.group({
+      nome: ['', Validators.required],
+      descricao: ['', Validators.required],
+      tipo: ['', Validators.required],
+      data_disponibilizacao: ['', Validators.required],
+      data_encerramento: ['', Validators.required],
+      id: ['']
+      })
+  }
 }

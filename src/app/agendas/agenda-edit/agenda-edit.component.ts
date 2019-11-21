@@ -28,14 +28,7 @@ export class AgendaEditComponent implements OnInit {
         });
       }
       );
-    this.formularioAgenda = this.formBuilder.group({
-      id: [null],
-      nome: ['', Validators.required],
-      tipo: ['', Validators.required],
-      descricao: ['', Validators.required],
-      data_disponibilizacao: ['', Validators.required],
-      data_encerramento: ['', Validators.required],
-    });
+    this.formularioAgenda = this.agendaService.createForm();
    }
 
   ngOnInit() {
