@@ -28,7 +28,7 @@ export class AgendaEditComponent implements OnInit {
         });
       }
       );
-    this.formularioAgenda = this.agendaService.createForm();
+    this.formularioAgenda = this.agendaService.createFormAgenda();
    }
 
   ngOnInit() {

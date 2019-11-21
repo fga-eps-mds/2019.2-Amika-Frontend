@@ -38,7 +38,7 @@ export class AgendaService {
     }
   }
 
-  public createForm() {
+  public createFormAgenda() {
     return this.formBuilder.group({
       nome: ['', Validators.required],
       descricao: ['', Validators.required],

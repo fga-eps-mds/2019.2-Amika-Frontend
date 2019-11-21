@@ -24,7 +24,7 @@ export class AgendasComponent implements OnInit {
     private router: Router, private modalService: BsModalService,
     public dialog: MatDialog) {
     this.getter();
-    this.formularioAgenda = this.agendaService.createForm();
+    this.formularioAgenda = this.agendaService.createFormAgenda();
   }
 
   ngOnInit() {
@@ -132,7 +132,7 @@ export class CriarAgendasDialogo {
   agendasComponent: AgendasComponent;
 
   constructor(private agendaService: AgendaService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
-    this.formularioAgenda = this.agendaService.createForm();
+    this.formularioAgenda = this.agendaService.createFormAgenda();
     if (this.data.formularioAgenda) {
       this.formularioAgenda.patchValue(this.data.formularioAgenda);
     }

@@ -28,10 +28,7 @@ export class GrupoEditComponent implements OnInit {
         });
       }
       );
-    this.formularioGrupo = this.formBuilder.group({
-      id: [null],
-      nome: ['', Validators.required],
-    });
+      this.formularioGrupo = this.grupoService.createFormGrupo();
    }
 
   ngOnInit() {

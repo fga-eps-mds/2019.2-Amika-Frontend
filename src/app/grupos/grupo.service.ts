@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AutenticacaoService } from './../autenticacao.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { AutenticacaoService } from './../autenticacao.service';
 
 export class GrupoService {
 
-  constructor(private autenticacao: AutenticacaoService) {}
+  constructor(private formBuilder: FormBuilder, private autenticacao: AutenticacaoService) {}
 
   public get_grupos(): Observable<any> {
     return this.autenticacao.get('grupos/');
@@ -36,6 +37,13 @@ export class GrupoService {
 
   public popula_grupo(): Observable<any> {
     return this.autenticacao.get('popula-grupo/');
+  }
+
+  public createFormGrupo() {
+    return this.formBuilder.group({
+      nome: ['', Validators.required],
+      id: ""
+    });
   }
 
 }
