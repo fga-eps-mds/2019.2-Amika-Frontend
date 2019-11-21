@@ -18,7 +18,7 @@ export class AgendaEditComponent implements OnInit {
   submitted = false;
   agendaComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(private agendaService: AgendaService, public agendaComponent: AgendaComponent, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -45,17 +45,6 @@ export class AgendaEditComponent implements OnInit {
     this.router.navigate(['agenda']);
   }
 
-  validarData(){
-    const data_disponibilizacao = this.formularioAgenda.value.data_disponibilizacao;
-    const data_encerramento = this.formularioAgenda.value.data_encerramento;
-    if (new Date(data_disponibilizacao) >= new Date(data_encerramento)){
-        this.error = {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
-    } 
-    else {
-      this.error={isError:false,errorMessage:''};
-    }
-  }
-
   updateForm(agenda) {
     this.formularioAgenda.patchValue({
       id: agenda.id,
@@ -69,7 +58,7 @@ export class AgendaEditComponent implements OnInit {
 
   onSave() {
     this.submitted = true;
-    this.validarData();
+    this.agendaComponent.validarData();
     this.route.params.subscribe(
       (params: any) => {
         if (this.formularioAgenda.valid) {
