@@ -211,9 +211,21 @@ fieldset {
 
 .cabecalho {
   /* background: #6fafa0; */
+  display: flex;
+  justify-content: center;
   text-align: center;
   height: 6em;
   padding: 1.5em;
   margin-bottom: 4rem;
   color: #000;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.botaoVoltar {
+  margin-bottom: 5em;
 }

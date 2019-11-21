@@ -196,10 +196,12 @@ fieldset {
 .cabecalho {
   /* background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
   background: linear-gradient(to left, #a0e0e4, #e194b5); */
+  display: flex;
+  justify-content: center;
   text-align: center;
   height: 6em;
   padding: 1.5em;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   color: #000;
 }
 
@@ -211,3 +213,12 @@ fieldset {
   display: block;
 }
 
+.container-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.botaoVoltar {
+  margin-bottom: 5em;
+}
