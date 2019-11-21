@@ -28,6 +28,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   formulario: FormGroup;
   formularioLista: FormGroup;
   arrayTeste = [];
+  submitted = false;
   formIndividualEnviado = false;
   formListaEnviado = false;
   turmas: Turma;
@@ -49,6 +50,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   onSubmit(dadosFormulario) {
+    this.submitted = true;
     this.formIndividualEnviado = true;
 
     if (this.formulario.valid) {
@@ -104,10 +106,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   registrar(informacao) {
-    console.log('Lista enviada', informacao);
-    console.log(JSON.stringify(informacao));
     this.listaService.enviar(JSON.stringify(informacao));
-    console.log(this.listaService.errors);
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
@@ -147,13 +146,12 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.records = [];
   }
 
-  hasErrorLista(field: string) {
+  ErrorLista(field: string) {
     return this.formularioLista.get(field).errors;
   }
 
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
-      console.log(data);
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
