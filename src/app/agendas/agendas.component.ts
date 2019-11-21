@@ -21,7 +21,7 @@ export class AgendasComponent implements OnInit {
   @ViewChild('deleteModal', {static: false}) deleteModal;
 
   constructor(private agendaService: AgendaService, private formBuilder: FormBuilder,
-    private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
+    private router: Router, private modalService: BsModalService,
     public dialog: MatDialog) {
     this.getter();
     this.formularioAgenda = this.formBuilder.group({
@@ -67,16 +67,10 @@ export class AgendasComponent implements OnInit {
     this.deleteModalRef.hide();
   }
 
-  validarData(){
-    const data_disponibilizacao = this.formularioAgenda.value.data_disponibilizacao;
-    const data_encerramento = this.formularioAgenda.value.data_encerramento;
-    if (new Date(data_disponibilizacao) >= new Date(data_encerramento)){
-        this.error = {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
-    } 
-    else {
-      this.error={isError:false,errorMessage:''};
-    }
+  validarData() {
+    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
   }
+
 
   onSubmit() {
     this.submitted = true;
@@ -142,8 +136,9 @@ export class CriarAgendasDialogo {
   formularioAgenda: FormGroup;
   submitted = false;
   error: any={isError:false,errorMessage:''};
+  agendasComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, public agendaComponent: AgendasComponent, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  constructor(private agendaService: AgendaService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     if (this.data.formularioAgenda) {
     this.formularioAgenda = this.formBuilder.group({
       nome: ['', Validators.required],
@@ -169,10 +164,14 @@ export class CriarAgendasDialogo {
 
   onClick(): void {
   }
+  
+  validarData() {
+    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
+  }
 
   submit(form) {
     this.submitted = true;
-    this.agendaComponent.validarData();
+    this.validarData();
     if (this.formularioAgenda.valid) {
       this.dialogRef.close(`${JSON.stringify(form.value)}`);
     }
