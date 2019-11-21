@@ -10,6 +10,6 @@ import { Observable } from 'rxjs';
 export class PerfilUsuarioService {
   constructor(private autenticacao: AutenticacaoService) {}
    public get_usuario(id): Observable<any> {
-    return this.http.get('aluno/' + id + '/');
+    return this.autenticacao.get('aluno/' + id + '/');
   }
 }

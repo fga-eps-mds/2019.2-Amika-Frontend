@@ -46,13 +46,11 @@ export class AgendaEditComponent implements OnInit {
   }
 
   validarData(){
-    if (this.formularioAgenda.value.data_disponibilizacao && this.formularioAgenda.value.data_encerramento){
-      if (new Date(this.formularioAgenda.value.data_disponibilizacao) < new Date(this.formularioAgenda.value.data_encerramento)){
-        this.error={isError:false,errorMessage:''};
-      } else {
+    const data_disponibilizacao = this.formularioAgenda.value.data_disponibilizacao;
+    const data_encerramento = this.formularioAgenda.value.data_encerramento;
+    if (new Date(data_disponibilizacao) >= new Date(data_encerramento)){
         this.error = {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
-      }
-    }
+    } 
     else {
       this.error={isError:false,errorMessage:''};
     }
