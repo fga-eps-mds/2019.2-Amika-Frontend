@@ -12,7 +12,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
-import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
   { path: 'area-informativa', component: AreaInformativaComponent},
-  { path: 'perfil_usuario', component : PerfilUsuarioComponent},
   { path: 'grafico/:id', component : GraficoHumorComponent},
   { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
   { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },

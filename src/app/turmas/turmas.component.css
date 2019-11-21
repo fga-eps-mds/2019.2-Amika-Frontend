@@ -285,7 +285,7 @@
     bottom: 5.5em;
     width: 4em;
     height: 4em;
-    margin: 5% auto;
+    margin: 10% auto;
     left: 0;
     right: 0;
     justify-content: center;
@@ -300,4 +300,24 @@
     height: 54px;
     width: 54px;
     font-size:41px !important;
+  }
+
+
+  .mat-form-field {
+    width: 90%;
+  }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #dd709f !important;
+   }
+
+   ::ng-deep .mat-form-field-underline {
+    background-color: #dd709f !important;
+    height: 0.1em !important;
+  }
+
+  ::ng-deep .mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #dd709f !important;
   }

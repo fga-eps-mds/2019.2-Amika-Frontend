@@ -19,9 +19,13 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 
+  - echo -e "\nENV COVERALLS_REPO_TOKEN ${COVERALLS_REPO_TOKEN}" >> Dockerfile.test
+
 script:
   - docker-compose -f docker-compose-tests.yml up -d --build
-  - docker exec -it frontend-tests ng test --watch=false --code-coverage --reporters=teamcity,coverage-istanbul
+  - docker exec -it frontend-tests sh -c '
+      ng test --watch=false --code-coverage --reporters=teamcity,coverage-istanbul &&
+      cat ./coverage/amika-frontend/lcov.info | ./node_modules/coveralls/bin/coveralls.js'
 
 after_script:
   - docker-compose down --remove-orphans
