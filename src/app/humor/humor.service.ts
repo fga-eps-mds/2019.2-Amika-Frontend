@@ -1,26 +1,23 @@
-import { AutenticacaoService } from './../autenticacao.service';
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HumorService {
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-    this.autenticacao.setHeader();
+  constructor(private requisicao: RequisicoesService) {
   }
 
   public create_humor(humor): Observable<any> {
-    return this.http.post(environment.urlApi + 'humor/', humor, this.autenticacao.httpOptions);
+    return this.requisicao.post('humor/', humor);
   }
 
   public get_humor(): Observable<any> {
-    return this.http.get(environment.urlApi + 'humors/', this.autenticacao.httpOptions);
+    return this.requisicao.get('humors/');
   }
 
   public get_status(): Observable<any> {
-    return this.http.get(environment.urlApi + 'humor_status/', this.autenticacao.httpOptions)
+    return this.requisicao.get('humor_status/')
   }
 }

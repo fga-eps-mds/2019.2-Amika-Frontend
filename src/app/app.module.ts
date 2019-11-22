@@ -1,3 +1,5 @@
+import { FormularioService } from './formulario.service';
+import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -85,7 +87,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     TurmaService,
     AutenticacaoService,
     GrupoService,
-    AgendaService
+    AgendaService,
+    RequisicoesService,
+    FormularioService
   ],
   bootstrap: [AppComponent]
 })
