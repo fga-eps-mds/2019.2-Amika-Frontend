@@ -1,28 +1,27 @@
 <div class="tela-cheia">
-        <h2>Meu grupo</h2>
+
+
+  <h3 class="titulo">Meu grupo</h3>
+
   <div class="row">
-          <div class="col-md-6" id="paginaGrupo" *ngFor="let aluno of alunos">
-            <div class="force-overflow">
-              <div class="grupos">
-                <mat-accordion class="example-headers-align">
-                  <mat-expansion-panel class="grupos-cards flex-fill" hideToggle  >
-                    <mat-expansion-panel-header>
-                      <mat-panel-description>
-                        <img [src]="aluno.foto ? fotoUrl(aluno.foto) : 'https://www.w3schools.com/howto/img_avatar.png'" alt="Avatar" class="foto-aluno" >
-                        <div>
-                        </div>
-                      </mat-panel-description>
-                    </mat-expansion-panel-header>
-                    <div>
-                      <p class="card-text card-nome only-desktop">{{aluno.first_name}} {{aluno.last_name}}</p>
-                      <p class="card-text card-nome only-mobile" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}">{{aluno.first_name}} {{aluno.last_name}}</p>
-                      <p class="card-text card-matricula">{{aluno.username}}</p>
-                    </div>
-                  </mat-expansion-panel>
-                </mat-accordion>
-              </div>
-            </div>
-          </div>
+    <div class="col-md-6" id="paginaGrupo" *ngFor="let aluno of alunos">
+      <div class="row">
+        <div class="grupo-row" style="width: 80%; margin-top: 2em; margin-left: 10%;">
+          <img style="height: 100%; width: auto; padding: 10px 10px" [src]="aluno.foto ? fotoUrl(aluno.foto) : 'https://www.w3schools.com/howto/img_avatar.png'" alt="Avatar" class="foto-aluno" >
+          <h2 class="only-desktop" style="margin-top: 12px"> {{aluno.first_name}} {{aluno.last_name}} </h2>
+          <h2 class="only-mobile" style="margin-top: 12px" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}">{{aluno.first_name}} {{aluno.last_name}}</h2>
+          <h2 class="only-desktop" style="margin-bottom: 12px" > Matrícula: {{aluno.username}} </h2>
+          <h2 class="only-mobile" style="margin-bottom: 12px" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}"> Matrícula: {{aluno.username}} </h2>
+          <!-- <div>
+          <p class="card-text card-nome only-desktop">{{aluno.first_name}} {{aluno.last_name}}</p>
+          <p class="card-text card-nome only-mobile" [ngStyle]="{'font-size': tamanhoNome(aluno.first_name, aluno.last_name)}">{{aluno.first_name}} {{aluno.last_name}}</p>
+          <p class="card-text card-matricula">{{aluno.username}}</p>
+          </div> -->
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-  
+
+
+

@@ -8,6 +8,11 @@ h1, h5, h6 {
     font-family: "Nunito", sans-serif;
     text-align: center;
   }
+  
+  h3{
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+  }
 
   .row {
       display: flex;
@@ -15,13 +20,31 @@ h1, h5, h6 {
       margin-left: 0;
   }
 
+  .titulo{
+    margin-bottom: 1em;
+    font-weight: bold
+  }
+
+
   .foto-aluno {
     width: 3em;
     height: 3em;
     float: left;
-    margin-right: 1em;
+    margin-right: 0em;
     border-radius: 50%;
   }
+
+  .grupo-row {
+    font-family: 'Varela Round', sans-serif;
+    /* font-family: 'Bad Script', cursive; */
+    /* font-family: 'Farro', sans-serif; */
+    /* font-family: 'Racing Sans One', cursive; */
+    /* font-family: 'Contrail One', cursive; */
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+  }
+
 
   .grupos {
     width: 100%;
@@ -70,7 +93,7 @@ h1, h5, h6 {
   }
 
 
-  .card-nome {  
+  .card-nome {
     color: #000000;
     font-weight: bold;
     font-style: italic;
@@ -92,7 +115,7 @@ h1, h5, h6 {
       display:  none;
     }
   }
-  
+
   @media only screen and (min-width: 768px) {
     .only-mobile {
       display:  none;
