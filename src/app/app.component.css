@@ -105,6 +105,8 @@ mat-sidenav{
   width: 100%;
   box-shadow: 0 -0.3px 0.3px -1px black;
   z-index: 100;
+  margin: 0;
+  left: 0%;
 }
 
 /* Style the links inside the navigation bar */
