@@ -22,7 +22,6 @@ import { HumorComponent } from './humor/humor.component';
 import { RatingModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
-import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
@@ -34,6 +33,7 @@ import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -49,9 +49,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AgendasComponent,
     AgendaEditComponent,
     HumorComponent,
-    PerfilUsuarioComponent,
     AreaInformativaComponent,
-    PerfilUsuarioComponent,
     GraficoHumorComponent,
 
     CriarTurmasDialogo,
@@ -59,7 +57,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     CriarAgendasDialogo,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MateriaisComponent,
   ],
   entryComponents: [
     CriarTurmasDialogo,
