@@ -121,6 +121,10 @@ input[type="file"] {
   width: 1em;
 }
 
+::ng-deep .texto-error {
+  font-size: 0.8em;
+}
+
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
   color: #dd709f !important;

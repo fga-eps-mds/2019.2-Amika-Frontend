@@ -29,7 +29,6 @@ export class ListaDeMatriculaComponent implements OnInit {
   formularioLista: FormGroup;
   arrayTeste = [];
   submitted = false;
-  formIndividualEnviado = false;
   formListaEnviado = false;
   turmas: Turma;
   error: any;
@@ -40,7 +39,7 @@ export class ListaDeMatriculaComponent implements OnInit {
               private listaService: ListaService, private turmaService: TurmaService) {
     this.getter();
     this.formulario = this.formBuilder.group({
-      matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+      matricula: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(9), Validators.maxLength(9)]],
       turma: ['', Validators.required],
     }),
     this.formularioLista = this.formBuilder.group({
@@ -51,12 +50,10 @@ export class ListaDeMatriculaComponent implements OnInit {
 
   onSubmit(dadosFormulario) {
     this.submitted = true;
-    this.formIndividualEnviado = true;
-
     if (this.formulario.valid) {
-        this.cadastroIndividual(dadosFormulario);
-        this.formulario.reset();
-        this.formIndividualEnviado = false;
+      this.cadastroIndividual(dadosFormulario);
+      this.formulario.reset();
+      this.submitted = false;
     }
   }
 
