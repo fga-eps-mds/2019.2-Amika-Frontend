@@ -1,0 +1,68 @@
+<ng-container *ngIf="data.tipo === 'criacao'">
+  <h2 mat-dialog-title>Realizar Agenda {{data.agenda.nome}}</h2>
+  <div mat-dialog-content>
+    <p>Texto</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.realizacao.texto" placeholder="Escreva um texto sobre a realização desta agenda.">
+    </mat-form-field>
+    <p>Anexo</p>
+    <input type="file" (change)="data.anexo = $event.target.files[0]">
+  </div>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close
+            (click)="criaAgendaRealizada(data.tipo, data.agenda.id, data.realizacao.texto, data.anexo)"
+            style="float: right; color: #FFFFFF; background: #6fafa0;">
+      Criar
+    </button>
+    <button mat-button mat-dialog-close
+            style="float: right; color: #FFFFFF; background: #6fafa0;">
+      Cancelar
+    </button>
+  </mat-dialog-actions>
+</ng-container>
+
+
+<ng-container *ngIf="data.tipo === 'alteracao'">
+  <h2 mat-dialog-title>Atualizar Agenda {{data.agenda.nome}}</h2>
+  <div mat-dialog-content>
+    <p>Texto</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.realizacao.texto">
+    </mat-form-field>
+    <p>Anexo</p>
+    <input type="file" (change)="data.anexo = $event.target.files[0]">
+  </div>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close
+            (click)="editaAgendaRealizada(data.tipo, data.realizacao.id, data.realizacao.texto, data.anexo)"
+            style="float: right; color: #FFFFFF; background: #6fafa0;">
+      Atualizar
+    </button>
+    <button mat-button mat-dialog-close
+            style="float: right; color: #FFFFFF; background: #6fafa0;">
+      Cancelar
+    </button>
+  </mat-dialog-actions>
+</ng-container>
+
+
+<ng-container *ngIf="data.tipo === 'delecao'">
+  <h2 mat-dialog-title>Deletar agenda {{data.agenda.nome}}?</h2>
+  <div mat-dialog-content>
+    <p>Esta ação não poderá ser revertida.</p>
+  </div>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close
+            (click)="deletaAgendaRealizada(data.tipo, data.realizacao.id)"
+            style="float: right; color: #FFFFFF; background: #6fafa0;">
+      Sim
+    </button>
+    <button mat-button mat-dialog-close
+            style="float: right; color: #FFFFFF; background: #6fafa0;">
+      Cancelar
+    </button>
+  </mat-dialog-actions>
+</ng-container>

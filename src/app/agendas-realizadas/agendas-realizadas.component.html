@@ -1,0 +1,86 @@
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+<script data-autoinit="true" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js"></script>
+
+<div class="tela-cheia">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">Agendas Não Realizadas</h2>
+      <div *ngIf="agendasNaoRealizadas?.length > 0; then temAgendasNaoRealizadas else naoTemAgendasNaoRealizadas"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">Agendas Realizadas</h2>
+      <div *ngIf="agendasRealizadas?.length > 0; then temAgendasRealizadas else naoTemAgendasRealizadas"></div>
+    </div>
+  </div>
+</div>
+
+<ng-template #temAgendasNaoRealizadas>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let agenda of agendasNaoRealizadas" class="cards" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4">
+                {{agenda.nome}}
+              </div>
+              <div class="col-sm-4">
+                {{agenda.tipo}}
+              </div>
+              <div class="col-sm-4">
+                {{agenda.data_disponibilizacao | date:'dd/MM/yyyy'}} - {{agenda.data_encerramento | date:'dd/MM/yyyy'}}
+              </div>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><b>Descrição</b>: {{agenda.descricao}}</p>
+      <div *ngIf="agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.data_encerramento">
+        <button type="button" (click)="openDialog('criacao', agenda)" class="btn" style="float: right; color: #FFFFFF; background: #6fafa0;">Realizar</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
+<ng-template #naoTemAgendasNaoRealizadas>
+  <h6 style="text-align: center;">Não há agendas não realizadas.</h6>
+</ng-template>
+
+<ng-template #temAgendasRealizadas>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let agenda of agendasRealizadas" class="cards" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4">
+                {{agenda.agenda.nome}}
+              </div>
+              <div class="col-sm-4">
+                {{agenda.agenda.tipo}}
+              </div>
+              <div class="col-sm-4">
+                {{agenda.agenda.data_disponibilizacao | date:'dd/MM/yyyy'}} - {{agenda.agenda.data_encerramento | date:'dd/MM/yyyy'}}
+              </div>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><b>Descrição</b>: {{agenda.agenda.descricao}}</p>
+      <p><b>Texto</b>: {{agenda.realizacao.texto}}</p>
+      <div *ngIf="agenda.realizacao.anexo"><p><b>Anexo</b>: {{agenda.realizacao.anexo?.split('/')[4]}}</p></div>
+      <div *ngIf="!agenda.realizacao.anexo"><p><b>Anexo</b>: Não há anexo.</p></div>
+      <div *ngIf="agenda.agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.agenda.data_encerramento">
+        <button type="button" (click)="openDialog('alteracao', agenda)" class="btn" style="float: right; color: #FFFFFF; background: #6fafa0;">Editar</button>
+        <button type="button" (click)="openDialog('delecao', agenda)" class="btn" style="float: right; color: #FFFFFF; background: #6fafa0;">Excluir</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
+<ng-template #naoTemAgendasRealizadas>
+  <h6 style="text-align: center;">Não há agendas realizadas.</h6>
+</ng-template>

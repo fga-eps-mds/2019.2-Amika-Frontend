@@ -26,7 +26,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { ChartsModule } from 'ng2-charts';
-
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
@@ -35,6 +34,9 @@ import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricu
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AgendasRealizadasComponent } from './agendas-realizadas/agendas-realizadas.component';
+import { AgendasRealizadasService } from "./agendas-realizadas/agendas-realizadas.service";
+import { AgendasRealizadasDialogComponent } from './agendas-realizadas/agendas-realizadas-dialog/agendas-realizadas-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,18 +52,20 @@ import { MatDialogModule } from '@angular/material/dialog';
     HumorComponent,
     AreaInformativaComponent,
     GraficoHumorComponent,
-
     CriarTurmasDialogo,
     CriarGruposDialogo,
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     CriarAgendasDialogo,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AgendasRealizadasComponent,
+    AgendasRealizadasDialogComponent
   ],
   entryComponents: [
     CriarTurmasDialogo,
     CriarAgendasDialogo,
-    CriarGruposDialogo
+    CriarGruposDialogo,
+    AgendasRealizadasDialogComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -83,7 +87,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     TurmaService,
     AutenticacaoService,
     GrupoService,
-    AgendaService
+    AgendaService,
+    AgendasRealizadasService
   ],
   bootstrap: [AppComponent]
 })
