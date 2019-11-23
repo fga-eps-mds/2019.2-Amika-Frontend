@@ -32,6 +32,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   formListaEnviado = false;
   turmas: Turma;
   error: any;
+  submitted: any;
   public records: any[] = [];
   @ViewChild('csvReader', {static: false}) csvReader: any;
 
