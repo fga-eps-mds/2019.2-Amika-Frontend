@@ -16,9 +16,11 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import {ListaDeMatriculaComponent} from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import * as jwt_decode from "jwt-decode";
 
 function isAdmin() {
   try {
+    console.log(jwt_decode(localStorage.getItem('Authorization'))['superusuario']);
     return jwt_decode(localStorage.getItem('Authorization'))['superusuario'];
   }
   catch (e) {
@@ -27,7 +29,7 @@ function isAdmin() {
 }
 
 const routes: Routes = [
-  { path: '',      component: isAdmin() ? HomepageComponent : GruposComponent },
+  { path: '',      component: isAdmin() ? AgendasComponent : AgendasRealizadasComponent },
   { path: 'login', component: LoginComponent },
   { path: 'grupos', component: GruposComponent},
   { path: 'editar_grupo/:id', component: GrupoEditComponent},
