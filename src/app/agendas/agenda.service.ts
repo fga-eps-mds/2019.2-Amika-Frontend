@@ -31,7 +31,7 @@ export class AgendaService {
   public validarData(data_disponibilizacao, data_encerramento){
     if (new Date(data_disponibilizacao) >= new Date(data_encerramento)){
       return {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
-    } 
+    }
     else {
       return {isError:false,errorMessage:''};
     }
