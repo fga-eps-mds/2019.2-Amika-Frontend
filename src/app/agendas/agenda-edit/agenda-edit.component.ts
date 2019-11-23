@@ -19,7 +19,7 @@ export class AgendaEditComponent implements OnInit {
   submitted = false;
   agendaComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(public agendaService: AgendaService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
