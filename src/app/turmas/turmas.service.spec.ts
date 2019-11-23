@@ -1,3 +1,4 @@
+import { LISTA_TURMA, TURMA_DETAILS, TURMA_A, TURMA_E } from './turma.constants';
 import { AppModule } from './../app.module';
 import { LoginComponent } from './../login/login.component';
 import { TurmaService } from './turma.service';
@@ -9,8 +10,6 @@ import { HttpClientTestingModule, HttpTestingController } from "@angular/common/
 import { RouterTestingModule } from '@angular/router/testing';
 import { environment } from 'src/environments/environment';
 import {MatDialogRef, MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-
 
 describe('TurmasComponent', () => {
   let component: TurmasComponent;
@@ -54,26 +53,20 @@ describe('TurmasComponent', () => {
   });
 
   const listaTurmasTeste = {
-    data: [
-      { id: 1, descricao: 'A' },
-      { id: 2, descricao: 'B' },
-      { id: 3, descricao: 'C' },
-      { id: 4, descricao: 'G' },
-    ]
+    data: LISTA_TURMA
   };
 
   const turmaE = {
-    data:
-    { descricao: 'E' }
+    data: TURMA_E
   };
 
   const turmaDetails = {
-    data: [
-      { id: 1, descricao: 'A' },
-    ]
+    data: TURMA_DETAILS
   };
 
-  const turma = { id: 1, descricao: 'A' };
+  const turma = {
+    data: TURMA_A
+  }
 
   it('get_turmas() should return data', () => {
     service.get_turmas().subscribe((res:any) => {
