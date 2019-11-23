@@ -17,8 +17,17 @@ import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-reg
 import {ListaDeMatriculaComponent} from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+function isAdmin() {
+  try {
+    return jwt_decode(localStorage.getItem('Authorization'))['superusuario'];
+  }
+  catch (e) {
+    return false;
+  }
+}
+
 const routes: Routes = [
-  { path: '',      component: HomepageComponent },
+  { path: '',      component: isAdmin() ? HomepageComponent : GruposComponent },
   { path: 'login', component: LoginComponent },
   { path: 'grupos', component: GruposComponent},
   { path: 'editar_grupo/:id', component: GrupoEditComponent},
