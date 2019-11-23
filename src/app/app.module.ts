@@ -1,3 +1,5 @@
+import { FormularioService } from './formulario.service';
+import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -35,6 +37,7 @@ import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -67,7 +70,8 @@ const appRoutes: Routes = [
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     CriarAgendasDialogo,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MateriaisComponent,
   ],
   entryComponents: [
     CriarTurmasDialogo,
@@ -98,7 +102,9 @@ const appRoutes: Routes = [
     TurmaService,
     AutenticacaoService,
     GrupoService,
-    AgendaService
+    AgendaService,
+    RequisicoesService,
+    FormularioService
   ],
   bootstrap: [AppComponent]
 })

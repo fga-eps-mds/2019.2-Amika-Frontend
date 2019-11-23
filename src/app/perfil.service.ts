@@ -1,8 +1,8 @@
+import { AutenticacaoService } from './autenticacao.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { AutenticacaoService } from './autenticacao.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +11,13 @@ import { AutenticacaoService } from './autenticacao.service';
 export class PerfilService {
   constructor(
     private http: HttpClient,
-    private autenticacaoService: AutenticacaoService,
+    private autenticacao: AutenticacaoService,
   ) {
-    this.autenticacaoService.setHeader();
+    this.autenticacao.setHeader();
   }
 
   public perfilAluno(id): Observable<any> {
-    return this.http.get(`${environment.urlApi}aluno/${id}/`, this.autenticacaoService.httpOptions);
+    return this.http.get(`${environment.urlApi}aluno/${id}/`, this.autenticacao.httpOptions);
   }
 
   public trocaFoto(id, formData): Observable<any> {

@@ -1,3 +1,4 @@
+import { FormularioService } from './../formulario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -14,15 +15,10 @@ export class AlunoAutoRegistroComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router:Router, private requisicaoService:RequisicaoService) {
-    this.formulario = this.formBuilder.group({
-      username: ['', Validators.required],
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
-      password: ['', Validators.required]
-    })
+  constructor(private formBuilder: FormBuilder, private router:Router, private requisicaoService:RequisicaoService, private formularioService:FormularioService) {
+    this.formulario = this.formularioService.createFormRegistro();
   }
-
+  
   cadastrarAluno(dadosAluno) {
     console.log('Usuario cadastrado!');
     let dados = {"username" : dadosAluno.username, "first_name": dadosAluno.first_name, "last_name": dadosAluno.last_name, "password": dadosAluno.password}

@@ -1,3 +1,4 @@
+import { FormularioService } from './../../formulario.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { GrupoService } from '../grupo.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,7 @@ export class GrupoEditComponent implements OnInit {
   submitted = false;
   grupoComponent: GruposComponent;
 
-  constructor(private grupoService: GrupoService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(private grupoService: GrupoService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -28,10 +29,7 @@ export class GrupoEditComponent implements OnInit {
         });
       }
       );
-    this.formularioGrupo = this.formBuilder.group({
-      id: [null],
-      nome: ['', Validators.required],
-    });
+      this.formularioGrupo = this.formularioService.createFormGrupo();
    }
 
   ngOnInit() {

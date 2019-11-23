@@ -42,7 +42,7 @@ export class TurmasComponent implements OnInit {
   criarDialogoAdicionarTurma(): void {
     let dialogRef = this.dialog.open(CriarTurmasDialogo, {
       width: '250px',
-      data: {formularioTurma: null, title: "Adicionar turma"}
+      data: {formularioTurma: null, title: 'Adicionar turma'}
     });
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
@@ -53,7 +53,7 @@ export class TurmasComponent implements OnInit {
   criarDialogoEditarTurma(turma): void {
     const dialogRef = this.dialog.open(CriarTurmasDialogo, {
       width: '250px',
-      data: {formularioTurma: turma, title: "Editar turma"}
+      data: {formularioTurma: turma, title: 'Editar turma'}
     });
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
@@ -124,17 +124,17 @@ export class TurmasComponent implements OnInit {
   templateUrl: 'turmas-create-dialogo.html',
   styleUrls: ['./turmas-create-dialogo.css']
 })
+
 export class CriarTurmasDialogo {
   formularioTurma: FormGroup;
   constructor( public dialogRef: MatDialogRef<CriarTurmasDialogo>, public formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     if (this.data.formularioTurma) {
       this.formularioTurma = this.formBuilder.group({
         descricao: ['', Validators.required],
-        id: ""
+        id: ''
       });
       this.formularioTurma.patchValue(this.data.formularioTurma);
-    }
-    else {
+    } else {
       this.formularioTurma = this.formBuilder.group({
         descricao: ['', Validators.required]
       });

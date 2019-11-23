@@ -105,13 +105,15 @@ mat-sidenav{
 
 /* Place the navbar at the bottom of the page, and make it stick */
 .bottom-nav {
-background-color: white;
-overflow: hidden;
-position: absolute;
-bottom: 0%;
-width: 100%;
-box-shadow: 0 -0.3px 0.3px -1px black;
-z-index: 100;
+  background-color: white;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  box-shadow: 0 -0.3px 0.3px -1px black;
+  z-index: 100;
+  margin: 0;
+  left: 0%;
 }
 
 /* Style the links inside the navigation bar */
@@ -135,3 +137,9 @@ color: black;
 background-color: #6fafa0;
 color: white;
 }
+
+::ng-deep .mat-drawer-content {
+  overflow-x: hidden !important;
+  overflow-y: auto!important;
+  height: 101% !important;
+ }

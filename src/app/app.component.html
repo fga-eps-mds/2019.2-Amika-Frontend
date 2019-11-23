@@ -123,14 +123,14 @@
 
       </div>
       <mat-toolbar>
-        <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && !isAdmin">
-            <a  routerLink="/humor" routerLinkActive="active" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
+        <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && !isAdmin">
+            <a  routerLink="/humor" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
             <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>info</mat-icon></a>
             <a  routerLink="/agenda" routerLinkActive="active" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
             <a  routerLink="/grupo" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>people</mat-icon></a>
             <a  routerLink="/area-informativa" routerLinkActive="active" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
           </div>
-          <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && isAdmin">
+          <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && isAdmin">
               <a  routerLink="/agenda" routerLinkActive="active" (click)="setTitle('Agendas');"><mat-icon>insert_invitation</mat-icon></a>
               <a  routerLink="/manter-materiais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>insert_drive_file</mat-icon></a>
               <a  routerLink="/grupos" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>group</mat-icon></a>
