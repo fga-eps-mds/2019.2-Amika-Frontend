@@ -9,30 +9,26 @@
           </ng-template>
           <div class="example-small-box">
             <form [formGroup]="formulario" class="turmas_form needs-validation" novalidate id="formIndividual">
-              <div>
-                <mat-form-field [color]="accent" class="input-full-width">
-                  <input matInput
-                  placeholder="Matrícula"
-                  formControlName="matricula" [ngClass]="{ 'is-invalid': submitted && hasError('matricula') }">
-                </mat-form-field>
-                <mat-error *ngIf="submitted && hasError('matricula')">
-                  Por favor, informe uma matrícula válida.
-                </mat-error>
-              </div>
+                    <mat-form-field>
+                      <input matInput
+                              placeholder="Matrícula"
+                              formControlName="matricula" [ngClass]="{ 'is-invalid': submitted && hasError('matricula') }">
+                              <mat-error *ngIf="submitted && hasError('matricula')">
+                                  Por favor, informe uma matrícula válida.
+                                </mat-error>
+                    </mat-form-field>
 
-              <div>
-                <mat-form-field [color]="accent" class="input-full-width">
+                <mat-form-field>
                   <select matNativeControl class="form-control border-none" pattern="" id="turma" aria-describedby="turma" placeholder="Turma" formControlName="turma" [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
                     <option value="" disabled selected>Selecione a turma</option>
                     <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
                     </select>
                     <mat-error *ngIf="submitted && hasError('turma')">Por favor, informe a turma.</mat-error>
-                </mat-form-field> 
-              </div>
-              <div class="text-center" id="enviarForm">
-                <button type="button" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
-              </div>
-            </form>
+                </mat-form-field>
+                <div class="text-center" id="enviarForm">
+                  <button type="button" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
+                </div>
+              </form>
           </div>
         </mat-tab>
         <mat-tab>
@@ -43,7 +39,7 @@
             <form [formGroup]="formularioLista" class="turmas_form needs-validation" novalidate id="listaForm">
               <div id="tituloTurma"><label for="turmaIndividual">Arquivo CSV</label></div>
               <label for="arquivoLista" class="custom-file-upload">
-                <i class="fa fa-cloud-upload"></i> Enviar 
+                <i class="fa fa-cloud-upload"></i> Enviar
               </label>
               <div>
                 <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo"
@@ -51,13 +47,13 @@
                 formControlName="arquivo" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('arquivo') }"/>
               </div>
               <div>
-                <mat-form-field [color]="accent" class="input-full-width">
+                <mat-form-field class="input-full-width">
                     <select matNativeControl class="form-control border-none" pattern="" id="turma" aria-describedby="turma" placeholder="Turma" formControlName="turma" [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
                       <option value="" disabled selected>Selecione a turma</option>
                       <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
                     </select>
                   <mat-error *ngIf="submitted && hasError('turma')">Por favor, informe a turma.</mat-error>
-                </mat-form-field> 
+                </mat-form-field>
               </div>
 
               <div class="botaoCadastrar">

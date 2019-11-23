@@ -21,7 +21,7 @@ export class AgendasComponent implements OnInit {
   deleteModalRef: BsModalRef;
   @ViewChild('deleteModal', {static: false}) deleteModal;
 
-  constructor(private agendaService: AgendaService, private formBuilder: FormBuilder,
+  constructor(public agendaService: AgendaService, private formBuilder: FormBuilder,
     private router: Router, private modalService: BsModalService,
     public dialog: MatDialog, private formularioService: FormularioService) {
     this.getter();
@@ -127,7 +127,7 @@ export class CriarAgendasDialogo {
   error: any={isError:false,errorMessage:''};
   agendasComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, private formularioService: FormularioService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  constructor(public agendaService: AgendaService, private formularioService: FormularioService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     this.formularioAgenda = this.formularioService.createFormAgenda();
     if (this.data.formularioAgenda) {agendaService
       this.formularioAgenda.patchValue(this.data.formularioAgenda);
@@ -136,7 +136,7 @@ export class CriarAgendasDialogo {
 
   onClick(): void {
   }
-  
+
   submit(form) {
     this.submitted = true;
     this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);
