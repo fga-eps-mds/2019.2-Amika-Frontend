@@ -1,0 +1,56 @@
+mat-expansion-panel {
+  background: #E1EDEB;
+}
+
+mat-panel-description {
+  margin: 0;
+  padding-top: 15px;
+}
+
+h6 {
+  text-align: center;
+}
+
+.container {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.col-md-12 {
+  margin: 0;
+}
+
+.descricao {
+  padding: 0 15px 5px;
+}
+
+.realizacao {
+  padding: 5px 15px;
+}
+
+.text-center {
+  margin: 15px;
+}
+
+.botao {
+  color: #FFFFFF;
+  background: #6fafa0;
+  margin: 10px 15px;
+}
+
+.painel_data_disponibilizacao {
+  color: #206b43;
+  font-size: 80%;
+  margin: 0;
+  text-align: end;
+}
+
+.painel_data_encerramento {
+  color: #f30872;
+  font-size: 80%;
+  margin: 0;
+  text-align: end;
+}

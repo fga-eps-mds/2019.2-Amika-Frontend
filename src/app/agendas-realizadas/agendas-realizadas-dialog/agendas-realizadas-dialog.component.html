@@ -10,15 +10,11 @@
   </div>
 
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close
-            (click)="criaAgendaRealizada(data.tipo, data.agenda.id, data.realizacao.texto, data.anexo)"
-            style="float: right; color: #FFFFFF; background: #6fafa0;">
+    <button mat-button mat-dialog-close type="button" class="botao"
+            (click)="criaAgendaRealizada(data.tipo, data.agenda.id, data.realizacao.texto, data.anexo)">
       Criar
     </button>
-    <button mat-button mat-dialog-close
-            style="float: right; color: #FFFFFF; background: #6fafa0;">
-      Cancelar
-    </button>
+    <ng-container *ngTemplateOutlet="botaoCancelar"></ng-container>
   </mat-dialog-actions>
 </ng-container>
 
@@ -35,15 +31,11 @@
   </div>
 
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close
-            (click)="editaAgendaRealizada(data.tipo, data.realizacao.id, data.realizacao.texto, data.anexo)"
-            style="float: right; color: #FFFFFF; background: #6fafa0;">
+    <button mat-button mat-dialog-close type="button" class="btn botao"
+            (click)="editaAgendaRealizada(data.tipo, data.realizacao.id, data.realizacao.texto, data.anexo)">
       Atualizar
     </button>
-    <button mat-button mat-dialog-close
-            style="float: right; color: #FFFFFF; background: #6fafa0;">
-      Cancelar
-    </button>
+    <ng-container *ngTemplateOutlet="botaoCancelar"></ng-container>
   </mat-dialog-actions>
 </ng-container>
 
@@ -55,14 +47,15 @@
   </div>
 
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close
-            (click)="deletaAgendaRealizada(data.tipo, data.realizacao.id)"
-            style="float: right; color: #FFFFFF; background: #6fafa0;">
+    <button mat-button mat-dialog-close type="button" class="botao"
+            (click)="deletaAgendaRealizada(data.tipo, data.realizacao.id)">
       Sim
     </button>
-    <button mat-button mat-dialog-close
-            style="float: right; color: #FFFFFF; background: #6fafa0;">
-      Cancelar
-    </button>
+    <ng-container *ngTemplateOutlet="botaoCancelar"></ng-container>
   </mat-dialog-actions>
 </ng-container>
+
+
+<ng-template #botaoCancelar>
+  <button mat-button mat-dialog-close type="button" class="btn botao">Cancelar</button>
+</ng-template>
