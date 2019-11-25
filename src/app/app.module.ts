@@ -35,6 +35,7 @@ import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GrupoComponent } from './grupo/grupo.component';
 import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -60,6 +61,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ListaDeMatriculaComponent,
     CriarAgendasDialogo,
     PageNotFoundComponent,
+    GrupoComponent,
     MateriaisComponent,
   ],
   entryComponents: [

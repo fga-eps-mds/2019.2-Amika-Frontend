@@ -1,3 +1,4 @@
+import { GrupoComponent } from './grupo/grupo.component';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { HumorComponent } from './humor/humor.component';
 import { NgModule, Component } from '@angular/core';
@@ -17,10 +18,12 @@ import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricu
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MateriaisComponent } from './materiais/materiais.component';
 
+
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'grupos', component: GruposComponent},
+  { path: 'grupo', component: GrupoComponent},
   { path: 'editar_grupo/:id', component: GrupoEditComponent},
   { path: 'humor', component: HumorComponent},
   { path: 'turmas', component: TurmasComponent, canActivate: [AutenticacaoService]  },
