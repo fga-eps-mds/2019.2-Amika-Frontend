@@ -59,7 +59,14 @@ export class TurmaEditComponent implements OnInit {
             console.log(data);
             this.formularioTurma.reset();
             this.return();
-
+            Swal.fire({
+              icon: 'success',
+              title: 'A turma foi editada com sucesso!',
+              buttonsStyling: false,
+              customClass: {
+                confirmButton: 'botao',
+              }
+            });
           }, (error: any) => {
             Swal.fire({
               icon: 'error',

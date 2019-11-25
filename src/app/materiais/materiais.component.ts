@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MateriaisService } from './materiais.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {saveAs as importedSaveAs} from "file-saver";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-materiais',
@@ -61,10 +62,26 @@ export class MateriaisComponent implements OnInit {
           this.uploadForm.reset();
           this.getter();
           this.nome = "";
+          Swal.fire({
+            icon: 'success',
+            title: 'O material foi adicionado com sucesso!',
+            buttonsStyling: false,
+            customClass: {
+              confirmButton: 'botao',
+            }
+          });
         },
         (error: any) => {
           this.error = error;
           console.log(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Não foi possível adicionar o material.',
+            buttonsStyling: false,
+            customClass: {
+              confirmButton: 'botao',
+            }
+          });
         }
         )
       }
@@ -85,6 +102,14 @@ export class MateriaisComponent implements OnInit {
   onConfirmDelete() {
     this.materiaisService.delete_materiais(this.materialSelecionado).subscribe((data: any) => {
       this.getter();
+      Swal.fire({
+        icon: 'success',
+        title: 'O material foi removido com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
     this.deleteModalRef.hide();
  }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { RequisicaoService } from '../requisicao.service';
 import { Turma } from '../turmas/turmas.model';
 import { TurmaService } from '../turmas/turma.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -55,6 +56,24 @@ export class ListaDeMatriculaComponent implements OnInit {
       this.cadastroIndividual(dadosFormulario);
       this.formulario.reset();
       this.submitted = false;
+      Swal.fire({
+        icon: 'success',
+        title: 'A matrícula foi registrada com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
+    }
+    else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Não foi possível registrar.',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }
   }
 
@@ -96,15 +115,22 @@ export class ListaDeMatriculaComponent implements OnInit {
       reader.onerror = function() {
         console.log('Ocorreu um erro ao ler o arquivo!');
       };
-
-    } else {
-      alert('Por favor mande um arquivo CSV válido.');
+    } 
+    else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Por favor mande um arquivo CSV válido.',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
       this.fileReset();
     }
   }
 
   registrar(informacao) {
-    this.listaService.enviar(JSON.stringify(informacao));
+    this.listaService.enviar(JSON.stringify(informacao))
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {

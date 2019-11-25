@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AgendaService } from './agenda.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agendas',
@@ -51,8 +52,24 @@ export class AgendasComponent implements OnInit {
   onConfirmDelete() {
      this.agendaService.delete_agenda(this.agendaSelecionada.id).subscribe((data: any) => {
       this.getter();
+      Swal.fire({
+        icon: 'success',
+        title: 'A agenda foi removida com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }, (error: any) => {
       this.error = error;
+      Swal.fire({
+        icon: 'error',
+        title: 'Não é possível remover esta agenda',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
      this.deleteModalRef.hide();
   }
@@ -68,8 +85,24 @@ export class AgendasComponent implements OnInit {
       this.agendaService.create_agenda(this.formularioAgenda.value).subscribe((data: any) => {
         this.formularioAgenda.reset();
         this.getter();
+        Swal.fire({
+          icon: 'success',
+          title: 'A agenda foi adicionada com sucesso!',
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'botao',
+          }
+        });
       }, (error: any) => {
         this.error = error;
+        Swal.fire({
+          icon: 'error',
+          title: 'Os campos não foram preenchidos corretamente!',
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'botao',
+          }
+        });
       });
     }
   }
@@ -84,10 +117,16 @@ export class AgendasComponent implements OnInit {
       data: {formularioAgenda: null, title: "Adicionar Agenda"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log("DATA");
-      console.log(JSON.parse(data));
       this.formularioAgenda.patchValue(JSON.parse(data));
       this.onSubmit();
+      Swal.fire({
+        icon: 'success',
+        title: 'A agenda foi adicionada com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
   }
 
@@ -98,9 +137,7 @@ export class AgendasComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(data => {
       data = JSON.parse(data)
-      console.log(data);
       this.formularioAgenda.patchValue(data);
-      console.log(this.formularioAgenda.value);
       this.edit();
     });
   }
@@ -108,10 +145,25 @@ export class AgendasComponent implements OnInit {
   edit() {
     this.agendaService.edit_agenda(this.formularioAgenda.value.id, this.formularioAgenda.value).subscribe((data: any) => {
       this.agendas[this.agendas.findIndex(item => item.id === this.formularioAgenda.value.id)] = this.formularioAgenda.value;
+      Swal.fire({
+        icon: 'success',
+        title: 'A agenda foi editada com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }, (error: any) => {
-      console.log("ERRO MAROTÃO")
-      console.log(this.formularioAgenda.value.id)
       this.error = error;
+      Swal.fire({
+        icon: 'error',
+        title: 'Ops, não é possível editar esta agenda.',
+        text: 'Verifique se todos os campos foram preenchidos corretamente.',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
   }
 }

@@ -48,6 +48,14 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.onSubmit();
+      Swal.fire({
+        icon: 'success',
+        title: 'A turma foi adicionada com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
   }
 
@@ -59,12 +67,28 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.edit();
+      Swal.fire({
+        icon: 'success',
+        title: 'A turma foi editada com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
   }
 
   edit() {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
+      Swal.fire({
+        icon: 'success',
+        title: 'A turma foi editada com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }, (error: any) => {
       console.log(error.error);
       Swal.fire({
@@ -100,8 +124,24 @@ export class TurmasComponent implements OnInit {
 
   onConfirmDelete() {
     this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'A turma foi removida com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
       this.getter();
     }, (error: any) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Não é possível remover esta turma',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
       this.error = error;
     });
     this.deleteModalRef.hide();
@@ -116,6 +156,14 @@ export class TurmasComponent implements OnInit {
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
+      Swal.fire({
+        icon: 'success',
+        title: 'A turma foi criada com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }, (error: any) => {
       Swal.fire({
         icon: 'error',

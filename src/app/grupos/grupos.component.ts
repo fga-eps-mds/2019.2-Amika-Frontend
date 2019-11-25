@@ -40,10 +40,16 @@ export class GruposComponent implements OnInit {
       data: {formularioGrupo: null, title: "Adicionar grupo"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log("DATA");
-      console.log(JSON.parse(data));
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.onSubmit();
+      Swal.fire({
+        icon: 'success',
+        title: 'O grupo foi adicionado com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
   }
 
@@ -55,12 +61,28 @@ export class GruposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.edit();
+      Swal.fire({
+        icon: 'success',
+        title: 'O grupo foi editado com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
   }
 
   edit() {
     this.grupoService.edit_grupos(this.formularioGrupo.value.id, this.formularioGrupo.value).subscribe((data: any) => {
       this.grupos[this.grupos.findIndex(item => item.id === this.formularioGrupo.value.id)] = this.formularioGrupo.value;
+      Swal.fire({
+        icon: 'success',
+        title: 'O grupo foi editado com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }, (error: any) => {
       this.error = error;
       Swal.fire({
@@ -101,8 +123,24 @@ export class GruposComponent implements OnInit {
   onConfirmDelete() {
     this.grupoService.delete_grupos(this.grupoSelecionado.id).subscribe((data: any) => {
       this.getter();
+      Swal.fire({
+        icon: 'success',
+        title: 'O grupo foi removido com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }, (error: any) => {
       this.error = error;
+      Swal.fire({
+        icon: 'error',
+        title: 'Não é possível remover este grupo',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     });
     this.deleteModalRef.hide();
   }
@@ -141,7 +179,23 @@ export class GruposComponent implements OnInit {
   popula() {
     this.grupoService.popula_grupo().subscribe((data: any) => {
       this.getter();
+      Swal.fire({
+        icon: 'success',
+        title: 'Os grupos foram criados com sucesso!',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
     }, (error: any) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Ops, não foi possível criar os grupos.',
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: 'botao',
+        }
+      });
       this.error = error;
     });
   }

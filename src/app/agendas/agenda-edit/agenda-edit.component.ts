@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Agenda } from '../agendas.model';
 import { AgendasComponent } from '../agendas.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agenda-edit',
@@ -57,10 +58,26 @@ export class AgendaEditComponent implements OnInit {
       (params: any) => {
         if (this.formularioAgenda.valid) {
           this.agendaService.edit_agenda(params['id'], this.formularioAgenda.value).subscribe((data: any) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'A agenda foi editada com sucesso!',
+              buttonsStyling: false,
+              customClass: {
+                confirmButton: 'botao',
+              }
+            });
             this.formularioAgenda.reset();
             this.return();
           }, (error: any) => {
             this.error = error;
+            Swal.fire({
+              icon: 'error',
+              title: 'Os campos não foram preenchidos corretamente!',
+              buttonsStyling: false,
+              customClass: {
+                confirmButton: 'botao',
+              }
+            });
           });
         }
       }
