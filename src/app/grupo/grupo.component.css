@@ -4,7 +4,7 @@ h1, h5, h6 {
   }
 
   h2 {
-    font-size: x-large;
+    font-size: 1em;
     font-family: "Nunito", sans-serif;
     text-align: center;
   }
@@ -45,6 +45,9 @@ h1, h5, h6 {
     border-radius: 8px;
   }
 
+  .grupo {
+    margin-bottom: 5em;
+  }
 
   .grupos {
     width: 100%;

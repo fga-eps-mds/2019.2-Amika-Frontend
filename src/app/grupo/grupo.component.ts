@@ -32,19 +32,19 @@ export class GrupoComponent implements OnInit {
     return environment.urlApi.slice(0, -1) + foto;
   }
 
-  tamanhoNome(first_name: string, last_name: string) {
+  tamanhoFonteNome(first_name: string, last_name: string) {
     let tamanho_nome = (first_name + last_name).length + 1;
     if (tamanho_nome < 23) {
-      return '12px';
+      return '15px';
     } 
     else if (tamanho_nome < 26) {
-      return '11px';
+      return '14px';
     }
     else if (tamanho_nome < 31) {
-      return '10px';   
+      return '13px';   
     }
     else {
-      return '9px';
+      return '12px';
     }
   }
 
