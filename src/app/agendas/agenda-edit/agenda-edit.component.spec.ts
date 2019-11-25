@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AgendaEditComponent } from './agenda-edit.component';
+import { AppModule } from '../../app.module';
+import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
+
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AgendaEditComponent', () => {
   let component: AgendaEditComponent;
@@ -8,7 +11,11 @@ describe('AgendaEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AgendaEditComponent ]
+      imports: [
+        AppModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+      ],
     })
     .compileComponents();
   }));

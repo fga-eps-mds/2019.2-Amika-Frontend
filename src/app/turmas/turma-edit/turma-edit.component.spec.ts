@@ -1,9 +1,9 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import { TurmaEditComponent } from './turma-edit.component';
+import { AppModule } from '../../app.module';
+import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
+
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TurmaEditComponent', () => {
   let component: TurmaEditComponent;
@@ -11,7 +11,11 @@ describe('TurmaEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TurmaEditComponent ]
+      imports: [
+        AppModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+      ],
     })
     .compileComponents();
   }));

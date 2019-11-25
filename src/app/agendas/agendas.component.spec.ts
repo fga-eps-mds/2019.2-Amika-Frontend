@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AgendasComponent } from './agendas.component';
+import { AppModule } from '../app.module';
+import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
+
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AgendasComponent', () => {
   let component: AgendasComponent;
@@ -8,7 +11,11 @@ describe('AgendasComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AgendasComponent ]
+      imports: [
+        AppModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+      ],
     })
     .compileComponents();
   }));

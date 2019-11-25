@@ -115,7 +115,7 @@
     }
 
   }
-  
+
   .mat-tab-header-pagination.mat-tab-header-pagination-disabled {
     display: none !important;
   }
@@ -123,6 +123,14 @@
   @media only screen and (max-width: 768px) {
     .logo-login {
       width: 7em;
+    }
+    .mat-form-field {
+      width: 90% !important;
+    }
+
+    .main-content {
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -133,5 +141,32 @@
     .main-content {
       width: 60%;
     }
+    .mat-form-field {
+      width: 55% !important;
+    }
+    .componenteRegistro {
+      zoom: 1;
+      -moz-transform: scale(1);
+    }
   }
 
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #dd709f !important;
+   }
+
+   ::ng-deep .mat-form-field-underline {
+    background-color: #dd709f !important;
+    height: 0.1em !important;
+  }
+
+  ::ng-deep .mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #dd709f !important;
+  }
+
+  .componenteRegistro {
+    zoom: 0.70;
+    -moz-transform: scale(0.70);
+  }
