@@ -8,14 +8,14 @@
             class="sidenav">
             <div class="content">
               <mat-list>
-                <div *ngIf="!isAdmin" class="perfil-celular">
-                    <img class="foto-perfil" src="https://cf.ltkcdn.net/socialnetworking/images/orig/168646-425x425-Cat-Avatar-Primary.jpg" alt="">
-                    <h4 class="informacao-perfil">Usuário</h4>
-                    <h4 class="informacao-perfil">Matrícula</h4>
-                </div>
-                <div *ngIf="isAdmin" class="perfil-celular">
-                    <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
-                    <h4 class="informacao-perfil">Usuário</h4>
+                <div class="perfil-celular">
+                  <div *ngIf="!isAdmin">
+                    <div *ngTemplateOutlet="perfilAluno"></div>
+                  </div>
+                  <div *ngIf="isAdmin">
+                      <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
+                      <h4 class="informacao-perfil">Usuário</h4>
+                  </div>
                 </div>
                 <div class="centralizar">
                         <button class="deslogar-celular" (click)="this.autenticacao.deslogar()">Deslogar</button>
@@ -35,7 +35,7 @@
                 <mat-icon>menu</mat-icon>
               </button>
               <h1 class="title-center">{{title}}</h1>
-              <img src="https://raw.githubusercontent.com/fga-eps-mds/2019.2-Amika-Wiki/master/assets/img/AmikasSemNome.png"  alt="Amika" width="40px" height="40px">
+              <a routerLink="/" (click)="toggleMobileNav(lnav); setTitle('Amika');"><img src="https://raw.githubusercontent.com/fga-eps-mds/2019.2-Amika-Wiki/master/assets/img/AmikasSemNome.png"  alt="Amika" width="40px" height="40px"></a>
               <div class="fill-space"></div>
               <span whoami></span>
             </mat-toolbar>
@@ -46,9 +46,7 @@
                     <div class="content">
                         <mat-list *ngIf="!isAdmin">
                             <div class="perfil">
-                                <img class="foto-perfil" src="https://cf.ltkcdn.net/socialnetworking/images/orig/168646-425x425-Cat-Avatar-Primary.jpg" alt="">
-                                <h4 class="informacao-perfil">Usuário</h4>
-                                <h4 class="informacao-perfil">Matrícula</h4>
+                              <div *ngTemplateOutlet="perfilAluno"></div>
                             </div>
                             <mat-list-item>
                                 <mat-icon>folder_shared</mat-icon>
@@ -56,11 +54,11 @@
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>group</mat-icon>
-                                <a mat-button routerLink="/turmas" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Grupo</a>
+                                <a mat-button routerLink="/grupo" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Grupo</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>tag_faces</mat-icon>
-                                <a mat-button routerLink="/humor" (click)="toggleMobileNav(lnav); setTitle('Humor');">Humor do dia</a>
+                                <a mat-button routerLink="/humor" (click)="toggleMobileNav(lnav); setTitle('Humor do dia');">Humor do dia</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>home_work</mat-icon>
@@ -80,24 +78,24 @@
                                 <h4 class="informacao-perfil">Usuário</h4>
                             </div>
                             <mat-list-item>
-                                <mat-icon>subject</mat-icon>
-                                <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Disciplina</a>
+                                <mat-icon>insert_invitation</mat-icon>
+                                <a mat-button routerLink="/agenda" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Agendas');">Agendas</a>
                             </mat-list-item>
                             <mat-list-item>
-                                <mat-icon>notifications_active</mat-icon>
-                                <a mat-button routerLink="/notificacao" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Enviar notificações</a>
+                                <mat-icon>insert_drive_file</mat-icon>
+                                <a mat-button routerLink="/manter-materiais" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Materiais</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>group</mat-icon>
-                                <a mat-button routerLink="/grupos" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Humor');">Grupos</a>
+                                <a mat-button routerLink="/grupos" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Grupos');">Grupos</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>person_add</mat-icon>
-                                <a mat-button routerLink="/lista" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Agenda');">Matrícula</a>
+                                <a mat-button routerLink="/lista" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Matrícula');">Matrícula</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>class</mat-icon>
-                                <a mat-button routerLink="/turmas" (click)="toggleMobileNav(lnav); setTitle('Área informativa');">Turmas</a>
+                                <a mat-button routerLink="/turmas" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Turmas</a>
                             </mat-list-item>
                             <div class="centralizar">
                                 <button class="deslogar" (click)="this.autenticacao.deslogar()">
@@ -117,18 +115,25 @@
 
       </div>
       <mat-toolbar>
-        <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && !isAdmin">
+        <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && !isAdmin">
             <a  routerLink="/humor" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
             <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>info</mat-icon></a>
             <a  routerLink="/agenda" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
             <a  routerLink="/grupo" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>people</mat-icon></a>
             <a  routerLink="/area-informativa" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
           </div>
-          <div class="bottom-nav d-flex justify-content-around" *ngIf="logado && mobileQuery.matches && isAdmin">
-              <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Disciplina');"><mat-icon>subject</mat-icon></a>
-              <a  routerLink="/notificacao" routerLinkActive="active" (click)="setTitle('Notificações');"><mat-icon>notifications_active</mat-icon></a>
+          <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && isAdmin">
+              <a  routerLink="/agenda" routerLinkActive="active" (click)="setTitle('Agendas');"><mat-icon>insert_invitation</mat-icon></a>
+              <a  routerLink="/manter-materiais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>insert_drive_file</mat-icon></a>
               <a  routerLink="/grupos" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>group</mat-icon></a>
               <a  routerLink="/lista" routerLinkActive="active" (click)="setTitle('Lista');"><mat-icon>person_add</mat-icon></a>
               <a  routerLink="/turmas" (click)="setTitle('Turmas');"><mat-icon>class</mat-icon></a>
             </div>
       </mat-toolbar>
+
+
+<ng-template #perfilAluno>
+  <img (click)="adicionaFoto()" class="foto-perfil" src="{{foto}}"/>
+  <h4 class="informacao-perfil">{{username}}</h4>
+  <h4 class="informacao-perfil">{{firstName}}</h4>
+</ng-template>

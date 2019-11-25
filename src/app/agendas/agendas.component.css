@@ -7,273 +7,438 @@ h2 {
   font-family: "Nunito", sans-serif;
 }
 
+table * {
+  border: none;
+}
 
-.tabela-alunos {
-  border: 1px solid #ccc;
-  margin-top: 0;
-  box-shadow: 3px 3px 2px #ccc;
-  transition: 0.5s;
-  font-family: "Nunito", sans-serif;
-  overflow-y: scroll;
-    background: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#eec4d6));
-    background: linear-gradient(to right, #a0e0e4,#eec4d6 );
-  }
+.text-center {
+  text-align: center;
+}
 
-  i {
-    cursor: pointer;
-  }
+.margin-top {
+  margin-top: 2em;
+}
 
-  i:hover {
-    color: black !important;
-  }
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.agendas-row {
+  background: #6fafa02b;
+  width: 100%;
+  border-radius: 8px !important;
+}
+
+.mat-toolbar-multiple-rows {
+  min-height: 40px !important;
+  max-height: 47px !important;
+}
+
+.agendas {
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+i {
+  cursor: pointer;
+}
+
+i:hover {
+  color: black !important;
+}
 
 .tabela-alunos:hover {
-  box-shadow: 3px 3px 0px transparent;
-  transition: 0.5s;
+/* box-shadow: 3px 3px 0px transparent; */
+transition: 0.5s;
+}
+
+.btn-get {
+  font-family: "Nunito", sans-serif;
+  color: #fff !important;
+  text-transform: capitalize;
+  background: #f44b72;
+  padding: 10px 20px 10px;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  text-transform: capitalize !important;
+}
+
+.btn-get::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  height: 100%;
+  width: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
+  background-image: linear-gradient(to right, #e9b1c9, #efe0e6);
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.btn-confirm{
+  padding: 10px 20px 10px;
+  content: '';
+  background-color: #549dc2;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.btn-decline{
+  padding: 10px 20px 10px;
+  content: '';
+  background-color: #dd709f;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+  margin: 0.5rem;
+}
+
+.btn-get:hover::before {
+  width: 100%;
+}
+
+.btn-get span {
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-center{
+  background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
+  background: linear-gradient(to right, #efe0e6, #e194b5);
+  height: 6em;
+  padding: 1.5em;
+  margin-bottom: 4rem;
+}
+
+.agendas_form .form-group label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  color: #575757;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.agendas_form .form-group input,
+.agendas_form .form-group textarea,
+.agendas_form .form-group select {
+  font-size: 1em;
+  border: none;
+  border-bottom: 2px solid #f44b72;
+  /* outline: none; */
+  /* outline-color: #6fafa0; */
+  outline-width: thick;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  height: 6rem;
+}
+
+.agendas_form button.btn.btn-get {
+  position: relative;
+  top: 0px;
+  margin: 0 0 -80px;
+  font-size:20px;
+}
+
+.label-float {
+  position: relative;
+  padding-top: 3em;
+}
+
+.label-float input {
+  border: 0;
+  outline: none;
+  font-size: 0.5em;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -webkit-appearance:none;
+  border-radius:0;
+}
+
+.label-float input:focus {
+  border-bottom: 2px solid #dd709f;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.label-float input::placeholder {
+  color:transparent;
+}
+
+.label-float label {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 3em;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label {
+  font-size: 0.8em;
+  margin-top: 0;
+  color: #dd709f;
+}
+
+#paginaAgenda {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  #paginaagenda {
+    max-width: 100%;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #paginaagenda {
+    justify-content: center;
+    max-width: 100%;
+  }
+}
+
+
+#iconeEditar {
+  margin-right: 0.75em;
+  color: #206b43;
+}
+
+#iconeExcluir {
+  color: #f30872;
+}
+
+.modal-body {
+  background-color: #fff;
+      border-radius: 30px;
+      .agendas_form .form-group label {
+        font-family: "Nunito", sans-serif;
+        font-size: 1em;
+        color: #575757;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        z-index: 0;
+        -webkit-transition: .3s all;
+        transition: .3s all;
+      }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .only-desktop {
+    display:  none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .only-mobile {
+    display:  none;
+  }
+}
+
+.adicionar-agenda {
+  background: #ffb032;
+  position: fixed;
+  bottom: 0.5em;
+  width: 4em;
+  height: 4em;
+  margin: 30% auto;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-content: center;
+}
+
+.margin-bottom {
+  margin-bottom: 8em;
+}
+
+.add-icon {
+  height: 54px;
+  width: 54px;
+  font-size:41px !important;
+}
+
+
+.expansion-panel {
+  flex-basis: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover {
+  background: #6fafa02b;
+}
+
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description {
+  color: rgb(0, 0, 0);
+  font-size: 1.2em;
+  font-family: "Varela Round", sans-serif;
+}
+
+.mat-expansion-panel-header-title {
+  font-size: 1.5em;
+  font-family: "Varela Round", sans-serif;
+}
+
+
+.painel_descricao {
+  margin-top: 0.5em;
+  font-size: 100%;
+  font-family: "Varela Round", sans-serif;
+  line-height: 1em;
+}
+
+.painel_data_disponibilizacao {
+  color: #206b43;
+  font-size: 80%;
+  margin: 0;
+  text-align: end;
+}
+
+.painel_data_encerramento {
+  color: #f30872;
+  font-size: 80%;
+  margin: 0;
+  text-align: end;
+}
+.agendas_form .form-group label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  color: #575757;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.painel_icone {
+  align-items: center;
+  display: flex;
+  color: #6fafa0;
+  font-size: 2em;
+  /* padding-bottom: 0.5em; */
+}
+
+.painel_geral {
+  height: 3em;
+}
+
+.painel_acao {
+  margin-top: 0.5em;
+}
+
+.agendas_form .form-group label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  color: #575757;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+.tipoData {
+  font-size: 1em;
+  border: none;
+  border-bottom: 0.1em solid #dd709f;
+  margin-bottom: 1.5em;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 0;
+
+}
+.tipoData:focus {
+  border: none;
+
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #dd709f !important;
+ }
+
+ ::ng-deep .mat-form-field-underline {
+  background-color: #dd709f !important;
+  height: 0.1em !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #dd709f !important;
+}
+
+::ng-deep .mat-expansion-panel-header
+{
+    min-height: 4em !important;
+    height: 100% !important;
+}
+
+.scroll{
+  overflow-y: scroll;
+  min-height: 13em;
+  max-height: 20em;
+  margin-top: 4em;
+}
+
+@media only screen and (min-width: 768px) {
+  .scroll {
+    overflow: auto;
+    max-height: 30em
   }
 
-  .btn-get {
-    font-family: "Nunito", sans-serif;
-    color: #000 !important;
-    text-transform: capitalize;
-    background-image: -webkit-gradient(linear, left top, right top, from(#a0e0e4), to(#e9b1c9));
-    background-image: linear-gradient(to right, #a0e0e4, #e9b1c9);
-    padding: 10px 20px 10px;
-    position: relative;
-    border: 0;
-    border-radius: 5px;
-    overflow: hidden;
-    text-transform: capitalize !important;
+  .scrollbar {
+    margin-top: 1em;
+    height: 30em;
+    overflow-y: auto;
+    padding-right: 5px;
   }
 
-  .btn-get::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    height: 100%;
-    width: 0;
-    left: 0;
-    background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
-    background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
-    -webkit-transition: .5s ease-out;
-    transition: .5s ease-out;
+  .force-overflow {
+    max-height: 30em;
   }
 
-  .btn-confirm{
-    padding: 10px 20px 10px;
-    content: '';
-    background-color: #549dc2;
-    -webkit-transition: .5s ease-out;
-    transition: .5s ease-out;
+  #style-scroll::-webkit-scrollbar-track {
+    -webkit-box5shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
   }
 
-  .btn-decline{
-    padding: 10px 20px 10px;
-    content: '';
-    background-color: #dd709f;
-    -webkit-transition: .5s ease-out;
-    transition: .5s ease-out;
-    margin: 0.5rem;
+  #style-scroll::-webkit-scrollbar {
+    width: 3px;
+    height: 5px;
+    background-color: #F5F5F5;
   }
 
-  .btn-get:hover::before {
-    width: 100%;
+  #style-scroll::-webkit-scrollbar-thumb {
+    background-color: #000000;
   }
-
-  .btn-get span {
-    position: relative;
-    z-index: 2;
-  }
-
-  .navbar-center{
-    background: -webkit-gradient(linear, left top, right top, from(#e194b5), to(#e9b1c9));
-    background: linear-gradient(to right, #a0e0e4, #e194b5);
-    height: 6em;
-    padding: 1.5em;
-    margin-bottom: 4rem;
-  }
-
-  .agendas_form .form-group label {
-    font-family: "Nunito", sans-serif;
-    font-size: 1em;
-    color: #575757;
-    position: absolute;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    z-index: 0;
-    -webkit-transition: .3s all;
-    transition: .3s all;
-  }
-
-  .agendas_form .form-group input,
-  .agendas_form .form-group textarea,
-  .agendas_form .form-group select {
-    font-size: 1em;
-    border: none;
-    border-bottom: 2px solid #d68fae;
-    outline: none;
-    outline-color: #dd709f;
-    outline-width: thick;
-    padding: 0 2.5rem;
-    position: relative;
-    z-index: 1;
-    background: transparent;
-    height: 4rem;
-  }
-
-  .agendas_form button.btn.btn-get {
-    position: relative;
-    top: 0px;
-    margin: 0 0 -80px;
-    font-size:20px;
-  }
-
-  @-webkit-keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
-  }
-
-  @keyframes AnimationGradient {
-    0% {
-      background-position: 26% 0%;
-    }
-    50% {
-      background-position: 75% 100%;
-    }
-    100% {
-      background-position: 26% 0%;
-    }
-  }
-
-  .label-float {
-    position: relative;
-    /* padding-top: 2em; */
-  }
-
-  .label-float input {
-    border: 0;
-    outline: none;
-    font-size: 0.5em;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -webkit-appearance:none;
-    border-radius:0;
-  }
-
-  .label-float input:focus {
-    border-bottom: 2px solid #dd709f;
-    outline: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
-
-  .label-float input::placeholder {
-    color:transparent;
-  }
-
-  .label-float label {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 0em;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-  }
-
-  .label-float input:focus + label,
-  .label-float input:not(:placeholder-shown) + label d{
-    font-size: 0.8em;
-    margin-top: 30;
-    color: #dd709f;
-  }
-
-  .label-float select:focus + label,
-  .label-float select:not(:placeholder-shown) + label d{
-    font-size: 0.8em;
-    margin-top: 30;
-    color: #dd709f;
-  }
-
-  .label-float select:focus, 
-  .label-float input:focus {
-    border-bottom: 2px solid #dd709f;
-    outline: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
-
-  .border-none:focus
-  {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-  }
-
-  .border-none:active
-  {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-  }
-
-  /* .border-none:focus {
-    border:0px !important;
-    outline: none;
-  }
-
-  .border-none:active {
-    border:0px !important;
-    outline: none;
-  } */
-
-
-  option {
-    border:0px;
-    outline:0px;
-  }
-
-  #paginaAgenda {
-    max-width: 100%
-  }
-
-  #iconeEditar {
-    margin-right: 0.75em;
-    color: blue;
-  }
-
-  #iconeExcluir {
-    color: red;
-  }
-
-  .modal-body {
-    background-color: #fff;
-        border-radius: 30px;
-
-  }
-
-  .scroll{
-    overflow-y: scroll;
-    overflow-x: hidden;
-    min-height: 13em;
-    max-height: 24em;
-  }
-
-  .titulo{
-    margin-bottom: 3em;
-  }
-
-  input[type="date"]::-webkit-inner-spin-button,
-  input[type="date"]::-webkit-calendar-picker-indicator {
-      display: none;
-      -webkit-appearance: none;
-  }
+}

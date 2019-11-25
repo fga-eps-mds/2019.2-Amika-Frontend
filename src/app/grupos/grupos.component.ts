@@ -1,3 +1,4 @@
+import { FormularioService } from './../formulario.service';
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -25,12 +26,9 @@ export class GruposComponent implements OnInit {
 
   constructor(private grupoService: GrupoService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, private formularioService: FormularioService) {
     this.getter();
-    this.formularioGrupo = this.formBuilder.group({
-      nome : ['', Validators.required],
-      id: ['']
-    });
+    this.formularioGrupo = this.formularioService.createFormGrupo();
   }
 
   ngOnInit() {
@@ -172,18 +170,10 @@ export class GruposComponent implements OnInit {
 })
 export class CriarGruposDialogo {
   formularioGrupo: FormGroup;
-  constructor( public dialogRef: MatDialogRef<CriarGruposDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  constructor( public dialogRef: MatDialogRef<CriarGruposDialogo>, private formularioService: FormularioService, private grupoService: GrupoService, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+    this.formularioGrupo = this.formularioService.createFormGrupo();
     if (this.data.formularioGrupo) {
-      this.formularioGrupo = this.formBuilder.group({
-        nome: ['', Validators.required],
-        id: ""
-      });
       this.formularioGrupo.patchValue(this.data.formularioGrupo);
-    }
-    else {
-      this.formularioGrupo = this.formBuilder.group({
-        nome: ['', Validators.required]
-      });
     }
   }
 

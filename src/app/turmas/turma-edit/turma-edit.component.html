@@ -6,13 +6,17 @@
     <form class="main__form needs-validation formularioEditar" novalidade [formGroup] = "formularioTurma">
       <div class="row">
         <div class="col-md-12">
-            <div class="form-group label-float">
-                <input type="text" class="form-control" id="descricaoTurma" aria-describedby="descricaoTurma" placeholder="descricao da Turma" formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
-                <label for="descricaoTurma">Descricao da Turma</label>
-                <div class="invalid-feedback" *ngIf="hasError('descricao')">
-                    Por favor, informe o descricao da turma.
-                  </div>
-            </div>
+          <mat-form-field>
+            <input matInput
+                    placeholder="Nome da Turma"
+                    formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                    <mat-error *ngIf="submitted && hasError('descricao')">
+                        Por favor, informe a descricao da Turma.
+                      </mat-error>
+          </mat-form-field>
+              <div class="invalid-feedback" *ngIf="hasError('descricao')">
+                Por favor, informe a descricao da Turma.
+              </div>
         </div>
         <div class="text-right col-md-6">
           <button type="submit" class=" btn btn-get" (click)="return()"><span> Cancelar</span></button>
