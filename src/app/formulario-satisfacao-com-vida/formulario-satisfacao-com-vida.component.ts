@@ -130,7 +130,7 @@ export class FormularioSatisfacaoComVidaDialog {
 export class FormularioEnviadoDialog {
   constructor(
     public dialogRef: MatDialogRef<FormularioEnviadoDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private router: Router) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData<any>, private router: Router) {}
 
   onClose(): void {
     this.dialogRef.close();

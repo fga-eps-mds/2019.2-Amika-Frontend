@@ -43,10 +43,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormularioFelidadeAutenticaService } from './formulario-felicidade-autentica/formulario_felicidade_autentica.service';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
- // { path: 'hero/:id',      component: HeroDetailComponent },
-  { path: 'formulario', component: FormularioFelicidadeAutenticaComponent}
-
 ];
 
 @NgModule({
