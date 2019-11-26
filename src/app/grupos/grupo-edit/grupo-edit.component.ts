@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Grupo } from '../grupos.model';
 import { GruposComponent } from '../grupos.component';
-import Swal from 'sweetalert2';
+import { AlertaService } from '../../alerta.service';
 
 @Component({
   selector: 'app-grupo-edit',
@@ -19,7 +19,7 @@ export class GrupoEditComponent implements OnInit {
   submitted = false;
   grupoComponent: GruposComponent;
 
-  constructor(private grupoService: GrupoService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(private grupoService: GrupoService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, public alertaService: AlertaService) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -60,16 +60,7 @@ export class GrupoEditComponent implements OnInit {
             this.return();
 
           }, (error: any) => {
-            Swal.fire({
-              icon: 'error',
-              title: 'O nome informado é inválido!',
-              text: error.error.nome[0],
-              buttonsStyling: false,
-              customClass: {
-                confirmButton: 'botao',
-              }
-            });
-            this.error = error;
+            this.alertaService.alertaErro('O nome informado é inválido!');
           });
         }
       }

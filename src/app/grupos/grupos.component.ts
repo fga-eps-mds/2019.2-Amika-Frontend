@@ -6,7 +6,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { GrupoService } from './grupo.service';
 import { Grupo } from './grupos.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import Swal from 'sweetalert2';
+import { AlertaService } from '../alerta.service';
 
 @Component({
   selector: 'app-grupos',
@@ -26,7 +26,7 @@ export class GruposComponent implements OnInit {
 
   constructor(private grupoService: GrupoService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
-              public dialog: MatDialog, private formularioService: FormularioService) {
+              public dialog: MatDialog, private formularioService: FormularioService, public alertaService: AlertaService) {
     this.getter();
     this.formularioGrupo = this.formularioService.createFormGrupo();
   }
@@ -42,14 +42,7 @@ export class GruposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.onSubmit();
-      Swal.fire({
-        icon: 'success',
-        title: 'O grupo foi adicionado com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('O grupo foi adicionado com sucesso!');
     });
   }
 
@@ -61,39 +54,17 @@ export class GruposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.edit();
-      Swal.fire({
-        icon: 'success',
-        title: 'O grupo foi editado com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('O grupo foi editado com sucesso!');
     });
   }
 
   edit() {
     this.grupoService.edit_grupos(this.formularioGrupo.value.id, this.formularioGrupo.value).subscribe((data: any) => {
       this.grupos[this.grupos.findIndex(item => item.id === this.formularioGrupo.value.id)] = this.formularioGrupo.value;
-      Swal.fire({
-        icon: 'success',
-        title: 'O grupo foi editado com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('O grupo foi editado com sucesso!');
     }, (error: any) => {
       this.error = error;
-      Swal.fire({
-        icon: 'error',
-        title: 'O nome informado é inválido!',
-        text: error.error.nome[0],
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('O nome informado é inválido!');
     });
   }
 
@@ -123,24 +94,10 @@ export class GruposComponent implements OnInit {
   onConfirmDelete() {
     this.grupoService.delete_grupos(this.grupoSelecionado.id).subscribe((data: any) => {
       this.getter();
-      Swal.fire({
-        icon: 'success',
-        title: 'O grupo foi removido com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('O grupo foi removido com sucesso!');
     }, (error: any) => {
       this.error = error;
-      Swal.fire({
-        icon: 'error',
-        title: 'Não é possível remover este grupo',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('Não é possível remover este grupo');
     });
     this.deleteModalRef.hide();
   }
@@ -157,15 +114,7 @@ export class GruposComponent implements OnInit {
         this.formularioGrupo.reset();
         this.getter();
       }, (error: any) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'O nome informado é inválido!',
-          text: error.error.nome[0],
-          buttonsStyling: false,
-          customClass: {
-            confirmButton: 'botao',
-          }
-        });
+        this.alertaService.alertaErro('O nome informado é inválido!');
         this.error = error;
       });
     }
@@ -179,23 +128,9 @@ export class GruposComponent implements OnInit {
   popula() {
     this.grupoService.popula_grupo().subscribe((data: any) => {
       this.getter();
-      Swal.fire({
-        icon: 'success',
-        title: 'Os grupos foram criados com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('Os grupos foram criados com sucesso!');
     }, (error: any) => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Ops, não foi possível criar os grupos.',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('Ops, não foi possível criar os grupos.');
       this.error = error;
     });
   }

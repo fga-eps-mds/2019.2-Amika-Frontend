@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { RequisicaoService } from '../requisicao.service';
 import { Turma } from '../turmas/turmas.model';
 import { TurmaService } from '../turmas/turma.service';
-import Swal from 'sweetalert2';
+import { AlertaService } from '../alerta.service';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -38,7 +38,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   @ViewChild('csvReader', {static: false}) csvReader: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService,
-              private listaService: ListaService, private turmaService: TurmaService) {
+              private listaService: ListaService, private turmaService: TurmaService, public alertaService: AlertaService) {
     this.getter();
     this.formulario = this.formBuilder.group({
       matricula: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(9), Validators.maxLength(9)]],
@@ -56,24 +56,10 @@ export class ListaDeMatriculaComponent implements OnInit {
       this.cadastroIndividual(dadosFormulario);
       this.formulario.reset();
       this.submitted = false;
-      Swal.fire({
-        icon: 'success',
-        title: 'A matrícula foi registrada com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A matrícula foi registrada com sucesso!');
     }
     else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Não foi possível registrar.',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('Não foi possível registrar.');
     }
   }
 
@@ -117,14 +103,7 @@ export class ListaDeMatriculaComponent implements OnInit {
       };
     } 
     else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Por favor mande um arquivo CSV válido.',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('Por favor mande um arquivo CSV válido.');
       this.fileReset();
     }
   }

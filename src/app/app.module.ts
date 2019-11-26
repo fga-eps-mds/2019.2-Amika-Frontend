@@ -1,3 +1,4 @@
+import { AlertaService } from './alerta.service';
 import { FormularioService } from './formulario.service';
 import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
@@ -91,7 +92,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     GrupoService,
     AgendaService,
     RequisicoesService,
-    FormularioService
+    FormularioService,
+    AlertaService
   ],
   bootstrap: [AppComponent]
 })

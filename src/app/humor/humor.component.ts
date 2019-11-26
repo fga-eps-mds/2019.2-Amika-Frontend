@@ -4,7 +4,7 @@ import { HumorService } from './humor.service';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import {Observable} from 'rxjs';
-import Swal from 'sweetalert2';
+import { AlertaService } from '../alerta.service';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class HumorComponent implements OnInit {
   isReadonly = false;
 
 
-  constructor(private humorService: HumorService,private datePipe: DatePipe, private router: Router) {
+  constructor(private humorService: HumorService,private datePipe: DatePipe, private router: Router, public alertaService:AlertaService) {
     this.getStatus();
   }
 
@@ -39,16 +39,7 @@ export class HumorComponent implements OnInit {
       data: this.datePipe.transform(this.myDate, 'yyyy-MM-dd'),
     });
     this.humorService.create_humor(this.humor).subscribe((data:any) => {
-      Swal.fire({
-        icon: 'success',
-        title: 'O humor foi adicionado com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      }).then((result) => {
-        window.location.reload();
-      });
+      this.alertaService.alertaSucessoRecarrega('O humor foi adicionado com sucesso!')
     });
   }
 

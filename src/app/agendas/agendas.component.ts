@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AgendaService } from './agenda.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import Swal from 'sweetalert2';
+import { AlertaService } from '../alerta.service';
 
 @Component({
   selector: 'app-agendas',
@@ -24,7 +24,8 @@ export class AgendasComponent implements OnInit {
 
   constructor(public agendaService: AgendaService, private formBuilder: FormBuilder,
     private router: Router, private modalService: BsModalService,
-    public dialog: MatDialog, private formularioService: FormularioService) {
+    public dialog: MatDialog, private formularioService: FormularioService,
+    public alertaService: AlertaService) {
     this.getter();
     this.formularioAgenda = this.formularioService.createFormAgenda();
   }
@@ -52,24 +53,10 @@ export class AgendasComponent implements OnInit {
   onConfirmDelete() {
      this.agendaService.delete_agenda(this.agendaSelecionada.id).subscribe((data: any) => {
       this.getter();
-      Swal.fire({
-        icon: 'success',
-        title: 'A agenda foi removida com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A agenda foi removida com sucesso!');
     }, (error: any) => {
       this.error = error;
-      Swal.fire({
-        icon: 'error',
-        title: 'Não é possível remover esta agenda',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('Não é possível remover esta agenda');
     });
      this.deleteModalRef.hide();
   }
@@ -85,24 +72,10 @@ export class AgendasComponent implements OnInit {
       this.agendaService.create_agenda(this.formularioAgenda.value).subscribe((data: any) => {
         this.formularioAgenda.reset();
         this.getter();
-        Swal.fire({
-          icon: 'success',
-          title: 'A agenda foi adicionada com sucesso!',
-          buttonsStyling: false,
-          customClass: {
-            confirmButton: 'botao',
-          }
-        });
+        this.alertaService.alertaSucesso('A agenda foi adicionada com sucesso!');
       }, (error: any) => {
         this.error = error;
-        Swal.fire({
-          icon: 'error',
-          title: 'Os campos não foram preenchidos corretamente!',
-          buttonsStyling: false,
-          customClass: {
-            confirmButton: 'botao',
-          }
-        });
+        this.alertaService.alertaErro('Os campos não foram preenchidos corretamente!');
       });
     }
   }
@@ -119,14 +92,7 @@ export class AgendasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioAgenda.patchValue(JSON.parse(data));
       this.onSubmit();
-      Swal.fire({
-        icon: 'success',
-        title: 'A agenda foi adicionada com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A agenda foi adicionada com sucesso!');
     });
   }
 
@@ -145,25 +111,10 @@ export class AgendasComponent implements OnInit {
   edit() {
     this.agendaService.edit_agenda(this.formularioAgenda.value.id, this.formularioAgenda.value).subscribe((data: any) => {
       this.agendas[this.agendas.findIndex(item => item.id === this.formularioAgenda.value.id)] = this.formularioAgenda.value;
-      Swal.fire({
-        icon: 'success',
-        title: 'A agenda foi editada com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A agenda foi editada com sucesso!');
     }, (error: any) => {
       this.error = error;
-      Swal.fire({
-        icon: 'error',
-        title: 'Ops, não é possível editar esta agenda.',
-        text: 'Verifique se todos os campos foram preenchidos corretamente.',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('Ops, não é possível editar esta agenda.');
     });
   }
 }

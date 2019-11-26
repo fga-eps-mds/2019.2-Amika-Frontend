@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import Swal from 'sweetalert2';
+import { AlertaService } from '../alerta.service';
 
 export interface CriarTurmasDialogoData {
   formularioTurma: FormGroup;
@@ -29,7 +29,7 @@ export class TurmasComponent implements OnInit {
 
   constructor(public turmaService: TurmaService, public formBuilder: FormBuilder,
               public router: Router, public route: ActivatedRoute, public modalService: BsModalService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, public alertaService:AlertaService) {
     this.formularioTurma = this.formBuilder.group({
       descricao: ['', Validators.required],
       id: ['']
@@ -48,14 +48,7 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.onSubmit();
-      Swal.fire({
-        icon: 'success',
-        title: 'A turma foi adicionada com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A turma foi adicionada com sucesso!');
     });
   }
 
@@ -67,38 +60,17 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.edit();
-      Swal.fire({
-        icon: 'success',
-        title: 'A turma foi editada com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A turma foi editada com sucesso!');
     });
   }
 
   edit() {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
-      Swal.fire({
-        icon: 'success',
-        title: 'A turma foi editada com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A turma foi editada com sucesso!');
     }, (error: any) => {
       console.log(error.error);
-      Swal.fire({
-        icon: 'error',
-        title: 'O nome informado é inválido!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('O nome informado é inválido!');
       this.error = error;
     });
   }
@@ -122,25 +94,11 @@ export class TurmasComponent implements OnInit {
   }
 
   onConfirmDelete() {
-    this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
-      Swal.fire({
-        icon: 'success',
-        title: 'A turma foi removida com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
+      this.alertaService.alertaSucesso('A turma foi removida com sucesso!');
       this.getter();
     }, (error: any) => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Não é possível remover esta turma',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('Não é possível remover esta turma');
       this.error = error;
     });
     this.deleteModalRef.hide();
@@ -155,23 +113,9 @@ export class TurmasComponent implements OnInit {
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
-      Swal.fire({
-        icon: 'success',
-        title: 'A turma foi criada com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaSucesso('A turma foi criada com sucesso!');
     }, (error: any) => {
-      Swal.fire({
-        icon: 'error',
-        title: 'O nome informado é inválido!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alertaErro('O nome informado é inválido!');
       this.error = error;
     });
   }
