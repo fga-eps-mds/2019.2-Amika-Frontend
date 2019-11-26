@@ -7,6 +7,7 @@ import { GrupoService } from './grupo.service';
 import { Grupo } from './grupos.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AlertaService } from '../alerta.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-grupos',
@@ -33,6 +34,10 @@ export class GruposComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  fotoUrl(foto) {
+     return environment.urlApi.slice(0, -1) + foto;
+   }
 
   criarDialogoAdicionarGrupo(): void {
     const dialogRef = this.dialog.open(CriarGruposDialogo, {
@@ -173,4 +178,3 @@ export class CriarGruposDialogo {
     this.dialogRef.close(`${JSON.stringify(form.value)}`);
   }
 }
-

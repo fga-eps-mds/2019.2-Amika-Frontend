@@ -15,6 +15,7 @@ h1, h5, h6 {
 
   .foto-aluno {
     width: 3em;
+    height: 3em;
     float: left;
     margin-right: 1em;
     border-radius: 50%;
