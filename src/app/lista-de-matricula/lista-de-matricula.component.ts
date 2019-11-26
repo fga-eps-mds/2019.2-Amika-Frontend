@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import {CSVRecord} from './CSVModel';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -28,7 +28,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   formulario: FormGroup;
   formularioLista: FormGroup;
   arrayTeste = [];
-  formIndividualEnviado = false;
+  submitted = false;
   formListaEnviado = false;
   turmas: Turma;
   error: any;
@@ -39,7 +39,7 @@ export class ListaDeMatriculaComponent implements OnInit {
               private listaService: ListaService, private turmaService: TurmaService) {
     this.getter();
     this.formulario = this.formBuilder.group({
-      matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+      matricula: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(9), Validators.maxLength(9)]],
       turma: ['', Validators.required],
     }),
     this.formularioLista = this.formBuilder.group({
@@ -49,12 +49,11 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   onSubmit(dadosFormulario) {
-    this.formIndividualEnviado = true;
-
+    this.submitted = true;
     if (this.formulario.valid) {
-        this.cadastroIndividual(dadosFormulario);
-        this.formulario.reset();
-        this.formIndividualEnviado = false;
+      this.cadastroIndividual(dadosFormulario);
+      this.formulario.reset();
+      this.submitted = false;
     }
   }
 
@@ -104,10 +103,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   registrar(informacao) {
-    console.log('Lista enviada', informacao);
-    console.log(JSON.stringify(informacao));
     this.listaService.enviar(JSON.stringify(informacao));
-    console.log(this.listaService.errors);
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
@@ -147,13 +143,12 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.records = [];
   }
 
-  hasErrorLista(field: string) {
+  ErrorLista(field: string) {
     return this.formularioLista.get(field).errors;
   }
 
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
-      console.log(data);
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
