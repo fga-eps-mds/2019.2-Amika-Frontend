@@ -24,13 +24,12 @@ export class HumorComponent implements OnInit {
   erroModalRef: BsModalRef;
   myDate = new Date();
   error: any={isError:false,errorMessage:''};
-  adicionado = false;
+  adicionado = true;
   isReadonly = false;
 
   @ViewChild('erroModal', {static: false}) erroModal;
 
   constructor(private humorService: HumorService,private datePipe: DatePipe, private modalService: BsModalService, private router: Router) {
-    this.getStatus();
   }
 
   save(){
@@ -63,6 +62,7 @@ export class HumorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getStatus();
   }
 
 }
