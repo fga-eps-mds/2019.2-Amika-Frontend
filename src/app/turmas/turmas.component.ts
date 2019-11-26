@@ -48,7 +48,7 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.onSubmit();
-      this.alertaService.alertaSucesso('A turma foi adicionada com sucesso!');
+      this.alertaService.alerta('A turma foi adicionada com sucesso!', 'success', false);
     });
   }
 
@@ -60,17 +60,17 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.edit();
-      this.alertaService.alertaSucesso('A turma foi editada com sucesso!');
+      this.alertaService.alerta('A turma foi editada com sucesso!', 'success', false);
     });
   }
 
   edit() {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
-      this.alertaService.alertaSucesso('A turma foi editada com sucesso!');
+      this.alertaService.alerta('A turma foi editada com sucesso!', 'success', false);
     }, (error: any) => {
       console.log(error.error);
-      this.alertaService.alertaErro('O nome informado é inválido!');
+      this.alertaService.alerta('O nome informado é inválido!', 'error', false);
       this.error = error;
     });
   }
@@ -95,10 +95,10 @@ export class TurmasComponent implements OnInit {
 
   onConfirmDelete() {
       this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
-      this.alertaService.alertaSucesso('A turma foi removida com sucesso!');
+      this.alertaService.alerta('A turma foi removida com sucesso!', 'success', false);
       this.getter();
     }, (error: any) => {
-      this.alertaService.alertaErro('Não é possível remover esta turma');
+      this.alertaService.alerta('Não é possível remover esta turma', 'error', false);
       this.error = error;
     });
     this.deleteModalRef.hide();
@@ -113,9 +113,9 @@ export class TurmasComponent implements OnInit {
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
-      this.alertaService.alertaSucesso('A turma foi criada com sucesso!');
+      this.alertaService.alerta('A turma foi criada com sucesso!', 'success', false);
     }, (error: any) => {
-      this.alertaService.alertaErro('O nome informado é inválido!');
+      this.alertaService.alerta('O nome informado é inválido!', 'error', false);
       this.error = error;
     });
   }

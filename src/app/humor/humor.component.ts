@@ -39,7 +39,7 @@ export class HumorComponent implements OnInit {
       data: this.datePipe.transform(this.myDate, 'yyyy-MM-dd'),
     });
     this.humorService.create_humor(this.humor).subscribe((data:any) => {
-      this.alertaService.alertaSucessoRecarrega('O humor foi adicionado com sucesso!')
+      this.alertaService.alerta('O humor foi adicionado com sucesso!', 'success', true)
     });
   }
 

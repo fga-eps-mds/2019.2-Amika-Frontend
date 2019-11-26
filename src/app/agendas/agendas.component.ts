@@ -53,10 +53,10 @@ export class AgendasComponent implements OnInit {
   onConfirmDelete() {
      this.agendaService.delete_agenda(this.agendaSelecionada.id).subscribe((data: any) => {
       this.getter();
-      this.alertaService.alertaSucesso('A agenda foi removida com sucesso!');
+      this.alertaService.alerta('A agenda foi removida com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
-      this.alertaService.alertaErro('Não é possível remover esta agenda');
+      this.alertaService.alerta('Não é possível remover esta agenda', 'error', false);
     });
      this.deleteModalRef.hide();
   }
@@ -72,10 +72,10 @@ export class AgendasComponent implements OnInit {
       this.agendaService.create_agenda(this.formularioAgenda.value).subscribe((data: any) => {
         this.formularioAgenda.reset();
         this.getter();
-        this.alertaService.alertaSucesso('A agenda foi adicionada com sucesso!');
+        this.alertaService.alerta('A agenda foi adicionada com sucesso!', 'success', false);
       }, (error: any) => {
         this.error = error;
-        this.alertaService.alertaErro('Os campos não foram preenchidos corretamente!');
+        this.alertaService.alerta('Os campos não foram preenchidos corretamente!', 'error', false);
       });
     }
   }
@@ -92,7 +92,7 @@ export class AgendasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioAgenda.patchValue(JSON.parse(data));
       this.onSubmit();
-      this.alertaService.alertaSucesso('A agenda foi adicionada com sucesso!');
+      this.alertaService.alerta('A agenda foi adicionada com sucesso!', 'success', false);
     });
   }
 
@@ -111,10 +111,10 @@ export class AgendasComponent implements OnInit {
   edit() {
     this.agendaService.edit_agenda(this.formularioAgenda.value.id, this.formularioAgenda.value).subscribe((data: any) => {
       this.agendas[this.agendas.findIndex(item => item.id === this.formularioAgenda.value.id)] = this.formularioAgenda.value;
-      this.alertaService.alertaSucesso('A agenda foi editada com sucesso!');
+      this.alertaService.alerta('A agenda foi editada com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
-      this.alertaService.alertaErro('Ops, não é possível editar esta agenda.');
+      this.alertaService.alerta('Ops, não é possível editar esta agenda.', 'error', false);
     });
   }
 }

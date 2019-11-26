@@ -56,10 +56,10 @@ export class ListaDeMatriculaComponent implements OnInit {
       this.cadastroIndividual(dadosFormulario);
       this.formulario.reset();
       this.submitted = false;
-      this.alertaService.alertaSucesso('A matrícula foi registrada com sucesso!');
+      this.alertaService.alerta('A matrícula foi registrada com sucesso!', 'success', false);
     }
     else {
-      this.alertaService.alertaErro('Não foi possível registrar.');
+      this.alertaService.alerta('Não foi possível registrar.', 'error', false);
     }
   }
 
@@ -103,7 +103,7 @@ export class ListaDeMatriculaComponent implements OnInit {
       };
     } 
     else {
-      this.alertaService.alertaErro('Por favor mande um arquivo CSV válido.');
+      this.alertaService.alerta('Por favor mande um arquivo CSV válido.', 'error', false);
       this.fileReset();
     }
   }

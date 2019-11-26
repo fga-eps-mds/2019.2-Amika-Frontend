@@ -58,12 +58,12 @@ export class AgendaEditComponent implements OnInit {
       (params: any) => {
         if (this.formularioAgenda.valid) {
           this.agendaService.edit_agenda(params['id'], this.formularioAgenda.value).subscribe((data: any) => {
-            this.alertaService.alertaSucesso('A agenda foi editada com sucesso!');
+            this.alertaService.alerta('A agenda foi editada com sucesso!', 'success', false);
             this.formularioAgenda.reset();
             this.return();
           }, (error: any) => {
             this.error = error;
-            this.alertaService.alertaErro('Os campos não foram preenchidos corretamente!');
+            this.alertaService.alerta('Os campos não foram preenchidos corretamente!', 'error', false);
           });
         }
       }

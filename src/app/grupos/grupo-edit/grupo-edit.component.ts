@@ -60,7 +60,7 @@ export class GrupoEditComponent implements OnInit {
             this.return();
 
           }, (error: any) => {
-            this.alertaService.alertaErro('O nome informado é inválido!');
+            this.alertaService.alerta('O nome informado é inválido!', 'error', false);
           });
         }
       }

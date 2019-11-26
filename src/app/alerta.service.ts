@@ -8,38 +8,18 @@ import Swal from 'sweetalert2';
 export class AlertaService {
   constructor() {}
 
-  public alertaSucesso(mensagem) {
+  public alerta(mensagem, tipo, reload) {
     return Swal.fire({
-        icon: 'success',
+        icon: tipo,
         title: mensagem,
         buttonsStyling: false,
         customClass: {
           confirmButton: 'botao',
         }
-      });
-  }
-
-  public alertaErro(mensagem) {
-    return Swal.fire({
-        icon: 'error',
-        title: mensagem,
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
+      }).then((result) => {
+        if (reload) {
+          window.location.reload();
         }
       });
-  }
-
-  public alertaSucessoRecarrega(mensagem) {
-    return Swal.fire({
-      icon: 'success',
-      title: mensagem,
-      buttonsStyling: false,
-      customClass: {
-        confirmButton: 'botao',
-      }
-    }).then((result) => {
-      window.location.reload();
-    })
   }
 }

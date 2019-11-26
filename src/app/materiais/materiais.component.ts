@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { MateriaisService } from './materiais.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {saveAs as importedSaveAs} from "file-saver";
-import Swal from 'sweetalert2';
+import { AlertaService } from '../alerta.service';
+
 
 @Component({
   selector: 'app-materiais',
@@ -25,7 +26,7 @@ export class MateriaisComponent implements OnInit {
   deleteModalRef: BsModalRef;
   @ViewChild('deleteModal', {static: false}) deleteModal;
 
-  constructor(private materiaisService: MateriaisService, private modalService: BsModalService, private formBuilder: FormBuilder, private httpClient: HttpClient) {
+  constructor(private materiaisService: MateriaisService, private modalService: BsModalService, private formBuilder: FormBuilder, private httpClient: HttpClient, public alertaService: AlertaService) {
     this.getter();
     this.uploadForm = this.formBuilder.group({
       arquivo: ['']
@@ -62,26 +63,12 @@ export class MateriaisComponent implements OnInit {
           this.uploadForm.reset();
           this.getter();
           this.nome = "";
-          Swal.fire({
-            icon: 'success',
-            title: 'O material foi adicionado com sucesso!',
-            buttonsStyling: false,
-            customClass: {
-              confirmButton: 'botao',
-            }
-          });
+          this.alertaService.alerta('O material foi adicionado com sucesso!', 'success', false)
         },
         (error: any) => {
           this.error = error;
           console.log(error);
-          Swal.fire({
-            icon: 'error',
-            title: 'Não foi possível adicionar o material.',
-            buttonsStyling: false,
-            customClass: {
-              confirmButton: 'botao',
-            }
-          });
+          this.alertaService.alerta('Não foi possível adicionar o material.', 'error', false)
         }
         )
       }
@@ -102,14 +89,7 @@ export class MateriaisComponent implements OnInit {
   onConfirmDelete() {
     this.materiaisService.delete_materiais(this.materialSelecionado).subscribe((data: any) => {
       this.getter();
-      Swal.fire({
-        icon: 'success',
-        title: 'O material foi removido com sucesso!',
-        buttonsStyling: false,
-        customClass: {
-          confirmButton: 'botao',
-        }
-      });
+      this.alertaService.alerta('O material foi removido com sucesso!', 'success', false)
     });
     this.deleteModalRef.hide();
  }

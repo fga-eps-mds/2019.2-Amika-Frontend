@@ -59,9 +59,9 @@ export class TurmaEditComponent implements OnInit {
             console.log(data);
             this.formularioTurma.reset();
             this.return();
-            this.alertaService.alertaSucesso('A turma foi editada com sucesso!');
+            this.alertaService.alerta('A turma foi editada com sucesso!', 'success', false);
           }, (error: any) => {
-            this.alertaService.alertaErro('O nome informado é inválido!');
+            this.alertaService.alerta('O nome informado é inválido!', 'error', false);
             this.error = error;
           });
         }

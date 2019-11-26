@@ -42,7 +42,7 @@ export class GruposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.onSubmit();
-      this.alertaService.alertaSucesso('O grupo foi adicionado com sucesso!');
+      this.alertaService.alerta('O grupo foi adicionado com sucesso!', 'success', false);
     });
   }
 
@@ -54,17 +54,17 @@ export class GruposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.edit();
-      this.alertaService.alertaSucesso('O grupo foi editado com sucesso!');
+      this.alertaService.alerta('O grupo foi editado com sucesso!', 'success', false);
     });
   }
 
   edit() {
     this.grupoService.edit_grupos(this.formularioGrupo.value.id, this.formularioGrupo.value).subscribe((data: any) => {
       this.grupos[this.grupos.findIndex(item => item.id === this.formularioGrupo.value.id)] = this.formularioGrupo.value;
-      this.alertaService.alertaSucesso('O grupo foi editado com sucesso!');
+      this.alertaService.alerta('O grupo foi editado com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
-      this.alertaService.alertaErro('O nome informado é inválido!');
+      this.alertaService.alerta('O nome informado é inválido!', 'error', false);
     });
   }
 
@@ -94,10 +94,10 @@ export class GruposComponent implements OnInit {
   onConfirmDelete() {
     this.grupoService.delete_grupos(this.grupoSelecionado.id).subscribe((data: any) => {
       this.getter();
-      this.alertaService.alertaSucesso('O grupo foi removido com sucesso!');
+      this.alertaService.alerta('O grupo foi removido com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
-      this.alertaService.alertaErro('Não é possível remover este grupo');
+      this.alertaService.alerta('Não é possível remover este grupo', 'error', false);
     });
     this.deleteModalRef.hide();
   }
@@ -114,7 +114,7 @@ export class GruposComponent implements OnInit {
         this.formularioGrupo.reset();
         this.getter();
       }, (error: any) => {
-        this.alertaService.alertaErro('O nome informado é inválido!');
+        this.alertaService.alerta('O nome informado é inválido!', 'error', false);
         this.error = error;
       });
     }
@@ -128,9 +128,9 @@ export class GruposComponent implements OnInit {
   popula() {
     this.grupoService.popula_grupo().subscribe((data: any) => {
       this.getter();
-      this.alertaService.alertaSucesso('Os grupos foram criados com sucesso!');
+      this.alertaService.alerta('Os grupos foram criados com sucesso!', 'success', false);
     }, (error: any) => {
-      this.alertaService.alertaErro('Ops, não foi possível criar os grupos.');
+      this.alertaService.alerta('Ops, não foi possível criar os grupos.', 'error', false);
       this.error = error;
     });
   }
