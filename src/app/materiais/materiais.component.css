@@ -61,9 +61,8 @@ h2, h4 {
     border: none;
   }
 
-  .tela-cheia-materiais {
-    margin: 0;
-    margin-top: 2vh;
+  .tela-cheia-materiais{
+    margin-top: 6vh;
     min-height: 89vh;
     height: auto;
     max-height: 93vh;
@@ -109,8 +108,7 @@ h2, h4 {
   }
 
   .tela-cheia-materiais {
-    margin: 0;
-    margin-top: 2vh;
+    margin-top: 6vh;
     min-height: 89vh;
     height: auto;
     max-height: 93vh;
