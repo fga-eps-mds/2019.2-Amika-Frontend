@@ -203,5 +203,7 @@ h2, h4 {
     justify-content: center;
     padding: 0;
     margin-top: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
   }
   
