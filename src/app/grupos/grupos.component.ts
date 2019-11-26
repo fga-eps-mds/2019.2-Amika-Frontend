@@ -118,6 +118,7 @@ export class GruposComponent implements OnInit {
       this.grupoService.create_grupos(this.formularioGrupo.value).subscribe((data: any) => {
         this.formularioGrupo.reset();
         this.getter();
+        this.alertaService.alerta('O grupo foi adicionado com sucesso', 'success', false);
       }, (error: any) => {
         this.alertaService.alerta('O nome informado é inválido!', 'error', false);
         this.error = error;
