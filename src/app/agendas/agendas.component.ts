@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AgendaService } from './agenda.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AlertaService } from '../alerta.service';
 
 @Component({
   selector: 'app-agendas',
@@ -21,9 +22,10 @@ export class AgendasComponent implements OnInit {
   deleteModalRef: BsModalRef;
   @ViewChild('deleteModal', {static: false}) deleteModal;
 
-  constructor(private agendaService: AgendaService, private formBuilder: FormBuilder,
+  constructor(public agendaService: AgendaService, private formBuilder: FormBuilder,
     private router: Router, private modalService: BsModalService,
-    public dialog: MatDialog, private formularioService: FormularioService) {
+    public dialog: MatDialog, private formularioService: FormularioService,
+    public alertaService: AlertaService) {
     this.getter();
     this.formularioAgenda = this.formularioService.createFormAgenda();
   }
@@ -51,8 +53,10 @@ export class AgendasComponent implements OnInit {
   onConfirmDelete() {
      this.agendaService.delete_agenda(this.agendaSelecionada.id).subscribe((data: any) => {
       this.getter();
+      this.alertaService.alerta('A agenda foi removida com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
+      this.alertaService.alerta('Não é possível remover esta agenda', 'error', false);
     });
      this.deleteModalRef.hide();
   }
@@ -68,8 +72,10 @@ export class AgendasComponent implements OnInit {
       this.agendaService.create_agenda(this.formularioAgenda.value).subscribe((data: any) => {
         this.formularioAgenda.reset();
         this.getter();
+        this.alertaService.alerta('A agenda foi adicionada com sucesso!', 'success', false);
       }, (error: any) => {
         this.error = error;
+        this.alertaService.alerta('Os campos não foram preenchidos corretamente!', 'error', false);
       });
     }
   }
@@ -84,10 +90,9 @@ export class AgendasComponent implements OnInit {
       data: {formularioAgenda: null, title: "Adicionar Agenda"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log("DATA");
-      console.log(JSON.parse(data));
       this.formularioAgenda.patchValue(JSON.parse(data));
       this.onSubmit();
+      this.alertaService.alerta('A agenda foi adicionada com sucesso!', 'success', false);
     });
   }
 
@@ -98,9 +103,7 @@ export class AgendasComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(data => {
       data = JSON.parse(data)
-      console.log(data);
       this.formularioAgenda.patchValue(data);
-      console.log(this.formularioAgenda.value);
       this.edit();
     });
   }
@@ -108,10 +111,10 @@ export class AgendasComponent implements OnInit {
   edit() {
     this.agendaService.edit_agenda(this.formularioAgenda.value.id, this.formularioAgenda.value).subscribe((data: any) => {
       this.agendas[this.agendas.findIndex(item => item.id === this.formularioAgenda.value.id)] = this.formularioAgenda.value;
+      this.alertaService.alerta('A agenda foi editada com sucesso!', 'success', false);
     }, (error: any) => {
-      console.log("ERRO MAROTÃO")
-      console.log(this.formularioAgenda.value.id)
       this.error = error;
+      this.alertaService.alerta('Ops, não é possível editar esta agenda.', 'error', false);
     });
   }
 }
@@ -127,7 +130,7 @@ export class CriarAgendasDialogo {
   error: any={isError:false,errorMessage:''};
   agendasComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, private formularioService: FormularioService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  constructor(public agendaService: AgendaService, private formularioService: FormularioService, public dialogRef: MatDialogRef<CriarAgendasDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
     this.formularioAgenda = this.formularioService.createFormAgenda();
     if (this.data.formularioAgenda) {agendaService
       this.formularioAgenda.patchValue(this.data.formularioAgenda);
@@ -136,7 +139,7 @@ export class CriarAgendasDialogo {
 
   onClick(): void {
   }
-  
+
   submit(form) {
     this.submitted = true;
     this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento);

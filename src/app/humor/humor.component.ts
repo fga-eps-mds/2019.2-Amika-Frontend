@@ -1,10 +1,10 @@
 import { Component, OnInit, NgModule, ViewChild } from '@angular/core';
 import { Humor } from './humor.model';
 import { HumorService } from './humor.service';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import {Observable} from 'rxjs';
+import { AlertaService } from '../alerta.service';
 
 
 @Component({
@@ -21,17 +21,13 @@ export class HumorComponent implements OnInit {
   humor: Humor;
   hoje: string;
   humores: Array<Humor>;
-  erroModalRef: BsModalRef;
   myDate = new Date();
   error: any={isError:false,errorMessage:''};
-  adicionado = false;
+  adicionado = true;
   isReadonly = false;
 
-  @ViewChild('erroModal', {static: false}) erroModal;
 
-  constructor(private humorService: HumorService,private datePipe: DatePipe, private modalService: BsModalService, private router: Router) {
-    this.getStatus();
-  }
+  constructor(private humorService: HumorService,private datePipe: DatePipe, private router: Router, public alertaService:AlertaService) {}
 
   save(){
     console.log("man");
@@ -40,17 +36,15 @@ export class HumorComponent implements OnInit {
       humor_do_dia: this.rate,
       data: this.datePipe.transform(this.myDate, 'yyyy-MM-dd'),
     });
-    this.humorService.create_humor(this.humor).subscribe();
-    console.log(this.humor);
-    this.erroModalRef = this.modalService.show(this.erroModal, {class: 'modal-sm'});
-    window.location.reload();
+    this.humorService.create_humor(this.humor).subscribe((data:any) => {
+      this.alertaService.alerta('O humor foi adicionado com sucesso!', 'success', true)
+    });
   }
 
   getStatus() {
     this.humorService.get_status().subscribe((data:any) => {
       this.rate = data.humor;
       this.adicionado = data.adicionado;
-      console.log('this.rate')
     });
   }
 
@@ -58,11 +52,8 @@ export class HumorComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  voltar(){
-    this.erroModalRef.hide();
-  }
-
   ngOnInit() {
+    this.getStatus();
   }
 
 }

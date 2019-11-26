@@ -92,7 +92,6 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
             console.log(error);
             this.errors = error;
           });
-        this.formService.errors;
         this.envioDialog();
       } else {
         this.openDialog();
@@ -134,9 +133,7 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
   styleUrls: ['formulario-felicidade-autentica-dialog.css']
 })
 export class FormularioFelicidadeAutenticaDialog {
-  constructor(
-    public dialogRef: MatDialogRef<FormularioFelicidadeAutenticaDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor( public dialogRef: MatDialogRef<FormularioFelicidadeAutenticaDialog>) {}
 
   onClose(): void {
     this.dialogRef.close();

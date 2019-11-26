@@ -1,3 +1,4 @@
+import { AlertaService } from './alerta.service';
 import { FormularioService } from './formulario.service';
 import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
@@ -37,6 +38,7 @@ import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GrupoComponent } from './grupo/grupo.component';
 import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -44,6 +46,7 @@ import { FormularioFelidadeAutenticaService } from './formulario-felicidade-aute
 
 const appRoutes: Routes = [
 ];
+import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
 @NgModule({
   declarations: [
@@ -68,10 +71,12 @@ const appRoutes: Routes = [
     ListaDeMatriculaComponent,
     CriarAgendasDialogo,
     PageNotFoundComponent,
+    GrupoComponent,
     MateriaisComponent,
     FormularioSatisfacaoComVidaDialog,
     FormularioFelicidadeAutenticaDialog,
     FormularioEnviadoDialog,
+    VisualizarMateriaisComponent,
   ],
   entryComponents: [
     CriarTurmasDialogo,
@@ -108,6 +113,7 @@ const appRoutes: Routes = [
     AgendaService,
     RequisicoesService,
     FormularioService,
+    AlertaService
   ],
   bootstrap: [AppComponent]
 })

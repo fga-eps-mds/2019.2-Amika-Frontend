@@ -35,7 +35,7 @@
                 <mat-icon>menu</mat-icon>
               </button>
               <h1 class="title-center">{{title}}</h1>
-              <a routerLink="/" (click)="toggleMobileNav(lnav); setTitle('Amika');"><img src="https://raw.githubusercontent.com/fga-eps-mds/2019.2-Amika-Wiki/master/assets/img/AmikasSemNome.png"  alt="Amika" width="40px" height="40px"></a>
+              <a routerLink="/" (click)="setTitle('Amika');"><img src="https://raw.githubusercontent.com/fga-eps-mds/2019.2-Amika-Wiki/master/assets/img/AmikasSemNome.png"  alt="Amika" width="40px" height="40px"></a>
               <div class="fill-space"></div>
               <span whoami></span>
             </mat-toolbar>
@@ -52,11 +52,11 @@
                             </div>
                             <mat-list-item>
                                 <mat-icon>folder_shared</mat-icon>
-                                <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Materiais</a>
+                                <a mat-button routerLink="/materiais" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Materiais</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>group</mat-icon>
-                                <a mat-button routerLink="/turmas" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Grupo</a>
+                                <a mat-button routerLink="/grupo" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Grupo</a>
                             </mat-list-item>
                             <mat-list-item>
                                 <mat-icon>tag_faces</mat-icon>
@@ -128,8 +128,8 @@
       <mat-toolbar>
         <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && !isAdmin">
             <a  routerLink="/humor" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
-            <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>info</mat-icon></a>
-            <a  routerLink="/agenda" routerLinkActive="active" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
+            <a  routerLink="/materiais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>info</mat-icon></a>
+            <a  routerLink="/agenda" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
             <a  routerLink="/grupo" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>people</mat-icon></a>
             <a  routerLink="/area-informativa" routerLinkActive="active" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
           </div>

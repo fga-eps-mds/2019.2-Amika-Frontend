@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { RequisicaoService } from '../requisicao.service';
 import { Turma } from '../turmas/turmas.model';
 import { TurmaService } from '../turmas/turma.service';
+import { AlertaService } from '../alerta.service';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -32,11 +33,12 @@ export class ListaDeMatriculaComponent implements OnInit {
   formListaEnviado = false;
   turmas: Turma;
   error: any;
+  hasErrorLista: any;
   public records: any[] = [];
   @ViewChild('csvReader', {static: false}) csvReader: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService,
-              private listaService: ListaService, private turmaService: TurmaService) {
+              private listaService: ListaService, private turmaService: TurmaService, public alertaService: AlertaService) {
     this.getter();
     this.formulario = this.formBuilder.group({
       matricula: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(9), Validators.maxLength(9)]],
@@ -54,6 +56,10 @@ export class ListaDeMatriculaComponent implements OnInit {
       this.cadastroIndividual(dadosFormulario);
       this.formulario.reset();
       this.submitted = false;
+      this.alertaService.alerta('A matrícula foi registrada com sucesso!', 'success', false);
+    }
+    else {
+      this.alertaService.alerta('Não foi possível registrar.', 'error', false);
     }
   }
 
@@ -95,15 +101,15 @@ export class ListaDeMatriculaComponent implements OnInit {
       reader.onerror = function() {
         console.log('Ocorreu um erro ao ler o arquivo!');
       };
-
-    } else {
-      alert('Por favor mande um arquivo CSV válido.');
+    } 
+    else {
+      this.alertaService.alerta('Por favor mande um arquivo CSV válido.', 'error', false);
       this.fileReset();
     }
   }
 
   registrar(informacao) {
-    this.listaService.enviar(JSON.stringify(informacao));
+    this.listaService.enviar(JSON.stringify(informacao))
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {

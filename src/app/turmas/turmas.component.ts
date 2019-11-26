@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AlertaService } from '../alerta.service';
 
 export interface CriarTurmasDialogoData {
   formularioTurma: FormGroup;
@@ -28,7 +29,7 @@ export class TurmasComponent implements OnInit {
 
   constructor(public turmaService: TurmaService, public formBuilder: FormBuilder,
               public router: Router, public route: ActivatedRoute, public modalService: BsModalService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, public alertaService:AlertaService) {
     this.formularioTurma = this.formBuilder.group({
       descricao: ['', Validators.required],
       id: ['']
@@ -47,6 +48,7 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.onSubmit();
+      this.alertaService.alerta('A turma foi adicionada com sucesso!', 'success', false);
     });
   }
 
@@ -58,13 +60,17 @@ export class TurmasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioTurma.patchValue(JSON.parse(data));
       this.edit();
+      this.alertaService.alerta('A turma foi editada com sucesso!', 'success', false);
     });
   }
 
   edit() {
     this.turmaService.edit_turmas(this.formularioTurma.value.id, this.formularioTurma.value).subscribe((data: any) => {
       this.turmas[this.turmas.findIndex(item => item.id === this.formularioTurma.value.id)] = this.formularioTurma.value;
+      this.alertaService.alerta('A turma foi editada com sucesso!', 'success', false);
     }, (error: any) => {
+      console.log(error.error);
+      this.alertaService.alerta('O nome informado é inválido!', 'error', false);
       this.error = error;
     });
   }
@@ -88,9 +94,11 @@ export class TurmasComponent implements OnInit {
   }
 
   onConfirmDelete() {
-    this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
+      this.turmaService.delete_turmas(this.turmaSelecionada.id).subscribe((data: any) => {
+      this.alertaService.alerta('A turma foi removida com sucesso!', 'success', false);
       this.getter();
     }, (error: any) => {
+      this.alertaService.alerta('Não é possível remover esta turma', 'error', false);
       this.error = error;
     });
     this.deleteModalRef.hide();
@@ -105,7 +113,9 @@ export class TurmasComponent implements OnInit {
     this.turmaService.create_turmas(this.formularioTurma.value).subscribe((data: any) => {
       this.formularioTurma.reset();
       this.getter();
+      this.alertaService.alerta('A turma foi criada com sucesso!', 'success', false);
     }, (error: any) => {
+      this.alertaService.alerta('O nome informado é inválido!', 'error', false);
       this.error = error;
     });
   }

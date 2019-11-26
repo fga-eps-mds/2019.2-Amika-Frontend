@@ -112,9 +112,7 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
   styleUrls: ['formulario-satisfacao-com-vida-dialog.css']
 })
 export class FormularioSatisfacaoComVidaDialog {
-  constructor(
-    public dialogRef: MatDialogRef<FormularioSatisfacaoComVidaDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor( public dialogRef: MatDialogRef<FormularioSatisfacaoComVidaDialog>) {}
 
   onClose(): void {
     this.dialogRef.close();
@@ -129,8 +127,7 @@ export class FormularioSatisfacaoComVidaDialog {
 })
 export class FormularioEnviadoDialog {
   constructor(
-    public dialogRef: MatDialogRef<FormularioEnviadoDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData<any>, private router: Router) {}
+    public dialogRef: MatDialogRef<FormularioEnviadoDialog>, private router: Router) {}
 
   onClose(): void {
     this.dialogRef.close();
