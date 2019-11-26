@@ -94,7 +94,6 @@ export class TurmasComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'O nome informado é inválido!',
-        text: error.error.descricao[0],
         buttonsStyling: false,
         customClass: {
           confirmButton: 'botao',
@@ -168,7 +167,6 @@ export class TurmasComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'O nome informado é inválido!',
-        text: error.error.descricao[0],
         buttonsStyling: false,
         customClass: {
           confirmButton: 'botao',
