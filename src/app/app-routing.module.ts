@@ -17,7 +17,7 @@ import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-reg
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MateriaisComponent } from './materiais/materiais.component';
-
+import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
@@ -35,6 +35,7 @@ const routes: Routes = [
   { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
   { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
   { path: 'manter-materiais', component: MateriaisComponent, canActivate: [AutenticacaoService] },
+  { path: 'materiais', component: VisualizarMateriaisComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
