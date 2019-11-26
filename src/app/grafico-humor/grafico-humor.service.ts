@@ -1,20 +1,15 @@
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { AutenticacaoService } from './../autenticacao.service';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class GraficoHumorService {
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-    this.autenticacao.setHeader();
-   }
+  constructor(private requisicao: RequisicoesService) {}
 
     public get_grafico(turma): Observable<any>{
-      return this.http.get(environment.urlApi + 'grafico/'+turma, this.autenticacao.httpOptions);
+      return this.requisicao.get('grafico/'+turma);
     }
   }
 

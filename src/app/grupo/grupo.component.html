@@ -1,0 +1,22 @@
+<div class="tela-cheia">
+
+
+  <h3 class="titulo">Meu grupo</h3>
+
+  <div class="row grupo">
+    <div class="col-md-6" id="paginaGrupo" *ngFor="let aluno of alunos">
+      <div class="row">
+        <div class="grupo-row" style="width: 80%; margin-top: 2em; margin-left: 10%;">
+          <img style="height: 100%; width: auto; padding: 10px 10px" [src]="aluno.foto ? fotoUrl(aluno.foto) : 'https://www.w3schools.com/howto/img_avatar.png'" alt="Avatar" class="foto-aluno" >
+          <h2 class="only-desktop" style="margin-top: 12px"> {{aluno.first_name}} {{aluno.last_name}} </h2>
+          <h2 class="only-mobile" style="margin-top: 12px" [ngStyle]="{'font-size': tamanhoFonteNome(aluno.first_name, aluno.last_name)}">{{aluno.first_name}} {{aluno.last_name}}</h2>
+          <h2 class="only-desktop" style="margin-bottom: 12px" > Matrícula: {{aluno.username}} </h2>
+          <h2 class="only-mobile" style="margin-bottom: 12px" [ngStyle]="{'font-size': tamanhoFonteNome(aluno.first_name, aluno.last_name)}"> Matrícula: {{aluno.username}} </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
