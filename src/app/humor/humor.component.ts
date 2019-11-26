@@ -23,13 +23,11 @@ export class HumorComponent implements OnInit {
   humores: Array<Humor>;
   myDate = new Date();
   error: any={isError:false,errorMessage:''};
-  adicionado = false;
+  adicionado = true;
   isReadonly = false;
 
 
-  constructor(private humorService: HumorService,private datePipe: DatePipe, private router: Router, public alertaService:AlertaService) {
-    this.getStatus();
-  }
+  constructor(private humorService: HumorService,private datePipe: DatePipe, private router: Router, public alertaService:AlertaService) {}
 
   save(){
     console.log("man");
@@ -55,6 +53,7 @@ export class HumorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getStatus();
   }
 
 }
