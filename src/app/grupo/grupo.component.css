@@ -1,0 +1,126 @@
+h1, h5, h6 {
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1em;
+    font-family: "Nunito", sans-serif;
+    text-align: center;
+  }
+  
+  h3{
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+  }
+
+  .row {
+      display: flex;
+      margin-right: 0;
+      margin-left: 0;
+  }
+
+  .titulo{
+    margin-bottom: 1em;
+    font-weight: bold
+  }
+
+
+  .foto-aluno {
+    width: 3em;
+    height: 3em;
+    float: left;
+    margin-right: 0em;
+    border-radius: 50%;
+  }
+
+  .grupo-row {
+    font-family: 'Varela Round', sans-serif;
+    /* font-family: 'Bad Script', cursive; */
+    /* font-family: 'Farro', sans-serif; */
+    /* font-family: 'Racing Sans One', cursive; */
+    /* font-family: 'Contrail One', cursive; */
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+  }
+
+  .grupo {
+    margin-bottom: 5em;
+  }
+
+  .grupos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+  }
+
+  @media (hover: none) {
+    .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover {
+        background: #e2eeeb;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .grupos-cards {
+      border-radius: 8px !important;
+      margin-bottom: 10px;
+      background: #6fafa02b;
+      width: 29em;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .grupos-cards {
+      border-radius: 8px !important;
+      margin-bottom: 10px;
+      background: #6fafa02b;
+      width: 52vh;
+    }
+
+    .grupos {
+      margin-bottom: 10em;
+    }
+  }
+
+
+  mat-panel-title {
+    flex-basis: 100%;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 19px;
+  }
+
+  mat-form-field {
+    margin-right: 12px;
+  }
+
+
+  .card-nome {
+    color: #000000;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .card-matricula {
+    color: #505050;
+    font-style: oblique;
+  }
+
+  .col-md-10 {
+    display: flex;
+    align-items: stretch;
+    align-content: center;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .only-desktop {
+      display:  none;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .only-mobile {
+      display:  none;
+    }
+  }
