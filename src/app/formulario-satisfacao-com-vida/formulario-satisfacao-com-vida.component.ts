@@ -1,8 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, Inject, OnInit, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Pontuacao} from './pontos'
 import { FormularioSatisfacaoComVidaService } from './formulario-satisfacao-com-vida.service';
-import { empty } from 'rxjs';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
@@ -17,16 +17,18 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
   errors;
   formRegistrado: boolean = false;
   dadosForm;
+  qtdForms;
 
   //constructor() { }
 
   constructor(private formBuilder: FormBuilder, private formService: FormularioSatisfacaoComVidaService,
-              public dialog: MatDialog) {
-    this.formService.verificaForm().subscribe(data => {
-      console.log(data);
-      this.dadosForm = data;
-    },
-    error => {
+    public dialog: MatDialog, private router: Router) {
+      this.formService.verificaForm().subscribe(data => {
+        console.log(data);
+        this.dadosForm = data;
+        this.qtdForms = this.dadosForm.formulario.length;
+      },
+      error => {
       console.log(error);
       this.errors = error;
     });
@@ -63,31 +65,42 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
   }
 
     onSubmit(dadosFormulario){
-      this.validaEnvio(this.dadosForm);
+      this.validaEnvio(this.dadosForm, this.qtdForms);
       if (this.formRegistrado === false) {
         this.fazerSoma(dadosFormulario);
         let totalpontos = {"formulario": [{"tipo": "B", "pontuacao": this.total}]};
         this.formService.enviar(totalpontos);
         this.formService.errors;
         console.log(totalpontos);
+        this.envioDialog();
       } else {
         this.openDialog();
       }
     }
 
-    validaEnvio(formulario){
+    validaEnvio(formulario, qtd){
       console.log(formulario.formulario[0]);
       if (formulario.formulario[0] === undefined) {
         console.log("Nao tem conteúdo");
         this.formRegistrado = false;
-      } else {
+      } else if (qtd > 1 && (formulario.formulario[0].tipo == "B" || formulario.formulario[1].tipo == "B")) {
         console.log("Tem conteúdo");
         this.formRegistrado = true;
+      } else if (qtd == 1 && formulario.formulario[0].tipo == "B") {
+        this.formRegistrado = true;
+      } else {
+        this.formRegistrado = false;
       }
     }
 
     openDialog(): void {
       const dialogRef = this.dialog.open(FormularioSatisfacaoComVidaDialog, {
+        width: '250px'
+      });
+    }
+
+    envioDialog(): void {
+      const dialogRef = this.dialog.open(FormularioEnviadoDialog, {
         width: '250px'
       });
     }
@@ -105,6 +118,25 @@ export class FormularioSatisfacaoComVidaDialog {
 
   onClose(): void {
     this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'formulario-enviado-dialog',
+  templateUrl: 'formulario-enviado-dialog.html',
+  styleUrls: ['formulario-satisfacao-com-vida-dialog.css']
+})
+export class FormularioEnviadoDialog {
+  constructor(
+    public dialogRef: MatDialogRef<FormularioEnviadoDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private router: Router) {}
+
+  onClose(): void {
+    this.dialogRef.close();
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 1000);
   }
 
 }

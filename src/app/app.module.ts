@@ -14,8 +14,8 @@ import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component';
-import { FormularioSatisfacaoComVidaComponent, FormularioSatisfacaoComVidaDialog } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
+import { FormularioFelicidadeAutenticaComponent, FormularioFelicidadeAutenticaDialog } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component';
+import { FormularioSatisfacaoComVidaComponent, FormularioSatisfacaoComVidaDialog, FormularioEnviadoDialog } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
 import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
@@ -73,12 +73,16 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     MateriaisComponent,
     FormularioSatisfacaoComVidaDialog,
+    FormularioFelicidadeAutenticaDialog,
+    FormularioEnviadoDialog,
   ],
   entryComponents: [
     CriarTurmasDialogo,
     CriarAgendasDialogo,
     CriarGruposDialogo,
     FormularioSatisfacaoComVidaDialog,
+    FormularioFelicidadeAutenticaDialog,
+    FormularioEnviadoDialog,
   ],
   imports: [
     ReactiveFormsModule,
