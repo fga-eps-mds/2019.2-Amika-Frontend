@@ -8,11 +8,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center">Agendas Não Realizadas</h2>
+        <h3 class="text-center">Agendas Não Realizadas</h3>
         <div *ngIf="agendasNaoRealizadas?.length > 0; then temAgendasNaoRealizadas else naoTemAgendasNaoRealizadas"></div>
       </div>
       <div class="col-md-12">
-        <h2 class="text-center">Agendas Realizadas</h2>
+        <h3 class="text-center">Agendas Realizadas</h3>
         <div *ngIf="agendasRealizadas?.length > 0; then temAgendasRealizadas else naoTemAgendasRealizadas"></div>
       </div>
     </div>
@@ -27,26 +27,50 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4">
-                {{agenda.nome}}
+                <div class="agenda-card">
+                  <mat-icon class="icone-agenda nao-feito">assignment_late</mat-icon>
+                  <h4>{{agenda.nome}}</h4>
+                </div>
               </div>
               <div class="col-md-4">
-                {{agenda.tipo}}
               </div>
               <div class="col-md-4">
-                {{agenda.data_disponibilizacao | date:'dd/MM/yyyy'}} - {{agenda.data_encerramento | date:'dd/MM/yyyy'}}
+                Data de encerramento: {{agenda.data_encerramento | date:'dd/MM/yyyy'}}
               </div>
             </div>
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-panel-description>
-        <div class="row">
-          <div class="col-md-12 descricao">
-            {{agenda.descricao}}
+        <div class="width-agenda">
+          <div class="row">
+            <div class="col-md-8">
+              Publicado em: {{agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+            </div>
+            <div class="col-md-4">
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Individual'">
+                <h4>Individual</h4>
+                <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+              </div>
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Grupo'">
+                <h4>Grupo</h4>
+                <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+              </div>
+            </div>
           </div>
-          <div *ngIf="agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.data_encerramento">
+          <div class="row descricao">
+            <div class="col-md-4">
+              {{agenda.descricao}}
+            </div>
+          </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.data_encerramento">
             <div class="col-md-12">
-              <button (click)="openDialog('criacao', agenda)" class="btn botao" type="button">Realizar</button>
+              <button (click)="openDialog('criacao', agenda)" class="btn botao" type="button">
+                <div class="agenda-card">
+                  <mat-icon class="icone-agenda fazer">whatshot</mat-icon>
+                  Realizar agenda
+                </div>
+              </button>
             </div>
           </div>
         </div>
@@ -66,20 +90,22 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4">
-                {{agenda.agenda.nome}}
+                <div class="agenda-card">
+                  <mat-icon class="icone-agenda feito">assignment_turned_in</mat-icon>
+                  <h4>{{agenda.agenda.nome}}</h4>
+                </div>
               </div>
               <div class="col-md-4">
-                {{agenda.agenda.tipo}}
               </div>
               <div class="col-md-4">
-                {{agenda.agenda.data_disponibilizacao | date:'dd/MM/yyyy'}} - {{agenda.agenda.data_encerramento | date:'dd/MM/yyyy'}}
+                Data encerramento: {{agenda.agenda.data_encerramento | date:'dd/MM/yyyy'}}
               </div>
             </div>
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-panel-description>
-        <div class="row">
+        <div class="row width-agenda">
           <div class="col-md-12 descricao">
             {{agenda.agenda.descricao}}
           </div>
