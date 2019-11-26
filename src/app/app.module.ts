@@ -1,3 +1,4 @@
+import { AlertaService } from './alerta.service';
 import { FormularioService } from './formulario.service';
 import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
@@ -93,7 +94,8 @@ import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-
     GrupoService,
     AgendaService,
     RequisicoesService,
-    FormularioService
+    FormularioService,
+    AlertaService
   ],
   bootstrap: [AppComponent]
 })

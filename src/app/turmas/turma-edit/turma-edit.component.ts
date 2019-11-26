@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Turma } from '../turmas.model';
 import { TurmasComponent } from '../turmas.component';
+import { AlertaService } from '../../alerta.service';
 
 @Component({
   selector: 'app-turma-edit',
@@ -17,7 +18,7 @@ export class TurmaEditComponent implements OnInit {
   submitted = false;
   turmaComponent: TurmasComponent;
 
-  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(private turmaService: TurmaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, public alertaService: AlertaService) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -58,8 +59,9 @@ export class TurmaEditComponent implements OnInit {
             console.log(data);
             this.formularioTurma.reset();
             this.return();
-
+            this.alertaService.alerta('A turma foi editada com sucesso!', 'success', false);
           }, (error: any) => {
+            this.alertaService.alerta('O nome informado é inválido!', 'error', false);
             this.error = error;
           });
         }
