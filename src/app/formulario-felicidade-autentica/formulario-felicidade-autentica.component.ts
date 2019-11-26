@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Pontuacao} from './pontos'
 import { FormularioFelidadeAutenticaService } from './formulario_felicidade_autentica.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { FormularioEnviadoDialog } from '../formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
 
 @Component({
   selector: 'app-formulario-felicidade-autentica',
@@ -12,10 +14,25 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
   errors;
   formPontuacao: FormGroup;
   total: number = null;
+  formRegistrado: boolean = false;
+  dadosForm;
+  qtdForms;
 
   //constructor() { }
 
-  constructor(private formBuilder: FormBuilder, private formularioFelidadeAutenticaService: FormularioFelidadeAutenticaService) { }
+  constructor(private formBuilder: FormBuilder, private formService: FormularioFelidadeAutenticaService,
+              public dialog: MatDialog) {
+    this.formService.verificaForm().subscribe(data => {
+      console.log(data);
+      this.dadosForm = data;
+      this.qtdForms = this.dadosForm.formulario.length;
+    },
+    error => {
+      console.log(error);
+      this.errors = error;
+    });
+  }
+
 
   ngOnInit() {
     this.createForm(new Pontuacao());
@@ -62,21 +79,66 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
   }
 
     onSubmit(dadosFormulario){
-      this.fazerSoma(dadosFormulario);
-      
-      let totalpontos = {"formulario": [{"tipo": "A", "pontuacao": this.total}]}
-      this.formularioFelidadeAutenticaService.enviar(JSON.stringify(totalpontos)).subscribe(data => { 
-        console.log(data);
-      }, 
-        error => {
-          console.log(error);
-          this.errors = error;
-        });
-      console.log(totalpontos);
+      this.validaEnvio(this.dadosForm, this.qtdForms);
+      if (this.formRegistrado === false) {
+        this.fazerSoma(dadosFormulario);
+        let totalpontos = {"formulario": [{"tipo": "A", "pontuacao": this.total}]}
+        console.log(totalpontos);
+        this.formService.enviar(JSON.stringify(totalpontos)).subscribe(data => {
+          console.log(data);
+        },
+          error => {
+            console.log(error);
+            this.errors = error;
+          });
+        this.formService.errors;
+        this.envioDialog();
+      } else {
+        this.openDialog();
+        }
       }
 
+  validaEnvio(formulario, qtd){
+    console.log(formulario.formulario[0]);
+    if (formulario.formulario[0] === undefined) {
+      console.log("Nao tem conteúdo");
+      this.formRegistrado = false;
+    } else if (qtd > 1 && (formulario.formulario[0].tipo == "A" || formulario.formulario[1].tipo == "A")) {
+      console.log("Tem conteúdo");
+      this.formRegistrado = true;
+    } else if (qtd == 1 && formulario.formulario[0].tipo == "A") {
+      this.formRegistrado = true;
+    } else {
+      this.formRegistrado = false;
+    }
+  }
 
-  // ngOnInit() {
-  // }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FormularioFelicidadeAutenticaDialog, {
+      width: '250px'
+    });
+  }
+
+  envioDialog(): void {
+    const dialogRef = this.dialog.open(FormularioEnviadoDialog, {
+      width: '250px'
+    });
+  }
+
+}
+
+@Component({
+  selector: 'formulario-felicidade-autentica-dialog',
+  templateUrl: 'formulario-felicidade-autentica-dialog.html',
+  styleUrls: ['formulario-felicidade-autentica-dialog.css']
+})
+export class FormularioFelicidadeAutenticaDialog {
+  constructor(
+    public dialogRef: MatDialogRef<FormularioFelicidadeAutenticaDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onClose(): void {
+    this.dialogRef.close();
+  }
 
 }

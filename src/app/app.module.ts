@@ -2,7 +2,7 @@ import { FormularioService } from './formulario.service';
 import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, Inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +40,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormularioFelidadeAutenticaService } from './formulario-felicidade-autentica/formulario_felicidade_autentica.service';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -110,7 +111,7 @@ const appRoutes: Routes = [
     GrupoService,
     AgendaService,
     RequisicoesService,
-    FormularioService
+    FormularioService,
   ],
   bootstrap: [AppComponent]
 })
