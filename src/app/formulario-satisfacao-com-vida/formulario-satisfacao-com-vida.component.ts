@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Pontuacao} from './pontos'
 import { FormularioSatisfacaoComVidaService } from './formulario-satisfacao-com-vida.service';
+import { empty } from 'rxjs';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-formulario-satisfacao-com-vida',
@@ -12,10 +14,23 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
 
   formPontuacao: FormGroup;
   total: number = null;
+  errors;
+  formRegistrado: boolean = false;
+  dadosForm;
 
   //constructor() { }
 
-  constructor(private formBuilder: FormBuilder, private formularioSatisfacaoComVidaService: FormularioSatisfacaoComVidaService) { }
+  constructor(private formBuilder: FormBuilder, private formService: FormularioSatisfacaoComVidaService,
+              public dialog: MatDialog) {
+    this.formService.verificaForm().subscribe(data => {
+      console.log(data);
+      this.dadosForm = data;
+    },
+    error => {
+      console.log(error);
+      this.errors = error;
+    });
+  }
 
   ngOnInit() {
     this.createForm(new Pontuacao());
@@ -28,7 +43,7 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
       ponto3: [pontos.ponto3, Validators.required],
       ponto4: [pontos.ponto4, Validators.required],
       ponto5: [pontos.ponto5, Validators.required],
-    })
+    });
   }
 
   fazerSoma(dadosFormulario){
@@ -48,10 +63,48 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
   }
 
     onSubmit(dadosFormulario){
-      this.fazerSoma(dadosFormulario);
-      let totalpontos = {"formulario": [{"tipo": "B", "pontuacao": this.total}]}
-      this.formularioSatisfacaoComVidaService.enviar(totalpontos);
-      console.log(totalpontos);
-      this.formularioSatisfacaoComVidaService.errors;
+      this.validaEnvio(this.dadosForm);
+      if (this.formRegistrado === false) {
+        this.fazerSoma(dadosFormulario);
+        let totalpontos = {"formulario": [{"tipo": "B", "pontuacao": this.total}]};
+        this.formService.enviar(totalpontos);
+        this.formService.errors;
+        console.log(totalpontos);
+      } else {
+        this.openDialog();
+      }
     }
+
+    validaEnvio(formulario){
+      console.log(formulario.formulario[0]);
+      if (formulario.formulario[0] === undefined) {
+        console.log("Nao tem conteúdo");
+        this.formRegistrado = false;
+      } else {
+        console.log("Tem conteúdo");
+        this.formRegistrado = true;
+      }
+    }
+
+    openDialog(): void {
+      const dialogRef = this.dialog.open(FormularioSatisfacaoComVidaDialog, {
+        width: '250px'
+      });
+    }
+}
+
+@Component({
+  selector: 'formulario-satisfacao-com-vida-dialog',
+  templateUrl: 'formulario-satisfacao-com-vida-dialog.html',
+  styleUrls: ['formulario-satisfacao-com-vida-dialog.css']
+})
+export class FormularioSatisfacaoComVidaDialog {
+  constructor(
+    public dialogRef: MatDialogRef<FormularioSatisfacaoComVidaDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onClose(): void {
+    this.dialogRef.close();
+  }
+
 }

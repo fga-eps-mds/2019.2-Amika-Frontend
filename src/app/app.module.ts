@@ -15,7 +15,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component';
-import { FormularioSatisfacaoComVidaComponent } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
+import { FormularioSatisfacaoComVidaComponent, FormularioSatisfacaoComVidaDialog } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
 import { GruposComponent, CriarGruposDialogo } from './grupos/grupos.component';
 import { GrupoService } from './grupos/grupo.service';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
@@ -72,11 +72,13 @@ const appRoutes: Routes = [
     CriarAgendasDialogo,
     PageNotFoundComponent,
     MateriaisComponent,
+    FormularioSatisfacaoComVidaDialog,
   ],
   entryComponents: [
     CriarTurmasDialogo,
     CriarAgendasDialogo,
-    CriarGruposDialogo
+    CriarGruposDialogo,
+    FormularioSatisfacaoComVidaDialog,
   ],
   imports: [
     ReactiveFormsModule,

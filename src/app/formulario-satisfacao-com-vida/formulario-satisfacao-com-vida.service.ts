@@ -29,4 +29,8 @@ export class FormularioSatisfacaoComVidaService {
                     this.errors = error;
                 });
     }
+
+    public verificaForm() {
+      return this.http.get("http://localhost:8000/aluno/" + localStorage.getItem('user_id') + "/", this.autenticacao.httpOptions);
+    }
 }
