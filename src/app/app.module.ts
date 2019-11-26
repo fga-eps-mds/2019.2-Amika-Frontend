@@ -39,6 +39,7 @@ import { GrupoComponent } from './grupo/grupo.component';
 import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     PageNotFoundComponent,
     GrupoComponent,
     MateriaisComponent,
+    VisualizarMateriaisComponent,
   ],
   entryComponents: [
     CriarTurmasDialogo,
