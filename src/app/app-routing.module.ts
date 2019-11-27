@@ -21,7 +21,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MateriaisComponent } from './materiais/materiais.component';
 import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
-
 const routes: Routes = [
   { path: '',      component: HomepageComponent },
   { path: 'login', component: LoginComponent },

@@ -31,7 +31,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { ChartsModule } from 'ng2-charts';
-
+import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
@@ -46,7 +46,6 @@ import { FormularioFelidadeAutenticaService } from './formulario-felicidade-aute
 
 const appRoutes: Routes = [
 ];
-import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +102,7 @@ import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ChartsModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
 
   providers: [

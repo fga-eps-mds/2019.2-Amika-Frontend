@@ -1,6 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
 
 import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica.component';
+import { AppModule } from '../app.module';
+
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FormularioFelicidadeAutenticaComponent', () => {
   let component: FormularioFelicidadeAutenticaComponent;
@@ -8,7 +12,11 @@ describe('FormularioFelicidadeAutenticaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormularioFelicidadeAutenticaComponent ]
+      imports: [
+        AppModule,
+        HttpClientTestingModule,
+        RouterTestingModule
+      ],
     })
     .compileComponents();
   }));
