@@ -1,0 +1,10 @@
+.dialogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#mensagem {
+  text-align: center;
+}

@@ -10,6 +10,8 @@ import { TurmaEditComponent } from './turmas/turma-edit/turma-edit.component';
 import { AgendaEditComponent } from './agendas/agenda-edit/agenda-edit.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { FormularioFelicidadeAutenticaComponent } from './formulario-felicidade-autentica/formulario-felicidade-autentica.component';
+import { FormularioSatisfacaoComVidaComponent } from './formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { GrupoEditComponent } from './grupos/grupo-edit/grupo-edit.component';
 import { AgendasComponent } from './agendas/agendas.component';
@@ -36,6 +38,8 @@ const routes: Routes = [
   { path: 'lista', component: ListaDeMatriculaComponent, canActivate: [AutenticacaoService] },
   { path: 'manter-materiais', component: MateriaisComponent, canActivate: [AutenticacaoService] },
   { path: 'materiais', component: VisualizarMateriaisComponent },
+  { path: 'formulario-felicidade', component: FormularioFelicidadeAutenticaComponent},
+  { path: 'formulario-satisfacao', component: FormularioSatisfacaoComVidaComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 

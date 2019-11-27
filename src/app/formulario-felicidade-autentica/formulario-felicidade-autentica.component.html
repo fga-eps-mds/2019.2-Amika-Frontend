@@ -1,0 +1,281 @@
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+<div class="cabecalho">
+  <h2>FORMULÁRIO DE FELICIDADE AUTÊNTICA</h2>
+</div>
+
+<div class="container-form">
+  <form [formGroup]="formPontuacao" method="post" action="">
+    <fieldset>
+    <p>Por favor, leia cuidadosamente cada grupo de declarações.
+      Depois, selecione a declaração de cada grupo que descreva
+      melhor como você está se sentindo na última semana, incluindo o dia de hoje.
+      Tenha certeza de ler todas as declarações de cada grupo antes de fazer sua escolha.
+    </p>
+    <br>
+
+        <div id="area" class="form-group" aria-required="formControlName">
+
+          <label>Grupo 1</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto1" id="opcao_1" [value]=1 formControlName="ponto1"> Eu me sinto uma falha.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto1" id="opcao_2" [value]=2 formControlName="ponto1"> Eu não me sinto como um vencedor.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto1" id="opcao_3" [value]=3 formControlName="ponto1"> Eu sinto como se tivesse obtido um sucesso maior que a maioria das pessoas.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto1" id="opcao_4" [value]=4 formControlName="ponto1"> Se eu olhar para trás na minha vida, tudo que eu vejo são vitórias.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto1" id="opcao_5" [value]=5 formControlName="ponto1"> Eu sinto que sou um sucesso extraordinário.</label>
+        </div>
+      </div>
+    <br>
+
+        <div id="area" class="form-group">
+          <label>Grupo 2</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto2" id="opcao_1" [value]=1 formControlName="ponto2"> Eu estou normalmente de mau humor.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto2" id="opcao_2" [value]=2 formControlName="ponto2"> Eu estou normalmente com um humor neutro.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto2" id="opcao_3" [value]=3 formControlName="ponto2"> Eu estou normalmente de bom humor.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto2" id="opcao_4" [value]=4 formControlName="ponto2"> Eu estou normalmente com um humor ótimo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto2" id="opcao_5" [value]=5 formControlName="ponto2"> Eu estou normalmente com um humor inacreditavelmente bom.</label>
+        </div>
+      </div>
+    <br>
+
+        <div id="area" class="form-group">
+          <label>Grupo 3</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto3" id="opcao_1" [value]=1 formControlName="ponto3"> Quando eu estou trabalhando, eu presto mais atenção no que acontece a minha volta do que no que eu estou fazendo.</label>
+          </div>
+          <div class="form-check">
+
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto3" id="opcao_2" [value]=2 formControlName="ponto3"> Quando eu estou trabalhando, eu presto tanta atenção no que acontece a minha volta, quanto no que eu estou fazendo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto3" id="opcao_3" [value]=3 formControlName="ponto3"> Quando eu estou trabalhando, eu presto mais atenção no que eu estou fazendo do que no que acontece a minha volta.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto3" id="opcao_4" [value]=4 formControlName="ponto3"> Quando eu estou trabalhando, eu raramente reparo em algo que esteja acontecendo em minha volta.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto3" id="opcao_5" [value]=5 formControlName="ponto3"> Quando eu estou trabalhando, eu presto tanta atenção no que eu estou fazendo que o mundo exterior praticamente não existe.</label>
+        </div>
+      </div>
+    <br>
+
+        <div id="area" class="form-group">
+          <label>Grupo 4</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto4" id="opcao_1" [value]=1 formControlName="ponto4"> Minha vida não tem nenhum propósito ou significado.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto4" id="opcao_2" [value]=2 formControlName="ponto4"> Eu não sei o propósito ou significado da minha vida.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto4" id="opcao_3" [value]=3 formControlName="ponto4"> Eu tenho um palpite sobre meu propósito de vida.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto4" id="opcao_4" [value]=4 formControlName="ponto4"> Eu tenho uma ideia muito boa a respeito do propósito ou significado da minha vida.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto4" id="opcao_5" [value]=5 formControlName="ponto4"> Eu tenho uma ideia muito clara a respeito do propósito ou significado da minha vida.</label>
+        </div>
+      </div>
+    <br>
+
+        <div id="area" class="form-group">
+          <label>Grupo 5</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto5" id="opcao_1" [value]=1 formControlName="ponto5"> Eu raramente consigo o que quero.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto5" id="opcao_2" [value]=2 formControlName="ponto5"> Às vezes eu consigo o que quero, às vezes não.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto5" id="opcao_3" [value]=3 formControlName="ponto5"> Às vezes, mais do que não, eu consigo o que quero.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto5" id="opcao_4" [value]=4 formControlName="ponto5"> Eu normalmente consigo o que quero.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto5" id="opcao_5" [value]=5 formControlName="ponto5"> Eu sempre consigo o que quero.</label>
+        </div>
+      </div>
+    <br>
+
+
+        <div id="area" class="form-group">
+          <label>Grupo 6</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto6" id="opcao_1" [value]=1 formControlName="ponto6"> Eu tenho tristeza na minha vida.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto6" id="opcao_2" [value]=2 formControlName="ponto6"> Eu não tenho nem tristeza nem alegria na minha vida.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto6" id="opcao_3" [value]=3 formControlName="ponto6"> Eu tenho mais alegrias do que tristeza em minha vida.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto6" id="opcao_4" [value]=4 formControlName="ponto6"> Eu tenho muito mais alegrias do que tristezas em minha vida.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto6" id="opcao_5" [value]=5 formControlName="ponto6"> Minha vida é repleta de alegria.</label>
+        </div>
+      </div>
+    <br>
+
+        <div id="area" class="form-group">
+          <label>Grupo 7</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto7" id="opcao_1" [value]=1 formControlName="ponto7"> Na maior parte do tempo, eu me sinto entediado.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto7" id="opcao_2" [value]=2 formControlName="ponto7"> Na maior parte do tempo, eu não me sinto entediado nem interessado no que estou fazendo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto7" id="opcao_3" [value]=3 formControlName="ponto7"> Na maior parte do tempo, eu me sinto interessado no que estou fazendo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto7" id="opcao_4" [value]=4 formControlName="ponto7"> Na maior parte do tempo, eu me sinto muito interessado no que estou fazendo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto7" id="opcao_5" [value]=5 formControlName="ponto7"> Na maior parte do tempo, eu me sinto fascinado no que estou fazendo.</label>
+        </div>
+      </div>
+    <br>
+
+
+        <div id="area" class="form-group">
+          <label>Grupo 8</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto8" id="opcao_1" [value]=1 formControlName="ponto8"> Eu me sinto isolado de outras pessoas.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto8" id="opcao_2" [value]=2 formControlName="ponto8"> Eu não me sinto próximo nem isolado de outras pessoas.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto8" id="opcao_3" [value]=3 formControlName="ponto8"> Eu me sinto próximo de amigos e membros da minha família.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto8" id="opcao_4" [value]=4 formControlName="ponto8"> Eu me sinto próximo da maioria das pessoas, mesmo que eu não as conheça bem.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto8" id="opcao_5" [value]=5 formControlName="ponto8"> Eu me sinto próximo de todas as pessoas do mundo.</label>
+        </div>
+      </div>
+    <br>
+
+        <div id="area" class="form-group">
+          <label>Grupo 9</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto9" id="opcao_1" [value]=1 formControlName="ponto9"> Pelos padrões objetivos, eu me saio mal.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto9" id="opcao_2" [value]=2 formControlName="ponto9"> Pelos padrões objetivos, eu não me saio bem nem mal.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto9" id="opcao_3" [value]=3 formControlName="ponto9"> Pelos padrões objetivos, eu me saio bem.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto9" id="opcao_4" [value]=4 formControlName="ponto9"> Pelos padrões objetivos, eu me saio muito bem.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto9" id="opcao_5" [value]=5 formControlName="ponto9"> Pelos padrões objetivos, eu me saio incrivelmente bem.</label>
+        </div>
+      </div>
+    <br>
+
+
+        <div id="area" class="form-group">
+          <label>Grupo 10</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto10" id="opcao_1" [value]=1 formControlName="ponto10"> Eu sinto vergonha de mim mesmo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto10" id="opcao_2" [value]=2 formControlName="ponto10"> Eu não sinto vergonha de mim mesmo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto10" id="opcao_3" [value]=3 formControlName="ponto10"> Eu me sinto orgulhoso de mim mesmo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto10" id="opcao_4" [value]=4 formControlName="ponto10"> Eu me sinto muito orgulhoso de mim mesmo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto10" id="opcao_5" [value]=5 formControlName="ponto10"> Eu me sinto extraordinariamente orgulhoso de mim mesmo.</label>
+        </div>
+      </div>
+    <br>
+
+        <div id="area" class="form-group">
+          <label>Grupo 11</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto11" id="opcao_1" [value]=1 formControlName="ponto11"> O tempo passa devagar durante a maioria das coisas que eu faço.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto11" id="opcao_2" [value]=2 formControlName="ponto11"> O tempo passa rápido durante algumas coisas que eu faço, e devagar para outras coisas.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto11" id="opcao_3" [value]=3 formControlName="ponto11"> O tempo passa rápido durante a maioria das coisas que eu faço.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto11" id="opcao_4" [value]=4 formControlName="ponto11"> O tempo passa rápido durante todas as coisas que eu faço.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto11" id="opcao_5" [value]=5 formControlName="ponto11"> O tempo passa tão rápido durante todas as coisas que eu faço, que normalmente eu nem percebo.</label>
+        </div>
+      </div>
+    <br>
+
+
+        <div id="area" class="form-group">
+          <label>Grupo 12</label>
+
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto12" id="opcao_1" [value]=1 formControlName="ponto12"> No grande esquema das coisas, minha existência pode machucar o mundo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto12" id="opcao_2" [value]=2 formControlName="ponto12"> Minha existência nem ajuda nem machuca o mundo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto12" id="opcao_3" [value]=3 formControlName="ponto12"> Minha existência tem um pequeno, porem positivo efeito no mundo.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto12" id="opcao_4" [value]=4 formControlName="ponto12"> Minha existência faz do mundo um lugar melhor.</label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto12" id="opcao_5" [value]=5 formControlName="ponto12"> Minha existência tem um impacto duradouro, grande e positivo no mundo.</label>
+        </div>
+
+      </div>
+    </fieldset>
+  <br>
+
+  <input type="submit" class="btn btn-primary mt-4" [disabled]="formPontuacao.invalid || formRegistrado" value="Salvar" (click)="onSubmit(formPontuacao.value)">
+  </form>
+  <input type='button' class="btn btn-primary mt-4 botaoVoltar" value='Voltar' routerLink="/agendas-listar" routerLinkActive="active">
+</div>

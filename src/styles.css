@@ -181,7 +181,7 @@ html, body {
   height: auto;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* https://codepen.io/mrrocks/pen/EiplA */
@@ -288,3 +288,6 @@ html, body {
     transform: rotate(450deg);
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

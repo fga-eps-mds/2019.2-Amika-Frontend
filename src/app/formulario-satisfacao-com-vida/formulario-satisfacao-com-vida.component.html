@@ -1,0 +1,163 @@
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+<div class="cabecalho">
+  <h2>FORMULÁRIO DE ESCALA DE SATISFAÇÃO COM A VIDA</h2>
+</div>
+
+<div class="container-form">
+  <form [formGroup]="formPontuacao">
+    <fieldset>
+      <p> Abaixo estão 5 declarações que você pode concordar ou discordar delas.
+          Leia cada um e depois clique na lista suspensa próxima a declaração e selecione
+          a resposta que melhor descreve quão forte você concorda ou discorda.
+      </p>
+
+    <div id="area" class="form-group" aria-required="formControlName">
+
+      <label>1. Em muitos aspectos, minha vida está próxima do meu ideal.</label>
+
+      <div class="form-check">
+          <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto1" id="opcao_1" [value]=1 formControlName="ponto1"> Concordo fortemente.</label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto1" id="opcao_2" [value]=2 formControlName="ponto1"> Concordo.</label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto1" id="opcao_3" [value]=3 formControlName="ponto1"> Concordo parcialmente</label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto1" id="opcao_4" [value]=4 formControlName="ponto1"> Nem concordo nem discordo.</label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto1" id="opcao_5" [value]=5 formControlName="ponto1"> Discordo parcialmente.</label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="Resposta_F"><input class="form-check-input" type="radio" name="ponto1" id="opcao_6" [value]=6 formControlName="ponto1"> Discordo.</label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto1" id="opcao_7" [value]=7 formControlName="ponto1"> Discordo fortemente.</label>
+      </div>
+    </div>
+    <br>
+
+
+    <div id="area" class="form-group" aria-required="formControlName">
+
+        <label>2. As condições da minha vida são excelentes.</label>
+
+        <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto2" id="opcao_1" [value]=1 formControlName="ponto2"> Concordo fortemente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto2" id="opcao_2" [value]=2 formControlName="ponto2"> Concordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto2" id="opcao_3" [value]=3 formControlName="ponto2"> Concordo parcialmente</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto2" id="opcao_4" [value]=4 formControlName="ponto2"> Nem concordo nem discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto2" id="opcao_5" [value]=5 formControlName="ponto2"> Discordo parcialmente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_F"><input class="form-check-input" type="radio" name="ponto2" id="opcao_6" [value]=6 formControlName="ponto2"> Discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto2" id="opcao_7" [value]=7 formControlName="ponto2"> Discordo fortemente.</label>
+        </div>
+    </div>
+    <br>
+
+
+    <div id="area" class="form-group" aria-required="formControlName">
+
+        <label>3. Estou completamente satisfeito com minha vida.</label>
+
+        <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto3" id="opcao_1" [value]=1 formControlName="ponto3"> Concordo fortemente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto3" id="opcao_2" [value]=2 formControlName="ponto3"> Concordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto3" id="opcao_3" [value]=3 formControlName="ponto3"> Concordo parcialmente</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto3" id="opcao_4" [value]=4 formControlName="ponto3"> Nem concordo nem discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto3" id="opcao_5" [value]=5 formControlName="ponto3"> Discordo parcialmente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_F"><input class="form-check-input" type="radio" name="ponto3" id="opcao_6" [value]=6 formControlName="ponto3"> Discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto3" id="opcao_7" [value]=7 formControlName="ponto3"> Discordo fortemente.</label>
+        </div>
+    </div>
+    <br>
+
+    <div id="area" class="form-group" aria-required="formControlName">
+
+        <label>4. Até agora, eu obtive as coisas que considero mais importantes que quero em minha vida.</label>
+
+        <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto4" id="opcao_1" [value]=1 formControlName="ponto4"> Concordo fortemente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto4" id="opcao_2" [value]=2 formControlName="ponto4"> Concordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto4" id="opcao_3" [value]=3 formControlName="ponto4"> Concordo parcialmente</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto4" id="opcao_4" [value]=4 formControlName="ponto4"> Nem concordo nem discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto4" id="opcao_5" [value]=5 formControlName="ponto4"> Discordo parcialmente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_F"><input class="form-check-input" type="radio" name="ponto4" id="opcao_6" [value]=6 formControlName="ponto4"> Discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto4" id="opcao_7" [value]=7 formControlName="ponto4"> Discordo fortemente.</label>
+        </div>
+    </div>
+    <br>
+
+    <div id="area" class="form-group" aria-required="formControlName">
+
+        <label>5. Se eu pudesse viver minha vida novamente, eu não mudaria nada.</label>
+
+        <div class="form-check">
+            <label class="form-check-label" for="Resposta_A"><input class="form-check-input" type="radio" name="ponto5" id="opcao_1" [value]=1 formControlName="ponto5"> Concordo fortemente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_B"><input class="form-check-input" type="radio" name="ponto5" id="opcao_2" [value]=2 formControlName="ponto5"> Concordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_C"><input class="form-check-input" type="radio" name="ponto5" id="opcao_3" [value]=3 formControlName="ponto5"> Concordo parcialmente</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_D"><input class="form-check-input" type="radio" name="ponto5" id="opcao_4" [value]=4 formControlName="ponto5"> Nem concordo nem discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_E"><input class="form-check-input" type="radio" name="ponto5" id="opcao_5" [value]=5 formControlName="ponto5"> Discordo parcialmente.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_F"><input class="form-check-input" type="radio" name="ponto5" id="opcao_6" [value]=6 formControlName="ponto5"> Discordo.</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="Resposta_G"><input class="form-check-input" type="radio" name="ponto5" id="opcao_7" [value]=7 formControlName="ponto5"> Discordo fortemente.</label>
+        </div>
+      </div>
+      <br>
+
+    </fieldset>
+
+  <input type="submit" class="btn btn-primary mt-4" [disabled]="formPontuacao.invalid || formRegistrado" value="Salvar" (click)="onSubmit(formPontuacao.value)">
+  </form>
+  <input type='button' class="btn btn-primary mt-4 botaoVoltar" value='Voltar' routerLink="/agendas-listar" routerLinkActive="active">
+</div>
