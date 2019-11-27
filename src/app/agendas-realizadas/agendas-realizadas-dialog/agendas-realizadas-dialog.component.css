@@ -3,3 +3,45 @@
   background: #6fafa0;
   margin: 10px 15px;
 }
+
+.botao-cancelar {
+  color: #FFFFFF;
+  background: #ef2d5ae6;
+  margin: 10px 15px;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+/*change color of label*/
+color: #dd709f !important;
+}
+
+::ng-deep .mat-form-field-underline {
+background-color: #dd709f !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+/*change color of underline when focused*/
+background-color: #dd709f !important;;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: 15em;
+  border: 2px solid #d68fae;
+  display: inline-block;
+  border-radius: 0.4em;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: .4375em 0;
+  width: 16em;
+}

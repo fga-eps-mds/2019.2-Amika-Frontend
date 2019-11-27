@@ -5,7 +5,7 @@
 <script data-autoinit="true" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js"></script>
 
 <div class="tela-cheia">
-  <div class="container">
+  <div class="container margem">
     <div class="row">
       <div class="col-md-12">
         <h3 class="text-center">Agendas Não Realizadas</h3>
@@ -67,7 +67,6 @@
             <div class="col-md-12">
               <button (click)="openDialog('criacao', agenda)" class="btn botao" type="button">
                 <div class="agenda-card">
-                  <mat-icon class="icone-agenda fazer">whatshot</mat-icon>
                   Realizar agenda
                 </div>
               </button>
@@ -105,33 +104,36 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-panel-description>
-        <div class="row width-agenda">
-          <div class="col-md-12 descricao">
-            {{agenda.agenda.descricao}}
-          </div>
-          <div class="col-md-12 realizacao">
-            <b>Realização</b>
-          </div>
-          <div class="col-md-12 realizacao">
-            {{agenda.realizacao.texto}}
-          </div>
-          <div class="col-md-12 realizacao">
-            <div *ngIf="agenda.realizacao.anexo">
-              {{agenda.realizacao.anexo?.split('/')[4]}}
+          <div class="width-agenda">
+            <div class="row">
+              <div class="col-md-8">
+                Publicado em: {{agenda.agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+              </div>
+              <div class="col-md-4">
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Individual'">
+                  <h4>Individual</h4>
+                  <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+                </div>
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Grupo'">
+                  <h4>Grupo</h4>
+                  <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+                </div>
+              </div>
             </div>
-            <div *ngIf="!agenda.realizacao.anexo">
-              Não há anexo.
+            <div class="row descricao">
+              <div class="col-md-4">
+                {{agenda.agenda.descricao}}
+              </div>
+            </div>  
+            <div class="row">
+              <div class="row col-12"
+                *ngIf="agenda.agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.agenda.data_encerramento">
+                <button (click)="openDialog('alteracao', agenda)" class="btn botao" type="button">Editar</button>
+                <button (click)="openDialog('delecao', agenda)" class="btn botao-excluir" type="button">Excluir</button>
+              </div>
             </div>
           </div>
-          <div class="col-md-12 align-self-end">
-            <div
-              *ngIf="agenda.agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.agenda.data_encerramento">
-              <button (click)="openDialog('alteracao', agenda)" class="btn botao" type="button">Editar</button>
-              <button (click)="openDialog('delecao', agenda)" class="btn botao" type="button">Excluir</button>
-            </div>
-          </div>
-        </div>
-      </mat-panel-description>
+        </mat-panel-description>
     </mat-expansion-panel>
   </mat-accordion>
 </ng-template>

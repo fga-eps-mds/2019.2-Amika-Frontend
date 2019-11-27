@@ -33,6 +33,7 @@ export class ListaDeMatriculaComponent implements OnInit {
   turmas: Turma;
   error: any;
   hasErrorLista: any;
+  arquivo;
   public records: any[] = [];
   @ViewChild('csvReader', {static: false}) csvReader: any;
 

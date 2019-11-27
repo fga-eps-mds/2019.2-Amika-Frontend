@@ -46,9 +46,12 @@
                 <i class="fa fa-cloud-upload"></i> Enviar
               </label>
               <div>
-                <input type="file" (change)="uploadListener($event)" accept=".csv" name="arquivo"
+                <input type="file" (change)="uploadListener($event); arquivo=$event.target.files[0]" accept=".csv" name="arquivo"
                 id="arquivoLista" aria-describedby="arquivoLista" class="form-control form-file"
                 formControlName="arquivo" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('arquivo') }"/>
+              </div>
+              <div>
+                {{ arquivo ? arquivo.name : "" }}
               </div>
               <div>
                 <mat-form-field class="input-full-width">

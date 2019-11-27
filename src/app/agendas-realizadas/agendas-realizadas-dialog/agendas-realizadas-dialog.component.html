@@ -1,16 +1,27 @@
 <ng-container *ngIf="data.tipo === 'criacao'">
-  <h2 mat-dialog-title>Realizar Agenda {{data.agenda.nome}}</h2>
-  <div mat-dialog-content>
-    <p>Texto</p>
-    <mat-form-field>
-      <input matInput [(ngModel)]="data.realizacao.texto" placeholder="Escreva um texto sobre a realização desta agenda.">
-    </mat-form-field>
-    <p>Anexo</p>
-    <input type="file" (change)="data.anexo = $event.target.files[0]">
+  <div mat-dialog-content class="content-adicionar-turmas">
+    <div style="display:flex; justify-content:left;">
+      <p>Texto</p>
+    </div>
+    <div style="display:flex; justify-content:center;">
+        <mat-form-field>
+        <input matInput [(ngModel)]="data.realizacao.texto" placeholder="Texto para a agenda">
+      </mat-form-field>
+    </div>
+    <div style="display:flex; justify-content:left;">
+      <p>Anexo</p>
+    </div>
+    <label for="realizaragenda" class="custom-file-upload">
+      <i class="fa fa-cloud-upload"></i> Anexar
+    </label>
+    <div style="display:flex; justify-content:center;">
+          <input type="file" class="form-control form-file" id="realizaragenda" (change)="data.anexo = $event.target.files[0]">
+          <div>{{data.anexo? data.anexo.name : ""}}</div>
+    </div>
   </div>
 
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close type="button" class="botao"
+    <button mat-button mat-dialog-close type="button" class="botao" 
             (click)="criaAgendaRealizada(data.tipo, data.agenda.id, data.realizacao.texto, data.anexo)">
       Criar
     </button>
@@ -21,13 +32,16 @@
 
 <ng-container *ngIf="data.tipo === 'alteracao'">
   <h2 mat-dialog-title>Atualizar Agenda {{data.agenda.nome}}</h2>
-  <div mat-dialog-content>
+  <div mat-dialog-content class="content-adicionar-turmas">
     <p>Texto</p>
     <mat-form-field>
       <input matInput [(ngModel)]="data.realizacao.texto">
     </mat-form-field>
     <p>Anexo</p>
-    <input type="file" (change)="data.anexo = $event.target.files[0]">
+    <label for="atualizaragenda" class="custom-file-upload">
+      <i class="fa fa-cloud-upload"></i> Anexar
+    </label>
+    <input type="file" id="atualizaragenda" class="form-control form-file" (change)="data.anexo = $event.target.files[0]">
   </div>
 
   <mat-dialog-actions>
@@ -42,7 +56,7 @@
 
 <ng-container *ngIf="data.tipo === 'delecao'">
   <h2 mat-dialog-title>Deletar agenda {{data.agenda.nome}}?</h2>
-  <div mat-dialog-content>
+  <div mat-dialog-content class="content-adicionar-turmas">
     <p>Esta ação não poderá ser revertida.</p>
   </div>
 
@@ -57,5 +71,5 @@
 
 
 <ng-template #botaoCancelar>
-  <button mat-button mat-dialog-close type="button" class="btn botao">Cancelar</button>
+  <button mat-button mat-dialog-close type="button" class="btn botao-cancelar">Cancelar</button>
 </ng-template>
