@@ -2,6 +2,7 @@
   <h1 mat-dialog-title>Status de envio</h1>
   <div mat-dialog-content id="mensagem">
     <p>O formulário foi enviado com sucesso</p>
+    <p>Sua nota: {{data.nota}}/{{data.total}}</p>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onClose()">Voltar</button>

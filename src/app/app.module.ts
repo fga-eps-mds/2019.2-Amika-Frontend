@@ -41,7 +41,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { GrupoComponent } from './grupo/grupo.component';
 import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormularioFelidadeAutenticaService } from './formulario-felicidade-autentica/formulario_felicidade_autentica.service';
 
 const appRoutes: Routes = [

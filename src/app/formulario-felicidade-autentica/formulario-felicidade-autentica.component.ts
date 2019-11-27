@@ -1,9 +1,15 @@
+import { DialogData } from './../formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Pontuacao} from './pontos'
 import { FormularioFelidadeAutenticaService } from './formulario_felicidade_autentica.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormularioEnviadoDialog } from '../formulario-satisfacao-com-vida/formulario-satisfacao-com-vida.component';
+
+export interface DialogData {
+  nota: number;
+  total: number;
+}
 
 @Component({
   selector: 'app-formulario-felicidade-autentica',
@@ -17,8 +23,6 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
   formRegistrado: boolean = false;
   dadosForm;
   qtdForms;
-
-  //constructor() { }
 
   constructor(private formBuilder: FormBuilder, private formService: FormularioFelidadeAutenticaService,
               public dialog: MatDialog) {
@@ -85,13 +89,8 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
         this.fazerSoma(dadosFormulario);
         let totalpontos = {"formulario": [{"tipo": "A", "pontuacao": this.total}]}
         console.log(totalpontos);
-        this.formService.enviar(JSON.stringify(totalpontos)).subscribe(data => {
-          console.log(data);
-        },
-          error => {
-            console.log(error);
-            this.errors = error;
-          });
+        totalpontos.formulario[0].pontuacao.toFixed(2);
+        this.formService.enviar(JSON.stringify(totalpontos));
         this.envioDialog();
       } else {
         this.openDialog();
@@ -121,7 +120,8 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
 
   envioDialog(): void {
     const dialogRef = this.dialog.open(FormularioEnviadoDialog, {
-      width: '250px'
+      width: '250px',
+      data : {nota: this.total.toFixed(2), total: 5}
     });
   }
 
@@ -133,7 +133,8 @@ export class FormularioFelicidadeAutenticaComponent implements OnInit {
   styleUrls: ['formulario-felicidade-autentica-dialog.css']
 })
 export class FormularioFelicidadeAutenticaDialog {
-  constructor( public dialogRef: MatDialogRef<FormularioFelicidadeAutenticaDialog>) {}
+  constructor( public dialogRef: MatDialogRef<FormularioFelicidadeAutenticaDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onClose(): void {
     this.dialogRef.close();

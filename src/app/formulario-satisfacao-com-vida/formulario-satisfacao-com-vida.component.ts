@@ -5,6 +5,11 @@ import {Pontuacao} from './pontos'
 import { FormularioSatisfacaoComVidaService } from './formulario-satisfacao-com-vida.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+export interface DialogData {
+  nota: number;
+  total: number;
+}
+
 @Component({
   selector: 'app-formulario-satisfacao-com-vida',
   templateUrl: './formulario-satisfacao-com-vida.component.html',
@@ -18,8 +23,6 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
   formRegistrado: boolean = false;
   dadosForm;
   qtdForms;
-
-  //constructor() { }
 
   constructor(private formBuilder: FormBuilder, private formService: FormularioSatisfacaoComVidaService,
     public dialog: MatDialog, private router: Router) {
@@ -58,7 +61,7 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
     ponto[5] = {pontos: dadosFormulario.ponto5};
 
     this.total = ponto.reduce((total, valor) => total + valor.pontos, 0);
-    this.total = this.total/5;
+    console.log("Pontos: " + this.total);
     this.total = Number(this.total);
     console.log(this.total);
 
@@ -101,7 +104,8 @@ export class FormularioSatisfacaoComVidaComponent implements OnInit {
 
     envioDialog(): void {
       const dialogRef = this.dialog.open(FormularioEnviadoDialog, {
-        width: '250px'
+        width: '250px',
+        data : {nota: this.total, total: 35}
       });
     }
 }
@@ -127,7 +131,8 @@ export class FormularioSatisfacaoComVidaDialog {
 })
 export class FormularioEnviadoDialog {
   constructor(
-    public dialogRef: MatDialogRef<FormularioEnviadoDialog>, private router: Router) {}
+    public dialogRef: MatDialogRef<FormularioEnviadoDialog>, private router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onClose(): void {
     this.dialogRef.close();
