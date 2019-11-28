@@ -1,3 +1,4 @@
+import { FormularioService } from './../formulario.service';
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -5,6 +6,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { GrupoService } from './grupo.service';
 import { Grupo } from './grupos.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AlertaService } from '../alerta.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-grupos',
@@ -24,16 +27,17 @@ export class GruposComponent implements OnInit {
 
   constructor(private grupoService: GrupoService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, private formularioService: FormularioService, public alertaService: AlertaService) {
     this.getter();
-    this.formularioGrupo = this.formBuilder.group({
-      nome : ['', Validators.required],
-      id: ['']
-    });
+    this.formularioGrupo = this.formularioService.createFormGrupo();
   }
 
   ngOnInit() {
   }
+
+  fotoUrl(foto) {
+     return environment.urlApi.slice(0, -1) + foto;
+   }
 
   criarDialogoAdicionarGrupo(): void {
     const dialogRef = this.dialog.open(CriarGruposDialogo, {
@@ -41,10 +45,9 @@ export class GruposComponent implements OnInit {
       data: {formularioGrupo: null, title: "Adicionar grupo"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log("DATA");
-      console.log(JSON.parse(data));
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.onSubmit();
+      this.alertaService.alerta('O grupo foi adicionado com sucesso!', 'success', false);
     });
   }
 
@@ -56,14 +59,17 @@ export class GruposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.edit();
+      this.alertaService.alerta('O grupo foi editado com sucesso!', 'success', false);
     });
   }
 
   edit() {
     this.grupoService.edit_grupos(this.formularioGrupo.value.id, this.formularioGrupo.value).subscribe((data: any) => {
       this.grupos[this.grupos.findIndex(item => item.id === this.formularioGrupo.value.id)] = this.formularioGrupo.value;
+      this.alertaService.alerta('O grupo foi editado com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
+      this.alertaService.alerta('O nome informado é inválido!', 'error', false);
     });
   }
 
@@ -93,8 +99,10 @@ export class GruposComponent implements OnInit {
   onConfirmDelete() {
     this.grupoService.delete_grupos(this.grupoSelecionado.id).subscribe((data: any) => {
       this.getter();
+      this.alertaService.alerta('O grupo foi removido com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
+      this.alertaService.alerta('Não é possível remover este grupo', 'error', false);
     });
     this.deleteModalRef.hide();
   }
@@ -110,7 +118,9 @@ export class GruposComponent implements OnInit {
       this.grupoService.create_grupos(this.formularioGrupo.value).subscribe((data: any) => {
         this.formularioGrupo.reset();
         this.getter();
+        this.alertaService.alerta('O grupo foi adicionado com sucesso', 'success', false);
       }, (error: any) => {
+        this.alertaService.alerta('O nome informado é inválido!', 'error', false);
         this.error = error;
       });
     }
@@ -120,11 +130,13 @@ export class GruposComponent implements OnInit {
     this.router.navigate(['editar_grupo/:id', id]);
 
   }
-  
+
   popula() {
     this.grupoService.popula_grupo().subscribe((data: any) => {
       this.getter();
+      this.alertaService.alerta('Os grupos foram criados com sucesso!', 'success', false);
     }, (error: any) => {
+      this.alertaService.alerta('Ops, não foi possível criar os grupos.', 'error', false);
       this.error = error;
     });
   }
@@ -133,12 +145,12 @@ export class GruposComponent implements OnInit {
     let tamanho_nome = (first_name + last_name).length + 1;
     if (tamanho_nome < 23) {
       return '12px';
-    } 
+    }
     else if (tamanho_nome < 26) {
       return '11px';
     }
     else if (tamanho_nome < 31) {
-      return '10px';   
+      return '10px';
     }
     else {
       return '9px';
@@ -153,18 +165,10 @@ export class GruposComponent implements OnInit {
 })
 export class CriarGruposDialogo {
   formularioGrupo: FormGroup;
-  constructor( public dialogRef: MatDialogRef<CriarGruposDialogo>, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+  constructor( public dialogRef: MatDialogRef<CriarGruposDialogo>, private formularioService: FormularioService, private grupoService: GrupoService, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any ) {
+    this.formularioGrupo = this.formularioService.createFormGrupo();
     if (this.data.formularioGrupo) {
-      this.formularioGrupo = this.formBuilder.group({
-        nome: ['', Validators.required],
-        id: ""
-      });
       this.formularioGrupo.patchValue(this.data.formularioGrupo);
-    }
-    else {
-      this.formularioGrupo = this.formBuilder.group({
-        nome: ['', Validators.required]
-      });
     }
   }
 
@@ -175,4 +179,3 @@ export class CriarGruposDialogo {
     this.dialogRef.close(`${JSON.stringify(form.value)}`);
   }
 }
-

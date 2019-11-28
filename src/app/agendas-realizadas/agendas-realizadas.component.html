@@ -1,0 +1,208 @@
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+<script data-autoinit="true" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/masking-input.js"></script>
+
+<div class="tela-cheia">
+  <div class="container margem">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-center">Agendas Não Realizadas</h3>
+        <div *ngIf="agendasNaoRealizadas?.length > 0; then temAgendasNaoRealizadas else naoTemAgendasNaoRealizadas"></div>
+      </div>
+      <div class="col-md-12">
+        <h3 class="text-center">Agendas Realizadas</h3>
+        <div *ngIf="agendasRealizadas?.length > 0; then temAgendasRealizadas else naoTemAgendasRealizadas"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #temAgendasNaoRealizadas>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let agenda of agendasNaoRealizadas" class="cards" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="agenda-card">
+                  <mat-icon class="icone-agenda nao-feito">assignment_late</mat-icon>
+                  <h4>{{agenda.nome}}</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                Data de encerramento: {{agenda.data_encerramento | date:'dd/MM/yyyy'}}
+              </div>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-panel-description>
+        <div class="width-agenda only-mobile">
+          <div class="row">
+            <div class="col-10">
+              Publicado em: {{agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+            </div>
+            <div class="col-2">
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Individual'">
+                <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+              </div>
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Grupo'">
+                <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row descricao">
+            <div class="col-4">
+              {{agenda.descricao}}
+            </div>
+          </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.data_encerramento">
+            <div class="col-12">
+              <button (click)="openDialog('criacao', agenda)" class="btn botao-enviar" type="button">
+                <div class="agenda-card">
+                  Realizar agenda
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao > dataAtual || dataAtual > agenda.data_encerramento">
+            <div class="col-12">
+              <h2 class="agenda-indisponivel">Agenda Indisponível</h2>
+            </div>
+          </div>
+        </div>
+        <div class="width-agenda only-desktop">
+          <div class="row">
+            <div class="col-md-8">
+              Publicado em: {{agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+            </div>
+            <div class="col-md-4">
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Individual'">
+                <h4>Individual</h4>
+                <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+              </div>
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Grupo'">
+                <h4>Grupo</h4>
+                <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row descricao">
+            <div class="col-md-4">
+              {{agenda.descricao}}
+            </div>
+          </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.data_encerramento">
+            <div class="col-md-12">
+              <button (click)="openDialog('criacao', agenda)" class="btn botao-enviar" type="button">
+                <div class="agenda-card">
+                  Realizar agenda
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao > dataAtual || dataAtual > agenda.data_encerramento">
+            <div class="col-12">
+              <h2 class="agenda-indisponivel">Agenda fora do período</h2>
+            </div>
+          </div>
+        </div>
+      </mat-panel-description>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
+<ng-template #naoTemAgendasNaoRealizadas>
+  <h6>Não há agendas não realizadas.</h6>
+</ng-template>
+
+<ng-template #temAgendasRealizadas>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let agenda of agendasRealizadas" class="cards" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="agenda-card">
+                  <mat-icon class="icone-agenda feito">assignment_turned_in</mat-icon>
+                  <h4>{{agenda.agenda.nome}}</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                Data encerramento: {{agenda.agenda.data_encerramento | date:'dd/MM/yyyy'}}
+              </div>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-panel-description>
+          <div class="width-agenda only-mobile">
+            <div class="row">
+              <div class="col-10">
+                Publicado em: {{agenda.agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+              </div>
+              <div class="col-2">
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Individual'">
+                  <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+                </div>
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Grupo'">
+                  <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+                </div>
+              </div>
+            </div>
+            <div class="row descricao">
+                <div class="col-12">
+                  {{agenda.agenda.descricao}}
+                </div>
+              </div>  
+              <div class="row">
+                <div class="row col-12"
+                  *ngIf="agenda.agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.agenda.data_encerramento">
+                  <button (click)="openDialog('alteracao', agenda)" class="btn botao" type="button">Editar</button>
+                  <button (click)="openDialog('delecao', agenda)" class="btn botao-excluir" type="button">Excluir</button>
+                </div>
+              </div>
+          </div>
+          <div class="width-agenda only-desktop">
+            <div class="row">
+              <div class="col-md-8">
+                Publicado em: {{agenda.agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+              </div>
+              <div class="col-md-4">
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Individual'">
+                  <h4>Individual</h4>
+                  <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+                </div>
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Grupo'">
+                  <h4>Grupo</h4>
+                  <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+                </div>
+              </div>
+            </div>
+            <div class="row descricao">
+              <div class="col-md-4">
+                {{agenda.agenda.descricao}}
+              </div>
+            </div>  
+            <div class="row">
+              <div class="row col-12"
+                *ngIf="agenda.agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.agenda.data_encerramento">
+                <button (click)="openDialog('alteracao', agenda)" class="btn botao" type="button">Editar</button>
+                <button (click)="openDialog('delecao', agenda)" class="btn botao-excluir" type="button">Excluir</button>
+              </div>
+            </div>
+          </div>
+        </mat-panel-description>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
+<ng-template #naoTemAgendasRealizadas>
+  <h6>Não há agendas realizadas.</h6>
+</ng-template>

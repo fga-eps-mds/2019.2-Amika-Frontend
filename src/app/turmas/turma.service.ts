@@ -1,7 +1,6 @@
-import { AutenticacaoService } from './../autenticacao.service';
+import { RequisicoesService } from './../requisicoes.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,27 +8,25 @@ import { environment } from 'src/environments/environment';
 })
 
 export class TurmaService {
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) { 
-    this.autenticacao.setHeader();
-  }
+  constructor(private requisicao: RequisicoesService) {}
 
   public get_turmas(): Observable<any> {
-    return this.http.get(environment.urlApi + 'turmas/', this.autenticacao.httpOptions);
+    return this.requisicao.get('turmas/');
   }
 
   public delete_turmas(id): Observable<any>{
-    return this.http.delete(environment.urlApi + 'turma/' + id, this.autenticacao.httpOptions);
+    return this.requisicao.delete('turma/' + id);
   }
 
   public create_turmas(turma): Observable<any> {
-    return this.http.post(environment.urlApi + 'turma/', turma, this.autenticacao.httpOptions);
+    return this.requisicao.post('turma/', turma);
   }
   
   public edit_turmas(id, turma): Observable<any> {
-    return this.http.put(environment.urlApi + 'turma/' + id, turma, this.autenticacao.httpOptions);
+    return this.requisicao.put('turma/' + id, turma);
   }
 
   public getById(id) {
-    return this.http.get(environment.urlApi + 'turma/' + id, this.autenticacao.httpOptions);
+    return this.requisicao.get('turma/' + id);
   }
 }

@@ -228,18 +228,19 @@ transition: 0.5s;
 .modal-body {
   background-color: #fff;
       border-radius: 30px;
-      .agendas_form .form-group label {
-        font-family: "Nunito", sans-serif;
-        font-size: 1em;
-        color: #575757;
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-                transform: translateY(-50%);
-        z-index: 0;
-        -webkit-transition: .3s all;
-        transition: .3s all;
-      }
+}
+
+.agendas_form .form-group label {
+  font-family: "Nunito", sans-serif;
+  font-size: 1em;
+  color: #575757;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 0; 
+  -webkit-transition: .3s all;
+  transition: .3s all;
 }
 
 
@@ -261,7 +262,7 @@ transition: 0.5s;
   bottom: 0.5em;
   width: 4em;
   height: 4em;
-  margin: 5% auto;
+  margin: 30% auto;
   left: 0;
   right: 0;
   justify-content: center;

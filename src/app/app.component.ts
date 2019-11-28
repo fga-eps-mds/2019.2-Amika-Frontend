@@ -11,6 +11,7 @@ import { MatSidenav } from '@angular/material';
 import { PerfilService } from './perfil.service';
 import { environment } from '../environments/environment';
 import { Subscription } from 'rxjs';
+import { AlertaService } from './alerta.service';
 
 @Component({
   selector: 'app-root',
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
     media: MediaMatcher,
     public autenticacao: AutenticacaoService,
     private perfilService: PerfilService,
+    public alertaService: AlertaService,
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -105,7 +107,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(this.perfilService.trocaFoto(this.userId, formData)
       .subscribe(() => {
+        this.alertaService.alerta("A foto foi alterada com sucesso!", 'success', false);
         this.getPerfil();
+      }, (error: any) => {
+        this.alertaService.alerta("Não foi possível alterar a foto.", 'error', false);
       }));
   }
 }

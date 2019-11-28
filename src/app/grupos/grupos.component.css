@@ -15,6 +15,7 @@ h1, h5, h6 {
 
   .foto-aluno {
     width: 3em;
+    height: 3em;
     float: left;
     margin-right: 1em;
     border-radius: 50%;
@@ -348,7 +349,7 @@ h1, h5, h6 {
     bottom: 5.5em;
     width: 4em;
     height: 4em;
-    margin: 5% auto;
+    margin: 10% auto;
     left: 0;
     right: 11em;
     justify-content: center;

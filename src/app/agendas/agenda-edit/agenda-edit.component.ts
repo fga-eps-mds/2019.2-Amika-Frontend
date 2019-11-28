@@ -1,9 +1,11 @@
+import { FormularioService } from './../../formulario.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AgendaService } from './../agenda.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Agenda } from '../agendas.model';
 import { AgendasComponent } from '../agendas.component';
+import { AlertaService } from '../../alerta.service';
 
 @Component({
   selector: 'app-agenda-edit',
@@ -18,7 +20,7 @@ export class AgendaEditComponent implements OnInit {
   submitted = false;
   agendaComponent: AgendasComponent;
 
-  constructor(private agendaService: AgendaService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(public agendaService: AgendaService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, public alertaService: AlertaService) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -28,14 +30,7 @@ export class AgendaEditComponent implements OnInit {
         });
       }
       );
-    this.formularioAgenda = this.formBuilder.group({
-      id: [null],
-      nome: ['', Validators.required],
-      tipo: ['', Validators.required],
-      descricao: ['', Validators.required],
-      data_disponibilizacao: ['', Validators.required],
-      data_encerramento: ['', Validators.required],
-    });
+    this.formularioAgenda = this.formularioService.createFormAgenda();
    }
 
   ngOnInit() {
@@ -43,19 +38,6 @@ export class AgendaEditComponent implements OnInit {
 
   return() {
     this.router.navigate(['agenda']);
-  }
-
-  validarData(){
-    if (this.formularioAgenda.value.data_disponibilizacao && this.formularioAgenda.value.data_encerramento){
-      if (new Date(this.formularioAgenda.value.data_disponibilizacao) < new Date(this.formularioAgenda.value.data_encerramento)){
-        this.error={isError:false,errorMessage:''};
-      } else {
-        this.error = {isError:true,errorMessage:"Data de encerramento deve ser maior do que a de disponibilização"};
-      }
-    }
-    else {
-      this.error={isError:false,errorMessage:''};
-    }
   }
 
   updateForm(agenda) {
@@ -71,15 +53,17 @@ export class AgendaEditComponent implements OnInit {
 
   onSave() {
     this.submitted = true;
-    this.validarData();
+    this.error = this.agendaService.validarData(this.formularioAgenda.value.data_disponibilizacao, this.formularioAgenda.value.data_encerramento)
     this.route.params.subscribe(
       (params: any) => {
         if (this.formularioAgenda.valid) {
           this.agendaService.edit_agenda(params['id'], this.formularioAgenda.value).subscribe((data: any) => {
+            this.alertaService.alerta('A agenda foi editada com sucesso!', 'success', false);
             this.formularioAgenda.reset();
             this.return();
           }, (error: any) => {
             this.error = error;
+            this.alertaService.alerta('Os campos não foram preenchidos corretamente!', 'error', false);
           });
         }
       }

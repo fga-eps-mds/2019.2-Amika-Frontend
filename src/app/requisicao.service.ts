@@ -1,39 +1,31 @@
+import { RequisicoesService } from './requisicoes.service';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { AutenticacaoService } from './autenticacao.service';
+import { AlertaService } from './alerta.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequisicaoService {
   errors;
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
 
-  constructor(private http: HttpClient, private autenticacao: AutenticacaoService) {
-    this.autenticacao.setHeader();
-   }
+  constructor(private requisicao: RequisicoesService, public alertaService:AlertaService) {}
 
   realizarRequisicao(dadosAluno) {
-    return this.http.post(environment.urlApi + 'aluno/', dadosAluno, this.autenticacao.httpOptions)
+    return this.requisicao.post('aluno/', dadosAluno)
                     .subscribe(data => {
                       console.log(data);
                       this.errors = null;
+                      this.alertaService.alerta('Seu cadastro foi feito com sucesso!', 'success', false);
                     },
                     error => {
                       console.log(error);
                       this.errors = error;
-
+                      this.alertaService.alerta('Sua matricula ainda não foi cadastrada, solicite ao professor para que realize o cadastro de sua matricula anteriormente. ', 'error', false);
                     });
   }
 
   requisicaoMatriculaIndividual(dadosIndividuais) {
-    return this.http.post(environment.urlApi + 'registro/', dadosIndividuais, this.httpOptions)
+    return this.requisicao.post('registro/', dadosIndividuais)
       .subscribe(data => {
         console.log(data);
         this.errors = null;

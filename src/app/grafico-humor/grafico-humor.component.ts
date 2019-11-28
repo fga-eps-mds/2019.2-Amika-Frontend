@@ -13,6 +13,7 @@ export class GraficoHumorComponent implements OnInit {
   datas = [];
   id = 1;
   turma = '';
+  grafico: any;
 
   chartLabels = ['Janeiro', 'Fevereiro'];
 

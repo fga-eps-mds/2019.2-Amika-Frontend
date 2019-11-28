@@ -1,9 +1,11 @@
+import { FormularioService } from './../../formulario.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { GrupoService } from '../grupo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Grupo } from '../grupos.model';
 import { GruposComponent } from '../grupos.component';
+import { AlertaService } from '../../alerta.service';
 
 @Component({
   selector: 'app-grupo-edit',
@@ -17,7 +19,7 @@ export class GrupoEditComponent implements OnInit {
   submitted = false;
   grupoComponent: GruposComponent;
 
-  constructor(private grupoService: GrupoService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(private grupoService: GrupoService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, public alertaService: AlertaService) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -28,10 +30,7 @@ export class GrupoEditComponent implements OnInit {
         });
       }
       );
-    this.formularioGrupo = this.formBuilder.group({
-      id: [null],
-      nome: ['', Validators.required],
-    });
+      this.formularioGrupo = this.formularioService.createFormGrupo();
    }
 
   ngOnInit() {
@@ -61,7 +60,7 @@ export class GrupoEditComponent implements OnInit {
             this.return();
 
           }, (error: any) => {
-            this.error = error;
+            this.alertaService.alerta('O nome informado é inválido!', 'error', false);
           });
         }
       }

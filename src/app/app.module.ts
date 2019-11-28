@@ -1,3 +1,6 @@
+import { AlertaService } from './alerta.service';
+import { FormularioService } from './formulario.service';
+import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -22,20 +25,24 @@ import { HumorComponent } from './humor/humor.component';
 import { RatingModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AreaInformativaComponent } from './area-informativa/area-informativa.component';
-import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GraficoHumorComponent } from './grafico-humor/grafico-humor.component';
 import { ChartsModule } from 'ng2-charts';
-
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarTurmasDialogo } from './turmas/turmas.component';
 import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-registro.component';
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GrupoComponent } from './grupo/grupo.component';
+import { MateriaisComponent } from './materiais/materiais.component';
 import { CriarAgendasDialogo } from './agendas/agendas.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AgendasRealizadasComponent } from './agendas-realizadas/agendas-realizadas.component';
+import { AgendasRealizadasService } from "./agendas-realizadas/agendas-realizadas.service";
+import { AgendasRealizadasDialogComponent } from './agendas-realizadas/agendas-realizadas-dialog/agendas-realizadas-dialog.component';
+import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
 @NgModule({
   declarations: [
@@ -49,9 +56,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AgendasComponent,
     AgendaEditComponent,
     HumorComponent,
-    PerfilUsuarioComponent,
     AreaInformativaComponent,
-    PerfilUsuarioComponent,
     GraficoHumorComponent,
 
     CriarTurmasDialogo,
@@ -59,12 +64,18 @@ import { MatDialogModule } from '@angular/material/dialog';
     AlunoAutoRegistroComponent,
     ListaDeMatriculaComponent,
     CriarAgendasDialogo,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GrupoComponent,
+    MateriaisComponent,
+    AgendasRealizadasComponent,
+    AgendasRealizadasDialogComponent,
+    VisualizarMateriaisComponent
   ],
   entryComponents: [
     CriarTurmasDialogo,
     CriarAgendasDialogo,
-    CriarGruposDialogo
+    CriarGruposDialogo,
+    AgendasRealizadasDialogComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -86,7 +97,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     TurmaService,
     AutenticacaoService,
     GrupoService,
-    AgendaService
+    AgendaService,
+    RequisicoesService,
+    FormularioService,
+    AgendasRealizadasService,
+    AlertaService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import {CSVRecord} from './CSVModel';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { RequisicaoService } from '../requisicao.service';
 import { Turma } from '../turmas/turmas.model';
 import { TurmaService } from '../turmas/turma.service';
+import { AlertaService } from '../alerta.service';
 
 @Component({
   selector: 'app-lista-de-matricula',
@@ -28,18 +29,20 @@ export class ListaDeMatriculaComponent implements OnInit {
   formulario: FormGroup;
   formularioLista: FormGroup;
   arrayTeste = [];
-  formIndividualEnviado = false;
+  submitted = false;
   formListaEnviado = false;
   turmas: Turma;
   error: any;
+  hasErrorLista: any;
+  arquivo;
   public records: any[] = [];
   @ViewChild('csvReader', {static: false}) csvReader: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private requisicaoService: RequisicaoService,
-              private listaService: ListaService, private turmaService: TurmaService) {
+              private listaService: ListaService, private turmaService: TurmaService, public alertaService: AlertaService) {
     this.getter();
     this.formulario = this.formBuilder.group({
-      matricula: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+      matricula: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(9), Validators.maxLength(9)]],
       turma: ['', Validators.required],
     }),
     this.formularioLista = this.formBuilder.group({
@@ -49,12 +52,15 @@ export class ListaDeMatriculaComponent implements OnInit {
   }
 
   onSubmit(dadosFormulario) {
-    this.formIndividualEnviado = true;
-
+    this.submitted = true;
     if (this.formulario.valid) {
-        this.cadastroIndividual(dadosFormulario);
-        this.formulario.reset();
-        this.formIndividualEnviado = false;
+      this.cadastroIndividual(dadosFormulario);
+      this.formulario.reset();
+      this.submitted = false;
+      this.alertaService.alerta('A matrícula foi registrada com sucesso!', 'success', false);
+    }
+    else {
+      this.alertaService.alerta('Não foi possível registrar.', 'error', false);
     }
   }
 
@@ -96,18 +102,15 @@ export class ListaDeMatriculaComponent implements OnInit {
       reader.onerror = function() {
         console.log('Ocorreu um erro ao ler o arquivo!');
       };
-
-    } else {
-      alert('Por favor mande um arquivo CSV válido.');
+    } 
+    else {
+      this.alertaService.alerta('Por favor mande um arquivo CSV válido.', 'error', false);
       this.fileReset();
     }
   }
 
   registrar(informacao) {
-    console.log('Lista enviada', informacao);
-    console.log(JSON.stringify(informacao));
-    this.listaService.enviar(JSON.stringify(informacao));
-    console.log(this.listaService.errors);
+    this.listaService.enviar(JSON.stringify(informacao))
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
@@ -147,13 +150,12 @@ export class ListaDeMatriculaComponent implements OnInit {
     this.records = [];
   }
 
-  hasErrorLista(field: string) {
+  ErrorLista(field: string) {
     return this.formularioLista.get(field).errors;
   }
 
   getter() {
     this.turmaService.get_turmas().subscribe((data: any) => {
-      console.log(data);
       this.turmas = data;
     }, (error: any) => {
       this.error = error;
