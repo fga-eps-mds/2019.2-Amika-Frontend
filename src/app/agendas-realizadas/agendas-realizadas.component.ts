@@ -155,6 +155,7 @@ export class AgendasRealizadasComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.alertaService.alerta('A agenda foi removida com sucesso!', 'success', false);
         this.getAgendasRealizadas();
+        this.getAgendasNaoRealizadas();
       }, error => {
         this.alertaService.alerta('Não foi possível remover a agenda.', 'success', false);
         console.log(error);
