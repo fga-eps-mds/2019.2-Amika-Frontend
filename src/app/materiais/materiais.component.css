@@ -1,0 +1,196 @@
+h2, h4 {
+  font-family: "Nunito", sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  .only-desktop {
+    display:  none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .only-mobile {
+    display:  none;
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  #paginaMateriais {
+    max-width: 100%;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #paginaMateriais {
+    justify-content: center;
+  }
+  .scroll {
+    overflow: auto;
+    max-height: 20em;
+  }
+  .scrollbar {
+    max-height: 20em;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+  .titulo{
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .file-browse{
+    margin-top: 0.5rem;
+    width: 100%;
+    cursor: pointer;
+    background: #6fafa0;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border-color: #6fafa0;
+  }
+
+  .file-submit{
+    margin-top: 0rem;
+    width: 100%;
+    background: #ffb032;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border: none;
+  }
+
+  .tela-cheia-materiais{
+    margin-top: 6vh;
+    min-height: 89vh;
+    height: auto;
+    max-height: 93vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  .scroll {
+    overflow: auto;
+    max-height: 35em;
+  }
+
+  .scrollbar {
+    max-height: 35em;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+
+  .titulo{
+    margin-bottom: 4rem;
+  }
+
+  .file-browse{
+    margin-top: 2rem;
+    width: 100%;
+    cursor: pointer;
+    background: #6fafa0;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border-color: #6fafa0;
+  }
+
+  .file-submit{
+    margin-top: 2rem;
+    width: 100%;
+    background: #ffb032;
+    padding: 10px 20px 10px;
+    border-radius: 5px;
+    vertical-align: center;
+    border: none;
+  }
+
+  .tela-cheia-materiais {
+    margin-top: 6vh;
+    min-height: 89vh;
+    height: auto;
+    max-height: 93vh;
+  }
+}
+
+  .force-overflow {
+    max-height: 25em;
+  }
+
+  .materiais-row-div {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .materiais-row {
+    font-family: 'Varela Round', sans-serif;
+    height: 64px;
+    background: #6fafa02b;
+    border-radius: 8px;
+  }
+
+  .editar-excluir {
+    float: right;
+  }
+
+  .materiais {
+    margin-top: 10px;
+    border-radius: 20px;
+  }
+
+  .mat-toolbar-multiple-rows {
+    min-height: 40px !important;
+    max-height: 47px !important;
+  }
+
+  #style-3::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+  }
+
+  #style-3::-webkit-scrollbar {
+    width: 3px;
+    height: 5px;
+    background-color: #F5F5F5;
+  }
+
+  #style-3::-webkit-scrollbar-thumb {
+    background-color: #000000;
+  }
+
+  #iconeDownload {
+    margin-right: 0.75em;
+    color: #206b43;
+    cursor: pointer;
+  }
+
+  #iconeExcluir {
+    color: #f30872;
+    cursor: pointer;
+  }
+
+.btn-confirm{
+  padding: 10px 20px 10px;
+  content: '';
+  background-color: #6fafa0;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.btn-decline{
+  padding: 10px 20px 10px;
+  content: '';
+  background-color: #ffb032;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+  margin: 0.5rem;
+}
+
+.enviar-materiais{
+  margin-bottom: 5em;
+}

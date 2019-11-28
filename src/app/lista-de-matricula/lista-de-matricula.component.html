@@ -1,0 +1,77 @@
+<div class="tela-cheia">
+  <div class="col-md-12">
+    <h2 class="text-center">Registro de matrículas</h2>
+    <div class="col-md-12 size-mat-tab" >
+      <mat-tab-group mat-stretch-tabs dynamicHeight id="tab-group" class="width-mat-tab" >
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icons">person_add</mat-icon>
+          </ng-template>
+          <div class="example-small-box">
+            <form [formGroup]="formulario" class="turmas_form needs-validation" novalidate id="formIndividual">
+              <div>
+                <mat-form-field class="input-full-width">
+                  <input matInput
+                  placeholder="Matrícula"
+                  formControlName="matricula" [ngClass]="{ 'is-invalid': submitted && hasError('matricula') }">
+                </mat-form-field>
+                <mat-error *ngIf="submitted && hasError('matricula')">
+                  Por favor, informe uma matrícula válida.
+                </mat-error>
+              </div>
+
+              <div>
+                <mat-form-field class="input-full-width">
+                  <select matNativeControl class="form-control border-none" pattern="" id="turma" aria-describedby="turma" placeholder="Turma" formControlName="turma" [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
+                    <option value="" disabled selected>Selecione a turma</option>
+                    <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
+                    </select>
+                    <mat-error *ngIf="submitted && hasError('turma')">Por favor, informe a turma.</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="text-center" id="enviarForm">
+                <button type="button" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
+              </div>
+            </form>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="icons">group_add</mat-icon>
+          </ng-template>
+          <div class="example-large-box">
+            <form [formGroup]="formularioLista" class="turmas_form needs-validation" novalidate id="listaForm">
+              <div id="tituloTurma"><label for="turmaIndividual">Arquivo CSV</label></div>
+              <label for="arquivoLista" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Enviar
+              </label>
+              <div>
+                <input type="file" (change)="uploadListener($event); arquivo=$event.target.files[0]" accept=".csv" name="arquivo"
+                id="arquivoLista" aria-describedby="arquivoLista" class="form-control form-file"
+                formControlName="arquivo" [ngClass]="{ 'is-invalid': formListaEnviado && hasErrorLista('arquivo') }"/>
+              </div>
+              <div>
+                {{ arquivo ? arquivo.name : "" }}
+              </div>
+              <div>
+                <mat-form-field class="input-full-width">
+                    <select matNativeControl class="form-control border-none" pattern="" id="turma" aria-describedby="turma" placeholder="Turma" formControlName="turma" [ngClass]="{ 'is-invalid': submitted && hasError('turma') }">
+                      <option value="" disabled selected>Selecione a turma</option>
+                      <option *ngFor="let turma of turmas" >{{turma.descricao}}</option>
+                    </select>
+                  <mat-error *ngIf="submitted && hasError('turma')">Por favor, informe a turma.</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="botaoCadastrar">
+                <div class="text-center" id="enviarForm">
+                  <button type="submit" class="btn btn-get" value="CADASTRAR" (click)="onSubmit(formulario.value)"><span> Cadastrar</span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

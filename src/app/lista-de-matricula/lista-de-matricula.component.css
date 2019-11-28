@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:600&display=swap');
+
+h1, h5, h6 {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Nunito", sans-serif;
+}
+
+.btn-get {
+  font-family: "Nunito", sans-serif;
+  color: #fff !important;
+  text-transform: capitalize;
+  background: #ffb032;
+  padding: 10px 20px 10px;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  text-transform: capitalize !important;
+  margin-top: 2em;
+}
+
+.btn-get::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  height: 100%;
+  width: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#e9b1c9), to(#e194b5));
+  background-image: linear-gradient(to right, #e9b1c9, #a0e0e4);
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.modal-body {
+  background-color: #fff;
+      border-radius: 30px;
+}
+
+.scroll{
+  min-height: 13em;
+  max-height: 20em;
+}
+
+#tituloTurma {
+  color: #575757;
+  margin-top: 3em;
+  font-size: 0.8em;
+}
+
+#botaoEnviar {
+  margin-top: 10px;
+}
+
+#arquivoLista {
+  padding: .2em;
+}
+
+.example-small-box, .example-large-box {
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  /* padding: 16px; */
+  /* border-radius: 8px; */
+}
+
+.form-file {
+  height: 3em !important;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: 15em;
+  border: 2px solid #d68fae;
+  display: inline-block;
+  border-radius: 0.4em;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+}
+
+.mat-tab-header {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin: 0px auto !important;
+  flex-shrink: 0;
+}
+
+.size-mat-tab {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.width-mat-tab {
+  width: 30em;
+}
+
+#tab-group{
+  height: 100%;
+}
+#tab-group mat-tab-body {
+  flex-grow: 1;
+}
+
+.icons {
+  font-size: 3.0em;
+  height: 1em;
+  width: 1em;
+}
+
+::ng-deep .texto-error {
+  font-size: 0.8em;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #dd709f !important;
+  }
+
+  ::ng-deep .mat-form-field-underline {
+  background-color: #dd709f !important;
+  height: 0.1em !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #dd709f !important;
+}
+
+
+
+.input-full-width {
+  width: 15em;
+  margin-top: 2em;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #6fafa0;        
+}

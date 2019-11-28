@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-center">Atendimentos Psicológicos Gratuitos ou de Baixo Custo em Brasília</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title">Centro de Valorização da Vida - CVV</h3>
+          <h5 class="card-text">
+            O CVV realiza apoio emocional e prevenção do suicídio,
+            atendendo voluntária e gratuitamente todas as pessoas que querem e precisam
+            conversar, sob total sigilo por telefone, email e chat 24 horas todos os dias.
+          </h5>
+          <a href="tel: +55 61 188"><h4 class="card-text">Ligue 188</h4></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 d-flex align-items-stretch" *ngFor="let atendente of atendentes">
+      <div class="card flex-fill text-center">
+        <div class="card-body">
+          <h6 class="card-title">{{atendente.local}}</h6>
+          <div class="card-text" *ngFor="let telefone of atendente.telefones">
+            <a href="tel: +55 {{telefone}}">{{telefone}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

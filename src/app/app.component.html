@@ -1,0 +1,139 @@
+<router-outlet *ngIf="!logado"></router-outlet>
+<div *ngIf="logado" class="container">
+        <mat-sidenav-container
+          fullscreen
+          [hasBackdrop]="mobileQuery.matches">
+          <mat-sidenav #lnav
+            mode="over"
+            class="sidenav">
+            <div class="content">
+              <mat-list>
+                <div class="perfil-celular">
+                  <div *ngIf="!isAdmin">
+                    <div *ngTemplateOutlet="perfilAluno"></div>
+                  </div>
+                  <div *ngIf="isAdmin">
+                      <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
+                      <h4 class="informacao-perfil">Usuário</h4>
+                  </div>
+                </div>
+                <div class="centralizar">
+                        <button class="deslogar-celular" (click)="this.autenticacao.deslogar()">Deslogar</button>
+                    </div>
+              </mat-list>
+            </div>
+          </mat-sidenav>
+          <mat-sidenav-content class="sidenav-content">
+            <mat-toolbar
+              class="toolbar-top"
+              [class.app-is-mobile]="mobileQuery.matches"
+              color="primary">
+              <button
+                mat-icon-button
+                (click)="lnav.toggle()"
+                *ngIf="mobileQuery.matches">
+                <mat-icon>menu</mat-icon>
+              </button>
+              <h1 class="title-center">{{title}}</h1>
+              <a routerLink="/" (click)="setTitle('Amika');"><img src="https://raw.githubusercontent.com/fga-eps-mds/2019.2-Amika-Wiki/master/assets/img/AmikasSemNome.png"  alt="Amika" width="40px" height="40px"></a>
+              <div class="fill-space"></div>
+              <span whoami></span>
+            </mat-toolbar>
+              <mat-drawer-container >
+                <mat-drawer
+                  mode="side"
+                  [opened]="!mobileQuery.matches">
+                    <div class="content">
+                        <mat-list *ngIf="!isAdmin">
+                            <div class="perfil">
+                              <div *ngTemplateOutlet="perfilAluno"></div>
+                            </div>
+                            <mat-list-item>
+                                <mat-icon>folder_shared</mat-icon>
+                                <a mat-button routerLink="/materiais" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Materiais</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>group</mat-icon>
+                                <a mat-button routerLink="/grupo" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Grupo</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>tag_faces</mat-icon>
+                                <a mat-button routerLink="/humor" (click)="toggleMobileNav(lnav); setTitle('Humor do dia');">Humor do dia</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>home_work</mat-icon>
+                                <a mat-button routerLink="/agendas-realizadas" (click)="toggleMobileNav(lnav); setTitle('Agendas');">Agendas</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>contact_phone</mat-icon>
+                                <a mat-button routerLink="/area-informativa" (click)="toggleMobileNav(lnav); setTitle('Área informativa');">Área informativa</a>
+                            </mat-list-item>
+                            <div class="centralizar">
+                                <button class="deslogar" (click)="this.autenticacao.deslogar()">Deslogar</button>
+                            </div>
+                        </mat-list>
+                        <mat-list *ngIf="isAdmin">
+                            <div class="perfil">
+                                <img class="foto-perfil" src="https://icon-library.net/images/anonymous-avatar-icon/anonymous-avatar-icon-2.jpg" alt="">
+                                <h4 class="informacao-perfil">Usuário</h4>
+                            </div>
+                            <mat-list-item>
+                                <mat-icon>insert_invitation</mat-icon>
+                                <a mat-button routerLink="/agenda" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Agendas');">Agendas</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>insert_drive_file</mat-icon>
+                                <a mat-button routerLink="/manter-materiais" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Materiais');">Materiais</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>group</mat-icon>
+                                <a mat-button routerLink="/grupos" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Grupos');">Grupos</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>person_add</mat-icon>
+                                <a mat-button routerLink="/lista" routerLinkActive="active" (click)="toggleMobileNav(lnav); setTitle('Matrícula');">Matrícula</a>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-icon>class</mat-icon>
+                                <a mat-button routerLink="/turmas" (click)="toggleMobileNav(lnav); setTitle('Turmas');">Turmas</a>
+                            </mat-list-item>
+                            <div class="centralizar">
+                                <button class="deslogar" (click)="this.autenticacao.deslogar()">
+                                    Deslogar
+                                    <!-- <img src="https://cdn0.iconfinder.com/data/icons/black-cat-emoticon-filled/64/cute_cat_kitten_face_per_avatar-15-512.png" width="25px" alt=""> -->
+                                </button>
+                            </div>
+                        </mat-list>
+                    </div>
+                </mat-drawer>
+                <mat-drawer-content>
+                    <router-outlet></router-outlet>
+                </mat-drawer-content>
+              </mat-drawer-container>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+
+      </div>
+      <mat-toolbar>
+        <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && !isAdmin">
+            <a  routerLink="/humor" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
+            <a  routerLink="/materiais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>info</mat-icon></a>
+            <a  routerLink="/agendas-realizadas" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
+            <a  routerLink="/grupo" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>people</mat-icon></a>
+            <a  routerLink="/area-informativa" routerLinkActive="active" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
+          </div>
+          <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && isAdmin">
+              <a  routerLink="/agenda" routerLinkActive="active" (click)="setTitle('Agendas');"><mat-icon>insert_invitation</mat-icon></a>
+              <a  routerLink="/manter-materiais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>insert_drive_file</mat-icon></a>
+              <a  routerLink="/grupos" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>group</mat-icon></a>
+              <a  routerLink="/lista" routerLinkActive="active" (click)="setTitle('Lista');"><mat-icon>person_add</mat-icon></a>
+              <a  routerLink="/turmas" routerLinkActive="active" (click)="setTitle('Turmas');"><mat-icon>class</mat-icon></a>
+            </div>
+      </mat-toolbar>
+
+
+<ng-template #perfilAluno>
+  <img (click)="adicionaFoto()" class="foto-perfil" src="{{foto}}"/>
+  <h4 class="informacao-perfil">{{username}}</h4>
+  <h4 class="informacao-perfil">{{firstName}}</h4>
+</ng-template>
