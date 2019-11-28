@@ -42,7 +42,36 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-panel-description>
-        <div class="width-agenda">
+        <div class="width-agenda only-mobile">
+          <div class="row">
+            <div class="col-10">
+              Publicado em: {{agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+            </div>
+            <div class="col-2">
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Individual'">
+                <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+              </div>
+              <div class="agenda-card" *ngIf="agenda.tipo == 'Grupo'">
+                <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row descricao">
+            <div class="col-4">
+              {{agenda.descricao}}
+            </div>
+          </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.data_encerramento">
+            <div class="col-12">
+              <button (click)="openDialog('criacao', agenda)" class="btn botao-enviar" type="button">
+                <div class="agenda-card">
+                  Realizar agenda
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="width-agenda only-desktop">
           <div class="row">
             <div class="col-md-8">
               Publicado em: {{agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
@@ -65,7 +94,7 @@
           </div>
           <div class="row" *ngIf="agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.data_encerramento">
             <div class="col-md-12">
-              <button (click)="openDialog('criacao', agenda)" class="btn botao" type="button">
+              <button (click)="openDialog('criacao', agenda)" class="btn botao-enviar" type="button">
                 <div class="agenda-card">
                   Realizar agenda
                 </div>
@@ -104,7 +133,34 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-panel-description>
-          <div class="width-agenda">
+          <div class="width-agenda only-mobile">
+            <div class="row">
+              <div class="col-10">
+                Publicado em: {{agenda.agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}
+              </div>
+              <div class="col-2">
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Individual'">
+                  <i  matTooltip="Atividade Individual" class="fas fa-user icone-done"></i>
+                </div>
+                <div class="agenda-card" *ngIf="agenda.agenda.tipo == 'Grupo'">
+                  <i  matTooltip="Atividade em Grupo" class="fas fa-users icone-done"></i>
+                </div>
+              </div>
+            </div>
+            <div class="row descricao">
+                <div class="col-12">
+                  {{agenda.agenda.descricao}}
+                </div>
+              </div>  
+              <div class="row">
+                <div class="row col-12"
+                  *ngIf="agenda.agenda.data_disponibilizacao <= dataAtual && dataAtual <= agenda.agenda.data_encerramento">
+                  <button (click)="openDialog('alteracao', agenda)" class="btn botao" type="button">Editar</button>
+                  <button (click)="openDialog('delecao', agenda)" class="btn botao-excluir" type="button">Excluir</button>
+                </div>
+              </div>
+          </div>
+          <div class="width-agenda only-desktop">
             <div class="row">
               <div class="col-md-8">
                 Publicado em: {{agenda.agenda.data_disponibilizacao | date:'dd/MM/yyyy'}}

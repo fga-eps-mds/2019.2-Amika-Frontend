@@ -53,6 +53,18 @@
     margin-right: 2em;
   }
 
+  .botao-enviar {
+    color: #FFFFFF;
+    background: #3a6f63;
+    margin-top: 1em;
+    border-radius: 0.3em;
+    width: 9em;
+    font-size: 1.3em;
+    display: block;
+    margin-left: auto;
+    margin-right: 2em;
+  }
+
   .botao-excluir {
     color: #FFFFFF;
     background: #ef425a;
@@ -170,8 +182,20 @@
     background: #3a6f63;
     /* margin-top: 1em; */
     border-radius: 0.3em;
-    /* width: 11em; */
-    /* font-size: 1.3em; */
+    width: 7em;
+    font-size: 0.9em;
+    display: block;
+    margin-left: auto;
+    margin-right: 2em;
+  }
+
+  .botao-enviar {
+    color: #FFFFFF;
+    background: #3a6f63;
+    /* margin-top: 1em; */
+    border-radius: 0.3em;
+    width: 9em;
+    font-size: 0.9em;
     display: block;
     margin-left: auto;
     margin-right: 2em;
@@ -180,10 +204,10 @@
   .botao-excluir {
     color: #FFFFFF;
     background: #ef425a;
-    margin-top: 1em;
+    /* margin-top: 1em; */
     border-radius: 0.3em;
-    width: 9em;
-    font-size: 1.3em;
+    width: 7em;
+    font-size: 0.9em;
     margin-right: 2em;
     display: block;
   }
@@ -229,12 +253,12 @@
   }
 
   h4 {
-    font-size: 8px;
+    font-size: 1em;
     margin-bottom: 0 !important;
   }
 
   .width-agenda {
-    width: 100%;
+    /* width: 100%; */
   }
 
   ::ng-deep .mat-expansion-panel-header {
@@ -242,6 +266,18 @@
   }
 
   ::ng-deep .mat-expansion-panel-body {
-    padding: 0px 63px 16px !important;
+    padding: 0.6em !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .only-desktop {
+    display:  none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .only-mobile {
+    display:  none;
   }
 }
