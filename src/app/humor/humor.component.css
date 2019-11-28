@@ -7,14 +7,14 @@ h2 {
   font-family: "Nunito", sans-serif;
 }
 
-.btns {    
+.btns {
   justify-content: space-between;
   display: flex;
   max-width: 30em;
   margin: 0 auto;
 }
 .tela-humor {
-  margin-top: 5em; 
+  margin-top: 2em;
   text-align: center;
 }
 
@@ -67,7 +67,7 @@ h2 {
     width: 1.5em;
     height: 1.5em;
   }
-  
+
   .btn-default {
     font-size: 2em;
     margin: 0.20em;
@@ -81,12 +81,12 @@ h2 {
 @media only screen and (min-width: 768px) {
   .btn-done {
     margin-left: 1.5rem;
-    margin-right: 1.5rem;  
+    margin-right: 1.5rem;
   }
-  
+
   .btn-default {
     margin-left: 1.5rem;
-    margin-right: 1.5rem;  
+    margin-right: 1.5rem;
   }
 }
 
@@ -120,10 +120,10 @@ h2 {
     margin-bottom: 2em;
   }
 
-  .btns {    
+  .btns {
     max-width: 15em;
   }
-  
+
 }
 
 .fa-frown{
