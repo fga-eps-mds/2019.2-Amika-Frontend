@@ -70,6 +70,11 @@
               </button>
             </div>
           </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao > dataAtual || dataAtual > agenda.data_encerramento">
+            <div class="col-12">
+              <h2 class="agenda-indisponivel">Agenda Indisponível</h2>
+            </div>
+          </div>
         </div>
         <div class="width-agenda only-desktop">
           <div class="row">
@@ -99,6 +104,11 @@
                   Realizar agenda
                 </div>
               </button>
+            </div>
+          </div>
+          <div class="row" *ngIf="agenda.data_disponibilizacao > dataAtual || dataAtual > agenda.data_encerramento">
+            <div class="col-12">
+              <h2 class="agenda-indisponivel">Agenda fora do período</h2>
             </div>
           </div>
         </div>
