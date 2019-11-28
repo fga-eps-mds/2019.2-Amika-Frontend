@@ -170,7 +170,7 @@ p {
 
 .tela-cheia {
   margin: 0;
-  margin-top: 6vh;
+  /* margin-top: 6vh; */
   min-height: 89vh;
   height: auto;
   max-height: 93vh;
