@@ -4,12 +4,12 @@ h1, h5, h6 {
   }
 
   h2 {
-    font-size: 1em;
     font-family: "Nunito", sans-serif;
     text-align: center;
   }
   
   h3{
+    font-size: 1em;
     text-align: center;
     font-family: "Nunito", sans-serif;
   }

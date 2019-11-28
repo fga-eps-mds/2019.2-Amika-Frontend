@@ -6,6 +6,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { GrupoService } from './grupo.service';
 import { Grupo } from './grupos.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AlertaService } from '../alerta.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -26,7 +27,7 @@ export class GruposComponent implements OnInit {
 
   constructor(private grupoService: GrupoService, private formBuilder: FormBuilder,
               private router: Router, private route: ActivatedRoute, private modalService: BsModalService,
-              public dialog: MatDialog, private formularioService: FormularioService) {
+              public dialog: MatDialog, private formularioService: FormularioService, public alertaService: AlertaService) {
     this.getter();
     this.formularioGrupo = this.formularioService.createFormGrupo();
   }
@@ -44,10 +45,9 @@ export class GruposComponent implements OnInit {
       data: {formularioGrupo: null, title: "Adicionar grupo"}
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log("DATA");
-      console.log(JSON.parse(data));
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.onSubmit();
+      this.alertaService.alerta('O grupo foi adicionado com sucesso!', 'success', false);
     });
   }
 
@@ -59,14 +59,17 @@ export class GruposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       this.formularioGrupo.patchValue(JSON.parse(data));
       this.edit();
+      this.alertaService.alerta('O grupo foi editado com sucesso!', 'success', false);
     });
   }
 
   edit() {
     this.grupoService.edit_grupos(this.formularioGrupo.value.id, this.formularioGrupo.value).subscribe((data: any) => {
       this.grupos[this.grupos.findIndex(item => item.id === this.formularioGrupo.value.id)] = this.formularioGrupo.value;
+      this.alertaService.alerta('O grupo foi editado com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
+      this.alertaService.alerta('O nome informado é inválido!', 'error', false);
     });
   }
 
@@ -96,8 +99,10 @@ export class GruposComponent implements OnInit {
   onConfirmDelete() {
     this.grupoService.delete_grupos(this.grupoSelecionado.id).subscribe((data: any) => {
       this.getter();
+      this.alertaService.alerta('O grupo foi removido com sucesso!', 'success', false);
     }, (error: any) => {
       this.error = error;
+      this.alertaService.alerta('Não é possível remover este grupo', 'error', false);
     });
     this.deleteModalRef.hide();
   }
@@ -113,7 +118,9 @@ export class GruposComponent implements OnInit {
       this.grupoService.create_grupos(this.formularioGrupo.value).subscribe((data: any) => {
         this.formularioGrupo.reset();
         this.getter();
+        this.alertaService.alerta('O grupo foi adicionado com sucesso', 'success', false);
       }, (error: any) => {
+        this.alertaService.alerta('O nome informado é inválido!', 'error', false);
         this.error = error;
       });
     }
@@ -127,7 +134,9 @@ export class GruposComponent implements OnInit {
   popula() {
     this.grupoService.popula_grupo().subscribe((data: any) => {
       this.getter();
+      this.alertaService.alerta('Os grupos foram criados com sucesso!', 'success', false);
     }, (error: any) => {
+      this.alertaService.alerta('Ops, não foi possível criar os grupos.', 'error', false);
       this.error = error;
     });
   }

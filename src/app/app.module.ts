@@ -1,3 +1,4 @@
+import { AlertaService } from './alerta.service';
 import { FormularioService } from './formulario.service';
 import { RequisicoesService } from './requisicoes.service';
 import { AutenticacaoService } from './autenticacao.service';
@@ -41,6 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AgendasRealizadasComponent } from './agendas-realizadas/agendas-realizadas.component';
 import { AgendasRealizadasService } from "./agendas-realizadas/agendas-realizadas.service";
 import { AgendasRealizadasDialogComponent } from './agendas-realizadas/agendas-realizadas-dialog/agendas-realizadas-dialog.component';
+import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,8 @@ import { AgendasRealizadasDialogComponent } from './agendas-realizadas/agendas-r
     GrupoComponent,
     MateriaisComponent,
     AgendasRealizadasComponent,
-    AgendasRealizadasDialogComponent
+    AgendasRealizadasDialogComponent,
+    VisualizarMateriaisComponent
   ],
   entryComponents: [
     CriarTurmasDialogo,
@@ -97,7 +100,8 @@ import { AgendasRealizadasDialogComponent } from './agendas-realizadas/agendas-r
     AgendaService,
     RequisicoesService,
     FormularioService,
-    AgendasRealizadasService
+    AgendasRealizadasService,
+    AlertaService
   ],
   bootstrap: [AppComponent]
 })

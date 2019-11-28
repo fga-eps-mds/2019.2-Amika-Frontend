@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Agenda } from '../agendas.model';
 import { AgendasComponent } from '../agendas.component';
+import { AlertaService } from '../../alerta.service';
 
 @Component({
   selector: 'app-agenda-edit',
@@ -19,7 +20,7 @@ export class AgendaEditComponent implements OnInit {
   submitted = false;
   agendaComponent: AgendasComponent;
 
-  constructor(public agendaService: AgendaService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(public agendaService: AgendaService, private formularioService: FormularioService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, public alertaService: AlertaService) {
     this.route.params.subscribe(
       (params: any) => {
         const id = params['id'];
@@ -57,10 +58,12 @@ export class AgendaEditComponent implements OnInit {
       (params: any) => {
         if (this.formularioAgenda.valid) {
           this.agendaService.edit_agenda(params['id'], this.formularioAgenda.value).subscribe((data: any) => {
+            this.alertaService.alerta('A agenda foi editada com sucesso!', 'success', false);
             this.formularioAgenda.reset();
             this.return();
           }, (error: any) => {
             this.error = error;
+            this.alertaService.alerta('Os campos não foram preenchidos corretamente!', 'error', false);
           });
         }
       }
