@@ -1,0 +1,29 @@
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap" rel="stylesheet">
+
+<div class="col-sm-6 tela-cheia" id="telaEditar">
+    <form class="main__form needs-validation formularioEditar" novalidade [formGroup] = "formularioTurma">
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field>
+            <input matInput
+                    placeholder="Nome da Turma"
+                    formControlName="descricao" [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }">
+                    <mat-error *ngIf="submitted && hasError('descricao')">
+                        Por favor, informe a descricao da Turma.
+                      </mat-error>
+          </mat-form-field>
+              <div class="invalid-feedback" *ngIf="hasError('descricao')">
+                Por favor, informe a descricao da Turma.
+              </div>
+        </div>
+        <div class="text-right col-md-6">
+          <button type="submit" class=" btn btn-get" (click)="return()"><span> Cancelar</span></button>
+        </div>
+        <div class="text-left col-md-6">
+          <button type="submit" class=" btn btn-get btn-save" (click)="onSave()"><span> Salvar</span></button>
+        </div>
+      </div>
+  </form>
+</div>
