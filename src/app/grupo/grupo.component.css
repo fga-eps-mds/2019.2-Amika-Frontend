@@ -7,7 +7,7 @@ h1, h5, h6 {
     font-family: "Nunito", sans-serif;
     text-align: center;
   }
-  
+
   h3{
     font-size: 1em;
     text-align: center;
@@ -20,12 +20,6 @@ h1, h5, h6 {
       margin-left: 0;
   }
 
-  .titulo{
-    margin-bottom: 1em;
-    font-weight: bold
-  }
-
-
   .foto-aluno {
     width: 3em;
     height: 3em;
@@ -36,24 +30,14 @@ h1, h5, h6 {
 
   .grupo-row {
     font-family: 'Varela Round', sans-serif;
-    /* font-family: 'Bad Script', cursive; */
-    /* font-family: 'Farro', sans-serif; */
-    /* font-family: 'Racing Sans One', cursive; */
-    /* font-family: 'Contrail One', cursive; */
-    height: 64px;
     background: #6fafa02b;
     border-radius: 8px;
-  }
-
-  .grupo {
-    margin-bottom: 5em;
   }
 
   .grupos {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 2em;
   }
 
   @media (hover: none) {

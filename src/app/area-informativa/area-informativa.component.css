@@ -7,3 +7,9 @@
   margin: 15px;
   background: #E6F2F0;
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    margin-bottom: 5em;
+  }
+}
