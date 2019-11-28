@@ -19,9 +19,20 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MateriaisComponent } from './materiais/materiais.component';
 import { AgendasRealizadasComponent } from './agendas-realizadas/agendas-realizadas.component';
 import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
+import * as jwt_decode from "jwt-decode";
+
+function isAdmin() {
+  try {
+    console.log(jwt_decode(localStorage.getItem('Authorization'))['superusuario']);
+    return jwt_decode(localStorage.getItem('Authorization'))['superusuario'];
+  }
+  catch (e) {
+    return false;
+  }
+}
 
 const routes: Routes = [
-  { path: '',      component: HomepageComponent },
+  { path: '',      component: isAdmin() ? AgendasComponent : AgendasRealizadasComponent },
   { path: 'login', component: LoginComponent },
   { path: 'grupos', component: GruposComponent},
   { path: 'grupo', component: GrupoComponent},

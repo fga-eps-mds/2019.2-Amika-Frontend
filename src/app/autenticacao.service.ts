@@ -22,8 +22,7 @@ export class AutenticacaoService implements CanActivate {
   canActivate() {
     const params = this.getJWTParams();
     if (params && !params['superusuario']) {
-      // this.router.navigate(['']);
-      location.reload()
+      this.router.navigate(['']);
     } else {
       return true;
     }
