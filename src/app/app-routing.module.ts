@@ -21,18 +21,8 @@ import { AgendasRealizadasComponent } from './agendas-realizadas/agendas-realiza
 import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 import * as jwt_decode from "jwt-decode";
 
-function isAdmin() {
-  try {
-    console.log(jwt_decode(localStorage.getItem('Authorization'))['superusuario']);
-    return jwt_decode(localStorage.getItem('Authorization'))['superusuario'];
-  }
-  catch (e) {
-    return false;
-  }
-}
-
 const routes: Routes = [
-  { path: '',      component: isAdmin() ? AgendasComponent : AgendasRealizadasComponent },
+  { path: '',      component: (localStorage.getItem('Authorization') && jwt_decode(localStorage.getItem('Authorization'))['superusuario']) ? AgendasComponent : AgendasRealizadasComponent },
   { path: 'login', component: LoginComponent },
   { path: 'grupos', component: GruposComponent},
   { path: 'grupo', component: GrupoComponent},
