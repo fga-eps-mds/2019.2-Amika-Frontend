@@ -13,7 +13,7 @@ import { AlertaService } from '../alerta.service';
   styleUrls: ['./agendas-realizadas.component.css']
 })
 export class AgendasRealizadasComponent implements OnInit, OnDestroy {
-  agendasNaoRealizadas: Agenda;
+  agendasNaoRealizadas: any;
   agendasRealizadas: any;
   realizacao: AgendaRealizada;
   dataAtual: string;
