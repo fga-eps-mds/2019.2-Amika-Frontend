@@ -17,6 +17,7 @@ import { AlunoAutoRegistroComponent } from './aluno-auto-registro/aluno-auto-reg
 import { ListaDeMatriculaComponent } from './lista-de-matricula/lista-de-matricula.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MateriaisComponent } from './materiais/materiais.component';
+import { AgendasRealizadasComponent } from './agendas-realizadas/agendas-realizadas.component';
 import { VisualizarMateriaisComponent } from './visualizar-materiais/visualizar-materiais.component';
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'turmas_editar/:id', component: TurmaEditComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda', component: AgendasComponent, canActivate: [AutenticacaoService] },
   { path: 'agenda-edit/:id', component: AgendaEditComponent, canActivate: [AutenticacaoService]},
+  { path: 'agendas-realizadas', component: AgendasRealizadasComponent },
   { path: 'area-informativa', component: AreaInformativaComponent},
   { path: 'grafico/:id', component : GraficoHumorComponent},
   { path: 'cadastrar', component: AlunoAutoRegistroComponent, canActivate: [AutenticacaoService] },
