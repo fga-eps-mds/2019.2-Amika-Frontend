@@ -5,6 +5,7 @@ import {AgendasRealizadasService} from "./agendas-realizadas.service";
 import {Subscription} from "rxjs";
 import {MatDialog} from '@angular/material/dialog';
 import {AgendasRealizadasDialogComponent} from "./agendas-realizadas-dialog/agendas-realizadas-dialog.component";
+import { AlertaService } from '../alerta.service';
 
 @Component({
   selector: 'app-agenda-realizada',
@@ -23,6 +24,7 @@ export class AgendasRealizadasComponent implements OnInit, OnDestroy {
   constructor(
     public dialog: MatDialog,
     private agendasRealizadasService: AgendasRealizadasService,
+    public alertaService: AlertaService,
   ) {
     this.subscriptions = new Subscription();
     this.userId = localStorage.getItem('user_id');
@@ -120,9 +122,11 @@ export class AgendasRealizadasComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(this.agendasRealizadasService.adicionaAgendaRealizada(formData)
       .subscribe(() => {
+        this.alertaService.alerta('A agenda foi realizada com sucesso!', 'success', false);
         this.getAgendasNaoRealizadas();
         this.getAgendasRealizadas();
       }, error => {
+        this.alertaService.alerta('Não foi possível realizar a agenda.', 'error', false);
         console.log(error);
       })
     );
@@ -137,8 +141,10 @@ export class AgendasRealizadasComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(this.agendasRealizadasService.editaAgendaRealizada(res.agendaRealizadaId, formData)
       .subscribe(() => {
+        this.alertaService.alerta('A agenda foi editada com sucesso!', 'success', false);
         this.getAgendasRealizadas();
       }, error => {
+        this.alertaService.alerta('Não foi possível editar a agenda.', 'error', false);
         console.log(error);
       })
     );
@@ -147,9 +153,11 @@ export class AgendasRealizadasComponent implements OnInit, OnDestroy {
   deletaAgendaRealizada(res) {
     this.subscriptions.add(this.agendasRealizadasService.deletaAgendaRealizada(res.agendaRealizadaId)
       .subscribe(() => {
+        this.alertaService.alerta('A agenda foi removida com sucesso!', 'success', false);
         this.getAgendasRealizadas();
       }, error => {
-      console.log(error);
+        this.alertaService.alerta('Não foi possível remover a agenda.', 'success', false);
+        console.log(error);
       })
     );
   }
