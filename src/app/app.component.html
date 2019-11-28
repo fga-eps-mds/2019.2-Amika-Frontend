@@ -118,7 +118,7 @@
         <div class="bottom-nav d-flex justify-content-between" *ngIf="logado && mobileQuery.matches && !isAdmin">
             <a  routerLink="/humor" (click)="setTitle('Humor');"><mat-icon>tag_faces</mat-icon></a>
             <a  routerLink="/materiais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="setTitle('Materiais');"><mat-icon>info</mat-icon></a>
-            <a  routerLink="/agenda" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
+            <a  routerLink="/agendas-realizadas" (click)="setTitle('Agenda');"><mat-icon>today</mat-icon></a>
             <a  routerLink="/grupo" routerLinkActive="active" (click)="setTitle('Grupo');"><mat-icon>people</mat-icon></a>
             <a  routerLink="/area-informativa" routerLinkActive="active" (click)="setTitle('Area Informativa');"><mat-icon>volunteer_activism</mat-icon></a>
           </div>
